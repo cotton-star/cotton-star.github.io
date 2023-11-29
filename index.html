@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -130,6 +130,250 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/29/c%E5%88%B7%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/29/c%E5%88%B7%E9%A2%98/" class="post-title-link" itemprop="url">c语言刷题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-29 20:54:22" itemprop="dateCreated datePublished" datetime="2023-11-29T20:54:22+08:00">2023-11-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-结构体实例"><a href="#1-结构体实例" class="headerlink" title="1.结构体实例"></a>1.结构体实例</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#define a 1010</span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    long long  zkz;</span><br><span class="line">    int ks;</span><br><span class="line">&#125;stu;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    stu stu[a];</span><br><span class="line">    int n,sj,ks;</span><br><span class="line">    long long int zkz;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    int i=0;</span><br><span class="line">    for(i=0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%lld %d %d&quot;,&amp;zkz,&amp;sj,&amp;ks);</span><br><span class="line">        stu[sj].zkz=zkz;    //利用结构体下标来进行一个一个配对</span><br><span class="line">        stu[sj].ks=ks;</span><br><span class="line">    &#125;</span><br><span class="line">    int m=0;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;m);</span><br><span class="line">    for(i=0;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;sj);</span><br><span class="line">        printf(&quot;%lld %d\n&quot;,stu[sj].zkz,stu[sj].ks);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="选择法"><a href="#选择法" class="headerlink" title="选择法"></a>选择法</h1><pre><code>不同于冒泡排序的一种排序，冒泡是对一个值进行向后位移。
+而选择则是每两个进行比较，找到最前面那个
+void sort()
+&#123;
+    int arr[10000]
+    int i=0,j=0;
+    int m;
+    for(i=0;i&lt;n-1;i++)
+    &#123;
+        m=i;
+        for(j=i+1;j&lt;n;j++)
+        &#123;
+            if(arr[m]&gt;arr[j])
+            &#123;
+                m=j;
+            &#125;
+            int t=0;
+            t=arr[m];
+            arr[m]=arr[i];
+            arr[i]=t;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/29/url%E7%BC%96%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/29/url%E7%BC%96%E7%A0%81/" class="post-title-link" itemprop="url">url编码 http请求方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-11-29 20:40:43 / Modified: 20:41:42" itemprop="dateCreated datePublished" datetime="2023-11-29T20:40:43+08:00">2023-11-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="URL-字符编码"><a href="#URL-字符编码" class="headerlink" title="URL 字符编码"></a>URL 字符编码</h1><p>URL 只能使用 ASCII 字符集.</p>
+<p>来通过因特网进行发送。由于 URL 常常会包含 ASCII 集合之外的字符，URL 必须转换为有效的 ASCII 格式。</p>
+<p>URL 编码使用 “%” 其后跟随两位的十六进制数来替换非 ASCII 字符。</p>
+<p>URL 不能包含空格。URL 编码通常使用 + 来替换空格。</p>
+<h1 id="两种-HTTP-请求方法：GET-和-POST"><a href="#两种-HTTP-请求方法：GET-和-POST" class="headerlink" title="两种 HTTP 请求方法：GET 和 POST"></a>两种 HTTP 请求方法：GET 和 POST</h1><p>在客户机和服务器之间进行请求-响应时，两种最常被用到的方法是：GET 和 POST。</p>
+<p>GET - 从指定的资源请求数据。<br>POST - 向指定的资源提交要被处理的数据</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/29/index.php/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/29/index.php/" class="post-title-link" itemprop="url">index.php</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-11-29 15:53:03 / Modified: 15:55:54" itemprop="dateCreated datePublished" datetime="2023-11-29T15:53:03+08:00">2023-11-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>index.php是一个用PHP语言开发的网站的首页，index是普遍意义上的“首页”，也就是你输入一个域名后会打开一个页面，基本上就是index.xxxx<br>index.php是一种常见的网页文件，它通常用于网站的首页或默认页面。在使用PHP（Hypertext Preprocessor）编程语言的网站中，index.php文件是网站的入口点，它负责处理和呈现网页内容。<br>当访问一个使用PHP编写的网站时使用，在最后+上&#x2F;index.php<br>index.php文件不是网站的必需文件，网站的首页文件可以使用其他名称，如index.html、home.php等。</p>
+<p>index.php文件的功能可以包括以下内容。</p>
+<p>1、处理用户请求：index.php文件可以接收来自用户的请求，处理表单数据、查询数据库、验证用户身份等操作。</p>
+<p>2、生成动态内容：通过嵌入PHP代码，index.php文件可以生成动态的网页内容。它可以根据用户请求或其他条件生成不同的输出，如显示特定的数据、执行计算、生成动态图表等。</p>
+<p>3、包含其他文件：index.php文件可以使用PHP的include或require语句，将其他PHP文件或HTML文件包含进来。这样可以实现代码重用和模块化开发。</p>
+<p>4、呈现网页内容：最终，index.php文件会生成网页的HTML内容，并将其发送回用户的浏览器，使其能够在浏览器中显示和渲染。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
