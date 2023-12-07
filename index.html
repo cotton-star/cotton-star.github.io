@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -130,6 +130,236 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/12/07/c%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/07/c%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" class="post-title-link" itemprop="url">c语言学习日记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-12-07 20:55:28 / Modified: 21:12:56" itemprop="dateCreated datePublished" datetime="2023-12-07T20:55:28+08:00">2023-12-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h1><pre><code>int add(int x, int y)
+&#123;
+    int z = 0;
+    z = x + y;
+    return z;
+&#125;
+int mul(int x, int y)
+&#123;
+    int z = 0;
+    z = x * y;
+    return z;
+&#125;
+int sub(int x, int y)
+&#123;
+    int z = 0;
+    z = x - y;
+    return z;
+&#125;
+int Div(int x, int y)
+&#123;
+    int z = 0;
+    z = x / y;
+    return z;
+&#125;
+void menu()
+&#123;
+    printf(&quot;1.加法   2.减法    3.乘法    4.除法\n&quot;);
+&#125;
+
+//对于此处这么多的函数，假如要一个一个使用则需要写出以下代码
+int main()
+&#123;
+    menu();
+    int i=0;
+    scanf(&quot;%d&quot;,&amp;i);
+    int x,y,z;
+    scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+    switch(i)
+    &#123;
+        case 1:z=add(x,y);break;
+        case 2:z=sub(x,y);break;
+        case 3:z=mul(x,y);break;
+        case 4:z=Div(x,y);break;
+    &#125;
+    printf(&quot;%d&quot;,z);
+    return 0;
+&#125;
+
+//我们可以使用函数指针数组来存放这些函数
+int main()
+&#123;
+    int (*p[5])(int, int) = &#123; 0,add,sub,mul,Div &#125;;
+    //此处用0是为了好看，让1为add顺序对应
+    //需要调用是只用
+    int i=0;
+    scanf(&quot;%d&quot;,&amp;i);
+    int x,y;
+    scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+    int z=p[i](x,y);
+    printf(&quot;%d&quot;,z);
+&#125;
+//说实话没简单多少
+//我们还可以使用函数指针来传递给一个函数
+void diaoyong(int(*p)(int,int))
+&#123;
+     int x,y;
+     scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+     int z=p(x,y);
+     printf(&quot;%d&quot;,z);
+&#125;
+int main()
+&#123;
+    menu();
+    int i=0;
+    scanf(&quot;%d&quot;,&amp;i);
+    switch(i)
+    &#123;
+        case 1:diaoyong(add);break;
+        case 2:diaoyong(sub);break;
+        case 3:diaoyong(mul);break;
+        case 4:diaoyong(Div);break;
+    &#125;
+&#125;
+//看起来更加的花里胡哨，真难用
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/12/04/sql%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/04/sql%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">sql注入</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-12-04 10:05:17 / Modified: 21:49:16" itemprop="dateCreated datePublished" datetime="2023-12-04T10:05:17+08:00">2023-12-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-利用sql注入漏洞"><a href="#1-利用sql注入漏洞" class="headerlink" title="1.利用sql注入漏洞"></a>1.利用sql注入漏洞</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">语句一:1&#x27;order by 1#</span><br><span class="line">判断列/字段数</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">语句二:1&#x27; uniom select user(),database()#</span><br><span class="line">联合查询其他信息</span><br><span class="line">user()：返回当前数据库连接用户</span><br><span class="line">database():返回当前数据库名称</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">语句三:1&#x27;union select table_name,table_schema from information_schema.tables where table_schema=&#x27;database&#x27;#</span><br><span class="line">联合查询表</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句四:1&#x27;union select user,password from users#</span><br></pre></td></tr></table></figure>
+
+
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -760,276 +990,6 @@
 <h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CSS 实例</span><br><span class="line">CSS声明总是以分号 ; 结束，声明总以大括号 &#123;&#125; 括起来:</span><br><span class="line">p &#123;color:red;text-align:center;&#125;</span><br><span class="line">为了让CSS可读性更强，你可以每行只描述一个属性:</span><br><span class="line"></span><br><span class="line">实例</span><br><span class="line">p</span><br><span class="line">&#123;</span><br><span class="line">    color:red;</span><br><span class="line">    text-align:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CSS 注释</span><br><span class="line">注释是用来解释你的代码，并且可以随意编辑它，浏览器会忽略它。</span><br><span class="line"></span><br><span class="line">CSS注释以 /* 开始, 以 */ 结束, 实例如下:</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/28/HtMl%20study/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/28/HtMl%20study/" class="post-title-link" itemprop="url">HtMI study</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-11-28 18:27:50 / Modified: 20:29:18" itemprop="dateCreated datePublished" datetime="2023-11-28T18:27:50+08:00">2023-11-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>html最简单的表示</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;    声明为HTML5文档</span><br><span class="line">&lt;html&gt;     把文件包起来</span><br><span class="line">&lt;head&gt;     头部元素开始</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;1234567    </span><br><span class="line">&lt;/head&gt;     头部文件结束</span><br><span class="line">&lt;body&gt;   可见内容开始</span><br><span class="line">&lt;h1&gt;第一个标题&lt;/h2&gt;</span><br><span class="line">&lt;p&gt;第一个段落&lt;p&gt;</span><br><span class="line">&lt;/body&gt;     内容结束</span><br><span class="line">&lt;/html&gt;     结束</span><br></pre></td></tr></table></figure>
-
-<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;最大的标题&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt;第二大的标题&lt;/h2&gt;</span><br><span class="line">以此类推最多h6</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入链接则需要&lt;a&gt;来实现例如：</span><br><span class="line">&lt;a href=&quot;www.baidu.com&quot;&gt;这是一个链接&lt;/a&gt;</span><br><span class="line">图像使用&lt;img&gt;</span><br><span class="line">&lt;img sre=&quot;图像&quot; width=&quot;100&quot; height=&quot;100&quot;&gt;</span><br><span class="line">例如：</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HTML元素以开始标签起始</span><br><span class="line">        以结束标签终止</span><br><span class="line">        同时其可以设置属性</span><br></pre></td></tr></table></figure>
-
-<h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">html注释：&lt;!-- 这是一个注释 --&gt;</span><br><span class="line">html段落：&lt;p&gt;这是一个段落&lt;/p&gt;</span><br><span class="line">换行使用&lt;br&gt;</span><br><span class="line">水平线使用&lt;hr&gt;</span><br><span class="line">例如：</span><br></pre></td></tr></table></figure>
-
-<h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">同时html有着斜体与加粗</span><br><span class="line">&lt;b&gt;此为粗体&lt;/b&gt;</span><br><span class="line">&lt;i&gt;此为斜体&lt;/i&gt;</span><br><span class="line">&lt;sub&gt;下标&lt;/sub&gt;</span><br><span class="line">&lt;sup&gt;上标&lt;/sup&gt;</span><br><span class="line">开始展示效果</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-各种标签"><a href="#5-各种标签" class="headerlink" title="5.各种标签"></a>5.各种标签</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">HTML 文本格式化标签</span><br><span class="line">标签	描述</span><br><span class="line">&lt;b&gt;	定义粗体文本</span><br><span class="line">&lt;em&gt;	定义着重文字</span><br><span class="line">&lt;i&gt;	定义斜体字</span><br><span class="line">&lt;small&gt;	定义小号字</span><br><span class="line">&lt;strong&gt;	定义加重语气</span><br><span class="line">&lt;sub&gt;	定义下标字</span><br><span class="line">&lt;sup&gt;	定义上标字</span><br><span class="line">&lt;ins&gt;	定义插入字</span><br><span class="line">&lt;del&gt;	定义删除字</span><br><span class="line"></span><br><span class="line">HTML &quot;计算机输出&quot; 标签</span><br><span class="line">标签	描述</span><br><span class="line">&lt;code&gt;	定义计算机代码</span><br><span class="line">&lt;kbd&gt;	定义键盘码</span><br><span class="line">&lt;samp&gt;	定义计算机代码样本</span><br><span class="line">&lt;var&gt;	定义变量</span><br><span class="line">&lt;pre&gt;	定义预格式文本</span><br><span class="line"></span><br><span class="line">HTML 引文, 引用, 及标签定义</span><br><span class="line">标签	描述</span><br><span class="line">&lt;abbr&gt;	定义缩写</span><br><span class="line">&lt;address&gt;	定义地址</span><br><span class="line">&lt;bdo&gt;	定义文字方向</span><br><span class="line">&lt;blockquote&gt;	定义长的引用</span><br><span class="line">&lt;q&gt;	定义短的引用语</span><br><span class="line">&lt;cite&gt;	定义引用、引证</span><br><span class="line">&lt;dfn&gt;	定义一个定义项目。</span><br></pre></td></tr></table></figure>
-
-<h1 id="详细链接"><a href="#详细链接" class="headerlink" title="详细链接"></a>详细链接</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;url&quot;&gt;链接文本&lt;/a&gt;</span><br><span class="line">href：指定链接目标的URL，这是链接的最重要属性。可以是另一个网页的URL、文件的URL或其他资源的URL。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文本链接：最常见的链接类型是文本链接，它使用 &lt;a&gt; 元素将一段文本转化为可点击的链接，例如：</span><br><span class="line"></span><br><span class="line">&lt;a href=&quot;https://www.example.com&quot;&gt;访问示例网站&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">图像链接：您还可以使用图像作为链接。在这种情况下，&lt;a&gt; 元素包围着 &lt;img&gt; 元素。例如：</span><br><span class="line"></span><br><span class="line">&lt;a href=&quot;https://www.example.com&quot;&gt;</span><br><span class="line">  &lt;img src=&quot;example.jpg&quot; alt=&quot;示例图片&quot;&gt;</span><br><span class="line">&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">锚点链接：除了链接到其他网页外，您还可以在同一页面内创建内部链接，这称为锚点链接。要创建锚点链接，需要在目标位置使用 &lt;a&gt; 元素定义一个标记，并使用#符号引用该标记。例如：</span><br><span class="line"></span><br><span class="line">&lt;a href=&quot;#section2&quot;&gt;跳转到第二部分&lt;/a&gt;</span><br><span class="line">&lt;!-- 在页面中的某个位置 --&gt;</span><br><span class="line">&lt;a name=&quot;section2&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">下载链接：如果您希望链接用于下载文件而不是导航到另一个网页，可以使用 download 属性。例如：</span><br><span class="line"></span><br><span class="line">&lt;a href=&quot;document.pdf&quot; download&gt;下载文档&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用 target 属性，你可以定义被链接的文档在何处显示。</span><br></pre></td></tr></table></figure>
-
-<h2 id="id属性"><a href="#id属性" class="headerlink" title="id属性"></a>id属性</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在HTML文档中插入ID:</span><br><span class="line">&lt;a id=&quot;tips&quot;&gt;提示部分&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">在HTML文档中创建一个链接到&quot;有用的提示部分(id=&quot;tips&quot;）&quot;：</span><br><span class="line">&lt;a href=&quot;#tips&quot;&gt;访问有用的提示部分&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="head"><a href="#head" class="headerlink" title="head"></a>head</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTML &lt;head&gt; 元素</span><br><span class="line">&lt;head&gt; 元素包含了所有的头部标签元素。在 &lt;head&gt;元素中你可以插入脚本（scripts）, 样式文件（CSS），及各种meta信息。</span><br><span class="line"></span><br><span class="line">可以添加在头部区域的元素标签为: &lt;title&gt;, &lt;style&gt;, &lt;meta&gt;, &lt;link&gt;, &lt;script&gt;, &lt;noscript&gt; 和 &lt;base&gt;。</span><br></pre></td></tr></table></figure>
-<h2 id="1-title"><a href="#1-title" class="headerlink" title="1.title"></a>1.title</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title&gt;文档标题&lt;title&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="2-base"><a href="#2-base" class="headerlink" title="2.base"></a>2.base</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;base&gt; 标签描述了基本的链接地址/链接目标，该标签作为HTML文档中所有的链接标签的默认链接:</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;base href=&quot;www.baidu.com&quot; target=&quot;_blank&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-<head>
-<base href="www.baidu.com" target="_blank">
-</head>
-
-<h2 id="3-link"><a href="#3-link" class="headerlink" title="3.link"></a>3.link</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;link&gt; 标签定义了文档与外部资源之间的关系。</span><br><span class="line">&lt;link&gt; 标签通常用于链接到样式表:</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-style"><a href="#4-style" class="headerlink" title="4.style"></a>4.style</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt; 标签定义了HTML文档的样式文件引用地址.</span><br><span class="line">在&lt;style&gt; 元素中你也可以直接添加样式来渲染 HTML 文档:</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">body &#123;</span><br><span class="line">    background-color:yellow;</span><br><span class="line">&#125;</span><br><span class="line">p &#123;</span><br><span class="line">    color:blue</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="5-meta"><a href="#5-meta" class="headerlink" title="5.meta"></a>5.meta</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">meta标签描述了一些基本的元数据。</span><br><span class="line"></span><br><span class="line">&lt;meta&gt; 标签提供了元数据.元数据也不显示在页面上，但会被浏览器解析。</span><br><span class="line"></span><br><span class="line">META 元素通常用于指定网页的描述，关键词，文件的最后修改时间，作者，和其他元数据。</span><br><span class="line"></span><br><span class="line">元数据可以使用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他Web服务。</span><br><span class="line"></span><br><span class="line">&lt;meta&gt; 一般放置于 &lt;head&gt; 区域</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">为搜索引擎定义关键词:</span><br><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;HTML, CSS, XML, XHTML, JavaScript&quot;&gt;</span><br><span class="line"></span><br><span class="line">为网页定义描述内容:</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</span><br><span class="line"></span><br><span class="line">定义网页作者:</span><br><span class="line">&lt;meta name=&quot;author&quot; content=&quot;Runoob&quot;&gt;</span><br><span class="line">每30秒钟刷新当前页面:</span><br><span class="line">&lt;meta http-equiv=&quot;refresh&quot; content=&quot;30&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-script"><a href="#6-script" class="headerlink" title="6.script"></a>6.script</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;标签用于加载脚本文件，如： JavaScript。</span><br></pre></td></tr></table></figure>
-
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS!"></a>CSS!</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CSS 是在 HTML 4 开始使用的,是为了更好的渲染HTML元素而引入的.</span><br><span class="line"></span><br><span class="line">CSS 可以通过以下方式添加到HTML中:</span><br><span class="line"></span><br><span class="line">内联样式- 在HTML元素中使用&quot;style&quot; 属性</span><br><span class="line">内部样式表 -在HTML文档头部 &lt;head&gt; 区域使用&lt;style&gt; 元素 来包含CSS</span><br><span class="line">外部引用 - 使用外部 CSS 文件</span><br><span class="line">最好的方式是通过外部引用CSS文件.</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">内联样式</span><br><span class="line">当特殊的样式需要应用到个别元素时，就可以使用内联样式。 使用内联样式的方法是在相关的标签中使用样式属性。样式属性可以包含任何 CSS 属性。以下实例显示出如何改变段落的颜色和左外边距。</span><br><span class="line"></span><br><span class="line">&lt;p style=&quot;color:blue;margin-left:20px;&quot;&gt;这是一个段落。&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/22/markdown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/22/markdown/" class="post-title-link" itemprop="url">markdown</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-11-22 21:10:56 / Modified: 23:47:12" itemprop="dateCreated datePublished" datetime="2023-11-22T21:10:56+08:00">2023-11-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="一、Markdown标题"><a href="#一、Markdown标题" class="headerlink" title="一、Markdown标题"></a>一、Markdown标题</h1><p>#可表示1-6级标题，级数越小，重要性越高<br>效果如下：  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#      一级标题  </span><br><span class="line">##     二级标题  </span><br><span class="line">###    三级标题  </span><br><span class="line">####   四级标题  </span><br><span class="line">#####  五级标题  </span><br><span class="line">###### 六级标题  </span><br></pre></td></tr></table></figure>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><hr>
-<h1 id="二、Markdown段落"><a href="#二、Markdown段落" class="headerlink" title="二、Markdown段落"></a>二、Markdown段落</h1><p>听说两个以上空格加回车可以换行</p>
-<h2 id="2-1-字体"><a href="#2-1-字体" class="headerlink" title="2.1 字体"></a>2.1 字体</h2><p> 1.* * 或_ _ 里面代表的是斜体<br> 2.** ** 或__ __ 里面代表的是粗体<br> 3.*** *** 或___ ___  里面代表的是粗斜体<br> 例如<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  *斜体*</span><br><span class="line"> **粗体**</span><br><span class="line">***粗斜体***</span><br></pre></td></tr></table></figure><br> <em>斜体</em><br> <strong>粗体</strong><br><em><strong>粗斜体</strong></em></p>
-<hr>
-<h2 id="2-2-分隔线"><a href="#2-2-分隔线" class="headerlink" title="2.2 分隔线"></a>2.2 分隔线</h2><h2 id="可以使用如下产生分隔线1-2-3-4-5-——产生如下效果"><a href="#可以使用如下产生分隔线1-2-3-4-5-——产生如下效果" class="headerlink" title="可以使用如下产生分隔线1.***2.* * *3.******4.- - -5.——产生如下效果**** * *******- - -  "></a>可以使用如下产生分隔线<br>1.***<br>2.* * *<br>3.******<br>4.- - -<br>5.——<br>产生如下效果<br>***<br>* * *<br>******<br>- - -  </h2><h2 id="2-3-删除线"><a href="#2-3-删除线" class="headerlink" title="2.3 删除线"></a>2.3 删除线</h2><p>要添加删除线，只需要在 <del>文字</del> 即可。<br>例如  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~123456~~</span><br></pre></td></tr></table></figure>
-<p><del>123456</del></p>
-<h2 id="2-4-下划线"><a href="#2-4-下划线" class="headerlink" title="2.4 下划线"></a>2.4 下划线</h2><p>只需用 &lt; u &gt;文本&lt;&#x2F; u&gt;即可产生下划线<br>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;u&gt;123456&lt;/u&gt;    </span><br></pre></td></tr></table></figure>
-<p><u>123456</u>    </p>
-<h2 id="2-5-脚注"><a href="#2-5-脚注" class="headerlink" title="2.5 脚注"></a>2.5 脚注</h2><p>对文本的补充说明<br>Markdown脚注的格式如下：<br>[^要注明的文本]：  </p>
-<hr>
-<h1 id="三、Markdown列表"><a href="#三、Markdown列表" class="headerlink" title="三、Markdown列表"></a>三、Markdown列表</h1><h2 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h2><p>第一种即是简单的在前面加个点分个项<br>使用星号( * )、加号(+)或者减号(-)放在项目的前面并添加空格效果如下  </p>
-<ul>
-<li>第一项</li>
-</ul>
-<ul>
-<li>第二项</li>
-</ul>
-<ul>
-<li>第三项<br>第二种是简单的使用1.加上一个空格就能产生列表了</li>
-</ul>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-<h2 id="3-2"><a href="#3-2" class="headerlink" title="3.2"></a>3.2</h2><p>运用列表嵌套<br>只需在子列表前面添加四个空格  </p>
-<ol>
-<li>第一项<ul>
-<li>123</li>
-<li>456</li>
-</ul>
-</li>
-<li>第二项<ul>
-<li>123</li>
-<li>456</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h1 id="四、Markdown区块"><a href="#四、Markdown区块" class="headerlink" title="四、Markdown区块"></a>四、Markdown区块</h1><p>Markdown区块在开头使用&gt;符号紧跟一个空格符号：<br> |   &gt;123456<br> |   &gt;789<br> 产生：  </p>
-<blockquote>
-<p>123456<br>789</p>
-</blockquote>
-<p> 并且区块可以使用嵌套 &gt;越少越外层<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &gt; 123</span><br><span class="line">&gt;&gt; 456</span><br><span class="line">&gt;&gt;&gt; 789</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>123</p>
-<blockquote>
-<p>456</p>
-<blockquote>
-<p>789</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="4-1区块中使用列表"><a href="#4-1区块中使用列表" class="headerlink" title="4.1区块中使用列表"></a>4.1区块中使用列表</h2><p> 像如下<br>|&gt;区块<br>|&gt; 1. first<br>|&gt; 2. second<br>|&gt; + 123<br>|&gt; + 456<br>结果：  </p>
-<blockquote>
-<p>区块</p>
-<ol>
-<li>first</li>
-<li>second</li>
-</ol>
-<ul>
-<li>123</li>
-<li>456</li>
-</ul>
-</blockquote>
-<h2 id="4-2在列表中使用区块"><a href="#4-2在列表中使用区块" class="headerlink" title="4.2在列表中使用区块"></a>4.2在列表中使用区块</h2><p> 要在&gt;前加四个空格<br> |1. first<br>     |&gt;123<br>     |&gt;456</p>
-<ol>
-<li>first<blockquote>
-<p>123<br>456</p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<h1 id="五、Markdown代码段"><a href="#五、Markdown代码段" class="headerlink" title="五、Markdown代码段"></a>五、Markdown代码段</h1><p>Markdown作为程序员经常使用的轻量级标记语言，各种编程语言可以在代码块区域表示出来。表示代码段的方式是三个波浪线（~）或者三个反引号（&#96;）后面再加上一个换行符。  </p>
-<figure class="highlight plaintext"><figcaption><span>0;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~~~</span><br><span class="line">******</span><br><span class="line"></span><br><span class="line"># 六、Markdown链接</span><br><span class="line">## 6.1.格式如下</span><br><span class="line">~~~[链接名称](链接地址)</span><br><span class="line">   或 &lt;链接地址&gt;</span><br></pre></td></tr></table></figure>
-
-<p>   例如：<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  ~~~  </span><br><span class="line">  产生：  </span><br><span class="line">  [百度](www.baidu.com)</span><br><span class="line"></span><br><span class="line">##  6.2高级链接</span><br><span class="line">链接可以用变量来代替</span><br><span class="line">这个链接用1作为网址变量[baidu][1]</span><br><span class="line">这个链接用markdown作为网址变量[Markdown][markdown]</span><br><span class="line"></span><br><span class="line">******</span><br><span class="line"></span><br><span class="line"># 七、Markdown图片</span><br><span class="line">格式如下</span><br><span class="line">~~~![alt 属性文本](图片地址)</span><br><span class="line">   ![alt 属性文本](图片地址 &quot;可选标题&quot;)</span><br></pre></td></tr></table></figure><br>主要用于产生图片，这里就不找了。</p>
-<hr>
-<h1 id="八、Markdown表格"><a href="#八、Markdown表格" class="headerlink" title="八、Markdown表格"></a>八、Markdown表格</h1><p>制作表格时要用|来分隔不同的单元格和其他行<br>格式如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|表头1|表头2|</span><br><span class="line">|----|----|</span><br><span class="line">|单元格1|单元格2|</span><br><span class="line">|单元格1|单元格2|</span><br></pre></td></tr></table></figure>
-
-<p>同时可以利用对齐使它更好看<br>-: 设置内容或标题栏右对齐<br>:- 设置内容或标题栏左对齐<br>:-: 设置内容或标题栏居中对齐<br>格式如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">|左对齐|居中对齐|右对齐|</span><br><span class="line">|:----|:----:|----:|</span><br><span class="line">|单元格1|单元格2|单元格3|</span><br><span class="line">|单元格1|单元格2|单元格3|</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="九、其他技巧"><a href="#九、其他技巧" class="headerlink" title="九、其他技巧"></a>九、其他技巧</h1><h2 id="9-1转义字符"><a href="#9-1转义字符" class="headerlink" title="9.1转义字符"></a>9.1转义字符</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Mrkdown支持以下这些符号前面加上反斜杠来帮助插入普通符号：</span><br><span class="line"></span><br><span class="line">\   反斜线</span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   下划线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  小括号</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   感叹号</span><br></pre></td></tr></table></figure>
-
-
-<p>到此结束</p>
-
       
     </div>
 
