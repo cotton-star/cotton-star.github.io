@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"cotton-star.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="函数指针数组int add(int x, int y) &amp;#123;     int z &#x3D; 0;     z &#x3D; x + y;     return z; &amp;#125; int mul(int x, int y) &amp;#123;     int z &#x3D; 0;     z &#x3D; x * y;     return z; &amp;#125; int sub(int x, int y) &amp;#123;     i">
+    <meta name="description" content="函数指针数组123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384int add(int x, int y)&amp;#123;	int z &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c语言学习日记">
 <meta property="og:url" content="https://cotton-star.github.io/2023/12/07/c%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="函数指针数组int add(int x, int y) &amp;#123;     int z &#x3D; 0;     z &#x3D; x + y;     return z; &amp;#125; int mul(int x, int y) &amp;#123;     int z &#x3D; 0;     z &#x3D; x * y;     return z; &amp;#125; int sub(int x, int y) &amp;#123;     i">
+<meta property="og:description" content="函数指针数组123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384int add(int x, int y)&amp;#123;	int z &#x3D;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-07T12:55:28.762Z">
-<meta property="article:modified_time" content="2023-12-07T13:12:56.572Z">
+<meta property="article:modified_time" content="2023-12-10T12:22:41.052Z">
 <meta property="article:author" content="cotton-star">
 <meta name="twitter:card" content="summary">
 
@@ -104,7 +104,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">函数指针数组</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">函数指针数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#qsort%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">qsort排序</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,9 +173,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-12-07 20:55:28 / Modified: 21:12:56" itemprop="dateCreated datePublished" datetime="2023-12-07T20:55:28+08:00">2023-12-07</time>
+      <time title="Created: 2023-12-07 20:55:28" itemprop="dateCreated datePublished" datetime="2023-12-07T20:55:28+08:00">2023-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-10 20:22:41" itemprop="dateModified" datetime="2023-12-10T20:22:41+08:00">2023-12-10</time>
     </span>
 
   
@@ -187,92 +193,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h1><pre><code>int add(int x, int y)
-&#123;
-    int z = 0;
-    z = x + y;
-    return z;
-&#125;
-int mul(int x, int y)
-&#123;
-    int z = 0;
-    z = x * y;
-    return z;
-&#125;
-int sub(int x, int y)
-&#123;
-    int z = 0;
-    z = x - y;
-    return z;
-&#125;
-int Div(int x, int y)
-&#123;
-    int z = 0;
-    z = x / y;
-    return z;
-&#125;
-void menu()
-&#123;
-    printf(&quot;1.加法   2.减法    3.乘法    4.除法\n&quot;);
-&#125;
-
-//对于此处这么多的函数，假如要一个一个使用则需要写出以下代码
-int main()
-&#123;
-    menu();
-    int i=0;
-    scanf(&quot;%d&quot;,&amp;i);
-    int x,y,z;
-    scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
-    switch(i)
-    &#123;
-        case 1:z=add(x,y);break;
-        case 2:z=sub(x,y);break;
-        case 3:z=mul(x,y);break;
-        case 4:z=Div(x,y);break;
-    &#125;
-    printf(&quot;%d&quot;,z);
-    return 0;
-&#125;
-
-//我们可以使用函数指针数组来存放这些函数
-int main()
-&#123;
-    int (*p[5])(int, int) = &#123; 0,add,sub,mul,Div &#125;;
-    //此处用0是为了好看，让1为add顺序对应
-    //需要调用是只用
-    int i=0;
-    scanf(&quot;%d&quot;,&amp;i);
-    int x,y;
-    scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
-    int z=p[i](x,y);
-    printf(&quot;%d&quot;,z);
-&#125;
-//说实话没简单多少
-//我们还可以使用函数指针来传递给一个函数
-void diaoyong(int(*p)(int,int))
-&#123;
-     int x,y;
-     scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
-     int z=p(x,y);
-     printf(&quot;%d&quot;,z);
-&#125;
-int main()
-&#123;
-    menu();
-    int i=0;
-    scanf(&quot;%d&quot;,&amp;i);
-    switch(i)
-    &#123;
-        case 1:diaoyong(add);break;
-        case 2:diaoyong(sub);break;
-        case 3:diaoyong(mul);break;
-        case 4:diaoyong(Div);break;
-    &#125;
-&#125;
-//看起来更加的花里胡哨，真难用
-</code></pre>
-
+    <div class="post-body" itemprop="articleBody"><h1 id="函数指针数组"><a href="#函数指针数组" class="headerlink" title="函数指针数组"></a>函数指针数组</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">int add(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">	int z = 0;</span><br><span class="line">	z = x + y;</span><br><span class="line">	return z;</span><br><span class="line">&#125;</span><br><span class="line">int mul(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">	int z = 0;</span><br><span class="line">	z = x * y;</span><br><span class="line">	return z;</span><br><span class="line">&#125;</span><br><span class="line">int sub(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">	int z = 0;</span><br><span class="line">	z = x - y;</span><br><span class="line">	return z;</span><br><span class="line">&#125;</span><br><span class="line">int Div(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">	int z = 0;</span><br><span class="line">	z = x / y;</span><br><span class="line">	return z;</span><br><span class="line">&#125;</span><br><span class="line">void menu()</span><br><span class="line">&#123;</span><br><span class="line">	printf(&quot;1.加法   2.减法    3.乘法    4.除法\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//对于此处这么多的函数，假如要一个一个使用则需要写出以下代码</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	menu();</span><br><span class="line">    int i=0;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;i);</span><br><span class="line">    int x,y,z;</span><br><span class="line">    scanf(&quot;%d%d&quot;,&amp;x,&amp;y);</span><br><span class="line">    switch(i)</span><br><span class="line">    &#123;</span><br><span class="line">    	case 1:z=add(x,y);break;</span><br><span class="line">    	case 2:z=sub(x,y);break;</span><br><span class="line">    	case 3:z=mul(x,y);break;</span><br><span class="line">    	case 4:z=Div(x,y);break;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d&quot;,z);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//我们可以使用函数指针数组来存放这些函数</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int (*p[5])(int, int) = &#123; 0,add,sub,mul,Div &#125;;</span><br><span class="line">	//此处用0是为了好看，让1为add顺序对应</span><br><span class="line">	//需要调用是只用</span><br><span class="line">	int i=0;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;i);</span><br><span class="line">	int x,y;</span><br><span class="line">    scanf(&quot;%d%d&quot;,&amp;x,&amp;y);</span><br><span class="line">    int z=p[i](x,y);</span><br><span class="line">    printf(&quot;%d&quot;,z);</span><br><span class="line">&#125;</span><br><span class="line">//说实话没简单多少</span><br><span class="line">//我们还可以使用函数指针来传递给一个函数</span><br><span class="line">void diaoyong(int(*p)(int,int))</span><br><span class="line">&#123;</span><br><span class="line">     int x,y;</span><br><span class="line">     scanf(&quot;%d%d&quot;,&amp;x,&amp;y);</span><br><span class="line">     int z=p(x,y);</span><br><span class="line">     printf(&quot;%d&quot;,z);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	menu();</span><br><span class="line">	int i=0;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;i);</span><br><span class="line">	switch(i)</span><br><span class="line">	&#123;</span><br><span class="line">		case 1:diaoyong(add);break;</span><br><span class="line">		case 2:diaoyong(sub);break;</span><br><span class="line">		case 3:diaoyong(mul);break;</span><br><span class="line">		case 4:diaoyong(Div);break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//看起来更加的花里胡哨，真难用</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//这里还有使用指针指向函数指针数组</span><br><span class="line">//先定义一个函数指针数组</span><br><span class="line">int (*p[5])(int,int);</span><br><span class="line">//在创建指针</span><br><span class="line">int(*(*p)[5])(int,int)</span><br></pre></td></tr></table></figure>
+<h1 id="qsort排序"><a href="#qsort排序" class="headerlink" title="qsort排序"></a>qsort排序</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">//  qsort---排序</span><br><span class="line">//1.void*</span><br><span class="line">//1、此类型指针可以接受任意类型的地址</span><br><span class="line">//2、此类型指针不能进行解引用</span><br><span class="line">//3、此类型指针不能进行+-整数的操作</span><br><span class="line">//qsort一般用法为：</span><br><span class="line">//qsort(arr,sz,sizeof(arr[0],cmp_void)</span><br><span class="line">//其中cmp函数一般格式为</span><br><span class="line">//int cmp (const void*e1,const void*e2)</span><br><span class="line">//&#123;</span><br><span class="line">//在括号里需要是一种返回0，正数，负数的计算</span><br><span class="line">//&#125;</span><br><span class="line">//展示例子</span><br><span class="line">//1.首先是整形排序</span><br><span class="line">int cmp_int(const void* e1, const void* e2)</span><br><span class="line">&#123;</span><br><span class="line">	return (*(int*)e1 - *(int*)e2);//由于void*类型不能解引用，因此使用强制类型转换</span><br><span class="line">&#125;</span><br><span class="line">//2.接着是浮点数排序</span><br><span class="line">int cmp_float(const void* e1, const void* e2)</span><br><span class="line">&#123;</span><br><span class="line">	//此处需要利用float来返回int会警告，可利用比较大小的方式直接返回整数，但也可以不管警告</span><br><span class="line">	return (*(float*)e1 - *(float*)e2);</span><br><span class="line">&#125;</span><br><span class="line">//3.然后是结构体排序</span><br><span class="line">	//定义一个结构体</span><br><span class="line">	struct str</span><br><span class="line">&#123;</span><br><span class="line">	char name[20];</span><br><span class="line">	int age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//(1)通过年龄排序</span><br><span class="line">int cmp_str_age(const void* e1, const void* e2)</span><br><span class="line">&#123;</span><br><span class="line">   return((struct str*)e1)-&gt;age - ((struct str*)e2)-&gt;age;</span><br><span class="line">&#125;</span><br><span class="line">//(2)通过名字排序</span><br><span class="line">int cmp_str_name(const void* e1, const void* e2)</span><br><span class="line">&#123;</span><br><span class="line">	return strcmp(((struct str*)e1)-&gt;name, ((struct str*)e2)-&gt;name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int i = 0;</span><br><span class="line">	int arr[10] = &#123; 9,8,7,6,5,4,3,2,1,0 &#125;;</span><br><span class="line">	float arr1[10] = &#123; 9.0,8.0,7.0,6.0,5.0,4.0,3.0,2.0,1.0,0 &#125;;</span><br><span class="line">	struct str s[3] = &#123; &#123;&quot;张三&quot;,20&#125;,&#123;&quot;李四&quot;,10&#125;,&#123;&quot;王五&quot;,30&#125;&#125;;</span><br><span class="line"></span><br><span class="line">	int sz = sizeof(arr) / sizeof(arr[0]);</span><br><span class="line">	int sz1 = sizeof(arr1) / sizeof(arr1[0]);</span><br><span class="line">	int sz2 = sizeof(s) / sizeof(s[0]);</span><br><span class="line"></span><br><span class="line">	qsort(arr, sz, sizeof(arr[0]), cmp_int);</span><br><span class="line">	for (i = 0; i &lt; sz; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d &quot;, arr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">	qsort(arr1, sz1, sizeof(arr1[0]), cmp_float);</span><br><span class="line">	for (i = 0; i &lt; sz1; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%f &quot;, arr1[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">	qsort(s, sz2, sizeof(s[0]), cmp_str_name);</span><br><span class="line">	for (i = 0; i &lt; sz2; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%s &quot;, s[i].name);//！！加点进行访问，不要忘了</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">	qsort(s, sz2, sizeof(s[0]), cmp_str_age);</span><br><span class="line">	for (i = 0; i &lt; sz2; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d &quot;, s[i].age);//！！加点进行访问，不要忘了</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
