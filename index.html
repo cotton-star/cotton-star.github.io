@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -130,6 +130,207 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/01/10/%E5%AE%89%E5%85%A8%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/10/%E5%AE%89%E5%85%A8%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">安全编程概念</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-10 15:10:54 / Modified: 18:22:34" itemprop="dateCreated datePublished" datetime="2024-01-10T15:10:54+08:00">2024-01-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-什么是安全漏洞"><a href="#1-什么是安全漏洞" class="headerlink" title="1.什么是安全漏洞"></a>1.什么是安全漏洞</h1><p>漏洞是指计算机系统在硬件，软件，协议的具体实现和系统安全策略存在的缺陷和不足，使得攻击者可以在未授权的情况下访问或破坏系统<br>计算机系统安全包括开发和配置两个方面<br>安全漏洞的危害：</p>
+<ol>
+<li>对系统的威胁</li>
+<li>非法获取访问权限</li>
+<li>权限提升</li>
+<li>拒绝访问</li>
+<li>恶意软件植入</li>
+<li>数据丢失或泄露</li>
+</ol>
+<h1 id="2-什么是安全编程"><a href="#2-什么是安全编程" class="headerlink" title="2.什么是安全编程"></a>2.什么是安全编程</h1><p>安全编程是指在编写程序的过程中，为了保证程序的安全性和可靠性，采取的一系列措施和技术手段用来预防和应对潜在的安全风险和威胁，它是一种以安全为目的的编写方法，旨在减少程序漏洞，防止被攻击和利用。</p>
+<ol>
+<li>安全编程的核心目标是保护系统的机密性完整性可用性</li>
+<li>安全编程是以一系列技术手段来保障系统的安全性</li>
+<li>安全编程需要遵循一定的编程规范和最佳实践</li>
+</ol>
+<h1 id="3-整数安全漏洞"><a href="#3-整数安全漏洞" class="headerlink" title="3.整数安全漏洞"></a>3.整数安全漏洞</h1><p>整数安全漏洞是指对整数操作时产生了超过该类型所能表示的范围的数值，引起数据失真，通常有三种情形：回绕，溢出，截断</p>
+<ol>
+<li>回绕是指整数表示范围的上界和下界形成闭环</li>
+<li>溢出是指有符号整形超出该类型所能表示范围</li>
+<li>截断是指将宽度较大的整数存入宽度较小的操作数时，高位数据被丢弃</li>
+</ol>
+<h1 id="4-避免整数安全漏洞"><a href="#4-避免整数安全漏洞" class="headerlink" title="4.避免整数安全漏洞"></a>4.避免整数安全漏洞</h1><ol>
+<li>改变运算手段</li>
+<li>使用较大范围类型表示操作数</li>
+<li>使用测试手段保证安全运算</li>
+</ol>
+<h1 id="5-缓冲区溢出漏洞"><a href="#5-缓冲区溢出漏洞" class="headerlink" title="5.缓冲区溢出漏洞"></a>5.缓冲区溢出漏洞</h1><p>缓冲区是用来存放程序运行时所产生的临时数据，其内存地址连续且大小有限，根据分配方式和使用目的，可分为栈缓冲区和堆缓冲区，栈缓冲区存放的是临时变量和函数参数，堆缓冲区存放的是动态开辟释放的内存。<br>程序在处理数据时，若未能对数据大小或字符串长度进行适当的限制在进行赋值复制填充时没有对数据限定边界，导致数据长度大小超过了缓冲区的大小，就会导致内存中一些关键数据被覆盖，或者说当向某特定数据分配的内存区域以外写入数据时，就会发生缓冲区溢出</p>
+<h1 id="6-栈缓冲区溢出原理"><a href="#6-栈缓冲区溢出原理" class="headerlink" title="6.栈缓冲区溢出原理"></a>6.栈缓冲区溢出原理</h1><p>栈是一种先进后出或后进先出的数据结构，有入栈，出栈，栈顶，栈底，ESP，EBP等内容<br>c语言是函数式语言，在编译运行时，为每个函数调用分配了一个栈帧，每个栈帧都是独立的栈结构，通常把所有函数调用栈帧的集合称为系统栈<br>栈帧的生长方向是由高地址向低地址，而局部数组的生长方向是由低地址向高地址，由于栈帧的空间有限，如果将数据复制到局部数组缓冲区中就有可能超出缓冲区区域，导致高地址数据被覆盖。</p>
+<ol>
+<li>覆盖了其他局部变量</li>
+<li>覆盖了上一栈帧的EBP值，导致栈帧失去平衡</li>
+<li>覆盖了返回地址，导致代码执行意外的流程</li>
+<li>覆盖了参数变量，影响当前函数结果</li>
+<li>覆盖了上一函数的栈帧，影响上一函数流程</li>
+</ol>
+<h1 id="7-缓冲区溢出的利用"><a href="#7-缓冲区溢出的利用" class="headerlink" title="7.缓冲区溢出的利用"></a>7.缓冲区溢出的利用</h1><p>缓冲区溢出会使程序崩溃，但要执行任意代码，还需完成一下两点</p>
+<ol>
+<li>在程序的地址空间安排适当的代码，达到目的<ol>
+<li>植入法</li>
+<li>利用已存在的代码</li>
+</ol>
+</li>
+<li>控制程序跳转到第一步所安排的代码<ol>
+<li>覆盖返回地址</li>
+<li>覆盖对象指针或函数</li>
+<li>覆盖SHE链表</li>
+</ol>
+</li>
+</ol>
+<h1 id="8-栈溢出的防范"><a href="#8-栈溢出的防范" class="headerlink" title="8.栈溢出的防范"></a>8.栈溢出的防范</h1><ol>
+<li>编程时注意缓冲区的边界</li>
+<li>不使用strcpy,memcpy等不安全的函数</li>
+<li>在编译器中加入边界检查</li>
+<li>在使用栈中重要数据之前加入检查，如Security Cookie技术</li>
+</ol>
+<h1 id="9-数据安全问题的防范"><a href="#9-数据安全问题的防范" class="headerlink" title="9.数据安全问题的防范"></a>9.数据安全问题的防范</h1><ol>
+<li>指定和检查数组元素下标的上下边界</li>
+<li>使用安全函数</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/01/06/%E6%95%B0%E5%AD%A6%E5%88%B7%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/06/%E6%95%B0%E5%AD%A6%E5%88%B7%E9%A2%98/" class="post-title-link" itemprop="url">高数刷题笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-06 16:55:17 / Modified: 16:57:54" itemprop="dateCreated datePublished" datetime="2024-01-06T16:55:17+08:00">2024-01-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>只是记录遇到的知识点</p>
+<h1 id="连续点"><a href="#连续点" class="headerlink" title="连续点"></a>连续点</h1><p>：在x0处极限值等于其函数值为连续点；</p>
+<h1 id="渐近线"><a href="#渐近线" class="headerlink" title="渐近线"></a>渐近线</h1><p>：当limx-&gt;x0 f(x)&#x3D;∞  有铅直渐近线<br>：当limx-&gt;∞ f(x)&#x3D;c   有水平渐近线</p>
+<h1 id="可导"><a href="#可导" class="headerlink" title="可导"></a>可导</h1><p>左右导数存在且相等为可导</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -167,9 +368,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-01-05 20:42:13 / Modified: 21:19:27" itemprop="dateCreated datePublished" datetime="2024-01-05T20:42:13+08:00">2024-01-05</time>
+      <time title="Created: 2024-01-05 20:42:13" itemprop="dateCreated datePublished" datetime="2024-01-05T20:42:13+08:00">2024-01-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-01-06 16:43:10" itemprop="dateModified" datetime="2024-01-06T16:43:10+08:00">2024-01-06</time>
     </span>
 
   
@@ -187,7 +394,23 @@
 <h1 id="可降解的高阶微分方程"><a href="#可降解的高阶微分方程" class="headerlink" title="可降解的高阶微分方程"></a>可降解的高阶微分方程</h1><p><img src="https://github.com/cotton-star/cotton-star.github.io/blob/main/photos/%E5%8F%AF%E9%99%8D%E8%A7%A3%E7%9A%84%E9%AB%98%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B.png" alt="图片解析"><br>分成三种情形，也可想想是否某个函数的导数等于其，更简单</p>
 <h1 id="齐次方程"><a href="#齐次方程" class="headerlink" title="齐次方程"></a>齐次方程</h1><p><img src="https://github.com/cotton-star/cotton-star.github.io/blob/main/photos/%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E4%B8%8E%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B.png?raw=true" alt="图片解析"><br>核心思想：变量替换</p>
 <h1 id="一阶线性微分方程"><a href="#一阶线性微分方程" class="headerlink" title="一阶线性微分方程"></a>一阶线性微分方程</h1><p><img src="https://github.com/cotton-star/cotton-star.github.io/blob/main/photos/%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B.png?raw=true" alt="图片解析"><br>记公式！！！</p>
-
+<h1 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h1><p>f–映射<br>x-&gt;y  像，原像<br>三要素：定义域 值域 映射</p>
+<ol>
+<li>非空集合X到数集Y的映射称为X的泛函</li>
+<li>非空集合X到他自身的映射成为X上的变换</li>
+<li>实数集X到实数集Y的映射成为定义在X上的函数<br>特殊定义：</li>
+<li>满射：x对应所有的y</li>
+<li>单射：x,y一一对应</li>
+<li>一一映射：既是满射又是单射</li>
+<li>逆映射：设f:x-&gt;y是单射，对于每个y属于Rf,都有唯一的x属于x<br>满足f(x)&#x3D;y   g：Rf-&gt;x   f-1为逆映射  定义域Rf 值域x</li>
+<li>复合映射</li>
+</ol>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>实数集到实数集的映射<br>两要素：Df,f<br>了解下列函数：</p>
+<ol>
+<li>符号函数</li>
+<li>[x]不超过x的最大整数</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
       
     </div>
 
@@ -822,178 +1045,6 @@
 <h1 id="两种-HTTP-请求方法：GET-和-POST"><a href="#两种-HTTP-请求方法：GET-和-POST" class="headerlink" title="两种 HTTP 请求方法：GET 和 POST"></a>两种 HTTP 请求方法：GET 和 POST</h1><p>在客户机和服务器之间进行请求-响应时，两种最常被用到的方法是：GET 和 POST。</p>
 <p>GET - 从指定的资源请求数据。<br>POST - 向指定的资源提交要被处理的数据</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/29/index.php/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/29/index.php/" class="post-title-link" itemprop="url">index.php</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-11-29 15:53:03 / Modified: 15:55:54" itemprop="dateCreated datePublished" datetime="2023-11-29T15:53:03+08:00">2023-11-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>index.php是一个用PHP语言开发的网站的首页，index是普遍意义上的“首页”，也就是你输入一个域名后会打开一个页面，基本上就是index.xxxx<br>index.php是一种常见的网页文件，它通常用于网站的首页或默认页面。在使用PHP（Hypertext Preprocessor）编程语言的网站中，index.php文件是网站的入口点，它负责处理和呈现网页内容。<br>当访问一个使用PHP编写的网站时使用，在最后+上&#x2F;index.php<br>index.php文件不是网站的必需文件，网站的首页文件可以使用其他名称，如index.html、home.php等。</p>
-<p>index.php文件的功能可以包括以下内容。</p>
-<p>1、处理用户请求：index.php文件可以接收来自用户的请求，处理表单数据、查询数据库、验证用户身份等操作。</p>
-<p>2、生成动态内容：通过嵌入PHP代码，index.php文件可以生成动态的网页内容。它可以根据用户请求或其他条件生成不同的输出，如显示特定的数据、执行计算、生成动态图表等。</p>
-<p>3、包含其他文件：index.php文件可以使用PHP的include或require语句，将其他PHP文件或HTML文件包含进来。这样可以实现代码重用和模块化开发。</p>
-<p>4、呈现网页内容：最终，index.php文件会生成网页的HTML内容，并将其发送回用户的浏览器，使其能够在浏览器中显示和渲染。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/28/php/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/28/php/" class="post-title-link" itemprop="url">php</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-11-28 20:33:06 / Modified: 21:04:17" itemprop="dateCreated datePublished" datetime="2023-11-28T20:33:06+08:00">2023-11-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">简单实例：</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">echo &quot;Hello World!&quot;;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">PHP 文件可包含文本、HTML、JavaScript代码和 PHP 代码</span><br><span class="line">PHP 代码在服务器上执行，结果以纯 HTML 形式返回给浏览器</span><br><span class="line">PHP 文件的默认文件扩展名是 .php。</span><br></pre></td></tr></table></figure>
-
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="1-0-基本"><a href="#1-0-基本" class="headerlink" title="1.0 基本"></a>1.0 基本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PHP 中的每个代码行都必须以分号结束。分号是一种分隔符，用于把指令集区分开来。</span><br><span class="line"></span><br><span class="line">通过 PHP，有两种在浏览器输出文本的基础指令：echo 和 print。</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-0-换行"><a href="#2-0-换行" class="headerlink" title="2.0 换行"></a>2.0 换行</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php的换行与c一致，//单行   /*多行*/</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-0-变量"><a href="#3-0-变量" class="headerlink" title="3.0 变量"></a>3.0 变量</h2><h3 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">实例：</span><br><span class="line">&lt;?php</span><br><span class="line">$x=5;</span><br><span class="line">$y=6;</span><br><span class="line">$z=$x+$y;</span><br><span class="line">echo $z;</span><br><span class="line">?&gt;</span><br><span class="line">ps：！！！仅仅只要在变量前加上$其余和c一样 输出为echo和print</span><br><span class="line">同时他比c更宽,他会自动把变量转化为正确的数据类型</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">global 关键字用于函数内访问全局变量。</span><br><span class="line"></span><br><span class="line">在函数内调用函数外定义的全局变量，我们需要在函数中的变量前加上 global 关键字：</span><br><span class="line">&lt;?php</span><br><span class="line">$x=5;</span><br><span class="line">$y=10;</span><br><span class="line"> </span><br><span class="line">function myTest()</span><br><span class="line">&#123;</span><br><span class="line">    global $x,$y;</span><br><span class="line">    $y=$x+$y;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">myTest();</span><br><span class="line">echo $y; // 输出 15</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PHP 将所有全局变量存储在一个名为 $GLOBALS[index] 的数组中。 index 保存变量的名称。这个数组可以在函数内部访问，也可以直接用来更新全局变量。</span><br><span class="line">&lt;?php</span><br><span class="line">$x=5;</span><br><span class="line">$y=10;</span><br><span class="line"> </span><br><span class="line">function myTest()</span><br><span class="line">&#123;</span><br><span class="line">    $GLOBALS[&#x27;y&#x27;]=$GLOBALS[&#x27;x&#x27;]+$GLOBALS[&#x27;y&#x27;];</span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line">myTest();</span><br><span class="line">echo $y;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="static作用域"><a href="#static作用域" class="headerlink" title="static作用域"></a>static作用域</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Static 作用域</span><br><span class="line">当一个函数完成时，它的所有变量通常都会被删除。然而，有时候您希望某个局部变量不要被删除。</span><br><span class="line"></span><br><span class="line">要做到这一点，请在您第一次声明变量时使用 static 关键字：</span><br><span class="line">&lt;?php</span><br><span class="line">function myTest()</span><br><span class="line">&#123;</span><br><span class="line">    static $x=0;</span><br><span class="line">    echo $x;</span><br><span class="line">    $x++;</span><br><span class="line">    echo PHP_EOL;    // 换行符</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">myTest();</span><br><span class="line">myTest();</span><br><span class="line">myTest();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;br&gt;为换行，跟\n一样用法</span><br></pre></td></tr></table></figure>
-<h1 id="PHP-EOF-heredoc-使用说明"><a href="#PHP-EOF-heredoc-使用说明" class="headerlink" title="PHP EOF(heredoc) 使用说明"></a>PHP EOF(heredoc) 使用说明</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PHP EOF(heredoc)是一种在命令行shell（如sh、csh、ksh、bash、PowerShell和zsh）和程序语言（像Perl、PHP、Python和Ruby）里定义一个字符串的方法。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">实例</span><br><span class="line">&lt;?php</span><br><span class="line">echo &lt;&lt;&lt;EOF</span><br><span class="line">        &lt;h1&gt;我的第一个标题&lt;/h1&gt;</span><br><span class="line">        &lt;p&gt;我的第一个段落。&lt;/p&gt;</span><br><span class="line">EOF;</span><br><span class="line">// 结束需要独立一行且前后不能空格</span><br><span class="line">?&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">！！！跟c如出一辙，但是它不需要+int之类的</span><br><span class="line">需要注意的</span><br><span class="line"></span><br><span class="line">PHP 数组</span><br><span class="line">数组可以在一个变量中存储多个值。</span><br><span class="line"></span><br><span class="line">在以下实例中创建了一个数组， 然后使用 PHP var_dump() 函数返回数组的数据类型和值：</span><br><span class="line"></span><br><span class="line">实例</span><br><span class="line">&lt;?php </span><br><span class="line">$cars=array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);</span><br><span class="line">var_dump($cars);</span><br><span class="line">?&gt;</span><br><span class="line">加小括号即可</span><br></pre></td></tr></table></figure>
-
-<h2 id="类型比较"><a href="#类型比较" class="headerlink" title="类型比较"></a>类型比较</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PHP 类型比较</span><br><span class="line">虽然 PHP 是弱类型语言，但也需要明白变量类型及它们的意义，因为我们经常需要对 PHP 变量进行比较，包含松散和严格比较。</span><br><span class="line"></span><br><span class="line">松散比较：使用两个等号 == 比较，只比较值，不比较类型。</span><br><span class="line">严格比较：用三个等号 === 比较，除了比较值，也比较类型。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">设置 PHP 常量</span><br><span class="line">设置常量，使用 define() 函数，函数语法如下：</span><br><span class="line"></span><br><span class="line">bool define ( string $name , mixed $value [, bool $case_insensitive = false ] )</span><br></pre></td></tr></table></figure>
-<h1 id="运算以及语句与c一致，这里不打了"><a href="#运算以及语句与c一致，这里不打了" class="headerlink" title="运算以及语句与c一致，这里不打了"></a>运算以及语句与c一致，这里不打了</h1><h1 id="PHP-数组排序函数"><a href="#PHP-数组排序函数" class="headerlink" title="PHP - 数组排序函数"></a>PHP - 数组排序函数</h1><p>sort() - 对数组进行升序排列<br>rsort() - 对数组进行降序排列<br>asort() - 根据关联数组的值，对数组进行升序排列<br>ksort() - 根据关联数组的键，对数组进行升序排列<br>arsort() - 根据关联数组的值，对数组进行降序排列<br>krsort() - 根据关联数组的键，对数组进行降序排列</p>
-<h1 id="PHP-超级全局变量"><a href="#PHP-超级全局变量" class="headerlink" title="PHP 超级全局变量"></a>PHP 超级全局变量</h1><p>PHP中预定义了几个超级全局变量（superglobals） ，这意味着它们在一个脚本的全部作用域中都可用。 你不需要特别说明，就可以在函数及类中使用。</p>
-<p>PHP 超级全局变量列表:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$GLOBALS</span><br><span class="line">$_SERVER</span><br><span class="line">$_REQUEST</span><br><span class="line">$_POST</span><br><span class="line">$_GET</span><br><span class="line">$_FILES</span><br><span class="line">$_ENV</span><br><span class="line">$_COOKIE</span><br><span class="line">$_SESSION</span><br></pre></td></tr></table></figure>
-
-<h1 id="PHP-魔术常量"><a href="#PHP-魔术常量" class="headerlink" title="PHP 魔术常量"></a>PHP 魔术常量</h1><p>PHP 向它运行的任何脚本提供了大量的预定义常量。</p>
-<p>不过很多常量都是由不同的扩展库定义的，只有在加载了这些扩展库时才会出现，或者动态加载后，或者在编译时已经包括进去了。</p>
-<p>有八个魔术常量它们的值随着它们在代码中的位置改变而改变。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">__LINE__ 自动打出行数</span><br><span class="line">__FILE__ 自动打出文件名</span><br><span class="line">__DIR__  文件所在目录</span><br><span class="line">__FUNCTION__ 返回该函数被定义时的名字 （区分大小写）</span><br><span class="line">__CLASS__ 返回该类被定义时的名字 区分大小写</span><br><span class="line">******</span><br><span class="line">Trait 的名字（PHP 5.4.0 新加）。自 PHP 5.4.0 起，PHP 实现了代码复用的一个方法，称为 traits。</span><br><span class="line"></span><br><span class="line">Trait 名包括其被声明的作用区域（例如 Foo\Bar）。</span><br><span class="line"></span><br><span class="line">从基类继承的成员被插入的 SayWorld Trait 中的 MyHelloWorld 方法所覆盖。其行为 MyHelloWorld 类中定义的方法一致。优先顺序是当前类中的方法会覆盖 trait 方法，而 trait 方法又覆盖了基类中的方法</span><br><span class="line">******</span><br><span class="line">__METHOD__返回该方法被定义时的名字（区分大小写）。</span><br><span class="line">__NAMESPACE__当前命名空间的名称（区分大小写</span><br></pre></td></tr></table></figure>
       
     </div>
 
