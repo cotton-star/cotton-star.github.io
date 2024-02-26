@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -130,6 +130,170 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/29/c%E5%88%B7%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/29/c%E5%88%B7%E9%A2%98/" class="post-title-link" itemprop="url">c语言刷题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-29 20:54:22" itemprop="dateCreated datePublished" datetime="2023-11-29T20:54:22+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-20 22:02:31" itemprop="dateModified" datetime="2023-12-20T22:02:31+08:00">2023-12-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-结构体实例"><a href="#1-结构体实例" class="headerlink" title="1.结构体实例"></a>1.结构体实例</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#define a 1010</span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    long long  zkz;</span><br><span class="line">    int ks;</span><br><span class="line">&#125;stu;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    stu stu[a];</span><br><span class="line">    int n,sj,ks;</span><br><span class="line">    long long int zkz;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    int i=0;</span><br><span class="line">    for(i=0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%lld %d %d&quot;,&amp;zkz,&amp;sj,&amp;ks);</span><br><span class="line">        stu[sj].zkz=zkz;    //利用结构体下标来进行一个一个配对</span><br><span class="line">        stu[sj].ks=ks;</span><br><span class="line">    &#125;</span><br><span class="line">    int m=0;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;m);</span><br><span class="line">    for(i=0;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;sj);</span><br><span class="line">        printf(&quot;%lld %d\n&quot;,stu[sj].zkz,stu[sj].ks);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="选择法"><a href="#选择法" class="headerlink" title="选择法"></a>选择法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">不同于冒泡排序的一种排序，冒泡是对一个值进行向后位移。</span><br><span class="line">而选择则是每两个进行比较，找到最前面那个</span><br><span class="line">void sort()</span><br><span class="line">&#123;</span><br><span class="line">	int arr[10000]</span><br><span class="line">	int i=0,j=0;</span><br><span class="line">	int m;</span><br><span class="line">	for(i=0;i&lt;n-1;i++)</span><br><span class="line">	&#123;</span><br><span class="line">        m=i;</span><br><span class="line">        for(j=i+1;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">        	if(arr[m]&gt;arr[j])</span><br><span class="line">        	&#123;</span><br><span class="line">        		m=j;</span><br><span class="line">        	&#125;</span><br><span class="line">        	int t=0;</span><br><span class="line">        	t=arr[m];</span><br><span class="line">        	arr[m]=arr[i];</span><br><span class="line">        	arr[i]=t;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">很好用的一个函数</span><br><span class="line">strchr(a,&#x27;a&#x27;);</span><br><span class="line">在一个字符串中找到a字符，如果找到，返回a字符在这个字符串的地址</span><br><span class="line">如果没找到，返回NULL</span><br><span class="line"></span><br><span class="line">实例：L1-011 A-B</span><br><span class="line">代码如下</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">    char a[100000], b[100000];</span><br><span class="line"></span><br><span class="line">    fgets(a,sizeof(a),stdin);</span><br><span class="line">    fgets(b, sizeof(b), stdin);</span><br><span class="line">    for (int i = 0; i &lt; strlen(a); i++)</span><br><span class="line">    &#123;</span><br><span class="line">if (strchr(b, a[i]))</span><br><span class="line">&#123;</span><br><span class="line">continue;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">            printf(&quot;%c&quot;, a[i]);</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="向右对正"><a href="#向右对正" class="headerlink" title="向右对正"></a>向右对正</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只需要根据格式%5d即可，不用管正负号，他会自己搞定，不然会报错</span><br></pre></td></tr></table></figure>
+
+<h1 id="N个数求和"><a href="#N个数求和" class="headerlink" title="N个数求和"></a>N个数求和</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">先把我这次绝妙的想法记录下来，输入输出都对了，虽然说答案错误；</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int N = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;N);</span><br><span class="line">    int i = 0;</span><br><span class="line">    float sum = 0;</span><br><span class="line">    for (i = 0; i &lt; N; i++)</span><br><span class="line">    &#123;       </span><br><span class="line">        int fenmu, fenzi;</span><br><span class="line">        scanf(&quot;%d/%d&quot;, &amp;fenzi, &amp;fenmu);</span><br><span class="line">        float fenshu = (float)fenzi / fenmu;</span><br><span class="line">        sum = sum + fenshu;</span><br><span class="line">    &#125;</span><br><span class="line">    if (sum - (int)sum != 0)</span><br><span class="line">    &#123;</span><br><span class="line">        float xiaoshu = sum - (int)sum;</span><br><span class="line">        float j = 0;</span><br><span class="line">        float y = 0;</span><br><span class="line">        for (y = 1; y &lt; 100; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (j = 1; j &lt; 100; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (y / j &gt; xiaoshu - 0.00001 &amp;&amp; y / j &lt; xiaoshu + 0.000001)</span><br><span class="line">                &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if (y / j &gt; xiaoshu - 0.000001 &amp;&amp; y / j &lt; xiaoshu + 0.000001)</span><br><span class="line">            &#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if ((int)sum != 0)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;%d %d/%d\n&quot;, (int)sum, (int)y, (int)j);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            printf( &quot;%d/%d\n&quot;,  (int)y, (int)j);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%d\n&quot;, (int)sum);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="很有思路的一集"><a href="#很有思路的一集" class="headerlink" title="很有思路的一集"></a>很有思路的一集</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">当对于要输入非常长的整数并且要搞出他的每一位时</span><br><span class="line">我们可以创建char a[10000]数组</span><br><span class="line">并%s输入</span><br><span class="line">最后让他的每一位-&#x27;0&#x27;即为要求的每一位数字；</span><br><span class="line"></span><br><span class="line">&lt;!-- &lt;!-- ~~~ --&gt; --&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="一个小时插的花！！！"><a href="#一个小时插的花！！！" class="headerlink" title="一个小时插的花！！！"></a>一个小时插的花！！！</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"># define N 99</span><br><span class="line">void flower(char f[][N],int n)</span><br><span class="line">&#123;</span><br><span class="line">    char m = n / 2 + &#x27;A&#x27;;</span><br><span class="line">    int i = 0, j = 0;</span><br><span class="line">    for (i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (j = i; j &lt; n-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (m - i &lt;= &#x27;Z&#x27;)</span><br><span class="line">            &#123;</span><br><span class="line">                f[i][j] = m - i;</span><br><span class="line">                f[j][i] = m - i;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(m - i &gt; &#x27;Z&#x27;)</span><br><span class="line">            &#123;</span><br><span class="line">                f[i][j] = (m - i) -26;</span><br><span class="line">                f[j][i] = (m - i) -26;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for (i = n - 1; i &gt;= 0; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        for (j = i; j &gt; n-1-i; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            if (m - n + 1 + i &lt;= &#x27;Z&#x27;)</span><br><span class="line">            &#123;</span><br><span class="line">                f[i][j] = m - n + 1 + i;</span><br><span class="line">                f[j][i] = m - n + 1 + i;</span><br><span class="line">            &#125;</span><br><span class="line">            else if (m - n + 1 + i &gt; &#x27;Z&#x27;)</span><br><span class="line">            &#123;</span><br><span class="line">                f[i][j] = (m - n + 1 + i)-26;</span><br><span class="line">                f[j][i] = (m - n + 1 + i)-26;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (j = 0; j &lt; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot; %c&quot;, f[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    char f[N][N] = &#123;0&#125;;</span><br><span class="line">    flower(f, n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">程序文件名】zy11-1.cpp</span><br><span class="line"></span><br><span class="line">【题目描述】有n个学生，每个学生的数据包括姓名（10个字符）、出生日期（年-月-日），编写程序，功能是在main函数中输入n个学生信息，调用void sort(struct student stu[],int n)函数（按姓名从小到大排序）排序以后仍在main()中输出排序后的n个学生信息。输出时姓名和出生日期间用一个空格隔开，出生日期的输入输出格式为：yyyy-mm-dd。例如：</span><br><span class="line"></span><br><span class="line">输入：2</span><br><span class="line"></span><br><span class="line">         zhangsan</span><br><span class="line"></span><br><span class="line">         2004-2-10</span><br><span class="line"></span><br><span class="line">         lisi</span><br><span class="line"></span><br><span class="line">         2003-11-20</span><br><span class="line"></span><br><span class="line">输出：lisi 2003-11-20</span><br><span class="line"></span><br><span class="line">         zhangsan 2004-2-10</span><br></pre></td></tr></table></figure>
+<p>我的答案</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">struct student</span><br><span class="line">&#123;</span><br><span class="line">    char name[10];</span><br><span class="line">    int year;</span><br><span class="line">    int month;</span><br><span class="line">    int day;</span><br><span class="line">&#125;;</span><br><span class="line">int cmp_stu_name(const void* e1, const void* e2)</span><br><span class="line">&#123;</span><br><span class="line">    return strcmp(((struct student*)e1)-&gt;name, ((struct student*)e2)-&gt;name);</span><br><span class="line">&#125;</span><br><span class="line">void sort(struct student stu[], int n)</span><br><span class="line">&#123;</span><br><span class="line">    qsort(stu, n, sizeof(stu[0]), cmp_stu_name);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    struct student* p = (struct student*)malloc(n * sizeof(struct student));</span><br><span class="line">        if (p == NULL)</span><br><span class="line">       &#123;</span><br><span class="line">        printf(&quot;%s&quot;, strerror(errno));</span><br><span class="line">        return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            int i = 0;</span><br><span class="line">            for (i = 0; i &lt; n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                scanf(&quot;%s%d-%d-%d&quot;, &amp;p[i].name, &amp;p[i].year, &amp;p[i].month, &amp;p[i].day);</span><br><span class="line">            &#125;</span><br><span class="line">            sort(p, n);</span><br><span class="line">            for (i = 0; i &lt; n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                printf(&quot;%s %d-%d-%d\n&quot;, p[i].name, p[i].year,p[i].month,p[i].day);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        free(p);</span><br><span class="line">        p = NULL;</span><br><span class="line">        return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/29/url%E7%BC%96%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/29/url%E7%BC%96%E7%A0%81/" class="post-title-link" itemprop="url">url编码 http请求方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-11-29 20:40:43 / Modified: 20:41:42" itemprop="dateCreated datePublished" datetime="2023-11-29T20:40:43+08:00">2023-11-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="URL-字符编码"><a href="#URL-字符编码" class="headerlink" title="URL 字符编码"></a>URL 字符编码</h1><p>URL 只能使用 ASCII 字符集.</p>
+<p>来通过因特网进行发送。由于 URL 常常会包含 ASCII 集合之外的字符，URL 必须转换为有效的 ASCII 格式。</p>
+<p>URL 编码使用 “%” 其后跟随两位的十六进制数来替换非 ASCII 字符。</p>
+<p>URL 不能包含空格。URL 编码通常使用 + 来替换空格。</p>
+<h1 id="两种-HTTP-请求方法：GET-和-POST"><a href="#两种-HTTP-请求方法：GET-和-POST" class="headerlink" title="两种 HTTP 请求方法：GET 和 POST"></a>两种 HTTP 请求方法：GET 和 POST</h1><p>在客户机和服务器之间进行请求-响应时，两种最常被用到的方法是：GET 和 POST。</p>
+<p>GET - 从指定的资源请求数据。<br>POST - 向指定的资源提交要被处理的数据</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
