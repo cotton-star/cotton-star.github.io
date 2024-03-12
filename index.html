@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -130,6 +130,97 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/03/11/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/11/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-03-11 16:12:09" itemprop="dateCreated datePublished" datetime="2024-03-11T16:12:09+08:00">2024-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-03-12 19:59:50" itemprop="dateModified" datetime="2024-03-12T19:59:50+08:00">2024-03-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h1><p>0异或任何数等于任何数<br>任何数跟自己异或为0<br>满足交换律和结合律<br>所以两数交换<br>可以连用三个异或</p>
+<p>所以有一题：在一个数组中，只有一个出现奇数次的数，其余都是出现偶数次<br>找出这个奇数次的数？</p>
+<p>先int ji<br>数组为[a,b,c,d,e]<br>只需要<br>ji^a<br>ji^b<br>ji^c<br>ji^d<br>ji^e<br>就能找出这个奇数数</p>
+<p>实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int ji = 0;</span><br><span class="line">	int c[] = &#123; 1,2,2,3,3,4,4 &#125;;</span><br><span class="line">	int sz = sizeof(c) / sizeof(c[0]);</span><br><span class="line">	int i = 0;</span><br><span class="line">	for (i = 0; i &lt; sz; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		ji = ji ^ c[i];</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d&quot;, ji);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>假如有两个奇数（a,b都是奇数）<br>那么答案就是这样算完结果就是ji&#x3D;a^b<br>因为a!&#x3D;b,所以a^b一定不全为0，它在某一位上一定为1<br>我们假设它在第一位为1<br>那么a和b在第一位一定不相等<br>我们设int ji’&#x3D;0<br>让ji’去异或上数组中所有第一位为1的数<br>那么结果就是ji’&#x3D;a or b<br>假如ji’&#x3D;a,最后拿ji ^ ji’ 就能得到b</p>
+<p>实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int ji = 0;</span><br><span class="line">	int c[] = &#123; 1,2,2,3,3,4,4,6,6,5 &#125;;</span><br><span class="line">	int sz = sizeof(c) / sizeof(c[0]);</span><br><span class="line">	int i = 0;</span><br><span class="line">	for (i = 0; i &lt; sz; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		ji = ji ^ c[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	int ji2 = 0;</span><br><span class="line">	const int rightone = ji &amp; ((~ji) + 1);//把自己最右侧的1弄出来了</span><br><span class="line">	for (i = 0; i &lt; sz; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (c[i] &amp; rightone)</span><br><span class="line">		&#123;</span><br><span class="line">			ji2 ^= c[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	int b = ji ^ ji2;</span><br><span class="line"></span><br><span class="line">	printf(&quot;%d\n&quot;, ji);</span><br><span class="line">	printf(&quot;%d\n&quot;, ji2);</span><br><span class="line">	printf(&quot;%d\n&quot;, b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="插入法排序"><a href="#插入法排序" class="headerlink" title="插入法排序"></a>插入法排序</h1><p>作为排序,它比冒泡和选择有时更加的快捷,它的时间复杂度是从O[n]到O[n^2]，而冒泡和选择是严格的O[n^2];<br>他的原理是先从前两个比较，排序；前三个比较，排序以此类推<br>展示实例:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">void swap(int c[], int j)</span><br><span class="line">&#123;</span><br><span class="line">    c[j] = c[j] ^ c[j + 1];</span><br><span class="line">    c[j+1] = c[j] ^ c[j + 1];</span><br><span class="line">    c[j] = c[j] ^ c[j + 1];</span><br><span class="line">&#125;</span><br><span class="line">void insertsort(int c[], int sz) &#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    for (i = 1; i &lt; sz; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (j = i - 1; j &gt;= 0 &amp;&amp; c[j] &gt; c[j + 1];j--)</span><br><span class="line">        &#123;</span><br><span class="line">            swap(c, j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for (i = 0; i &lt; sz; i++)</span><br><span class="line">        printf(&quot;%d&quot;, c[i]);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a = 0;</span><br><span class="line">	int c[] = &#123; 3,2,4,6,4,2,1,3 &#125;;</span><br><span class="line">	int sz = sizeof(c) / sizeof(c[0]);</span><br><span class="line">	insertsort(c,sz);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>小知识：(a-b)&#x2F;2&#x3D;(a-b)&gt;&gt;1</p>
+<p>时间复杂度:O(N*logN)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">void merge(int arr[],int l,int mid,int r)</span><br><span class="line">&#123;</span><br><span class="line">   int* help=(int*)malloc((r-l+1)*sizeof(int));</span><br><span class="line">   int i=0;</span><br><span class="line">   int p1=l;</span><br><span class="line">   int p2=mid+1;</span><br><span class="line">   while(p1&lt;=mid&amp;&amp;p2&lt;=r)</span><br><span class="line">   &#123;</span><br><span class="line">     help[i++]=arr[p1]&lt;=arr[p2]?arr[p1++]:arr[p2++];</span><br><span class="line">   &#125;</span><br><span class="line">   //有可能有一方先到达边界，进行查缺补漏</span><br><span class="line">   while(p1&lt;=mid)</span><br><span class="line">   &#123;</span><br><span class="line">     help[i++]=arr[p1++];</span><br><span class="line">   &#125;</span><br><span class="line">   while(p2&lt;=r)</span><br><span class="line">   &#123;</span><br><span class="line">     help[i++]=arr[p2++];</span><br><span class="line">   &#125;</span><br><span class="line">   //最后放回arr中</span><br><span class="line">   int j=0;</span><br><span class="line">   for(j=0;j&lt;i;j++)</span><br><span class="line">   &#123;</span><br><span class="line">     arr[l++]=help[j];</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">void mergesort(int arr[],int l,int r)</span><br><span class="line">&#123;</span><br><span class="line">   if(l&lt;r)</span><br><span class="line">   &#123;</span><br><span class="line">   int mid=l+((r-l)&gt;&gt;1);</span><br><span class="line">   //分治数组 很像树形的分治</span><br><span class="line">   mergesort(arr,l,mid);</span><br><span class="line">   mergesort(arr,mid+1,r);</span><br><span class="line">   //合并数组，理解起来就是上面把左右部分分到最小利用merge将每两个小块合并</span><br><span class="line">   merge(arr,l,mid,r);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  int arr[]=&#123;1,4,6,3,6,8,8,5&#125;;</span><br><span class="line">  int sz=sizeof(arr)/sizeof(arr[0]);</span><br><span class="line">  mergesort(arr,0,sz-1);</span><br><span class="line">  int i=0;</span><br><span class="line">  for (i=0;i&lt;sz;i++)</span><br><span class="line">  &#123;</span><br><span class="line">    printf(&quot;%d&quot;,arr[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -200,83 +291,6 @@
 1&#39; or 1=1#
 得到flag
 </code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/02/26/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/26/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="post-title-link" itemprop="url">离散数学</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-02-26 16:13:03 / Modified: 16:17:39" itemprop="dateCreated datePublished" datetime="2024-02-26T16:13:03+08:00">2024-02-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="命题"><a href="#命题" class="headerlink" title="命题"></a>命题</h1><h2 id="什么是命题"><a href="#什么是命题" class="headerlink" title="什么是命题"></a>什么是命题</h2><ol>
-<li>陈述句</li>
-<li>有唯一确定的答案</li>
-</ol>
-<h2 id="重点-："><a href="#重点-：" class="headerlink" title="重点 ："></a>重点 ：</h2><ol>
-<li>排斥或：像有且仅有，或，形式：（7p合取q）析取（p合取7q）</li>
-<li>除非 才，只有 才。 q推p</li>
-</ol>
 
       
     </div>
@@ -870,158 +884,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/12/04/sql%E6%B3%A8%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/04/sql%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">sql注入</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-12-04 10:05:17" itemprop="dateCreated datePublished" datetime="2023-12-04T10:05:17+08:00">2023-12-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-07 21:17:29" itemprop="dateModified" datetime="2023-12-07T21:17:29+08:00">2023-12-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-利用sql注入漏洞"><a href="#1-利用sql注入漏洞" class="headerlink" title="1.利用sql注入漏洞"></a>1.利用sql注入漏洞</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">语句一:1&#x27;order by 1#</span><br><span class="line">判断列/字段数</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">语句二:1&#x27; uniom select user(),database()#</span><br><span class="line">联合查询其他信息</span><br><span class="line">user()：返回当前数据库连接用户</span><br><span class="line">database():返回当前数据库名称</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">语句三:1&#x27;union select table_name,table_schema from information_schema.tables where table_schema=&#x27;database&#x27;#</span><br><span class="line">联合查询表</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语句四:1&#x27;union select user,password from users#</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/12/03/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/03/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="post-title-link" itemprop="url">信息收集</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-12-03 20:58:13 / Modified: 21:02:46" itemprop="dateCreated datePublished" datetime="2023-12-03T20:58:13+08:00">2023-12-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h1><p>1.site.XXXXX.com &#x2F;&#x2F;谷歌搜索语法</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/12/03/Linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1080,6 +942,184 @@
 <li>形成报告</li>
 </ol>
 
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/30/http%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/30/http%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">Http协议</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-30 19:32:13" itemprop="dateCreated datePublished" datetime="2023-11-30T19:32:13+08:00">2023-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-03 19:25:49" itemprop="dateModified" datetime="2023-12-03T19:25:49+08:00">2023-12-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Http请求信息和响应信息的格式"><a href="#Http请求信息和响应信息的格式" class="headerlink" title="Http请求信息和响应信息的格式"></a>Http请求信息和响应信息的格式</h1><p>1.请求行<br>2.请求头信息<br>3.请求主体信息（可以没有）<br>4.头信息结束后和主题信息之间要空行</p>
+<p>请求行又分三部分：<br>请求方法 请求路径 所用的协议</p>
+<p>EG:<br><em><strong>GET &#x2F;0606&#x2F;01.php HTTP&#x2F;1.1</strong></em>   请求行：<br>1.GET 就是请求方法<br>2.&#x2F;0606&#x2F;01.php 就是请求的资源<br>3.HTTP&#x2F;1.1 是请求所用的协议版本</p>
+<p><em><strong>Host: localhost</strong></em>   请求头部信息<br>                        ！！！ 这里一定要空一行<br>                        以便头信息与主体信息做区分，头信息非常丰富</p>
+<p><em><strong>HTTP&#x2F;1.1 200 OK</strong></em>   响应行：协议版本 状态码 状态文字<br><em><strong>DATE: Thu. 30 Jun 2023 12:39:02 GMT</strong></em>   响应头信息：<br>一般格式为<br>key：value<br>key：value<br>contente-length:接下来的主体长度</p>
+<p>主体</p>
+<h2 id="1-请求方法：GET-POST-PUT-DELETE-TRACE-OPTIONS"><a href="#1-请求方法：GET-POST-PUT-DELETE-TRACE-OPTIONS" class="headerlink" title="1.请求方法：GET POST PUT DELETE TRACE OPTIONS"></a>1.请求方法：GET POST PUT DELETE TRACE OPTIONS</h2><p><em><strong>POST比GET麻烦的多，需要再投信息里表明主体长度与类型</strong></em><br><em><strong>POST为向里输入</strong></em><br><em><strong>HEAD和GET基本一致，只是返回内容</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET： 用于请求访问已经被URL（统一资源标识符）识别的资源，可以通过URL传参给服务器。</span><br><span class="line"></span><br><span class="line">POST：用于传输信息给服务器，主要功能与GET方法类似，但一般推荐使用POST方式。</span><br><span class="line"></span><br><span class="line">PUT： 传输文件，报文主体中包含文件内容，保存到对应URL位置。</span><br><span class="line"></span><br><span class="line">HEAD： 获得报文首部，与GET方法类似，只是不返回报文主体，一般用于验证URL是否有效。</span><br><span class="line"></span><br><span class="line">DELETE：删除文件，与PUT方法相反，删除对应URL位置的文件。</span><br><span class="line"></span><br><span class="line">OPTIONS：查询相应URL支持的HTTP方法。</span><br></pre></td></tr></table></figure>
+<h2 id="2-请求路径：就是URL的一部分"><a href="#2-请求路径：就是URL的一部分" class="headerlink" title="2.请求路径：就是URL的一部分"></a>2.请求路径：就是URL的一部分</h2><h2 id="3-所用协议：一般是HTTP-1-1"><a href="#3-所用协议：一般是HTTP-1-1" class="headerlink" title="3.所用协议：一般是HTTP&#x2F;1.1"></a>3.所用协议：一般是HTTP&#x2F;1.1</h2><h2 id="4-响应行：协议版本-状态码-状态文字"><a href="#4-响应行：协议版本-状态码-状态文字" class="headerlink" title="4.响应行：协议版本 状态码 状态文字"></a>4.响应行：协议版本 状态码 状态文字</h2><h3 id="状态码是用来反映服务器响应情况的"><a href="#状态码是用来反映服务器响应情况的" class="headerlink" title="状态码是用来反映服务器响应情况的"></a>状态码是用来反映服务器响应情况的</h3><p>最常见的如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">200 OK</span><br><span class="line">404 NOT FOUND</span><br></pre></td></tr></table></figure>
+<p>分类如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1XX 信息 接收到请求，继续处理</span><br><span class="line">2XX 成功 操作成功地收到，理解和接受</span><br><span class="line">3XX 重定向 为了完成请求，必须采取进一步措施</span><br><span class="line">4XX 客户端错误 请求的语法有错误或不能完全被满足</span><br><span class="line">5XX 服务端错误 服务器无法完成明显有效的请求</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">成功</span><br><span class="line">200 服务器成功返回网页</span><br><span class="line">301/2 永久/临时重定向</span><br><span class="line">304 Not Modified 未修改</span><br><span class="line">307 重定向之后保持原有的请求数据</span><br><span class="line">失败</span><br><span class="line">404 请求的网页不存在</span><br><span class="line">503 服务器暂时不可用</span><br><span class="line">500 服务器内部错误</span><br></pre></td></tr></table></figure>
+
+<h3 id="状态文字是用来描述状态码的，便于人观察"><a href="#状态文字是用来描述状态码的，便于人观察" class="headerlink" title="状态文字是用来描述状态码的，便于人观察"></a>状态文字是用来描述状态码的，便于人观察</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2023/11/29/c%E5%88%B7%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/29/c%E5%88%B7%E9%A2%98/" class="post-title-link" itemprop="url">c语言刷题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-29 20:54:22" itemprop="dateCreated datePublished" datetime="2023-11-29T20:54:22+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-20 22:02:31" itemprop="dateModified" datetime="2023-12-20T22:02:31+08:00">2023-12-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-结构体实例"><a href="#1-结构体实例" class="headerlink" title="1.结构体实例"></a>1.结构体实例</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#define a 1010</span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">    long long  zkz;</span><br><span class="line">    int ks;</span><br><span class="line">&#125;stu;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    stu stu[a];</span><br><span class="line">    int n,sj,ks;</span><br><span class="line">    long long int zkz;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    int i=0;</span><br><span class="line">    for(i=0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%lld %d %d&quot;,&amp;zkz,&amp;sj,&amp;ks);</span><br><span class="line">        stu[sj].zkz=zkz;    //利用结构体下标来进行一个一个配对</span><br><span class="line">        stu[sj].ks=ks;</span><br><span class="line">    &#125;</span><br><span class="line">    int m=0;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;m);</span><br><span class="line">    for(i=0;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;sj);</span><br><span class="line">        printf(&quot;%lld %d\n&quot;,stu[sj].zkz,stu[sj].ks);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="选择法"><a href="#选择法" class="headerlink" title="选择法"></a>选择法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">不同于冒泡排序的一种排序，冒泡是对一个值进行向后位移。</span><br><span class="line">而选择则是每两个进行比较，找到最前面那个</span><br><span class="line">void sort()</span><br><span class="line">&#123;</span><br><span class="line">	int arr[10000]</span><br><span class="line">	int i=0,j=0;</span><br><span class="line">	int m;</span><br><span class="line">	for(i=0;i&lt;n-1;i++)</span><br><span class="line">	&#123;</span><br><span class="line">        m=i;</span><br><span class="line">        for(j=i+1;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">        	if(arr[m]&gt;arr[j])</span><br><span class="line">        	&#123;</span><br><span class="line">        		m=j;</span><br><span class="line">        	&#125;</span><br><span class="line">        	int t=0;</span><br><span class="line">        	t=arr[m];</span><br><span class="line">        	arr[m]=arr[i];</span><br><span class="line">        	arr[i]=t;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">很好用的一个函数</span><br><span class="line">strchr(a,&#x27;a&#x27;);</span><br><span class="line">在一个字符串中找到a字符，如果找到，返回a字符在这个字符串的地址</span><br><span class="line">如果没找到，返回NULL</span><br><span class="line"></span><br><span class="line">实例：L1-011 A-B</span><br><span class="line">代码如下</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">    char a[100000], b[100000];</span><br><span class="line"></span><br><span class="line">    fgets(a,sizeof(a),stdin);</span><br><span class="line">    fgets(b, sizeof(b), stdin);</span><br><span class="line">    for (int i = 0; i &lt; strlen(a); i++)</span><br><span class="line">    &#123;</span><br><span class="line">if (strchr(b, a[i]))</span><br><span class="line">&#123;</span><br><span class="line">continue;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">            printf(&quot;%c&quot;, a[i]);</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="向右对正"><a href="#向右对正" class="headerlink" title="向右对正"></a>向右对正</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只需要根据格式%5d即可，不用管正负号，他会自己搞定，不然会报错</span><br></pre></td></tr></table></figure>
+
+<h1 id="N个数求和"><a href="#N个数求和" class="headerlink" title="N个数求和"></a>N个数求和</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">先把我这次绝妙的想法记录下来，输入输出都对了，虽然说答案错误；</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int N = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;N);</span><br><span class="line">    int i = 0;</span><br><span class="line">    float sum = 0;</span><br><span class="line">    for (i = 0; i &lt; N; i++)</span><br><span class="line">    &#123;       </span><br><span class="line">        int fenmu, fenzi;</span><br><span class="line">        scanf(&quot;%d/%d&quot;, &amp;fenzi, &amp;fenmu);</span><br><span class="line">        float fenshu = (float)fenzi / fenmu;</span><br><span class="line">        sum = sum + fenshu;</span><br><span class="line">    &#125;</span><br><span class="line">    if (sum - (int)sum != 0)</span><br><span class="line">    &#123;</span><br><span class="line">        float xiaoshu = sum - (int)sum;</span><br><span class="line">        float j = 0;</span><br><span class="line">        float y = 0;</span><br><span class="line">        for (y = 1; y &lt; 100; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            for (j = 1; j &lt; 100; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (y / j &gt; xiaoshu - 0.00001 &amp;&amp; y / j &lt; xiaoshu + 0.000001)</span><br><span class="line">                &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if (y / j &gt; xiaoshu - 0.000001 &amp;&amp; y / j &lt; xiaoshu + 0.000001)</span><br><span class="line">            &#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if ((int)sum != 0)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;%d %d/%d\n&quot;, (int)sum, (int)y, (int)j);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            printf( &quot;%d/%d\n&quot;,  (int)y, (int)j);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%d\n&quot;, (int)sum);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="很有思路的一集"><a href="#很有思路的一集" class="headerlink" title="很有思路的一集"></a>很有思路的一集</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">当对于要输入非常长的整数并且要搞出他的每一位时</span><br><span class="line">我们可以创建char a[10000]数组</span><br><span class="line">并%s输入</span><br><span class="line">最后让他的每一位-&#x27;0&#x27;即为要求的每一位数字；</span><br><span class="line"></span><br><span class="line">&lt;!-- &lt;!-- ~~~ --&gt; --&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="一个小时插的花！！！"><a href="#一个小时插的花！！！" class="headerlink" title="一个小时插的花！！！"></a>一个小时插的花！！！</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"># define N 99</span><br><span class="line">void flower(char f[][N],int n)</span><br><span class="line">&#123;</span><br><span class="line">    char m = n / 2 + &#x27;A&#x27;;</span><br><span class="line">    int i = 0, j = 0;</span><br><span class="line">    for (i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (j = i; j &lt; n-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (m - i &lt;= &#x27;Z&#x27;)</span><br><span class="line">            &#123;</span><br><span class="line">                f[i][j] = m - i;</span><br><span class="line">                f[j][i] = m - i;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(m - i &gt; &#x27;Z&#x27;)</span><br><span class="line">            &#123;</span><br><span class="line">                f[i][j] = (m - i) -26;</span><br><span class="line">                f[j][i] = (m - i) -26;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for (i = n - 1; i &gt;= 0; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        for (j = i; j &gt; n-1-i; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            if (m - n + 1 + i &lt;= &#x27;Z&#x27;)</span><br><span class="line">            &#123;</span><br><span class="line">                f[i][j] = m - n + 1 + i;</span><br><span class="line">                f[j][i] = m - n + 1 + i;</span><br><span class="line">            &#125;</span><br><span class="line">            else if (m - n + 1 + i &gt; &#x27;Z&#x27;)</span><br><span class="line">            &#123;</span><br><span class="line">                f[i][j] = (m - n + 1 + i)-26;</span><br><span class="line">                f[j][i] = (m - n + 1 + i)-26;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (j = 0; j &lt; n; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot; %c&quot;, f[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    char f[N][N] = &#123;0&#125;;</span><br><span class="line">    flower(f, n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">程序文件名】zy11-1.cpp</span><br><span class="line"></span><br><span class="line">【题目描述】有n个学生，每个学生的数据包括姓名（10个字符）、出生日期（年-月-日），编写程序，功能是在main函数中输入n个学生信息，调用void sort(struct student stu[],int n)函数（按姓名从小到大排序）排序以后仍在main()中输出排序后的n个学生信息。输出时姓名和出生日期间用一个空格隔开，出生日期的输入输出格式为：yyyy-mm-dd。例如：</span><br><span class="line"></span><br><span class="line">输入：2</span><br><span class="line"></span><br><span class="line">         zhangsan</span><br><span class="line"></span><br><span class="line">         2004-2-10</span><br><span class="line"></span><br><span class="line">         lisi</span><br><span class="line"></span><br><span class="line">         2003-11-20</span><br><span class="line"></span><br><span class="line">输出：lisi 2003-11-20</span><br><span class="line"></span><br><span class="line">         zhangsan 2004-2-10</span><br></pre></td></tr></table></figure>
+<p>我的答案</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">struct student</span><br><span class="line">&#123;</span><br><span class="line">    char name[10];</span><br><span class="line">    int year;</span><br><span class="line">    int month;</span><br><span class="line">    int day;</span><br><span class="line">&#125;;</span><br><span class="line">int cmp_stu_name(const void* e1, const void* e2)</span><br><span class="line">&#123;</span><br><span class="line">    return strcmp(((struct student*)e1)-&gt;name, ((struct student*)e2)-&gt;name);</span><br><span class="line">&#125;</span><br><span class="line">void sort(struct student stu[], int n)</span><br><span class="line">&#123;</span><br><span class="line">    qsort(stu, n, sizeof(stu[0]), cmp_stu_name);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n = 0;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    struct student* p = (struct student*)malloc(n * sizeof(struct student));</span><br><span class="line">        if (p == NULL)</span><br><span class="line">       &#123;</span><br><span class="line">        printf(&quot;%s&quot;, strerror(errno));</span><br><span class="line">        return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            int i = 0;</span><br><span class="line">            for (i = 0; i &lt; n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                scanf(&quot;%s%d-%d-%d&quot;, &amp;p[i].name, &amp;p[i].year, &amp;p[i].month, &amp;p[i].day);</span><br><span class="line">            &#125;</span><br><span class="line">            sort(p, n);</span><br><span class="line">            for (i = 0; i &lt; n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                printf(&quot;%s %d-%d-%d\n&quot;, p[i].name, p[i].year,p[i].month,p[i].day);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        free(p);</span><br><span class="line">        p = NULL;</span><br><span class="line">        return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
