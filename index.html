@@ -407,9 +407,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-03-21 19:05:50 / Modified: 20:50:35" itemprop="dateCreated datePublished" datetime="2024-03-21T19:05:50+08:00">2024-03-21</time>
+      <time title="Created: 2024-03-21 19:05:50" itemprop="dateCreated datePublished" datetime="2024-03-21T19:05:50+08:00">2024-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-03-28 14:54:33" itemprop="dateModified" datetime="2024-03-28T14:54:33+08:00">2024-03-28</time>
     </span>
 
   
@@ -422,7 +428,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="随手笔记"><a href="#随手笔记" class="headerlink" title="随手笔记"></a>随手笔记</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>单个类型数据</p>
+          <hr>
+<h2 id="title-python"><a href="#title-python" class="headerlink" title="title:python"></a>title:python</h2><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>单个类型数据</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y=eval(input())#函数智能化处理</span><br><span class="line">print(y,type(y))</span><br></pre></td></tr></table></figure>
 
 <p>多个类型数据输入</p>
@@ -514,7 +521,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/11/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">算法</a>
+          <a href="/2024/03/11/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">Untitled</a>
         </h2>
 
         <div class="post-meta-container">
@@ -532,7 +539,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-26 17:15:27" itemprop="dateModified" datetime="2024-03-26T17:15:27+08:00">2024-03-26</time>
+      <time title="Modified: 2024-03-28 15:28:49" itemprop="dateModified" datetime="2024-03-28T15:28:49+08:00">2024-03-28</time>
     </span>
 
   
@@ -545,7 +552,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h1><h2 id="1-性质"><a href="#1-性质" class="headerlink" title="1.性质"></a>1.性质</h2><p>0异或任何数等于任何数<br>任何数跟自己异或为0<br>满足交换律和结合律<br>所以两数交换<br>可以连用三个异或</p>
+          <hr>
+<h2 id="title-算法与数据结构"><a href="#title-算法与数据结构" class="headerlink" title="title:算法与数据结构"></a>title:算法与数据结构</h2><h1 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h1><h2 id="1-性质"><a href="#1-性质" class="headerlink" title="1.性质"></a>1.性质</h2><p>0异或任何数等于任何数<br>任何数跟自己异或为0<br>满足交换律和结合律<br>所以两数交换<br>可以连用三个异或</p>
 <h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h2><h3 id="1-在一个数组中，只有一个出现奇数次的数，其余都是出现偶数次找出这个奇数次的数？"><a href="#1-在一个数组中，只有一个出现奇数次的数，其余都是出现偶数次找出这个奇数次的数？" class="headerlink" title="1.在一个数组中，只有一个出现奇数次的数，其余都是出现偶数次找出这个奇数次的数？"></a>1.在一个数组中，只有一个出现奇数次的数，其余都是出现偶数次找出这个奇数次的数？</h3><p>先int ji<br>数组为[a,b,c,d,e]<br>只需要<br>ji^a<br>ji^b<br>ji^c<br>ji^d<br>ji^e<br>就能找出这个奇数数</p>
 <p>实例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int ji = 0;</span><br><span class="line">	int c[] = &#123; 1,2,2,3,3,4,4 &#125;;</span><br><span class="line">	int sz = sizeof(c) / sizeof(c[0]);</span><br><span class="line">	int i = 0;</span><br><span class="line">	for (i = 0; i &lt; sz; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		ji = ji ^ c[i];</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d&quot;, ji);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -656,6 +664,11 @@
 <p>完全二叉树:一个二叉树要么最后一行是满的,要么最后一层从左到右依次变满</p>
 <p>满二叉树:字面意思，全满，可以通过节点数&#x3D;2的深度次方-1来判断</p>
 <p>平衡二叉树:对于任何一个子树来说，左树的高度和他右树的高度差不超过1</p>
+<h2 id="5-队列"><a href="#5-队列" class="headerlink" title="5.队列"></a>5.队列</h2><p>学了栈顺便学一下队列,其实就是先进先出的栈,比栈多了一个栈底的指针,通过比较栈底指针与栈顶指针来初始化栈;具体代码如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#define MaxSize 50</span><br><span class="line">struct Queue</span><br><span class="line">&#123;</span><br><span class="line">	int items[MaxSize];</span><br><span class="line">	int front;</span><br><span class="line">	int rear;</span><br><span class="line">&#125;;</span><br><span class="line">struct Queue* createqueue()</span><br><span class="line">&#123;</span><br><span class="line">	struct Queue* queue = (struct Queue*)malloc(sizeof(struct Queue));</span><br><span class="line">	queue-&gt;front = -1;</span><br><span class="line">	queue-&gt;rear = -1;</span><br><span class="line">	return queue;</span><br><span class="line">&#125;</span><br><span class="line">int isempty(struct Queue* queue)</span><br><span class="line">&#123;</span><br><span class="line">	return queue-&gt;rear == -1 ? 1 : 0;</span><br><span class="line">&#125;</span><br><span class="line">int isfull(struct Queue* queue)</span><br><span class="line">&#123;</span><br><span class="line">	return queue-&gt;rear == MaxSize - 1 ? 1 : 0;</span><br><span class="line">&#125;</span><br><span class="line">void enqueue(struct Queue* queue, int value)</span><br><span class="line">&#123;</span><br><span class="line">	if (isfull(queue))</span><br><span class="line">		return;</span><br><span class="line">		queue-&gt;items[++queue-&gt;rear] = value;</span><br><span class="line">		return;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">int dequeue(struct Queue* queue)</span><br><span class="line">&#123;</span><br><span class="line">	int item = 0;</span><br><span class="line">	if (isempty(queue))</span><br><span class="line">	&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	item = queue-&gt;items[++queue-&gt;front];</span><br><span class="line">	if (queue-&gt;front &gt; queue-&gt;rear) </span><br><span class="line">		queue-&gt;front = queue-&gt;rear = -1;</span><br><span class="line">	return item;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">	&#123;</span><br><span class="line">	struct Queue* queue = createqueue();</span><br><span class="line">	enqueue(queue, 1);</span><br><span class="line">	enqueue(queue, 2);</span><br><span class="line">	enqueue(queue, 3);</span><br><span class="line">	printf(&quot;%d&quot;, dequeue(queue));</span><br><span class="line">	printf(&quot;%d&quot;, dequeue(queue));</span><br><span class="line">	printf(&quot;%d&quot;, dequeue(queue));</span><br><span class="line">	return 0;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="1-图的储存方式"><a href="#1-图的储存方式" class="headerlink" title="1. 图的储存方式"></a>1. 图的储存方式</h2><ol>
 <li><p>邻接表:</p>
 <p>![屏幕截图 2024-03-26 162603](E:\study\博客照片\屏幕截图 2024-03-26 162603.png)</p>
