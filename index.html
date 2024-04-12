@@ -175,7 +175,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-27 21:20:36" itemprop="dateModified" datetime="2024-03-27T21:20:36+08:00">2024-03-27</time>
+      <time title="Modified: 2024-04-10 09:34:23" itemprop="dateModified" datetime="2024-04-10T09:34:23+08:00">2024-04-10</time>
     </span>
 
   
@@ -258,6 +258,7 @@
 <h2 id="2-详细"><a href="#2-详细" class="headerlink" title="2.详细"></a>2.详细</h2><ol start="5">
 <li>![屏幕截图 2024-03-27 210434](E:\study\汇编\huiphoto\屏幕截图 2024-03-27 210434.png)</li>
 </ol>
+<h3 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h3><p>寄存器就是存储器，寄存器在cpu内部，存储器在cpu外部</p>
 <p>最底下的是标志寄存器，只用16位的9位,有六个标志位三个控制位</p>
 <p>详细介绍:</p>
 <p>标志位:</p>
@@ -283,6 +284,209 @@
 </ol>
 <p><img src="E:\study\汇编\huiphoto\71749862752295884435ab738430578c.jpg" alt="71749862752295884435ab738430578c"></p>
 <p><img src="E:\study\汇编\huiphoto\86d63778c588ef98c500968738340040.jpg" alt="86d63778c588ef98c500968738340040"></p>
+<h3 id="80X86"><a href="#80X86" class="headerlink" title="80X86"></a>80X86</h3><p>一共二十位地址 1M&#x3D;2^20(0000H~FFFFFH)</p>
+<p>由于一次要读16字节(2B)，用相邻的高地址做高字节，自己做低字节</p>
+<h3 id="分段-读取"><a href="#分段-读取" class="headerlink" title="分段+读取"></a>分段+读取</h3><h1 id="第三章-80X86指令系统"><a href="#第三章-80X86指令系统" class="headerlink" title="第三章 80X86指令系统"></a>第三章 80X86指令系统</h1><h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>[标号:]指令助记符 目的操作数,源操作数[;注释]</p>
+<p>eg:mov AL,BL[;把BL数据送给AL]</p>
+<h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><p>找源操作数</p>
+<h3 id="操作数类型"><a href="#操作数类型" class="headerlink" title="操作数类型"></a>操作数类型</h3><p>操作数依其所在的不同位置可分为三种类型:立即数(最快)，寄存器操作数，存储器操作数(最慢)</p>
+<ol>
+<li><p>立即寻址方式</p>
+<p>操作数类型为立即数，存放在指令中</p>
+<p>eg: mov AX ,2000H</p>
+</li>
+<li><p>寄存器寻址方式</p>
+<p>操作数在寄存器中，在指令中指明寄存器的名称，通常用于寄存器之间的传送数据</p>
+<p>eg: mov AX ,BX</p>
+</li>
+<li><p>直接寻址方式</p>
+<p>直接寻址方式中操作数地址是16位偏移量直接包含在指令中，而操作数则默认在数据段中</p>
+<p>eg mov AX,[2000H]                以2000H为地址的那个数是操作数，默认为数据段DS</p>
+<p>也就是通过2000H 和DS寻找物理地址</p>
+<p>假设DS是1000H</p>
+<p>  10000</p>
+<p>  +2000</p>
+<p>&#x3D;12000</p>
+<p>要读16位就是要读取12000H及12001H</p>
+</li>
+<li><p>寄存器间接寻址</p>
+<p>eg: mov AX,[BX]                       以寄存器内容为地址,地址内的内容为操作数，只能是BX BP SI DI</p>
+<p>假设BX为2000H 没有特别指明找DS(仅DI SI BX)，SS(BP)</p>
+<p>假设DS&#x3D;1000H</p>
+<p>AX跟上面3一样</p>
+</li>
+<li><p>寄存器相对寻址方式</p>
+<p>以指定的寄存器内容加上指令中给出的位移量D,并以一个段寄存器为基准给出操作数的地址</p>
+<p>eg: mov AX,[BX+100H]           以方括号内的结果为地址</p>
+<p>假设BX&#x3D;1F00H</p>
+<p>加起来就为2000H</p>
+<p>结果仍然跟上面一样</p>
+</li>
+<li><p>基址变址寻址方式</p>
+<p>用一个基址寄存器和变址寄存器的值相加为操作数的偏移地址</p>
+<p>eg: mov AX,[BX+DI]                 方括号内即为地址(BP BX为基址寄存器)(SI DI为变址寄存器)以机制为准，BX找DS BP找SS</p>
+</li>
+<li><p>相对基址变址寻址</p>
+<p>eg: mov AX,[BX+DI+100H]</p>
+</li>
+</ol>
+<h2 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h2><ol>
+<li>OPD:表示目的操作数</li>
+<li>OPS:表示源操作数</li>
+<li>mem:表示内存单元</li>
+<li>reg:表示通用寄存器</li>
+<li>seg:表示段寄存器</li>
+<li>imm:表示立即数</li>
+</ol>
+<h2 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h2><ul>
+<li><p>mov AX,BL 是错误的,AX是16位，BL是八位</p>
+</li>
+<li><p>mov AX,0是可以的</p>
+</li>
+<li><p>mov [2000H],0H 是错误的，0不知道是16位还是8位</p>
+<p>   可改为 mov BYTE PTR[2000H],0H 相当于00H送进来</p>
+<p>​    或       mov WORD PTR[2000H],0H</p>
+</li>
+<li><p>立即数不能给段赋值:mov DS,2000H 错误</p>
+</li>
+<li><p>两内存中不允许互相传数据:mov [Bx],[2000H] 错误</p>
+</li>
+<li><p>ip,cs不允许做目的操作数 mov Ip(cs),Ax错误</p>
+</li>
+</ul>
+<h3 id="XCHG指令"><a href="#XCHG指令" class="headerlink" title="XCHG指令"></a>XCHG指令</h3><p>交换指令,指令格式:XCHG OPD,OPS</p>
+<p>没有立即数,和段寄存器</p>
+<p>同时两内存也不能交换!!</p>
+<p>只能通过通用寄存器reg来交换</p>
+<p>eg:MOV AX,[3000H]</p>
+<p>​    XCHG [2000H],AX</p>
+<p>​    MOV [3000H],AX</p>
+<h3 id="XLAT指令"><a href="#XLAT指令" class="headerlink" title="XLAT指令"></a>XLAT指令</h3><p>查表指令,格式:XLAT TABLE或XLAT</p>
+<p>eg:</p>
+<p>MOV BX,2000H    先要把首地址给BX</p>
+<p>MOV AL,06H        然后把偏移量给AL</p>
+<p>XLAT;                     AL&#x3D;24H&#x3D;36</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240408185848026.png" alt="image-20240408185848026"></p>
+<h3 id="指令PUSH和POP"><a href="#指令PUSH和POP" class="headerlink" title="指令PUSH和POP"></a>指令PUSH和POP</h3><p>堆栈指令格式PUSH OPD   先让SP-2送完+2</p>
+<p>​                       POP   OPD</p>
+<p>OPD必须是16位,不允许是立即数只能是通用寄存器段寄存器和内存单元</p>
+<p>SS:堆栈段</p>
+<p>SP:堆栈指针</p>
+<p>堆栈是地址向下递减的空间</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Tencent\TIM\Temp\7b96a3bc013128a0f7f5853ce95741b8.jpg" alt="7b96a3bc013128a0f7f5853ce95741b8"></p>
+<h3 id="标志传送指令"><a href="#标志传送指令" class="headerlink" title="标志传送指令"></a>标志传送指令</h3><p>LAHF</p>
+<p>取标志寄存器的低8位传送到AH</p>
+<p>SAHF</p>
+<p>把AH送回去</p>
+<p>PUSHF	</p>
+<p>先将SP-2然后把标志寄存器入栈</p>
+<p>POPF</p>
+<p>取出标志寄存器,SP+2</p>
+<h3 id="地址传送指令"><a href="#地址传送指令" class="headerlink" title="地址传送指令"></a>地址传送指令</h3><p>有效地址指令LEA</p>
+<p>格式LEA OPD,OPS    把OPS 的地址送给OPD</p>
+<p>OPS只能为变量名,标号,地址表达式</p>
+<p>示例 ,指令的区别</p>
+<p>LEA BX,[2000H]               BX&#x3D;[2000H]</p>
+<p>MOV BX,[2000H]             BX&#x3D;地址2000H的值</p>
+<h2 id="算数运算指令"><a href="#算数运算指令" class="headerlink" title="算数运算指令"></a>算数运算指令</h2><h3 id="加法指令"><a href="#加法指令" class="headerlink" title="加法指令"></a>加法指令</h3><ol>
+<li><p>ADD加法指令(影响所有标志位)</p>
+<p>格式:ADD OPD,OPS         不允许是段   OPD&#x3D;(OPS+OPD)</p>
+</li>
+<li><p>ADC带进位加法指令(影响所有标志位)</p>
+<p>格式:ADC OPD,OPS          OPD&#x3D;(OPS+OPD+CF)</p>
+</li>
+<li><p>INC指令(对进位位不影响)</p>
+<p>格式:INC OPD                  OPD&#x3D;OPD+1</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240408195457734.png" alt="image-20240408195457734"></p>
+</li>
+</ol>
+<h3 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h3><ol>
+<li>减法指令SUB</li>
+</ol>
+<p>   格式:SUB OPD,OPS    OPD&#x3D;OPD-OPS</p>
+<ol start="2">
+<li><p>带借位减法指令SBB</p>
+<p>格式:SBB OPD,OPS</p>
+</li>
+<li><p>减1指令DEC</p>
+<p>格式:DEC OPD</p>
+</li>
+<li><p>求补指令NEG</p>
+<p>指令:NEG OPD(只能是通用或内存)</p>
+<p>对0求补时,CF&#x3D;0,其他情况CF&#x3D;1</p>
+</li>
+<li><p>比较指令CMP</p>
+<p>格式:CMP OPD,OPS   OPD-OPS 结果不回送只影响标志位</p>
+</li>
+</ol>
+<h3 id="乘法指令"><a href="#乘法指令" class="headerlink" title="乘法指令"></a>乘法指令</h3><ol>
+<li><p>无符号数乘法指令MUL</p>
+<p>格式:MUL OPD </p>
+<p>(操作数可以是reg和mem不能是立即数)</p>
+<p>乘数默认,保存地址默认</p>
+<p>8位 * 8位&#x3D;16位:             (AL)*OPD&#x3D;(AX)</p>
+<p>16位 * 16位&#x3D;32位:        (AX)*OPD&#x3D;(DX)(AX)</p>
+</li>
+<li><p>有符号数乘法指令IMUL</p>
+<p>格式:IMUL OPD</p>
+</li>
+</ol>
+<h3 id="除法指令"><a href="#除法指令" class="headerlink" title="除法指令"></a>除法指令</h3><ol>
+<li><p>无符号数除法指令DIV</p>
+<p>格式:DIV OPD          </p>
+<p>16位&#x2F;8位        (AX)&#x2F;OPD&#x3D;(AL)……(AH)</p>
+<p>32位&#x2F;16位      (DX).(AX)&#x2F;OPD&#x3D;(AX)……(DX)</p>
+</li>
+<li><p>有符号数除法指令IDIV</p>
+<p>格式:DIV OPD</p>
+</li>
+<li><p>符号扩展指令</p>
+<ol>
+<li>字节扩展为字CBW                   被扩展的放在AL或</li>
+<li>字扩展为双字CWD                   AX</li>
+</ol>
+</li>
+</ol>
+<h2 id="十进制数调整指令"><a href="#十进制数调整指令" class="headerlink" title="十进制数调整指令"></a>十进制数调整指令</h2><p>分为压缩BCD码和非压缩BCD码</p>
+<ol>
+<li><p>压缩BCD码加法调整指令</p>
+<p>DAA</p>
+</li>
+<li><p>压缩BCD码减法调整指令</p>
+<p>DAS</p>
+</li>
+<li><p>非压缩BCD码加法调整指令</p>
+<p>AAA</p>
+</li>
+<li><p>非压缩BCD码减法调整指令</p>
+<p>AAS</p>
+</li>
+<li><p>非压缩BCD码乘法调整指令</p>
+</li>
+</ol>
+<p>​      AAM</p>
+<ol start="6">
+<li>非压缩BCD码除法调整指令</li>
+</ol>
+<p>​      AAD</p>
+<h2 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h2><p>AND OR NOT XOR TEST       只影响SF ZF PF</p>
+<p>AND OPD,OPS     </p>
+<p>OR OPD,OPS</p>
+<p>NOT OPD</p>
+<p>XOR OPD,OPS</p>
+<p>TEST OPD,OPS     两个相与完结果不回送,只影响上面三个标志位</p>
+<h2 id="移位指令"><a href="#移位指令" class="headerlink" title="移位指令"></a>移位指令</h2><p>格式</p>
+<p>SAL(算数)&#x2F;SHL(逻辑) OPD(对象),OPS(次数)</p>
+<p>​            eg:算术左移两次</p>
+<p>​            MOV CL,02H</p>
+<p>​            SAL AL,CL</p>
+<p>右移:</p>
+<p>SAR OPD,OPS</p>
+<p>SHR OPD,OPS</p>
+<h3 id="循环移位指令"><a href="#循环移位指令" class="headerlink" title="循环移位指令"></a>循环移位指令</h3><p>ROL OPD,OPS:不带进位循环左移</p>
+<p>ROR OPD,OPS:不带进位循环右移</p>
+<p>RCL OPD,OPS:带进位循环左移</p>
+<p>RCR OPD,OPS:带进位循环右移</p>
 
       
     </div>
@@ -337,9 +541,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-03-25 15:44:35 / Modified: 15:47:07" itemprop="dateCreated datePublished" datetime="2024-03-25T15:44:35+08:00">2024-03-25</time>
+      <time title="Created: 2024-03-25 15:44:35" itemprop="dateCreated datePublished" datetime="2024-03-25T15:44:35+08:00">2024-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-08 16:22:18" itemprop="dateModified" datetime="2024-04-08T16:22:18+08:00">2024-04-08</time>
     </span>
 
   
@@ -353,7 +563,97 @@
     
     <div class="post-body" itemprop="articleBody">
           <hr>
-<h2 id="title-数据结构"><a href="#title-数据结构" class="headerlink" title="title:数据结构"></a>title:数据结构</h2>
+<h2 id="title-数据结构"><a href="#title-数据结构" class="headerlink" title="title:数据结构"></a>title:数据结构</h2><h1 id="基本概念和术语"><a href="#基本概念和术语" class="headerlink" title="基本概念和术语"></a>基本概念和术语</h1><h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><ul>
+<li><strong>是客观事物的符号表示</strong> ,所有能输入到计算机中并被计算机程序处理的符号的总称,即<strong>数字化的信息</strong></li>
+</ul>
+<h2 id="数据元素"><a href="#数据元素" class="headerlink" title="数据元素"></a>数据元素</h2><ul>
+<li><p><strong>是数据的基本单位</strong>,在程序中通常作为一个整体来进行考虑和处理,  </p>
+</li>
+<li><p>一个数据元素可由若干个<strong>数据项</strong>组成</p>
+</li>
+</ul>
+<p>​                 数据项是数据的不可分割的‘最小单位’</p>
+<p>​                 数据项是对客观事物某一方面特性的数据描述</p>
+<h2 id="数据对象"><a href="#数据对象" class="headerlink" title="数据对象"></a>数据对象</h2><ul>
+<li>是性质相同的数据元素的集合,是数据的一个子集.如字符集合</li>
+</ul>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ul>
+<li><p>形式定义为一个二元组:DS&#x3D;(D,S)</p>
+</li>
+<li><p>D是数据元素的有限集(数据对象),S是D上关系的有限集(关系),即DS是指相互之间具有一定关系的数据元素的集合</p>
+</li>
+</ul>
+<h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><p>逻辑结构有4种基本类型:</p>
+<ol>
+<li>集合:除了属于同一个集合外没有其他关系</li>
+<li>线性结构:一对一</li>
+<li>树形结构:一对多</li>
+<li>图状结构或网状结构:数据元素之间存在多对多的关系</li>
+</ol>
+<h2 id="存储结构（物理）"><a href="#存储结构（物理）" class="headerlink" title="存储结构（物理）"></a>存储结构（物理）</h2><ul>
+<li><p>数据及其逻辑结构在物理内存呢中的存储方式,成为数据的存储结构</p>
+</li>
+<li><p>数据在计算机内存中的存储分为顺序存储和非顺序存储</p>
+<p>衍生出了数据结构两种不同的存储结构</p>
+<ol>
+<li>顺序存储结构</li>
+<li>链式存储结构</li>
+</ol>
+</li>
+</ul>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
+<li>解决问题方法的一种描述</li>
+</ul>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li><p>输入：有零个或多个输出，取自于某个特定对象的集合</p>
+</li>
+<li><p>输出：有一个或多个输出，同输出有着某些特定关系的量</p>
+</li>
+<li><p>有穷性：时间有穷</p>
+</li>
+<li><p>确定性：明确含义</p>
+</li>
+<li><p>可行性：能行的</p>
+</li>
+</ul>
+<h1 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h1><h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>线性表 是一种典型的线性结构</li>
+<li>所有结点具有相同的数据类型</li>
+<li>当表非空时,记作L&#x3D;(a1,a2,…,ai…,an)</li>
+<li>a1称为线性表的第一个(首)结点,an称为线性表的最后一个(尾)结点</li>
+<li>a1,a2…..都是ai的前驱,其中ai-1是ai的直接前驱</li>
+<li>ai+1,ai+2都是ai的后继,其中ai+1是ai的直接后继</li>
+</ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>基本特点:线性表中的数据元素是有序的,且是有限的</li>
+<li>若线性表中的结点是按值或关键字值由小到大或从大到小有序排列，则称线性表是有序的</li>
+<li>线性表是一种相当灵活的数据结构</li>
+</ul>
+<h3 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h3><ul>
+<li>线性表是物理结构</li>
+<li>顺序存储:把线性表的结点按逻辑顺序一次存放在一个地址连续的存储单元里用这种方式存储的线性表简称顺序表</li>
+<li>特点</li>
+<li><ol>
+<li>线性表的逻辑顺序于物理顺序一致</li>
+<li>数据元素之间相邻</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct sqlist&#123;</span><br><span class="line">  ElemType data[MAX_SIZE];//静态数组-&gt;初始化对应(2,1)</span><br><span class="line">  //ElemType *data 动态数组-&gt;初始化对应(2,2)</span><br><span class="line">  int len;//线性表的长度</span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure>
+
+<h3 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h3><ul>
+<li>例如链表</li>
+<li>特点:<ol>
+<li>可以连续也可以不连续</li>
+<li>结点的逻辑顺序和物理顺序不一定相同</li>
+<li>设置头结点</li>
+<li>双链表是为了克服单链表的单向性的缺陷而引入的</li>
+</ol>
+</li>
+</ul>
+<h2 id="线性表-1"><a href="#线性表-1" class="headerlink" title="线性表"></a>线性表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">#define MAX_SIZE 100</span><br><span class="line">typedef int ElemType;</span><br><span class="line">typedef struct sqlist &#123;</span><br><span class="line">	ElemType data[MAX_SIZE];</span><br><span class="line">	int len;</span><br><span class="line">&#125;sqlist;</span><br><span class="line"></span><br><span class="line">void initiate(sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">	L.len = 0;</span><br><span class="line">&#125;</span><br><span class="line">int length(const sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">	return L.len;</span><br><span class="line">&#125;</span><br><span class="line">ElemType get(const sqlist &amp;L, int i)//去下表为i的元素</span><br><span class="line">&#123;</span><br><span class="line">	if (i &lt; 0 || i &gt;= L.len)</span><br><span class="line">	&#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	return L.data[i];</span><br><span class="line">&#125;</span><br><span class="line">int locate(int L[], int e)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">void insertion(sqlist &amp;L, int i, ElemType e)</span><br><span class="line">&#123;</span><br><span class="line">	if (i&lt;0 || i&gt;L.len||L.len&gt;=MAX_SIZE)</span><br><span class="line">	&#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int j = L.len - 1; j &gt;= i; --j)</span><br><span class="line">	&#123;</span><br><span class="line">		L.data[j + 1] = L.data[j];</span><br><span class="line">	&#125;</span><br><span class="line">	L.data[i] = e;</span><br><span class="line">	L.len++;</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line">ElemType deleteElm(sqlist&amp; L, int i) &#123;</span><br><span class="line">	ElemType  x; //待删除的结点(下标=i)</span><br><span class="line">	if (L.len == 0) &#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else if (i &lt; 0 || i &gt;= L.len) &#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		x = L.data[i];   /*保存待删除结点的值*/</span><br><span class="line">		/*(A)i之后的所有结点依次前移一位(i+1 ~ n-1) */</span><br><span class="line">		for (int k = i + 1; k &lt; L.len; k++) &#123;</span><br><span class="line">			L.data[k - 1] = L.data[k];</span><br><span class="line">		&#125;</span><br><span class="line">		/*(B)线性表长度-1 */</span><br><span class="line">		L.len--;</span><br><span class="line">		return (x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">bool empty(sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">	if (L.len == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	return false;</span><br><span class="line">&#125;</span><br><span class="line">void clear(sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">	L.len = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -539,7 +839,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-28 15:28:49" itemprop="dateModified" datetime="2024-03-28T15:28:49+08:00">2024-03-28</time>
+      <time title="Modified: 2024-04-07 20:41:33" itemprop="dateModified" datetime="2024-04-07T20:41:33+08:00">2024-04-07</time>
     </span>
 
   
@@ -690,6 +990,59 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct edge</span><br><span class="line">&#123;</span><br><span class="line">   int weight;</span><br><span class="line">   struct node from;</span><br><span class="line">   struct node to;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>图有点集有边集，把东西都放着里面</p>
+<h1 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h1><h2 id="分配会议时间"><a href="#分配会议时间" class="headerlink" title="分配会议时间"></a>分配会议时间</h2><p>要求能举行最多的会议,思路是以结束时间谁早来进行安排</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">struct program</span><br><span class="line">&#123;</span><br><span class="line">	int start;</span><br><span class="line">	int end;</span><br><span class="line">&#125;;</span><br><span class="line">int cmp_str (const void *e1, const void*e2)</span><br><span class="line">&#123;</span><br><span class="line">	return ((struct program*)e1)-&gt;end - ((struct program*)e2)-&gt;end;</span><br><span class="line">&#125;</span><br><span class="line">int bestarrange(struct program program[], int timepoint,int n)</span><br><span class="line">&#123;</span><br><span class="line">	qsort(program, n, sizeof(program[0]), cmp_str);</span><br><span class="line">	int result = 0;</span><br><span class="line">	for (int i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (timepoint &lt;= program[i].start)</span><br><span class="line">		&#123;</span><br><span class="line">			result++;</span><br><span class="line">			timepoint = program[i].end;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return result;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	struct program program[10000];</span><br><span class="line">	int n=0;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	for (int i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(&quot;%d%d&quot;, &amp;program[i].start, &amp;program[i].end);</span><br><span class="line">	&#125;</span><br><span class="line">	int result = bestarrange(program, 0,n);</span><br><span class="line">	printf(&quot;%d&quot;, result);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="最长递增子序列"><a href="#最长递增子序列" class="headerlink" title="最长递增子序列"></a>最长递增子序列</h2><p>通过暴力搜索可以知道</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">int L(int nums[],int i,int sz)</span><br><span class="line">&#123;</span><br><span class="line">	if(i== sz-1)</span><br><span class="line">		return 1;</span><br><span class="line">	int max_len = 1;</span><br><span class="line">	for (int j = i + 1; j &lt; sz; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (nums[j] &gt; nums[i])</span><br><span class="line">		&#123;</span><br><span class="line">			max_len=max(max_len,L(nums, j,sz)+1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return max_len;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int nums[] = &#123; 1, 5, 2, 4, 3 &#125;;</span><br><span class="line">	int i = 0;</span><br><span class="line">	int max = 1;</span><br><span class="line">	int sz = sizeof(nums) / sizeof(nums[0]);</span><br><span class="line">	while (i &lt; sz)</span><br><span class="line">	&#123;</span><br><span class="line">		max=max(max,L(nums, i,sz));</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d&quot;, max);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但有一个重要的问题就是时间复杂度太大了</p>
+<p>我们可以利用一个哈希表来缩短所用时间，减少过程中的重复，当再次计算一个数的时候直接把他的结果返回，能大大减少时间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">#define Max_Size 100</span><br><span class="line">int Table[Max_Size] = &#123; 0 &#125;;</span><br><span class="line">void create_memo(int i,int length,int table[])</span><br><span class="line">&#123;</span><br><span class="line">		table[i]=length;</span><br><span class="line">&#125;</span><br><span class="line">int find_key(int table[], int key)</span><br><span class="line">&#123;</span><br><span class="line">	return (table[key] != 0);</span><br><span class="line">&#125;</span><br><span class="line">int L(int nums[],int i,int sz)</span><br><span class="line">&#123;</span><br><span class="line">	if (find_key(Table, i))</span><br><span class="line">	&#123;</span><br><span class="line">		return Table[i];</span><br><span class="line">	&#125;</span><br><span class="line">	if(i== sz-1)</span><br><span class="line">		return 1;</span><br><span class="line">	int max_len = 1;</span><br><span class="line">	int j = 0;</span><br><span class="line">	for ( j = i + 1; j &lt; sz; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (nums[j] &gt; nums[i])</span><br><span class="line">		&#123;</span><br><span class="line">			max_len=max(max_len,L(nums, j,sz)+1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	create_memo(i,max_len ,Table);</span><br><span class="line">	return max_len;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int nums[] = &#123; 1, 5, 2, 4, 3 &#125;;</span><br><span class="line">	int i = 0;</span><br><span class="line">	int max = 1;</span><br><span class="line">	int sz = sizeof(nums) / sizeof(nums[0]);</span><br><span class="line">	while (i &lt; sz)</span><br><span class="line">	&#123;</span><br><span class="line">		max=max(max,L(nums, i,sz));</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%d&quot;, max);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h1><h2 id="斐波那契递归"><a href="#斐波那契递归" class="headerlink" title="斐波那契递归"></a>斐波那契递归</h2><p>先从最简单的学起</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int n;</span><br><span class="line">int f(int x)</span><br><span class="line">&#123;</span><br><span class="line">	if (x == 1)return 1;</span><br><span class="line">	if (x == 2)return 2;</span><br><span class="line">	return f(x - 1) + f(x - 2);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	int res = f(n);</span><br><span class="line">	printf(&quot;%d\n&quot;, res);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>主要是返回前一项和后一项的和</p>
+<h3 id="递归搜索树"><a href="#递归搜索树" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407174351074.png" alt="image-20240407174351074"></p>
+<p>可得f(6)&#x3D;13</p>
+<h2 id="递归实现指数问题"><a href="#递归实现指数问题" class="headerlink" title="递归实现指数问题"></a>递归实现指数问题</h2><p>从1-n这n个整数中随机选取任意多个，输出所有可能的选择方案</p>
+<p>1到n有两种选择，选或不选，也就是2^n个</p>
+<p><strong>递归&#x2F;DFS最重要的是顺序</strong></p>
+<ol>
+<li>顺序:从1~n一次考虑每一个数选或不选</li>
+</ol>
+<h3 id="递归搜索树-1"><a href="#递归搜索树-1" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407181509670.png" alt="image-20240407181509670"></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">const int N = 20;</span><br><span class="line">int n;</span><br><span class="line">int st[N];//记录每个数的状态，0表示还没考虑,1表示选这个数,2表示不选这个数</span><br><span class="line">void dfs(int x)//x表示枚举到了哪个位置</span><br><span class="line">&#123;</span><br><span class="line">	if (x &gt; n)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int i = 1; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			if (st[i] == 1)</span><br><span class="line">			&#123;</span><br><span class="line">				printf(&quot;%d &quot;, i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//选</span><br><span class="line">	st[x] = 1;</span><br><span class="line">	dfs(x + 1);</span><br><span class="line">	st[x] = 0;//恢复现场</span><br><span class="line"></span><br><span class="line">	//不选</span><br><span class="line">	st[x] = 2;</span><br><span class="line">	dfs (x + 1);</span><br><span class="line">	st[x] = 0;//恢复现场</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	dfs(1);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="全排列问题"><a href="#全排列问题" class="headerlink" title="全排列问题"></a>全排列问题</h2><p><strong>顺序:</strong></p>
+<ol>
+<li><p><strong>依次枚举每个位置应该放那个数</strong></p>
+<p>假如是123,第一个位置可以放三个数</p>
+</li>
+<li><p><strong>依次枚举每个数应该放哪个位置</strong></p>
+<p>假如是123,第一个数1可以放三个位置</p>
+</li>
+</ol>
+<p>这里写第一种方法</p>
+<p>eg:当n&#x3D;3时,一共有三个位置</p>
+<h3 id="递归搜索树-2"><a href="#递归搜索树-2" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407190057917.png" alt="image-20240407190057917"></p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">const int N = 10;</span><br><span class="line">bool st[N]; //true表示已经选过,false表示没有选过这个数</span><br><span class="line">int n;</span><br><span class="line">int arr[N];//存的是答案,也就是123或者312这样的</span><br><span class="line">void dfs(int x)</span><br><span class="line">&#123;</span><br><span class="line">	if (x &gt; n)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int i = 1; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;%d &quot;, arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = 1; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (!st[i])</span><br><span class="line">		&#123;</span><br><span class="line">			st[i] = true;</span><br><span class="line">			arr[x] = i;</span><br><span class="line">			dfs(x + 1);</span><br><span class="line">			st[i] = false;</span><br><span class="line">			arr[x] = 0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	dfs(1);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="组合数问题"><a href="#组合数问题" class="headerlink" title="组合数问题"></a>组合数问题</h2><p><strong>顺序:</strong></p>
+<ol>
+<li><strong>依次枚举每个数放哪个位置</strong></li>
+<li><strong>依次枚举每个位置放那个数</strong></li>
+</ol>
+<p>这里选第二种</p>
+<h3 id="递归搜索树-3"><a href="#递归搜索树-3" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407193712503.png" alt="image-20240407193712503"></p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">int arr[21];</span><br><span class="line">int n,r;</span><br><span class="line">void dfs(int x,int start)</span><br><span class="line">&#123;</span><br><span class="line">	if (x &gt; r)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int i = 1; i &lt;= r; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;%3d&quot;, arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i=start;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		arr[x] = i;</span><br><span class="line">		dfs(x + 1,i+1);</span><br><span class="line">		arr[x] = 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d%d&quot;, &amp;n,&amp;r);</span><br><span class="line">	dfs(1,1);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="选数"><a href="#选数" class="headerlink" title="选数"></a>选数</h2><p>跟组合数问题一样的递归树</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">int n, k;</span><br><span class="line">int q[30];</span><br><span class="line">int arr[30];</span><br><span class="line">int res = 0;</span><br><span class="line">bool is_prime(int sum)</span><br><span class="line">&#123;</span><br><span class="line">	if (sum &lt; 2)return false;</span><br><span class="line">	for (int i = 2; i &lt;= sqrt(sum); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (sum % i == 0)return false;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">void dfs(int x, int start)</span><br><span class="line">&#123;</span><br><span class="line">	if ((x - 1) + (n - start + 1) &lt; k)</span><br><span class="line">	&#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;  //剪枝过程,x-1是已经选了几个,n-start+1是可选择数,两者加起来要大于等于k才能有解,否则直接return</span><br><span class="line">	if (x &gt; k)</span><br><span class="line">	&#123;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int i = 1; i &lt;=k; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			sum += arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		if (is_prime(sum))</span><br><span class="line">		&#123;</span><br><span class="line">			res++;</span><br><span class="line">		&#125;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = start;i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		arr[x] = q[i];</span><br><span class="line">		dfs(x + 1, i + 1);</span><br><span class="line">		arr[x] = 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d%d&quot;, &amp;n, &amp;k);</span><br><span class="line">	for (int i = 1; i &lt;=n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(&quot;%d&quot;, &amp;q[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	dfs(1, 1);</span><br><span class="line">	printf(&quot;%d\n&quot;, res);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -1260,7 +1613,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-31 19:51:17" itemprop="dateModified" datetime="2023-12-31T19:51:17+08:00">2023-12-31</time>
+      <time title="Modified: 2024-04-08 16:30:18" itemprop="dateModified" datetime="2024-04-08T16:30:18+08:00">2024-04-08</time>
     </span>
 
   
@@ -1332,7 +1685,7 @@
 <p>在程序中效果</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">struct stu</span><br><span class="line">&#123;</span><br><span class="line">	char name[10];</span><br><span class="line">	char num[10];</span><br><span class="line">	int score;</span><br><span class="line">	struct stu* next;</span><br><span class="line">&#125;;</span><br><span class="line">struct stu* createlink()</span><br><span class="line">&#123;</span><br><span class="line">	struct stu* h = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">	h-&gt;next = NULL;</span><br><span class="line">	int n;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	int i;</span><br><span class="line">	for (i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		struct stu* p = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">		scanf(&quot;%s%s%d&quot;, p-&gt;name, p-&gt;num, &amp;p-&gt;score);</span><br><span class="line">		p-&gt;next = h-&gt;next;</span><br><span class="line">		h-&gt;next = p;</span><br><span class="line">	&#125;</span><br><span class="line">	return h;                                 //头插法</span><br><span class="line">&#125;</span><br><span class="line">void printlink(struct stu* h)</span><br><span class="line">&#123;</span><br><span class="line">	h = h-&gt;next;</span><br><span class="line">	while (h != NULL)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%s %s %d\n&quot;, h-&gt;name, h-&gt;num, h-&gt;score);</span><br><span class="line">		h = h-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	struct stu* h = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">	h-&gt;next = NULL;</span><br><span class="line">	h = createlink();</span><br><span class="line">	printlink(h);</span><br><span class="line">	free(h);</span><br><span class="line">	h = NULL;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="尾插法"><a href="#尾插法" class="headerlink" title="尾插法"></a>尾插法</h2><p>单独效果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//&#125;</span><br><span class="line">struct stu* createlink()</span><br><span class="line">&#123;</span><br><span class="line">	struct stu* h = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">	h-&gt;next = NULL;</span><br><span class="line">	struct stu*r = h;</span><br><span class="line">	int n,i;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	for (i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		struct stu* p = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">		scanf(&quot;%s%s%d&quot;, p-&gt;name, p-&gt;num, &amp;p-&gt;score);</span><br><span class="line">		r-&gt;next = p;</span><br><span class="line">		p-&gt;next = NULL;</span><br><span class="line">		r = p;</span><br><span class="line">	&#125;                                  //尾插法</span><br><span class="line">	return h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">struct stu* createlink()</span><br><span class="line">&#123;</span><br><span class="line">	struct stu* h = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">	h-&gt;next = NULL;</span><br><span class="line">	struct stu*r = h;</span><br><span class="line">	int n,i;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	for (i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		struct stu* p = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">		scanf(&quot;%s%s%d&quot;, p-&gt;name, p-&gt;num, &amp;p-&gt;score);</span><br><span class="line">		r-&gt;next = p;</span><br><span class="line">		p-&gt;next = NULL;</span><br><span class="line">		r = p;</span><br><span class="line">	&#125;                                  //尾插法</span><br><span class="line">	return h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>程序效果</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">struct stu</span><br><span class="line">&#123;</span><br><span class="line">	char name[10];</span><br><span class="line">	char num[10];</span><br><span class="line">	int score;</span><br><span class="line">	struct stu* next;</span><br><span class="line">&#125;;</span><br><span class="line">struct stu* createlink()</span><br><span class="line">&#123;</span><br><span class="line">	struct stu* h = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">	h-&gt;next = NULL;</span><br><span class="line">	struct stu*r = h;</span><br><span class="line">	int n,i;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	for (i = 0; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		struct stu* p = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">		scanf(&quot;%s%s%d&quot;, p-&gt;name, p-&gt;num, &amp;p-&gt;score);</span><br><span class="line">		r-&gt;next = p;</span><br><span class="line">		p-&gt;next = NULL;</span><br><span class="line">		r = p;</span><br><span class="line">	&#125;                                  //尾插法</span><br><span class="line">	return h;</span><br><span class="line">&#125;</span><br><span class="line">void printlink(struct stu* h)</span><br><span class="line">&#123;</span><br><span class="line">	h = h-&gt;next;</span><br><span class="line">	while (h != NULL)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%s %s %d\n&quot;, h-&gt;name, h-&gt;num, h-&gt;score);</span><br><span class="line">		h = h-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	struct stu* h = (struct stu*)malloc(sizeof(struct stu));</span><br><span class="line">	h-&gt;next = NULL;</span><br><span class="line">	h = createlink();</span><br><span class="line">	printlink(h);</span><br><span class="line">	free(h);</span><br><span class="line">	h = NULL;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="利用前趋结点来插入数据"><a href="#利用前趋结点来插入数据" class="headerlink" title="利用前趋结点来插入数据"></a>利用前趋结点来插入数据</h2><p>单独效果</p>
