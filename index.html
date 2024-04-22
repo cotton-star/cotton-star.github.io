@@ -175,7 +175,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-17 09:33:11" itemprop="dateModified" datetime="2024-04-17T09:33:11+08:00">2024-04-17</time>
+      <time title="Modified: 2024-04-22 20:00:33" itemprop="dateModified" datetime="2024-04-22T20:00:33+08:00">2024-04-22</time>
     </span>
 
   
@@ -442,7 +442,7 @@
 <li><p>符号扩展指令</p>
 <ol>
 <li>字节扩展为字CBW                   被扩展的放在AL或</li>
-<li>字扩展为双字CWD                   AX</li>
+<li>字扩展为双字CWD                   Ax</li>
 </ol>
 </li>
 </ol>
@@ -500,7 +500,34 @@
 </li>
 </ol>
 <h2 id="循环控制指令"><a href="#循环控制指令" class="headerlink" title="循环控制指令"></a>循环控制指令</h2><p>循环指令默认利用cx计数器,循环次数先给cx,先做cx&#x3D;cx-1,判断cx是否等于0,等于零退出循环.</p>
+<h2 id="call-and-ret"><a href="#call-and-ret" class="headerlink" title="call and ret"></a>call and ret</h2><p>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">        mov al,20h</span><br><span class="line">        call s</span><br><span class="line">        ......</span><br><span class="line">    s:  mov ah,0</span><br><span class="line">        mov cl,10</span><br><span class="line">        div cl</span><br><span class="line">        or al,30h</span><br><span class="line">        mov bh,al</span><br><span class="line">        or ah,30h</span><br><span class="line">        mov bl,ah</span><br><span class="line">        ret</span><br><span class="line">        mov ax,4c00h</span><br><span class="line">        int 21h</span><br><span class="line">code ends</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240422185445606.png" alt="image-20240422185445606"></p>
+<h2 id="处理器控制指令"><a href="#处理器控制指令" class="headerlink" title="处理器控制指令"></a>处理器控制指令</h2><ol>
+<li>nop 没用</li>
+<li>lock 暂时封锁</li>
+<li>hit 暂时停止</li>
+<li>esc 交权指令</li>
+<li>wait 等</li>
+</ol>
+<h2 id="标志操作指令"><a href="#标志操作指令" class="headerlink" title="标志操作指令"></a>标志操作指令</h2><ol>
+<li>clc 清零</li>
+<li>stc 置一</li>
+<li>cmc 进位位求反</li>
+</ol>
+<p>前三条操作进位位</p>
+<ol start="4">
+<li><p>cld DF位置零</p>
+</li>
+<li><p>std DF位置置一</p>
+</li>
+<li><p>cli 把中断标志位置零</p>
+</li>
+<li><p>sti 中断标志位置一</p>
+</li>
+</ol>
+<h1 id="汇编语言程序格式"><a href="#汇编语言程序格式" class="headerlink" title="汇编语言程序格式"></a>汇编语言程序格式</h1>
       
     </div>
 
@@ -718,7 +745,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/21/python/" class="post-title-link" itemprop="url">Untitled</a>
+          <a href="/2024/03/21/python/" class="post-title-link" itemprop="url">python</a>
         </h2>
 
         <div class="post-meta-container">
@@ -736,7 +763,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-28 14:54:33" itemprop="dateModified" datetime="2024-03-28T14:54:33+08:00">2024-03-28</time>
+      <time title="Modified: 2024-04-22 23:33:16" itemprop="dateModified" datetime="2024-04-22T23:33:16+08:00">2024-04-22</time>
     </span>
 
   
@@ -749,8 +776,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <hr>
-<h2 id="title-python"><a href="#title-python" class="headerlink" title="title:python"></a>title:python</h2><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>单个类型数据</p>
+          <h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>单个类型数据</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y=eval(input())#函数智能化处理</span><br><span class="line">print(y,type(y))</span><br></pre></td></tr></table></figure>
 
 <p>多个类型数据输入</p>
@@ -797,6 +823,18 @@
 
 <p>循环：range</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">( 起点,终点（不包含）,步长)</span><br><span class="line"> range（start=0，stop，step=1）</span><br><span class="line">（1）start参数表示计数开始，默认值为0；</span><br><span class="line">（2）stop参数表示计数结束，但不包括stop的值；</span><br><span class="line">（3）step参数表示步长，默认值为1。</span><br></pre></td></tr></table></figure>
+
+<h1 id="re脚本"><a href="#re脚本" class="headerlink" title="re脚本"></a>re脚本</h1><h2 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h2><p>今天做到了base64的题目,但是对python的base64不是很理解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">origin = &#x27;5Mc58bPHLiAx7J8ocJIlaVUxaJvMcoYMaoPMaOfg15c475tscHfM/8==&#x27;</span><br><span class="line">biao = str.maketrans(&#x27;qvEJAfHmUYjBac+u8Ph5n9Od17FrICL/X0gVtM4Qk6T2z3wNSsyoebilxWKGZpRD&#x27;,&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;)</span><br><span class="line">print(base64.b64decode(origin.translate(biao)))</span><br></pre></td></tr></table></figure>
+
+<p>这题是这样做出来的,我们分析下base64的简单用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">base64.b64encode(data, altchars=None)：将bytes-like对象编码为base64格式的bytes。可以通过altchars参数指定替代字符集。</span><br><span class="line"></span><br><span class="line">base64.b64decode(s, altchars=None, validate=False)：将base64格式的bytes解码为原始数据。可以通过altchars参数指定替代字符集，validate参数用于指定是否验证输入数据的有效性。</span><br><span class="line"></span><br><span class="line">base64.b64encode() 和 base64.b64decode() 方法是最常用的用于base64编码和解码的函数。</span><br><span class="line"></span><br><span class="line">base64.urlsafe_b64encode(data) 和 base64.urlsafe_b64decode(s)：与上述函数类似，但使用URL和文件名安全的字符集进行编码和解码。</span><br><span class="line"></span><br><span class="line">base64.standard_b64encode(data) 和 base64.standard_b64decode(s)：使用标准的base64字符集进行编码和解码。</span><br><span class="line"></span><br><span class="line">base64.encodebytes(s) 和 base64.decodebytes(s)：这些函数与 b64encode() 和 b64decode() 类似，但是它们接受和返回的是bytes对象而不是字符串对象。</span><br></pre></td></tr></table></figure>
+
+<p>下面是maketrans的用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">maketrans() 是 Python 中用于创建字符映射表的方法之一。它通常与字符串对象的 translate() 方法一起使用，用于对字符串中的字符进行替换。</span><br><span class="line"></span><br><span class="line">用法：</span><br><span class="line">python</span><br><span class="line">translation_table = str.maketrans(x, y, z)</span><br><span class="line">其中，参数 x、y 和 z 都是长度相等的字符串，分别表示需要进行映射替换的字符集合。</span><br><span class="line"></span><br><span class="line">x：需要替换的字符集合。</span><br><span class="line">y：用于替换的字符集合。</span><br><span class="line">z：可选参数，用于指定需要从字符串中删除的字符集合。</span><br><span class="line">返回值：</span><br><span class="line">maketrans() 方法返回一个字典，表示字符的映射关系，可以传递给 translate() 方法使用。</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">python</span><br><span class="line"># 创建字符映射表</span><br><span class="line">translation_table = str.maketrans(&#x27;aeiou&#x27;, &#x27;12345&#x27;, &#x27;xyz&#x27;)</span><br><span class="line"></span><br><span class="line"># 使用映射表进行字符串替换</span><br><span class="line">result = &#x27;hello world&#x27;.translate(translation_table)</span><br><span class="line"></span><br><span class="line">print(result)  # 输出: &#x27;h2ll4 w3rld&#x27;</span><br><span class="line"></span><br><span class="line">在这个示例中，maketrans(&#x27;aeiou&#x27;, &#x27;12345&#x27;, &#x27;xyz&#x27;) 创建了一个字符映射表，将字符串中的元音字母 &#x27;aeiou&#x27; 分别替换为 &#x27;12345&#x27;，并将字符 &#x27;xyz&#x27; 删除。然后，&#x27;hello world&#x27;.translate(translation_table) 使用这个映射表对字符串进行了替换。</span><br></pre></td></tr></table></figure>
+
+<p>接下来是translate</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">translate() 方法是 Python 中字符串对象的一个内置方法，用于根据给定的映射表对字符串中的字符进行替换或删除操作。</span><br><span class="line"></span><br><span class="line">用法：</span><br><span class="line">python</span><br><span class="line">new_string = string.translate(translation_table)</span><br><span class="line">其中，string 是要进行替换操作的字符串，translation_table 是一个映射表，可以通过 maketrans() 方法创建。</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">translation_table：一个字典，表示字符的映射关系。这个字典通常是通过 maketrans() 方法创建的。</span><br><span class="line">返回值：</span><br><span class="line">translate() 方法返回一个新的字符串，该字符串是根据映射表对原始字符串进行替换或删除后得到的结果。</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">python</span><br><span class="line"># 创建字符映射表</span><br><span class="line">translation_table = str.maketrans(&#x27;aeiou&#x27;, &#x27;12345&#x27;)</span><br><span class="line"></span><br><span class="line"># 使用映射表进行字符串替换</span><br><span class="line">result = &#x27;hello world&#x27;.translate(translation_table)</span><br><span class="line"></span><br><span class="line">print(result)  # 输出: &#x27;h2ll4 w4rld&#x27;</span><br><span class="line">在这个示例中，我们首先使用 maketrans() 方法创建了一个字符映射表，将字符串中的元音字母 &#x27;aeiou&#x27; 分别替换为 &#x27;12345&#x27;。然后，我们使用 translate() 方法根据这个映射表对字符串 &#x27;hello world&#x27; 进行了替换操作，得到了新的字符串 &#x27;h2ll4 w4rld&#x27;。</span><br></pre></td></tr></table></figure>
 
 
       
