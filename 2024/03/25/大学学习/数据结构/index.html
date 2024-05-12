@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cotton-star.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="基本概念和术语数据 是客观事物的符号表示 ,所有能输入到计算机中并被计算机程序处理的符号的总称,即数字化的信息  数据元素 是数据的基本单位,在程序中通常作为一个整体来进行考虑和处理,    一个数据元素可由若干个数据项组成   ​                 数据项是数据的不可分割的‘最小单位’ ​                 数据项是对客观事物某一方面特性的数据描述 数据对象 是性质相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构">
+<meta property="og:url" content="https://cotton-star.github.io/2024/03/25/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基本概念和术语数据 是客观事物的符号表示 ,所有能输入到计算机中并被计算机程序处理的符号的总称,即数字化的信息  数据元素 是数据的基本单位,在程序中通常作为一个整体来进行考虑和处理,    一个数据元素可由若干个数据项组成   ​                 数据项是数据的不可分割的‘最小单位’ ​                 数据项是对客观事物某一方面特性的数据描述 数据对象 是性质相">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-03-25T07:44:35.456Z">
+<meta property="article:modified_time" content="2024-04-26T06:40:02.911Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://cotton-star.github.io/2024/03/25/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://cotton-star.github.io/2024/03/25/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/","path":"2024/03/25/大学学习/数据结构/","title":"数据结构"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据结构 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%9C%AF%E8%AF%AD"><span class="nav-number">1.</span> <span class="nav-text">基本概念和术语</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE"><span class="nav-number">1.1.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.</span> <span class="nav-text">数据元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.3.</span> <span class="nav-text">数据对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.4.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.</span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%EF%BC%88%E7%89%A9%E7%90%86%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">存储结构（物理）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">特性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">线性结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">3.1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8"><span class="nav-number">3.1.3.</span> <span class="nav-text">顺序存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="nav-number">3.1.4.</span> <span class="nav-text">链式存储</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8-1"><span class="nav-number">3.2.</span> <span class="nav-text">线性表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">合并两个链表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91"><span class="nav-number">5.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">5.1.</span> <span class="nav-text">二叉树</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">cotton-star</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/03/25/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据结构 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-03-25 15:44:35" itemprop="dateCreated datePublished" datetime="2024-03-25T15:44:35+08:00">2024-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-26 14:40:02" itemprop="dateModified" datetime="2024-04-26T14:40:02+08:00">2024-04-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="基本概念和术语"><a href="#基本概念和术语" class="headerlink" title="基本概念和术语"></a>基本概念和术语</h1><h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><ul>
+<li><strong>是客观事物的符号表示</strong> ,所有能输入到计算机中并被计算机程序处理的符号的总称,即<strong>数字化的信息</strong></li>
+</ul>
+<h2 id="数据元素"><a href="#数据元素" class="headerlink" title="数据元素"></a>数据元素</h2><ul>
+<li><p><strong>是数据的基本单位</strong>,在程序中通常作为一个整体来进行考虑和处理,  </p>
+</li>
+<li><p>一个数据元素可由若干个<strong>数据项</strong>组成</p>
+</li>
+</ul>
+<p>​                 数据项是数据的不可分割的‘最小单位’</p>
+<p>​                 数据项是对客观事物某一方面特性的数据描述</p>
+<h2 id="数据对象"><a href="#数据对象" class="headerlink" title="数据对象"></a>数据对象</h2><ul>
+<li>是性质相同的数据元素的集合,是数据的一个子集.如字符集合</li>
+</ul>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ul>
+<li><p>形式定义为一个二元组:DS&#x3D;(D,S)</p>
+</li>
+<li><p>D是数据元素的有限集(数据对象),S是D上关系的有限集(关系),即DS是指相互之间具有一定关系的数据元素的集合</p>
+</li>
+</ul>
+<h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><p>逻辑结构有4种基本类型:</p>
+<ol>
+<li>集合:除了属于同一个集合外没有其他关系</li>
+<li>线性结构:一对一</li>
+<li>树形结构:一对多</li>
+<li>图状结构或网状结构:数据元素之间存在多对多的关系</li>
+</ol>
+<h2 id="存储结构（物理）"><a href="#存储结构（物理）" class="headerlink" title="存储结构（物理）"></a>存储结构（物理）</h2><ul>
+<li><p>数据及其逻辑结构在物理内存呢中的存储方式,成为数据的存储结构</p>
+</li>
+<li><p>数据在计算机内存中的存储分为顺序存储和非顺序存储</p>
+<p>衍生出了数据结构两种不同的存储结构</p>
+<ol>
+<li>顺序存储结构</li>
+<li>链式存储结构</li>
+</ol>
+</li>
+</ul>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
+<li>解决问题方法的一种描述</li>
+</ul>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li><p>输入：有零个或多个输出，取自于某个特定对象的集合</p>
+</li>
+<li><p>输出：有一个或多个输出，同输出有着某些特定关系的量</p>
+</li>
+<li><p>有穷性：时间有穷</p>
+</li>
+<li><p>确定性：明确含义</p>
+</li>
+<li><p>可行性：能行的</p>
+</li>
+</ul>
+<h1 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h1><h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>线性表 是一种典型的线性结构</li>
+<li>所有结点具有相同的数据类型</li>
+<li>当表非空时,记作L&#x3D;(a1,a2,…,ai…,an)</li>
+<li>a1称为线性表的第一个(首)结点,an称为线性表的最后一个(尾)结点</li>
+<li>a1,a2…..都是ai的前驱,其中ai-1是ai的直接前驱</li>
+<li>ai+1,ai+2都是ai的后继,其中ai+1是ai的直接后继</li>
+</ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>基本特点:线性表中的数据元素是有序的,且是有限的</li>
+<li>若线性表中的结点是按值或关键字值由小到大或从大到小有序排列，则称线性表是有序的</li>
+<li>线性表是一种相当灵活的数据结构</li>
+</ul>
+<h3 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h3><ul>
+<li>线性表是物理结构</li>
+<li>顺序存储:把线性表的结点按逻辑顺序一次存放在一个地址连续的存储单元里用这种方式存储的线性表简称顺序表</li>
+<li>特点</li>
+<li><ol>
+<li>线性表的逻辑顺序于物理顺序一致</li>
+<li>数据元素之间相邻</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct sqlist&#123;</span><br><span class="line">  ElemType data[MAX_SIZE];//静态数组-&gt;初始化对应(2,1)</span><br><span class="line">  //ElemType *data 动态数组-&gt;初始化对应(2,2)</span><br><span class="line">  int len;//线性表的长度</span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure>
+
+<h3 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h3><ul>
+<li>例如链表</li>
+<li>特点:<ol>
+<li>可以连续也可以不连续</li>
+<li>结点的逻辑顺序和物理顺序不一定相同</li>
+<li>设置头结点</li>
+<li>双链表是为了克服单链表的单向性的缺陷而引入的</li>
+</ol>
+</li>
+</ul>
+<h2 id="线性表-1"><a href="#线性表-1" class="headerlink" title="线性表"></a>线性表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">#define MAX_SIZE 100</span><br><span class="line">typedef int ElemType;</span><br><span class="line">typedef struct sqlist &#123;</span><br><span class="line">	ElemType data[MAX_SIZE];</span><br><span class="line">	int len;</span><br><span class="line">&#125;sqlist;</span><br><span class="line"></span><br><span class="line">void initiate(sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">	L.len = 0;</span><br><span class="line">&#125;</span><br><span class="line">int length(const sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">	return L.len;</span><br><span class="line">&#125;</span><br><span class="line">ElemType get(const sqlist &amp;L, int i)//去下表为i的元素</span><br><span class="line">&#123;</span><br><span class="line">	if (i &lt; 0 || i &gt;= L.len)</span><br><span class="line">	&#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	return L.data[i];</span><br><span class="line">&#125;</span><br><span class="line">int locate(int L[], int e)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">void insertion(sqlist &amp;L, int i, ElemType e)</span><br><span class="line">&#123;</span><br><span class="line">	if (i&lt;0 || i&gt;L.len||L.len&gt;=MAX_SIZE)</span><br><span class="line">	&#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int j = L.len - 1; j &gt;= i; --j)</span><br><span class="line">	&#123;</span><br><span class="line">		L.data[j + 1] = L.data[j];</span><br><span class="line">	&#125;</span><br><span class="line">	L.data[i] = e;</span><br><span class="line">	L.len++;</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line">ElemType deleteElm(sqlist&amp; L, int i) &#123;</span><br><span class="line">	ElemType  x; //待删除的结点(下标=i)</span><br><span class="line">	if (L.len == 0) &#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else if (i &lt; 0 || i &gt;= L.len) &#123;</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		x = L.data[i];   /*保存待删除结点的值*/</span><br><span class="line">		/*(A)i之后的所有结点依次前移一位(i+1 ~ n-1) */</span><br><span class="line">		for (int k = i + 1; k &lt; L.len; k++) &#123;</span><br><span class="line">			L.data[k - 1] = L.data[k];</span><br><span class="line">		&#125;</span><br><span class="line">		/*(B)线性表长度-1 */</span><br><span class="line">		L.len--;</span><br><span class="line">		return (x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">bool empty(sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">	if (L.len == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	return false;</span><br><span class="line">&#125;</span><br><span class="line">void clear(sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">	L.len = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="合并两个链表"><a href="#合并两个链表" class="headerlink" title="合并两个链表"></a>合并两个链表</h1><p>这里用合并两个方程组举例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">typedef struct ploy</span><br><span class="line">&#123;</span><br><span class="line">    float coef;</span><br><span class="line">    int expn;</span><br><span class="line">    struct ploy* next;</span><br><span class="line">&#125; ploy;</span><br><span class="line"></span><br><span class="line">ploy* createlink()</span><br><span class="line">&#123;</span><br><span class="line">    ploy* h = (ploy*)malloc(sizeof(ploy));</span><br><span class="line">    h-&gt;next = NULL;</span><br><span class="line">    ploy* r = h;</span><br><span class="line">    int n, i;</span><br><span class="line">    printf(&quot;输入系数个数\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    for (i = 0; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ploy* p = (ploy*)malloc(sizeof(ploy));</span><br><span class="line">        printf(&quot;输入系数,指数\n&quot;);</span><br><span class="line">        scanf(&quot;%f,%d&quot;, &amp;(p-&gt;coef), &amp;(p-&gt;expn)); // 使用地址运算符&amp;</span><br><span class="line">        r-&gt;next = p;</span><br><span class="line">        p-&gt;next = NULL;</span><br><span class="line">        r = p;</span><br><span class="line">    &#125; // 尾插法</span><br><span class="line">    return h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ploy* merge(ploy* h1, ploy* h2)</span><br><span class="line">&#123;</span><br><span class="line">    ploy* help = (ploy*)malloc(sizeof(ploy)) ; // 不再使用数组</span><br><span class="line">    help-&gt;next = NULL;</span><br><span class="line">    ploy* p1 = h1-&gt;next, * p2 = h2-&gt;next, * ptr, *r =help; // 使用指针变量</span><br><span class="line">    while (p1 != NULL &amp;&amp; p2 != NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        ploy* p = (ploy*)malloc(sizeof(ploy)); // 动态分配内存</span><br><span class="line">        if (p1-&gt;expn == p2-&gt;expn)</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;expn = p1-&gt;expn;</span><br><span class="line">            p-&gt;coef = p1-&gt;coef + p2-&gt;coef;</span><br><span class="line">            p-&gt;next = NULL;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        else if (p1-&gt;expn &lt; p2-&gt;expn)</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;expn = p1-&gt;expn;</span><br><span class="line">            p-&gt;coef = p1-&gt;coef;</span><br><span class="line">            p-&gt;next = NULL;</span><br><span class="line">            p1 = p1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            p-&gt;expn = p2-&gt;expn;</span><br><span class="line">            p-&gt;coef = p2-&gt;coef;</span><br><span class="line">            p-&gt;next = NULL;</span><br><span class="line">            p2 = p2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        r-&gt;next = p;</span><br><span class="line">        p-&gt;next = NULL;</span><br><span class="line">        r = p;</span><br><span class="line">    &#125;</span><br><span class="line">    while (p1 != NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        ploy* p = (ploy*)malloc(sizeof(ploy)); // 动态分配内存</span><br><span class="line">        p-&gt;expn = p1-&gt;expn;</span><br><span class="line">        p-&gt;coef = p1-&gt;coef;</span><br><span class="line">        p-&gt;next = NULL;</span><br><span class="line">        r-&gt;next = p;</span><br><span class="line">        p-&gt;next = NULL;</span><br><span class="line">        r = p;</span><br><span class="line">        p1 = p1-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    while (p2 != NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        ploy* p = (ploy*)malloc(sizeof(ploy)); // 动态分配内存</span><br><span class="line">        p-&gt;expn = p2-&gt;expn;</span><br><span class="line">        p-&gt;coef = p2-&gt;coef;</span><br><span class="line">        p-&gt;next = NULL;</span><br><span class="line">        r-&gt;next = p;</span><br><span class="line">        p-&gt;next = NULL;</span><br><span class="line">        r = p;</span><br><span class="line">        p2 = p2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    return help;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void printlink(ploy* h)</span><br><span class="line">&#123;</span><br><span class="line">    h = h-&gt;next;</span><br><span class="line">    printf(&quot;合并后\n&quot;);</span><br><span class="line">    while (h != NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%.1fx^%d&quot;, h-&gt;coef, h-&gt;expn);</span><br><span class="line">        if (h-&gt;next != NULL)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;+&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        h = h-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;输入第一个链表\n&quot;);</span><br><span class="line">    ploy* h1 = createlink();</span><br><span class="line">    printf(&quot;输入第二个链表\n&quot;);</span><br><span class="line">    ploy* h2 = createlink();</span><br><span class="line">    ploy* he = merge(h1, h2);</span><br><span class="line">    printlink(he);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>两个方程组相乘</p>
+<p>思路是建立一个链表来储存一个链表第一个数去×另一个的所有</p>
+<p>​           再建立一个空链表</p>
+<p>最后将两个链表相加,不断往后得到答案</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">ploy* mul(ploy* h1, ploy* h2)</span><br><span class="line">&#123;</span><br><span class="line">    ploy* help = (ploy*)malloc(sizeof(ploy));</span><br><span class="line">    help-&gt;next = NULL;</span><br><span class="line">    ploy* res = (ploy*)malloc(sizeof(ploy));</span><br><span class="line">    res-&gt;next = NULL;;</span><br><span class="line">    ploy* t = h2-&gt;next;</span><br><span class="line">    while (t != NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        ploy* r = help; </span><br><span class="line">        ploy* s = h1-&gt;next; </span><br><span class="line">        while (s != NULL)</span><br><span class="line">        &#123;</span><br><span class="line">            ploy* p = (ploy*)malloc(sizeof(ploy));</span><br><span class="line">            p-&gt;coef = s-&gt;coef * t-&gt;coef;</span><br><span class="line">            p-&gt;expn = s-&gt;expn + t-&gt;expn;</span><br><span class="line">            r-&gt;next = p;</span><br><span class="line">            p-&gt;next = NULL;</span><br><span class="line">            r = p;</span><br><span class="line">            s = s-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        res = merge(res, help); // 将当前计算得到的结果链表和之前的结果链表合并</span><br><span class="line">        t = t-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><ul>
+<li>度</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有几个孩子就有几个度,度为0的点为叶子结点</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>除了根节点之外都是内部结点</p>
+</li>
+<li><p>结点没有高度,只有树有高度,所以一个结点的高度就是把这个节点当作根节点的树的高度</p>
+</li>
+<li><p>森林</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把一颗树的根结点删除,余下的树就构成了森林</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/21/re/python/" rel="prev" title="python">
+                  <i class="fa fa-angle-left"></i> python
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/25/re/%E6%B1%87%E7%BC%96/" rel="next" title="汇编">
+                  汇编 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">cotton-star</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

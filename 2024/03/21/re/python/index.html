@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cotton-star.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="输入单个类型数据 12y&#x3D;eval(input())#函数智能化处理print(y,type(y))  多个类型数据输入 12d,e,f&#x3D;map(int,input(&quot;以逗号隔开:&quot;).split(&quot;,&quot;))# 全部转成整形数,并在输入时用,来分辨。  将一个数据分开 123456&gt;&gt;&gt; a&#x3D;[]&gt;&gt;&gt; a&#x3D;input()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python">
+<meta property="og:url" content="https://cotton-star.github.io/2024/03/21/re/python/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="输入单个类型数据 12y&#x3D;eval(input())#函数智能化处理print(y,type(y))  多个类型数据输入 12d,e,f&#x3D;map(int,input(&quot;以逗号隔开:&quot;).split(&quot;,&quot;))# 全部转成整形数,并在输入时用,来分辨。  将一个数据分开 123456&gt;&gt;&gt; a&#x3D;[]&gt;&gt;&gt; a&#x3D;input()">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-03-21T11:05:50.747Z">
+<meta property="article:modified_time" content="2024-04-25T10:03:13.896Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://cotton-star.github.io/2024/03/21/re/python/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://cotton-star.github.io/2024/03/21/re/python/","path":"2024/03/21/re/python/","title":"python"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">导入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#math%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">math库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time%E5%BA%93"><span class="nav-number">3.2.</span> <span class="nav-text">time库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%AE%B5%E5%87%BD%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">分段函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#re"><span class="nav-number"></span> <span class="nav-text">re</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#base64"><span class="nav-number">1.</span> <span class="nav-text">base64</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find"><span class="nav-number">2.</span> <span class="nav-text">find</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">cotton-star</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/03/21/re/python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-03-21 19:05:50" itemprop="dateCreated datePublished" datetime="2024-03-21T19:05:50+08:00">2024-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-25 18:03:13" itemprop="dateModified" datetime="2024-04-25T18:03:13+08:00">2024-04-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>单个类型数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y=eval(input())#函数智能化处理</span><br><span class="line">print(y,type(y))</span><br></pre></td></tr></table></figure>
+
+<p>多个类型数据输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d,e,f=map(int,input(&quot;以逗号隔开:&quot;).split(&quot;,&quot;))</span><br><span class="line"># 全部转成整形数,并在输入时用,来分辨。</span><br></pre></td></tr></table></figure>
+
+<p>将一个数据分开</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=[]</span><br><span class="line">&gt;&gt;&gt; a=input().split(&quot;@&quot;)</span><br><span class="line">dsdaddsd@afafasfad@affgsafaaff@afsa</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">[&#x27;dsdaddsd&#x27;, &#x27;afafasfad&#x27;, &#x27;affgsafaaff&#x27;, &#x27;afsa&#x27;]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将一个数据拆开成多个数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; str=input(&quot;以空格隔开&quot;)</span><br><span class="line">以空格隔开10 20 30</span><br><span class="line">&gt;&gt;&gt; a,b,c=str.split(&quot; &quot;,2)# 2是分三段</span><br><span class="line">&gt;&gt;&gt; a</span><br><span class="line">&#x27;10&#x27;</span><br><span class="line">&gt;&gt;&gt; type(a)</span><br><span class="line">&lt;class &#x27;str&#x27;&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">（1）一般方式：</span><br><span class="line">print（输出项1[，输出项2，…，输出项n，sep=分隔符，end=结束符]）</span><br><span class="line">print(&quot;Hello World&quot; )</span><br><span class="line">print(&quot;Hello World&quot;,sep=&#x27; &#x27;,end=&#x27;\n&#x27;,file=sys.stdout,flush=False)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">注:</span><br><span class="line">y,m,d=map(float,input().splir(&quot;/&quot;))</span><br><span class="line">print(round(y,4))</span><br><span class="line">print(m)</span><br><span class="line">print(round(d,4))</span><br><span class="line"># 四舍五入过短不执行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（2）格式字符方式：</span><br><span class="line">print（”其他输出项 %格式字符” %变量名）</span><br><span class="line">print(&quot;he is %d years old&quot; % (25))</span><br><span class="line">print(&quot;name:%s \t weight:%.1f&quot;%(&quot;cl&quot;,70.11))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">（3）print+format方式：</span><br><span class="line">print(‘ &#123;[参数编号或参数名][:格式限定符]&#125;’.format(参数或变量))</span><br><span class="line"> print(&#x27;&#123;0&#125;,&#123;1&#125;&#x27;.format(&#x27;Leo&#x27;,32))</span><br><span class="line"> print(&#x27;&#123;&#125;,&#123;&#125;,&#123;&#125;&#x27;.format(&#x27;Leo&#x27;,&#x27;boy&#x27;,32))</span><br><span class="line"> print(&#x27;&#123;name&#125;,&#123;sex&#125;,&#123;age&#125;&#x27;.format(age=32,sex=&#x27;male&#x27;,name=&#x27;Leo&#x27;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">因此上面的注可以改造</span><br><span class="line">print(&quot;%.4f&quot;%y)</span><br><span class="line">print(&quot;&#123;:.4f&#125;&quot;.format(m))</span><br><span class="line">print(round(d))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">T=float(input(&quot;请输入摄氏温度:&quot;))</span><br><span class="line">F=32+T*1.8</span><br><span class="line">print(&quot;%.1f摄氏度=%f华氏度&quot;%(T,F))#.1f可化为g</span><br><span class="line">print(&quot;&#123;:.1f&#125;摄氏度=&#123;&#125;华氏度&quot;.format(T,F))</span><br></pre></td></tr></table></figure>
+
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><ol>
+<li><p>用import导入模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">命令:：import 模块1[.类名  as    别名][，模块2 [.</span><br><span class="line">类名  as    别名]]……</span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import math,random </span><br><span class="line">math.log2(8)</span><br><span class="line">random.randint(1,10)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">plt.scatter(5,5,s=50,color=&#x27;r&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>from…inport命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from 模块  import 类 或 *（全部)</span><br><span class="line">form math import * </span><br><span class="line">print（2*pi）</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="math库"><a href="#math库" class="headerlink" title="math库"></a>math库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">math库中的常用函数</span><br><span class="line">pi 常数π（近似值）      sin(x)正弦函数</span><br><span class="line">e  常数e（近似值）      cos(x)余弦函数</span><br><span class="line">fabs   求绝对值        tan(x)正切函数</span><br><span class="line">trunc(x) 将一个浮点数结尾为整数  ceil(x)大于等于x的最小整数</span><br><span class="line">factorial(x)求x的阶乘     floor(x)小于等于x的最大整数</span><br><span class="line">pow(x,y)求x的y次方sqrt(x)  求x的平方根</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">求点到直线的距离</span><br><span class="line">from math import *</span><br><span class="line">a,b,c=map(float,input(&quot;输入a,b,c,逗号为间隔&quot;).split(&quot;,&quot;))</span><br><span class="line">x0,y0=map(float,input(&quot;输入x0,y0,逗号间隔&quot;).split(&quot;,&quot;))</span><br><span class="line">d=(a*x0+b*y0-c)/sqrt(a*a+b*b)</span><br><span class="line">print(&quot;距离=%.4f&quot;%d)</span><br></pre></td></tr></table></figure>
+
+<h3 id="time库"><a href="#time库" class="headerlink" title="time库"></a>time库</h3><p>计算机中时间的表示从“1970年1月1日00:00:00” （ unix 时间点 ）开始，以毫秒（1&#x2F;1000 秒）进行 计算</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">b=int(time.time())</span><br><span class="line">b//365//24//60//60+1970</span><br><span class="line">#结果为2024</span><br></pre></td></tr></table></figure>
+
+<h3 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line">x = np.linspace(0,15, 1000)# 从0-15找1000个点</span><br><span class="line">i1 = [1 if (i&lt;5) else 0 for i in x]</span><br><span class="line">i2 = [1 if (5&lt;=i&lt;10) else 0 for i in x]</span><br><span class="line">i3 = [1 if (i&gt;=10) else 0 for i in x]</span><br><span class="line">y = np.cos(x)* i1 + x * i2 + np.sin(x)*i3</span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.show( )</span><br></pre></td></tr></table></figure>
+
+<p>循环：range</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">( 起点,终点（不包含）,步长)</span><br><span class="line"> range（start=0，stop，step=1）</span><br><span class="line">（1）start参数表示计数开始，默认值为0；</span><br><span class="line">（2）stop参数表示计数结束，但不包括stop的值；</span><br><span class="line">（3）step参数表示步长，默认值为1。</span><br></pre></td></tr></table></figure>
+
+<h1 id="re"><a href="#re" class="headerlink" title="re"></a>re</h1><h2 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h2><p>今天做到了base64的题目,但是对python的base64不是很理解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line">origin = &#x27;5Mc58bPHLiAx7J8ocJIlaVUxaJvMcoYMaoPMaOfg15c475tscHfM/8==&#x27;</span><br><span class="line">biao = str.maketrans(&#x27;qvEJAfHmUYjBac+u8Ph5n9Od17FrICL/X0gVtM4Qk6T2z3wNSsyoebilxWKGZpRD&#x27;,&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;)</span><br><span class="line">print(base64.b64decode(origin.translate(biao)))</span><br></pre></td></tr></table></figure>
+
+<p>这题是这样做出来的,我们分析下base64的简单用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">base64.b64encode(data, altchars=None)：将bytes-like对象编码为base64格式的bytes。可以通过altchars参数指定替代字符集。</span><br><span class="line"></span><br><span class="line">base64.b64decode(s, altchars=None, validate=False)：将base64格式的bytes解码为原始数据。可以通过altchars参数指定替代字符集，validate参数用于指定是否验证输入数据的有效性。</span><br><span class="line"></span><br><span class="line">base64.b64encode() 和 base64.b64decode() 方法是最常用的用于base64编码和解码的函数。</span><br><span class="line"></span><br><span class="line">base64.urlsafe_b64encode(data) 和 base64.urlsafe_b64decode(s)：与上述函数类似，但使用URL和文件名安全的字符集进行编码和解码。</span><br><span class="line"></span><br><span class="line">base64.standard_b64encode(data) 和 base64.standard_b64decode(s)：使用标准的base64字符集进行编码和解码。</span><br><span class="line"></span><br><span class="line">base64.encodebytes(s) 和 base64.decodebytes(s)：这些函数与 b64encode() 和 b64decode() 类似，但是它们接受和返回的是bytes对象而不是字符串对象。</span><br></pre></td></tr></table></figure>
+
+<p>下面是maketrans的用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">maketrans() 是 Python 中用于创建字符映射表的方法之一。它通常与字符串对象的 translate() 方法一起使用，用于对字符串中的字符进行替换。</span><br><span class="line"></span><br><span class="line">用法：</span><br><span class="line">python</span><br><span class="line">translation_table = str.maketrans(x, y, z)</span><br><span class="line">其中，参数 x、y 和 z 都是长度相等的字符串，分别表示需要进行映射替换的字符集合。</span><br><span class="line"></span><br><span class="line">x：需要替换的字符集合。</span><br><span class="line">y：用于替换的字符集合。</span><br><span class="line">z：可选参数，用于指定需要从字符串中删除的字符集合。</span><br><span class="line">返回值：</span><br><span class="line">maketrans() 方法返回一个字典，表示字符的映射关系，可以传递给 translate() 方法使用。</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">python</span><br><span class="line"># 创建字符映射表</span><br><span class="line">translation_table = str.maketrans(&#x27;aeiou&#x27;, &#x27;12345&#x27;, &#x27;xyz&#x27;)</span><br><span class="line"></span><br><span class="line"># 使用映射表进行字符串替换</span><br><span class="line">result = &#x27;hello world&#x27;.translate(translation_table)</span><br><span class="line"></span><br><span class="line">print(result)  # 输出: &#x27;h2ll4 w3rld&#x27;</span><br><span class="line"></span><br><span class="line">在这个示例中，maketrans(&#x27;aeiou&#x27;, &#x27;12345&#x27;, &#x27;xyz&#x27;) 创建了一个字符映射表，将字符串中的元音字母 &#x27;aeiou&#x27; 分别替换为 &#x27;12345&#x27;，并将字符 &#x27;xyz&#x27; 删除。然后，&#x27;hello world&#x27;.translate(translation_table) 使用这个映射表对字符串进行了替换。</span><br></pre></td></tr></table></figure>
+
+<p>接下来是translate</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">translate() 方法是 Python 中字符串对象的一个内置方法，用于根据给定的映射表对字符串中的字符进行替换或删除操作。</span><br><span class="line"></span><br><span class="line">用法：</span><br><span class="line">python</span><br><span class="line">new_string = string.translate(translation_table)</span><br><span class="line">其中，string 是要进行替换操作的字符串，translation_table 是一个映射表，可以通过 maketrans() 方法创建。</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line">translation_table：一个字典，表示字符的映射关系。这个字典通常是通过 maketrans() 方法创建的。</span><br><span class="line">返回值：</span><br><span class="line">translate() 方法返回一个新的字符串，该字符串是根据映射表对原始字符串进行替换或删除后得到的结果。</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">python</span><br><span class="line"># 创建字符映射表</span><br><span class="line">translation_table = str.maketrans(&#x27;aeiou&#x27;, &#x27;12345&#x27;)</span><br><span class="line"></span><br><span class="line"># 使用映射表进行字符串替换</span><br><span class="line">result = &#x27;hello world&#x27;.translate(translation_table)</span><br><span class="line"></span><br><span class="line">print(result)  # 输出: &#x27;h2ll4 w4rld&#x27;</span><br><span class="line">在这个示例中，我们首先使用 maketrans() 方法创建了一个字符映射表，将字符串中的元音字母 &#x27;aeiou&#x27; 分别替换为 &#x27;12345&#x27;。然后，我们使用 translate() 方法根据这个映射表对字符串 &#x27;hello world&#x27; 进行了替换操作，得到了新的字符串 &#x27;h2ll4 w4rld&#x27;。</span><br></pre></td></tr></table></figure>
+
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><p>今天做了一道逆向,发现除了遍历还有一种函数更快的找到字符串</p>
+<p>在Python中，你可以使用<code>find()</code>方法或者<code>index()</code>方法来在一个字符串中寻找另一个字符串的值。</p>
+<ol>
+<li><code>find(substring, start, end)</code>方法返回子字符串第一次出现的位置，如果没有找到则返回-1。其中，<code>substring</code>是你要查找的子字符串，<code>start</code>是搜索的起始位置（默认为0），<code>end</code>是搜索的结束位置（默认为字符串的长度）。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string = <span class="string">&quot;hello world&quot;</span></span><br><span class="line">substring = <span class="string">&quot;world&quot;</span></span><br><span class="line">position = string.find(substring)</span><br><span class="line"><span class="built_in">print</span>(position)  <span class="comment"># 输出：6</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>index(substring, start, end)</code>方法也返回子字符串第一次出现的位置，但如果没有找到则会抛出一个ValueError异常。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">string = <span class="string">&quot;hello world&quot;</span></span><br><span class="line">substring = <span class="string">&quot;world&quot;</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    position = string.index(substring)</span><br><span class="line">    <span class="built_in">print</span>(position)  <span class="comment"># 输出：6</span></span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Substring not found&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这两种方法都可以在一个字符串中寻找另一个字符串的值。</p>
+<p>通过这个我写出了如下的代码解决问题</p>
+<p>原题:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for i in range(len(flag)):</span><br><span class="line">    s1 = ord(flag[i])//17</span><br><span class="line">    s2 = ord(flag[i])%17</span><br><span class="line">    result += s[(s1+i)%34]+s[-(s2+i+1)%34]</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<p>逆向</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">i=0</span><br><span class="line">for m in range (0,len(result),2):</span><br><span class="line">    s1=(s.find(result[m]))-i</span><br><span class="line">    s2=-(s.find(result[m+1]))-i-1</span><br><span class="line">    if s2&lt;0:</span><br><span class="line">        s2=s2+34</span><br><span class="line">    flag+=chr(s1*17+s2)</span><br><span class="line">    i+=1</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/11/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="prev" title="算法与数据结构">
+                  <i class="fa fa-angle-left"></i> 算法与数据结构
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/25/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="next" title="数据结构">
+                  数据结构 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">cotton-star</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
