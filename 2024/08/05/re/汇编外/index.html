@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cotton-star.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="寄存器 所有寄存器都是16位  首先介绍通用寄存器AX  它能够保留2^16-1的数据,用十六进制表示就是FFFFH  eg:  在AX中存储18D  —12H  —10010B  在低位10010高位全是0,就像这样   有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性  通用寄存器均可以分为两个独立的8位寄存器使用   例如:AX可以分为AH和AL,AX,BX CX,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一记汇编小知识">
+<meta property="og:url" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="寄存器 所有寄存器都是16位  首先介绍通用寄存器AX  它能够保留2^16-1的数据,用十六进制表示就是FFFFH  eg:  在AX中存储18D  —12H  —10010B  在低位10010高位全是0,就像这样   有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性  通用寄存器均可以分为两个独立的8位寄存器使用   例如:AX可以分为AH和AL,AX,BX CX,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414165842227.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414170341478.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414192922466.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414193712000.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414195311928.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414200032907.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416215751009.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416223911145.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416225044670.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416225055159.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416230132763.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240424203114589.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425142631260.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425142946054.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425144756599.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425150047438.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425150313841.png">
+<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425151854218.png">
+<meta property="article:published_time" content="2024-08-05T02:17:09.490Z">
+<meta property="article:modified_time" content="2024-04-25T07:55:54.525Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png">
+
+
+<link rel="canonical" href="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/","path":"2024/08/05/re/汇编外/","title":"记一记汇编小知识"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>记一记汇编小知识 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97"><span class="nav-number">1.1.</span> <span class="nav-text">字</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mov%E5%92%8Cadd%E6%8C%87%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">mov和add指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">确定物理地址的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%9A%84%E5%88%86%E6%AE%B5%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">内存的分段表示法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DEBUG"><span class="nav-number">5.</span> <span class="nav-text">DEBUG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cpu%E4%BB%8E%E5%86%85%E5%AD%98%E5%8D%95%E5%85%83%E4%B8%AD%E8%A6%81%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-number">6.</span> <span class="nav-text">cpu从内存单元中要读取数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DS%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%AE%B5"><span class="nav-number">7.</span> <span class="nav-text">DS与数据段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#div"><span class="nav-number">8.</span> <span class="nav-text">div</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jmp"><span class="nav-number">9.</span> <span class="nav-text">jmp</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">cotton-star</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="记一记汇编小知识 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          记一记汇编小知识
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-08-05 10:17:09" itemprop="dateCreated datePublished" datetime="2024-08-05T10:17:09+08:00">2024-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-25 15:55:54" itemprop="dateModified" datetime="2024-04-25T15:55:54+08:00">2024-04-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p> 所有寄存器都是16位</p>
+<p> 首先介绍通用寄存器AX</p>
+<p> 它能够保留2^16-1的数据,用十六进制表示就是FFFFH</p>
+<p> eg:</p>
+<p> 在AX中存储18D</p>
+<p> —12H</p>
+<p> —10010B  在低位10010高位全是0,就像这样</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png" alt="image-20240414165241454"></p>
+<ul>
+<li>有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性</li>
+</ul>
+<p>通用寄存器均可以分为两个独立的8位寄存器使用   例如:AX可以分为AH和AL,AX,BX CX,DX都是如此</p>
+<h2 id="字"><a href="#字" class="headerlink" title="字"></a>字</h2><ul>
+<li><p>8086是16位CPU</p>
+<p>就是说8086的字长是16位</p>
+</li>
+<li><p>一个字可以存在一个16位寄存器中</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165842227.png" alt="image-20240414165842227"></p>
+</li>
+</ul>
+<h1 id="mov和add指令"><a href="#mov和add指令" class="headerlink" title="mov和add指令"></a>mov和add指令</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414170341478.png" alt="image-20240414170341478"></p>
+<p>add al,bl    意思是把bx的低八位和ax的低八位相加结果给al即ax的低八位</p>
+<p>同理ah为ax的高八位</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414192922466.png" alt="image-20240414192922466"></p>
+<p>最后一句需要注意</p>
+<p>al位置的值发生溢出是,不会向ax进位,直接丢弃</p>
+<h1 id="确定物理地址的方法"><a href="#确定物理地址的方法" class="headerlink" title="确定物理地址的方法"></a>确定物理地址的方法</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414193712000.png" alt="image-20240414193712000"></p>
+<h1 id="内存的分段表示法"><a href="#内存的分段表示法" class="headerlink" title="内存的分段表示法"></a>内存的分段表示法</h1><p>!!! 内存并没有分段,段的划分来自CPU</p>
+<p>偏移地址16位,所以只能寻址64k,范围为0~ffffH</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414195311928.png" alt="image-20240414195311928"></p>
+<p>段地址很重要,用专门的寄存器存放段地址</p>
+<p>有四个段寄存器</p>
+<p>CS–代码段  DS–数据段</p>
+<p>SS–堆栈段  ES–附加段寄存器</p>
+<h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><p>debug是一个调试程序</p>
+<p>能查看CPU中各种寄存器的内容内存的情况</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414200032907.png" alt="image-20240414200032907"></p>
+<p>jmp 1000:0 跳转到此位置</p>
+<p>jmp ax 把ip 跳到ax的位置</p>
+<h1 id="cpu从内存单元中要读取数据"><a href="#cpu从内存单元中要读取数据" class="headerlink" title="cpu从内存单元中要读取数据"></a>cpu从内存单元中要读取数据</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416215751009.png" alt="image-20240416215751009"></p>
+<h1 id="DS与数据段"><a href="#DS与数据段" class="headerlink" title="DS与数据段"></a>DS与数据段</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416223911145.png" alt="image-20240416223911145"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225044670.png" alt="image-20240416225044670"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225055159.png" alt="image-20240416225055159"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416230132763.png" alt="image-20240416230132763"></p>
+<h1 id="div"><a href="#div" class="headerlink" title="div"></a>div</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240424203114589.png" alt="image-20240424203114589"></p>
+<h1 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142631260.png" alt="image-20240425142631260"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142946054.png" alt="image-20240425142946054"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425144756599.png" alt="image-20240425144756599"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150047438.png" alt="image-20240425150047438"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150313841.png" alt="image-20240425150313841"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425151854218.png" alt="image-20240425151854218"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/08/05/re/%E9%80%86%E5%90%91/" rel="prev" title="逆向">
+                  <i class="fa fa-angle-left"></i> 逆向
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/08/05/re/crackme160/" rel="next" title="crackme160">
+                  crackme160 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">cotton-star</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

