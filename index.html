@@ -1,1375 +1,230 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"cotton-star.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>向前</title><meta name="author" content="cotton-star"><meta name="copyright" content="cotton-star"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="向前">
 <meta property="og:url" content="https://cotton-star.github.io/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="向前">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cotton-star.github.io/image/1.jpg">
 <meta property="article:author" content="cotton-star">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cotton-star.github.io/image/1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://cotton-star.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
-
-<link rel="canonical" href="https://cotton-star.github.io/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo</title>
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
 
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
 
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-</header>
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
         
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  <aside class="sidebar">
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '向前',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-10-11 20:29:49'
+}</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
 
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
+  preloader.initLoading()
+  window.addEventListener('load', preloader.endLoading)
 
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">cotton-star</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">35</span>
-          <span class="site-state-item-name">posts</span>
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/image/hujing.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/image/test.gif" alt="Logo"><span class="site-name">向前</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">向前</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/10/09/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%BB%84/" title="计组">计组</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-09T00:00:29.475Z" title="发表于 2024-10-09 08:00:29">2024-10-09</time></span></div><div class="content">1.计算机系统性能评价 CPI :一条指令执行所需的时钟周期个数 IPC: 一个时钟周期内所执行的指令个数 CPU时间:指令个数 * CPI  *   T 片内逻辑电路完全相同:—-&gt;CPI相同 MIPS&#x3D;f&#x2F;(CPI*10**6) 加速比&#x3D; 性能x&#x2F;性能y&#x3D;1&#x2F;性能y   &#x2F;   1&#x2F;性能x &#x3D;   执行时间y&#x2F;执行时间x 性能加速比: 1&#x2F;(0.5+0.5&#x2F;10) amdahl        性能提升倍数&#x3D;1&#x2F;(改进部分占比&#x2F;CPI+未改进部分占比)  2.运算方法与运算器</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/10/05/re/ida%E5%9C%A8linux%E4%B8%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/" title="ida在linux下动态调试">ida在linux下动态调试</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-05T01:07:37.053Z" title="发表于 2024-10-05 09:07:37">2024-10-05</time></span></div><div class="content">调试准备就不多写了  1在这里打开终端,运行   1像这样写入地址就可以使用了    这样就可以运行了 </div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/10/04/pwn/pwntools/" title="pwntools">pwntools</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-04T09:10:21.223Z" title="发表于 2024-10-04 17:10:21">2024-10-04</time></span></div><div class="content">1. 常用交互操作 远程连接 remote(host,port)  send(string) 发送string  sendline(string) 发送string及换行符  sendafter(magic,string) 接收到magic后发送string  sendlineafter(magic,string) 接收到magic后发送string及换行符  recvn(N)接受N字节字符  recvline()接受一行输出  recvlines(N)接受N行输出  recvuntil(magic)一直接受直到出现magic  clean()丢掉所有缓冲   eg1:   moectf NotEnoughTime 主要就是以字节传输转成字符串a.decode要注意,然后就是b’     ‘要注意 123456789101112131415161718192021222324from pwn import...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">计算机网络</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-04T06:20:21.722Z" title="发表于 2024-10-04 14:20:21">2024-10-04</time></span></div><div class="content">1. 网络,互联网和因特网12341. 网络由若干结点和连接这些结点的链路组成2. 多个网络可以通过路由器连接起来,形成互联网3. 因特网是世界上最大的互联网络+ ISP 互联网服务提供者  2. 三种交换方式 电路交换 1建立连接,通信时延小  报文交换 1先存储到结点交换机,不需要建立连接,需要较大存储缓存空间  分组交换 12将报文划分成若干个等长的数据段,然后给各数据段添加首部构成分组无需建立连接,减少出错概率,加速传输   3. 计算机网络的定义和分类 定义 1互连,自治(独立计算机),集合(至少两台)  分类 1234按交换技术分类:1. 电路交换网络2. 报文交换网络3. 分组交换网络  123按使用者分类:1. 公用网2. 专用网  123按传输介质分类:1. 有线网络2. 无线网络  12345按覆盖范围分类1. 广域网WAN2. 城域网MAN3. 局域网LAN4. 个域网PAN  12345按拓扑结构分类:1. 总线型网络2. 星型网络3. 环形网络4. 网状型网络  4....</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/" title="取证">取证</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-02T02:48:35.842Z" title="发表于 2024-10-02 10:48:35">2024-10-02</time></span></div><div class="content">0. 小知识1. MagnetRAMCaptu 1MagnetRAMCaptu是一个获取内存镜像的软件  1. [陇剑杯 2021]内存分析 1由于刚开始接触啥都不会,写一写咋抄的答案   跟其他的一样,由于是问密码,先是 -f 文件 imageinfo 把 profiles 的第一个记录下来后面要用    由于是密码,所以可以 -f 文件 –profile&#x3D;Win7SP1x64 hashdump 看到md5,能解密就解密得到答案&#x2F;&#x2F;&#x2F;&#x2F; 这题也可以 -f 文件 –profile&#x3D;Win7SP1x64 lsadump 直接得到答案     第二题纯抄答案,wp说要查看桌面寻找一个HUAWEI文件,没想到实在是太多了,根本找不到 1--profile=Win7SP1x64 filescan igrep &quot;Desktop&quot;    后来又在另一个wp中看到可以直接寻找HUAWEI ,但是为啥是HUAWEI …. 1--profile=Win7SP1x64 filescan | findstr...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/09/22/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF%E5%86%B3%E8%B5%9B/" title="鲲鹏杯决赛">鲲鹏杯决赛</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-22T04:04:15.381Z" title="发表于 2024-09-22 12:04:15">2024-09-22</time></span></div><div class="content">task3 筛选http,随便打开一个查找tcp流,在流2035找到关键信息   1把这个扔进base64解码,得到答案   calc_revenge还是沙箱题 1nc进去,先输一堆乱七八糟的试试水,发现出不来,一直冒hacker  1之后试了一堆代码,发现𝓮val(inp𝓾t())这个代码刚好进得去  1再次试试open(&quot;flag&quot;).read,还是不行  1又再𝓮val(inp𝓾t())试了初赛的breakpoint(),刚好又进去了  12最后还是找,输入__import__(&#x27;os&#x27;).system(&#x27;sh&#x27;)刚好又进去了,最后ls找到里面有flag名字,cat 过去就得到了flag  </div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" title="流量分析">流量分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-21T14:24:49.596Z" title="发表于 2024-09-21 22:24:49">2024-09-21</time></span></div><div class="content"> 过滤 1http.request.full_url contains &quot;.config.php&quot; or http.response_for.url contains &quot;.config.php&quot;    token的中间带了个点就是jwt认证方式    1前面是header,中间是base64加密的,第三部分是签证,知道token之后就扔进jwt.io进行解密       这句话的意思是把1.c改名为looter.c    把looter.c放进security里    把looter.so放到pam.d里     当分析很多的时候,我们要选择    找账号密码   123456除了 www-data，还有许多其他常见的用户和权限设置，包括：root：系统管理员，拥有所有权限，能够执行任何操作。nobody：无特定权限的用户，通常用于不需要特殊权限的服务。dbus：用于D-Bus消息总线的用户，管理系统和应用间的通信。      1frpc是代理客户端  </div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/" title="鲲鹏杯初赛">鲲鹏杯初赛</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-20T07:42:33.142Z" title="发表于 2024-09-20 15:42:33">2024-09-20</time></span></div><div class="content">RE_signin题目写opcode,在网上搜了下开始看  12写点关键的:这里意思是base=i%4如果base==0,跳转226,下面类似的就不写了   123下面的意思是 temp += ((ord(flag[i]) % ord(key[i % 14])) 同理下面还有*/^操作   123456789101112131415161718最后分析完毕写出脚本key = &#x27;mrl64_l0v3Miku&#x27;cipher = [221, -25, 9072, 94, 163, -17, 10260, 0, 198, 16, 8547, 13, 158, -22, 9701, 29, 193, 41, 5096, 13, 219, 27, 6018, 125, 172, 15, 5243, 45, 182, -19, 5292, 84, 149, -41, 10476, 4, 174, 51, 4235, 12]flag = &#x27;&#x27;for i in range(len(cipher)):    base = i % 4    key_char...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/09/02/re/moectf/" title="moectf">moectf</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-09-02T13:31:05.986Z" title="发表于 2024-09-02 21:31:05">2024-09-02</time></span></div><div class="content">xtea 1通过分析我们看出这是两个tea加密,只要两次tea即可解出   123456789101112看tea里面,这个逆向很简单    v5 = *a3;	v6 = a3[1];	delta = (( - 855655493)) * 32;	for (unsigned int i = 0; i &lt; round; i++)	&#123;		v6 -= ((key[(delta &gt;&gt; 11) &amp; 3]) + delta) ^ (v5 + ((v5 &gt;&gt; 5) ^ (16 * v5)));		delta += 855655493;		v5 -= (key[(delta &amp; 3)] + delta) ^ (v6 + ((v6 &gt;&gt; 5) ^ (16 * v6)));	&#125;	*a3 = v5;	a3[1] = v6;   12通过判断语句,找到加密后的flag,注意是小端序存储,也就是0x269669a3 3d0b78bd...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/08/05/re/crackme160/" title="crackme160">crackme160</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-05T02:17:33.167Z" title="发表于 2024-08-05 10:17:33">2024-08-05</time></span></div><div class="content">1由于有一些因为病毒打不开暂时跳过  1.Daniel-rj1.1 爆破 1要爆破其实很简单,通过dbg找到这个提示字符串   1我们分析上下文,发现这个jne是判断失败的关键,直接把他nop即可   1.2 算法1一般来说有循环的会存在算法   1在附近找到这个,在一步步分析后,发现用户与密码的关系,就是+5   2.Bjanes 1依然是先找字符串  </div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="/image/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">cotton-star</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2024/10/09/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%BB%84/" title="计组">计组</a><time datetime="2024-10-09T00:00:29.475Z" title="发表于 2024-10-09 08:00:29">2024-10-09</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/10/05/re/ida%E5%9C%A8linux%E4%B8%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/" title="ida在linux下动态调试">ida在linux下动态调试</a><time datetime="2024-10-05T01:07:37.053Z" title="发表于 2024-10-05 09:07:37">2024-10-05</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/10/04/pwn/pwntools/" title="pwntools">pwntools</a><time datetime="2024-10-04T09:10:21.223Z" title="发表于 2024-10-04 17:10:21">2024-10-04</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">计算机网络</a><time datetime="2024-10-04T06:20:21.722Z" title="发表于 2024-10-04 14:20:21">2024-10-04</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/" title="取证">取证</a><time datetime="2024-10-02T02:48:35.842Z" title="发表于 2024-10-02 10:48:35">2024-10-02</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/" title="查看更多"><i class="fas fa-angle-right"></i></a>
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/10/">
+          <span class="card-archive-list-date">十月 2024</span>
+          <span class="card-archive-list-count">5</span>
         </a>
-      </div>
-  </nav>
-</div>
-
-        </div>
-      </div>
-    </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/10/09/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/09/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%BB%84/" class="post-title-link" itemprop="url">计组</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-10-09 08:00:29" itemprop="dateCreated datePublished" datetime="2024-10-09T08:00:29+08:00">2024-10-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-11 11:07:21" itemprop="dateModified" datetime="2024-10-11T11:07:21+08:00">2024-10-11</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-计算机系统性能评价"><a href="#1-计算机系统性能评价" class="headerlink" title="1.计算机系统性能评价"></a>1.计算机系统性能评价</h1><ul>
-<li>CPI :一条指令执行所需的时钟周期个数</li>
-<li>IPC: 一个时钟周期内所执行的指令个数</li>
-<li>CPU时间:指令个数 * CPI  *   T</li>
-<li>片内逻辑电路完全相同:—-&gt;CPI相同</li>
-<li>MIPS&#x3D;f&#x2F;(CPI*10**6)</li>
-<li>加速比&#x3D; 性能x&#x2F;性能y&#x3D;1&#x2F;性能y   &#x2F;   1&#x2F;性能x &#x3D;   执行时间y&#x2F;执行时间x</li>
-<li>性能加速比: 1&#x2F;(0.5+0.5&#x2F;10)</li>
-<li>amdahl        性能提升倍数&#x3D;1&#x2F;(改进部分占比&#x2F;CPI+未改进部分占比)</li>
-</ul>
-<h1 id="2-运算方法与运算器"><a href="#2-运算方法与运算器" class="headerlink" title="2.运算方法与运算器"></a>2.运算方法与运算器</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/10/05/re/ida%E5%9C%A8linux%E4%B8%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/05/re/ida%E5%9C%A8linux%E4%B8%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/" class="post-title-link" itemprop="url">ida在linux下动态调试</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-10-05 09:07:37 / Modified: 09:13:27" itemprop="dateCreated datePublished" datetime="2024-10-05T09:07:37+08:00">2024-10-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>调试准备就不多写了</p>
-<p><img src="/2024/10/05/re/ida%E5%9C%A8linux%E4%B8%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/image-20241005090813133.png" alt="image-20241005090813133"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在这里打开终端,运行</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/05/re/ida%E5%9C%A8linux%E4%B8%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/image-20241005091040336.png" alt="image-20241005091040336"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">像这样写入地址就可以使用了</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/05/re/ida%E5%9C%A8linux%E4%B8%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/image-20241005091321645.png" alt="image-20241005091321645"></p>
-<p><img src="/2024/10/05/re/ida%E5%9C%A8linux%E4%B8%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/image-20241005091203316.png" alt="image-20241005091203316"></p>
-<p>这样就可以运行了</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/10/04/pwn/pwntools/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/04/pwn/pwntools/" class="post-title-link" itemprop="url">pwntools</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-10-04 17:10:21" itemprop="dateCreated datePublished" datetime="2024-10-04T17:10:21+08:00">2024-10-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-05 09:52:58" itemprop="dateModified" datetime="2024-10-05T09:52:58+08:00">2024-10-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-常用交互操作"><a href="#1-常用交互操作" class="headerlink" title="1. 常用交互操作"></a>1. 常用交互操作</h1><ul>
-<li><p>远程连接 remote(host,port)</p>
-</li>
-<li><p>send(string) 发送string</p>
-</li>
-<li><p>sendline(string) 发送string及换行符</p>
-</li>
-<li><p>sendafter(magic,string) 接收到magic后发送string</p>
-</li>
-<li><p>sendlineafter(magic,string) 接收到magic后发送string及换行符</p>
-</li>
-<li><p>recvn(N)接受N字节字符</p>
-</li>
-<li><p>recvline()接受一行输出</p>
-</li>
-<li><p>recvlines(N)接受N行输出</p>
-</li>
-<li><p>recvuntil(magic)一直接受直到出现magic</p>
-</li>
-<li><p>clean()丢掉所有缓冲</p>
-</li>
-</ul>
-<p>eg1: </p>
-<ul>
-<li><p>moectf <strong>NotEnoughTime</strong></p>
-<p>主要就是以字节传输转成字符串a.decode要注意,然后就是b’     ‘要注意</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context(log_level=&#x27;debug&#x27;)</span><br><span class="line">r=remote(&#x27;192.168.68.1&#x27;,54239)</span><br><span class="line">r.sendlineafter(b&#x27;1 + 1 =&#x27;,str(2))</span><br><span class="line">r.sendlineafter(b&#x27;4 / 3 - 1 =&#x27;,str(0))</span><br><span class="line">r.recvuntil(b&#x27;OK, then some tough ones. Be WELL PREPARED!&#x27;)</span><br><span class="line">while 1:</span><br><span class="line">	a=r.recvuntil(b&#x27;=&#x27;)</span><br><span class="line">	a=a.decode(&#x27;utf-8&#x27;)</span><br><span class="line">	b=&#x27;&#x27;</span><br><span class="line">	for i in a:</span><br><span class="line">		if i ==&#x27;\n&#x27;:</span><br><span class="line">			continue</span><br><span class="line">		if i ==&#x27;=&#x27;:</span><br><span class="line">			continue</span><br><span class="line">		if i == &#x27;/&#x27;:</span><br><span class="line">			b+=&#x27;//&#x27;</span><br><span class="line">			continue </span><br><span class="line">		b+=i</span><br><span class="line">	print(&#x27;b=&#x27;,b)</span><br><span class="line">	c=eval(b)</span><br><span class="line">	print(c)</span><br><span class="line">	r.send(str(int(c)).encode(&#x27;utf-8&#x27;))</span><br><span class="line">	r.sendline(b&#x27;\n&#x27;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-title-link" itemprop="url">计算机网络</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-10-04 14:20:21" itemprop="dateCreated datePublished" datetime="2024-10-04T14:20:21+08:00">2024-10-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-11 19:25:28" itemprop="dateModified" datetime="2024-10-11T19:25:28+08:00">2024-10-11</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-网络-互联网和因特网"><a href="#1-网络-互联网和因特网" class="headerlink" title="1. 网络,互联网和因特网"></a>1. 网络,互联网和因特网</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 网络由若干结点和连接这些结点的链路组成</span><br><span class="line">2. 多个网络可以通过路由器连接起来,形成互联网</span><br><span class="line">3. 因特网是世界上最大的互联网络</span><br><span class="line">+ ISP 互联网服务提供者</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-三种交换方式"><a href="#2-三种交换方式" class="headerlink" title="2. 三种交换方式"></a>2. 三种交换方式</h1><ul>
-<li><p>电路交换</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">建立连接,通信时延小</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>报文交换</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先存储到结点交换机,不需要建立连接,需要较大存储缓存空间</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>分组交换</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将报文划分成若干个等长的数据段,然后给各数据段添加首部构成分组</span><br><span class="line">无需建立连接,减少出错概率,加速传输 </span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="3-计算机网络的定义和分类"><a href="#3-计算机网络的定义和分类" class="headerlink" title="3. 计算机网络的定义和分类"></a>3. 计算机网络的定义和分类</h1><ul>
-<li><p>定义</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">互连,自治(独立计算机),集合(至少两台)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>分类</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">按交换技术分类:</span><br><span class="line">1. 电路交换网络</span><br><span class="line">2. 报文交换网络</span><br><span class="line">3. 分组交换网络</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按使用者分类:</span><br><span class="line">1. 公用网</span><br><span class="line">2. 专用网</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按传输介质分类:</span><br><span class="line">1. 有线网络</span><br><span class="line">2. 无线网络</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">按覆盖范围分类</span><br><span class="line">1. 广域网WAN</span><br><span class="line">2. 城域网MAN</span><br><span class="line">3. 局域网LAN</span><br><span class="line">4. 个域网PAN</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">按拓扑结构分类:</span><br><span class="line">1. 总线型网络</span><br><span class="line">2. 星型网络</span><br><span class="line">3. 环形网络</span><br><span class="line">4. 网状型网络</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="4-计算机网络的性能指标"><a href="#4-计算机网络的性能指标" class="headerlink" title="4. 计算机网络的性能指标"></a>4. 计算机网络的性能指标</h1><ul>
-<li><p>速率</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">比特:计算机中数据量的单位</span><br><span class="line">8bit=1Byte</span><br><span class="line">bit/s</span><br><span class="line">kb/s=10**3 b/s</span><br><span class="line">KB=2**10B</span><br></pre></td></tr></table></figure>
-
-<p>eg:<img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004143914352.png" alt="image-20241004143914352"></p>
-<p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004144050603.png" alt="image-20241004144050603"></p>
-</li>
-<li><p>带宽</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 在模拟信号系统中的意义</span><br><span class="line">	信号所包含的各种不同频率成分所占据的频率范围</span><br><span class="line">	单位: Hz</span><br><span class="line">2. 带宽在计算机网络中的意义</span><br><span class="line">	用来表示网络的通信线路所能传送数据的能力</span><br><span class="line">	网络带宽:表示单位时间内从网络的某一点到另一点所能通过的最高数据率</span><br><span class="line">	单位:b/s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>吞吐量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">表示在单位时间内通过某个网络的数据量</span><br><span class="line">吞吐量受网络的宽带或额定速率的限制</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>时延</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">网络时延:</span><br><span class="line">1. 发送时延: 分组长度(b)/发送速率(b/s)</span><br><span class="line">2. 传播时延: 信道长度(m)/电磁波传播速率(m/s)</span><br><span class="line">			电磁波传播速率:</span><br><span class="line">				自由空间: 3*10**8 m/s</span><br><span class="line">				铜线: 2.3*10**8 m/s</span><br><span class="line">				光纤: 2.0*10**8 m/s</span><br><span class="line">3. 处理时延</span><br></pre></td></tr></table></figure>
-
-<p>eg:</p>
-<p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004145206025.png" alt="image-20241004145206025"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发送时延=分组长度(b)/发送速率(b/s)=100*2**20*8/10**6=838.8608s</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">传播时延=信道长度/电磁波传播速率=1000*10**3/2*10**8=0.005</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>时延带宽积</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">传播时延*带宽</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>往返时间</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RTT</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>利用率</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 信道利用率:某信道由百分之几时间是被利用的</span><br><span class="line">2. 网络利用率:全网络的信道利用率加权平均</span><br><span class="line">信道利用率并非越高越好</span><br><span class="line">控制信道利用率不超过50%</span><br><span class="line">也不能太低,会白白浪费</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>丢包率</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">分组丢失率,指在一定时间范围内,传输过程中丢失的分组数量与总分组数量的比率</span><br><span class="line">两种情况:</span><br><span class="line">1. 分组在传输过程中出现误码,被结点丢弃</span><br><span class="line">2. 分组到达队列已满的分组交换机被丢弃(网络拥塞)</span><br><span class="line">拥塞情况</span><br><span class="line">1. 无 : 0%</span><br><span class="line">2. 轻度: 1%-4%</span><br><span class="line">3. 严重: 5%-15%</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="5-计算机网络体系结构"><a href="#5-计算机网络体系结构" class="headerlink" title="5. 计算机网络体系结构"></a>5. 计算机网络体系结构</h1><h2 id="5-1-常见的的计算机体系结构"><a href="#5-1-常见的的计算机体系结构" class="headerlink" title="5.1.常见的的计算机体系结构"></a>5.1.常见的的计算机体系结构</h2><ul>
-<li><p>OSI体系结构—失败了(法律上的国际标准)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">7.应用层</span><br><span class="line">6.表示层</span><br><span class="line">5.会话层</span><br><span class="line">4.运输层</span><br><span class="line">3.网络层</span><br><span class="line">2.数据链路层</span><br><span class="line">1.物理层</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>TCP&#x2F;IP体系结构(实际上的国际标准)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4.应用层    HTTP..SMTP DNS..RTP</span><br><span class="line">3.运输层	    TCP       UDP</span><br><span class="line">2.网际层             IP</span><br><span class="line">1.网络接口层        网络接口</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>原理体系结构</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5.应用层   </span><br><span class="line">4.运输层	   </span><br><span class="line">3.网络层           </span><br><span class="line">2.数据链路层</span><br><span class="line">1.物理层</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="5-2-计算机网络体系结构分层的必要性"><a href="#5-2-计算机网络体系结构分层的必要性" class="headerlink" title="5.2.计算机网络体系结构分层的必要性"></a>5.2.计算机网络体系结构分层的必要性</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">应用层将http报文交付给----&gt;运输层</span><br><span class="line">运输层给http请求报文添加一个tcp首部,使之成为tcp报文段,交付给---&gt;网络层</span><br><span class="line">网络层给tcp报文段加一个IP首部,使之成为ip数据报,交付给----&gt;数据链路层</span><br><span class="line">数据链路层给ip数据报添加尾部和首部使之成为帧,交付给---&gt;物理层</span><br><span class="line">物理层将帧看做比特流并添加前导码</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="5-3-计算机网络体系结构中的专业术语"><a href="#5-3-计算机网络体系结构中的专业术语" class="headerlink" title="5.3.计算机网络体系结构中的专业术语"></a>5.3.计算机网络体系结构中的专业术语</h2><h3 id="1-实体"><a href="#1-实体" class="headerlink" title="1.实体"></a>1.实体</h3><ul>
-<li><p>指任何可发送或接收信息的硬件或软件进程</p>
-</li>
-<li><p>对等实体:收发双方相同层次中的实体</p>
-</li>
-</ul>
-<h3 id="2-协议"><a href="#2-协议" class="headerlink" title="2.协议"></a>2.协议</h3><ul>
-<li>指控制两个对等实体进行逻辑通信的规则的集合</li>
-</ul>
-<p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005111305736.png" alt="image-20241005111305736"></p>
-<ul>
-<li><p>三要素:  语法     语义    同步</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">语法:定义所交换信息的格式</span><br><span class="line">语义:定义收发双方所要完成的操作</span><br><span class="line">同步:定义收发双方的时序关系</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="3-服务"><a href="#3-服务" class="headerlink" title="3.服务"></a>3.服务</h3><ul>
-<li>在协议的控制下,两个对等实体的逻辑通信使得本层能够向上一层提供服务</li>
-<li>要实现本层协议,还需要使用下面一层所提供的服务</li>
-</ul>
-<p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005111815298.png" alt="image-20241005111815298"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">协议是&#x27;水平的&#x27;,服务是&#x27;垂直的&#x27;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005111937099.png" alt="image-20241005111937099"></p>
-<p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005112102419.png" alt="image-20241005112102419"></p>
-<h1 id="6-物理层"><a href="#6-物理层" class="headerlink" title="6.物理层"></a>6.物理层</h1><p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241008213014456.png" alt="image-20241008213014456"></p>
-<h2 id="6-1-传输方式"><a href="#6-1-传输方式" class="headerlink" title="6.1 传输方式"></a>6.1 传输方式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 串行传输: 一次发送一个比特</span><br><span class="line">2. 并行传输: 一次发送n个比特,需要有n条传输线路,成本高速度快</span><br><span class="line">~ 计算机内部的传输常采用并行传输</span><br><span class="line">~ 远距离传输常采用串行传输</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 同步传输: </span><br><span class="line">(1)外同步:在收发双方之间添加一条单独时钟信号线</span><br><span class="line">(2)内同步:发送端将时钟同步信号编码到发送数据中一起传输</span><br><span class="line"></span><br><span class="line">2. 异步传输: </span><br><span class="line">以字节为独立的传输单位,在字节前后加上起始位和结束位</span><br><span class="line">(1)字节之间异步</span><br><span class="line">(2)字节中的每个比特依然要同步</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 单向通信(单工):无线电广播</span><br><span class="line">2. 双向交替通信(半双工):不能同时进行,对讲机</span><br><span class="line">3. 双向同时通信(全双工):可以同时进行,电话</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="6-2-编码与调制"><a href="#6-2-编码与调制" class="headerlink" title="6.2 编码与调制"></a>6.2 编码与调制</h2><p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010161140007.png" alt="image-20241010161140007"></p>
-<p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010162201455.png" alt="image-20241010162201455"></p>
-<h2 id="6-3-信道的极限容量"><a href="#6-3-信道的极限容量" class="headerlink" title="6.3 信道的极限容量"></a>6.3 信道的极限容量</h2><p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010164347204.png" alt="image-20241010164347204"></p>
-<p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010164724160.png" alt="image-20241010164724160"></p>
-<p><img src="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010171649406.png" alt="image-20241010171649406"></p>
-<h1 id="7-数据链路层"><a href="#7-数据链路层" class="headerlink" title="7.数据链路层"></a>7.数据链路层</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/" class="post-title-link" itemprop="url">取证</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-10-02 10:48:35" itemprop="dateCreated datePublished" datetime="2024-10-02T10:48:35+08:00">2024-10-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-11 14:03:30" itemprop="dateModified" datetime="2024-10-11T14:03:30+08:00">2024-10-11</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="0-小知识"><a href="#0-小知识" class="headerlink" title="0. 小知识"></a>0. 小知识</h1><h2 id="1-MagnetRAMCaptu"><a href="#1-MagnetRAMCaptu" class="headerlink" title="1. MagnetRAMCaptu"></a>1. MagnetRAMCaptu</h2><p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241002105205629.png" alt="image-20241002105205629"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MagnetRAMCaptu是一个获取内存镜像的软件</span><br></pre></td></tr></table></figure>
-
-<h1 id="1-陇剑杯-2021-内存分析"><a href="#1-陇剑杯-2021-内存分析" class="headerlink" title="1. [陇剑杯 2021]内存分析"></a>1. [陇剑杯 2021]内存分析</h1><p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010201618918.png" alt="image-20241010201618918"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于刚开始接触啥都不会,写一写咋抄的答案</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>跟其他的一样,由于是问密码,先是 -f 文件 imageinfo 把 profiles 的第一个记录下来后面要用</li>
-</ol>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010201743268.png" alt="image-20241010201743268"></p>
-<ol start="2">
-<li><p>由于是密码,所以可以 -f 文件 –profile&#x3D;Win7SP1x64 hashdump 看到md5,能解密就解密得到答案&#x2F;&#x2F;&#x2F;&#x2F;</p>
-<p>这题也可以 -f 文件 –profile&#x3D;Win7SP1x64 lsadump 直接得到答案</p>
-</li>
-</ol>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010202112070.png" alt="image-20241010202112070"></p>
-<ol start="3">
-<li><p>第二题纯抄答案,wp说要查看桌面寻找一个HUAWEI文件,没想到实在是太多了,根本找不到</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--profile=Win7SP1x64 filescan igrep &quot;Desktop&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010202227555.png" alt="image-20241010202227555"></p>
-<ol start="4">
-<li><p>后来又在另一个wp中看到可以直接寻找HUAWEI ,但是为啥是HUAWEI ….</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--profile=Win7SP1x64 filescan | findstr &quot;HUAWEI&quot;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010202454737.png" alt="image-20241010202454737"></p>
-</li>
-<li><p>上面就非常清楚地看到了这个文件,直接把前面的提取下来</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--profile=Win7SP1x64 dumpfiles -Q 提取地址 -D 存放地址</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010202612386.png" alt="image-20241010202612386"></p>
-<ol start="6">
-<li><p>提取出来左翻翻右翻翻我也看不懂,wp直接说HUAWEI解密</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010202737318.png" alt="image-20241010202737318"></p>
-</li>
-<li><p>直接去下载了kobackupdec.py,直接执行,注意最后是他会帮你创建一个文件夹,不能存在同名文件夹</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python C:\Users\陈亮\Desktop\re\huawei解密\kobackupdec-master\kobackupdec.py -vvv W31C0M3_T0_THiS_34SY_F0R3NSiCX &quot;F:\study\内存分析\HUAWEI P40_2021-aa-bb xx.yy.zz&quot; &quot;F:\study\内存分析\解密结果&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最后得到一个文件夹</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010203050605.png" alt="image-20241010203050605"></p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010203114800.png" alt="image-20241010203114800"></p>
-<p>这个压缩包里有flag</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010203133344.png" alt="image-20241010203133344"></p>
-</li>
-</ol>
-<h1 id="2-otterctf-内存取证"><a href="#2-otterctf-内存取证" class="headerlink" title="2. otterctf-内存取证"></a>2. otterctf-内存取证</h1><h2 id="1-What-the-password"><a href="#1-What-the-password" class="headerlink" title="1 - What the password?"></a>1 - What the password?</h2><ol>
-<li><p>还是找密码,依然是先 -f 文件 imageinfo 查看profile</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010232542293.png" alt="image-20241010232542293"></p>
-</li>
-<li><p>–profile&#x3D;Win7SP1x64 hashdump</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010232656677.png" alt="image-20241010232656677"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这段hash解不出来,转lsadump</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>lsadump</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010232753666.png" alt="image-20241010232753666"></p>
-</li>
-<li><p>得到密码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MortyIsReallyAnOtter</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="2-General-Info"><a href="#2-General-Info" class="headerlink" title="2 - General Info"></a>2 - General Info</h2><ol>
-<li><p>他教我们寻找pc的名称和ip,又是新的操作,看wp复现</p>
-</li>
-<li><p>找ip:查看网络连接,这个有点慢</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--profile=Win7SP1x64 netscan</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010233547629.png" alt="image-20241010233547629"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">出现了非常多的ip,wp说因为192.168.202.131出现的最多也最像因此是pc的ip</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>找pc名称,又是新的操作</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">寻找主机利用查注册表  </span><br><span class="line">--profile=Win7SP1x64 hivelist   </span><br><span class="line">看到这一串东西</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010233929040.png" alt="image-20241010233929040"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">主机名称在SYSTEM那一条记录中,注意是结尾大写的那个,再利用  </span><br><span class="line">-o + 地址 printkey </span><br><span class="line">来查看指定的记录</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010234359576.png" alt="image-20241010234359576"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">之后进行新的操作:跟进</span><br><span class="line">-o 0xfffff8a000024010 printkey -K &quot;ControlSet001&quot;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010234543263.png" alt="image-20241010234543263"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">继续跟进Control</span><br><span class="line">-o 0xfffff8a000024010 printkey -K &quot;ControlSet001\Control&quot;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010234709633.png" alt="image-20241010234709633"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最后找到我们想要的ComputerName,发现里面还有一个,接着跟进拿下电脑名</span><br><span class="line">WIN-LO6FAF3DTFE</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010234826920.png" alt="image-20241010234826920"></p>
-</li>
-</ol>
-<h2 id="3-Play-Time"><a href="#3-Play-Time" class="headerlink" title="3 - Play Time"></a>3 - Play Time</h2><ol>
-<li><p>找游戏,我们查看进程</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--profile Win7SP1x64 pslist </span><br><span class="line">网上搜索发现这个是游戏</span><br><span class="line">LunarMS.exe</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010235331228.png" alt="image-20241010235331228"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">同时在前面netscan中寻找他的ip:</span><br><span class="line">77.102.199.102</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010235434011.png" alt="image-20241010235434011"></p>
-</li>
-</ol>
-<h2 id="4-Name-Game"><a href="#4-Name-Game" class="headerlink" title="4 - Name Game"></a>4 - Name Game</h2><ol>
-<li><p>寻找Lunar-3服上的用户名,wp说先用010查看镜像内容,搜索Lunar-3</p>
-<p>会查看到这么些东西</p>
-<p>0tt3r8r33z3 这个奇怪的东西就是用户名</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241010235750854.png" alt="image-20241010235750854"></p>
-</li>
-<li><p>同时我们也可以通过string命令寻找</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings OtterCTF.vmem|grep Lunar-3 -C 5  </span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="5-Name-Game-2"><a href="#5-Name-Game-2" class="headerlink" title="5 - Name Game 2"></a>5 - Name Game 2</h2><ol>
-<li><p>打印游戏进程,又是一个新操作</p>
-<p>用memdump把前面那个LunarMS.exe游戏进程打印出来</p>
-<p>进程号PID可以看前面的pslist</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011000259624.png" alt="image-20241011000259624"></p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011000313005.png" alt="image-20241011000313005"></p>
-</li>
-<li><p>memdump</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--profile=Win7SP1x64 memdump -p 708 -D ./</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011001503016.png" alt="image-20241011001503016"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">看题目,wp说有问号的不好找,我们在010寻找5a 0c 00 最后在一处找到用户名</span><br><span class="line">M0rtyL0L</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011001540415.png" alt="image-20241011001540415"></p>
-</li>
-</ol>
-<h2 id="6-Silly-Rick"><a href="#6-Silly-Rick" class="headerlink" title="6 - Silly Rick"></a>6 - Silly Rick</h2><ol>
-<li><p>看题目说他老是复制粘贴,又有新操作:查看粘贴板</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--profile Win7SP1x64 clipboard    </span><br><span class="line">这个是纯慢,不是崩了,不要担心</span><br><span class="line">很明显这个M@il_Pr0vid0rs就是答案了</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011002540855.png" alt="image-20241011002540855"></p>
-</li>
-</ol>
-<h2 id="7-Hide-And-Seek"><a href="#7-Hide-And-Seek" class="headerlink" title="7 - Hide And Seek"></a>7 - Hide And Seek</h2><ol>
-<li><p>第一种方式:</p>
-<p>还是看题目</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011002839141.png" alt="image-20241011002839141"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">恶意软件进程,我们查看进程,这玩意跟题目一毛一样哈,然后他的下面有一个vmware,他的ppid比pid大,由此推断估计是他了</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011003010381.png" alt="image-20241011003010381"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">之后我们查看cmd历史进程--profile Win7SP1x64 cmdline  </span><br><span class="line">wp有句话叫这玩意在temp底下.一看就不是好东西,就是他了</span><br><span class="line">vmware-tray.exe</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011003437695.png" alt="image-20241011003437695"></p>
-</li>
-<li><p>第二种方式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用pstree查看进程树</span><br><span class="line">--profile Win7SP1x64 pstree</span><br><span class="line">他们下面的ppid=上面的pid,是他的子进程,非常奇怪</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011003706186.png" alt="image-20241011003706186"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">可以用dlllist查看一下进程相关的dll文件列表</span><br><span class="line">--profile=Win7SP1x64 dlllist -p 3720 </span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011003943685.png" alt="image-20241011003943685"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">再次发现他在temp下,不是个好东西</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="8-Path-To-Glory"><a href="#8-Path-To-Glory" class="headerlink" title="8 - Path To Glory"></a>8 - Path To Glory</h2><ol>
-<li><p>恶意软件如何进入pc,先查看进程</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">filescan|grep &#x27;Rick And Morty&#x27;</span><br><span class="line">windows不能用grep, 改成</span><br><span class="line">filescan | findstr &#x27;Rick And Morty&#x27;</span><br><span class="line">仍然不够精确,因此我们打开powershell输入</span><br><span class="line">--profile=Win7SP1x64 filescan | Select-String -Pattern &quot;Rick And Morty&quot;</span><br><span class="line">精准找到</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>之后重点关注后面带.torrent的</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011082607820.png" alt="image-20241011082607820"></p>
-</li>
-<li><p>将这几个重点关注的提取出来</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--profile=Win7SP1x64 dumpfiles -Q 地址 -D 存放地址</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最后利用strings找到关键信息</p>
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011083659227.png" alt="image-20241011083659227"></p>
-</li>
-</ol>
-<h2 id="9-Path-To-Glory-2"><a href="#9-Path-To-Glory-2" class="headerlink" title="9 - Path To Glory 2"></a>9 - Path To Glory 2</h2><ol>
-<li><p>torrent文件是通过web浏览器下载的 先将所有的chrome进程转储下来：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">memdump -n chrome.exe -D 存放地址</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011085608254.png" alt="image-20241011085608254"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">错误示范:之后利用strings寻找字符串</span><br><span class="line">C:\Users\cl\Desktop\strings.exe Z:\内存分析\otterctf\chrome\* | Select-String -Pattern &#x27;Rick And Morty season 1 download.exe&#x27; -Context 10</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">重点: </span><br><span class="line">1. Z:\内存分析\otterctf\chrome\* 进入文件夹</span><br><span class="line">2. Select-String -Pattern &#x27;Rick And Morty season 1 download.exe&#x27; -Context 10 没有grep的-C,我们使用-Context 10,显示前10行</span><br><span class="line">但是最后windows还是不够清晰,还是得去linux使用grep</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings ./chrome/* | grep &#x27;Rick And Morty season 1 download.exe&#x27; -C 10</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/image-20241011140251755.png" alt="image-20241011140251755"></p>
-<p>最后找到答案</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hum@n_I5_Th3_Weak3s7_Link_In_Th3_Ch@inYear</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/09/22/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF%E5%86%B3%E8%B5%9B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/22/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF%E5%86%B3%E8%B5%9B/" class="post-title-link" itemprop="url">鲲鹏杯决赛</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-09-22 12:04:15 / Modified: 19:19:02" itemprop="dateCreated datePublished" datetime="2024-09-22T12:04:15+08:00">2024-09-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="task3"><a href="#task3" class="headerlink" title="task3"></a>task3</h1><p><img src="/2024/09/22/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF%E5%86%B3%E8%B5%9B/image-20240922120559121.png" alt="image-20240922120559121"></p>
-<p>筛选http,随便打开一个查找tcp流,在流2035找到关键信息</p>
-<p><img src="/2024/09/22/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF%E5%86%B3%E8%B5%9B/image-20240922120803751.png" alt="image-20240922120803751"></p>
-<p><img src="/2024/09/22/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF%E5%86%B3%E8%B5%9B/image-20240922120814467.png" alt="image-20240922120814467"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把这个扔进base64解码,得到答案</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/22/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF%E5%86%B3%E8%B5%9B/image-20240922120859119.png" alt="image-20240922120859119"></p>
-<h1 id="calc-revenge"><a href="#calc-revenge" class="headerlink" title="calc_revenge"></a>calc_revenge</h1><p>还是沙箱题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc进去,先输一堆乱七八糟的试试水,发现出不来,一直冒hacker</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">之后试了一堆代码,发现𝓮val(inp𝓾t())这个代码刚好进得去</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">再次试试open(&quot;flag&quot;).read,还是不行</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">又再𝓮val(inp𝓾t())试了初赛的breakpoint(),刚好又进去了</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最后还是找,输入__import__(&#x27;os&#x27;).system(&#x27;sh&#x27;)</span><br><span class="line">刚好又进去了,最后ls找到里面有flag名字,cat 过去就得到了flag</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">流量分析</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-09-21 22:24:49 / Modified: 23:56:47" itemprop="dateCreated datePublished" datetime="2024-09-21T22:24:49+08:00">2024-09-21</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><p>过滤</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.request.full_url contains &quot;.config.php&quot; or http.response_for.url contains &quot;.config.php&quot;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>token的中间带了个点就是jwt认证方式</p>
-</li>
-</ul>
-<p><img src="/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/image-20240921225142755.png" alt="image-20240921225142755"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">前面是header,中间是base64加密的,第三部分是签证,知道token之后就扔进jwt.io进行解密</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<ul>
-<li>这句话的意思是把1.c改名为looter.c</li>
-</ul>
-<p><img src="/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/image-20240921231200892.png" alt="image-20240921231200892"></p>
-<ul>
-<li>把looter.c放进security里</li>
-</ul>
-<p><img src="/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/image-20240921231408819.png" alt="image-20240921231408819"></p>
-<ul>
-<li>把looter.so放到pam.d里</li>
-</ul>
-<p><img src="/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/image-20240921231531017.png" alt="image-20240921231531017"></p>
-<p><img src="/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/8XF%7D0GA%60Q$KGLZV321%7DX%60X.png" alt="8XF}~0GA`Q$KGLZV321}X`X"></p>
-<ul>
-<li>当分析很多的时候,我们要选择</li>
-</ul>
-<p><img src="/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/image-20240921233322471.png" alt="image-20240921233322471"></p>
-<ul>
-<li>找账号密码</li>
-</ul>
-<p><img src="/2024/09/21/web/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/image-20240921234414208.png" alt="image-20240921234414208"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">除了 www-data，还有许多其他常见的用户和权限设置，包括：</span><br><span class="line"></span><br><span class="line">root：系统管理员，拥有所有权限，能够执行任何操作。</span><br><span class="line">nobody：无特定权限的用户，通常用于不需要特殊权限的服务。</span><br><span class="line">dbus：用于D-Bus消息总线的用户，管理系统和应用间的通信。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frpc是代理客户端</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/" class="post-title-link" itemprop="url">鲲鹏杯初赛</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-09-20 15:42:33" itemprop="dateCreated datePublished" datetime="2024-09-20T15:42:33+08:00">2024-09-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-22 12:04:08" itemprop="dateModified" datetime="2024-09-22T12:04:08+08:00">2024-09-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="RE-signin"><a href="#RE-signin" class="headerlink" title="RE_signin"></a>RE_signin</h1><p>题目写opcode,在网上搜了下开始看</p>
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154555053.png" alt="image-20240920154555053"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">写点关键的:这里意思是base=i%4</span><br><span class="line">如果base==0,跳转226,下面类似的就不写了</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154726477.png" alt="image-20240920154726477"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">下面的意思是</span><br><span class="line"> temp += ((ord(flag[i]) % ord(key[i % 14]))</span><br><span class="line"> 同理下面还有*/^操作</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154910278.png" alt="image-20240920154910278"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">最后分析完毕写出脚本</span><br><span class="line">key = &#x27;mrl64_l0v3Miku&#x27;</span><br><span class="line">cipher = [221, -25, 9072, 94, 163, -17, 10260, 0, 198, 16, 8547, 13, 158, -22, 9701, 29, 193, 41, 5096, 13, 219, 27, 6018, 125, 172, 15, 5243, 45, 182, -19, 5292, 84, 149, -41, 10476, 4, 174, 51, 4235, 12]</span><br><span class="line">flag = &#x27;&#x27;</span><br><span class="line"></span><br><span class="line">for i in range(len(cipher)):</span><br><span class="line">    base = i % 4</span><br><span class="line">    key_char = ord(key[i % 14]) </span><br><span class="line">    if base == 0:</span><br><span class="line">        flag += chr((cipher[i] - key_char) % 256)</span><br><span class="line">    elif base == 1:</span><br><span class="line">        flag += chr((cipher[i] + key_char) % 256)</span><br><span class="line">    elif base == 2:</span><br><span class="line">        flag += chr((cipher[i] // key_char) % 256)</span><br><span class="line">    else:</span><br><span class="line">        flag += chr((cipher[i] ^ key_char) % 256)</span><br><span class="line">print(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="🎲"><a href="#🎲" class="headerlink" title="🎲"></a>🎲</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打开题目发现有dll和exe,用ilspy和ida分别试一试,ida里面没什么东西,ilspy在main函数里发现了加密函数</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155708234.png" alt="image-20240920155708234"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这个解密函数大意就是把array里的内容先拿去加上它下标的十倍,内容随机存入output.txt</span><br><span class="line">我们要做的就是根据output.txt找出array的内容,本来想着跟c一样硬去逆算法,出题人说随机种子不是固定的,之后又把output.txt去重看了下</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155950645.png" alt="image-20240920155950645"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">78 93 97 103 120 124 145 152 168 183 189 193 197 198 200 225 245 255 287 294 299 322 345</span><br><span class="line">得到这样一些数字,可以发现78-0=&#x27;N&#x27;,93-10=&#x27;S&#x27;,这就是加密后的flag,随机到的顺序有区别，所以顺序是有规律的,在用py脚本把output.txt里每个出现次数求出来,从小到大就是正确的排序了最后得出答案</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920160608798.png" alt="image-20240920160608798"></p>
-<h1 id="calc"><a href="#calc" class="headerlink" title="calc"></a>calc</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上次校赛也有,沙箱题,随便网上搜一个沙箱问题合集,nc进去,输进去发现有长度限制,找到这类问题的模板,一条一条试,发现breakpoint()就解决了</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161020452.png" alt="image-20240920161020452"></p>
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161145501.png" alt="image-20240920161145501"></p>
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161327741.png" alt="image-20240920161327741"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">模板来源:</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161350754.png" alt="image-20240920161350754"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/09/02/re/moectf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/02/re/moectf/" class="post-title-link" itemprop="url">moectf</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-09-02 21:31:05 / Modified: 23:04:19" itemprop="dateCreated datePublished" datetime="2024-09-02T21:31:05+08:00">2024-09-02</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="xtea"><a href="#xtea" class="headerlink" title="xtea"></a>xtea</h1><p><img src="/2024/09/02/re/moectf/J6N05NDWM17IEHEPGUFN%7D4G.png" alt="J6N05NDWM17IEHEPGUFN}4G"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过分析我们看出这是两个tea加密,只要两次tea即可解出</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/02/re/moectf/J%7DR_E%7D0DBU5PB%25SHRYUUF_2.png" alt="J}R_E}0DBU5PB%SHRYUUF_2"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">看tea里面,这个逆向很简单</span><br><span class="line">    v5 = *a3;</span><br><span class="line">	v6 = a3[1];</span><br><span class="line">	delta = (( - 855655493)) * 32;</span><br><span class="line">	for (unsigned int i = 0; i &lt; round; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		v6 -= ((key[(delta &gt;&gt; 11) &amp; 3]) + delta) ^ (v5 + ((v5 &gt;&gt; 5) ^ (16 * v5)));</span><br><span class="line">		delta += 855655493;</span><br><span class="line">		v5 -= (key[(delta &amp; 3)] + delta) ^ (v6 + ((v6 &gt;&gt; 5) ^ (16 * v6)));</span><br><span class="line">	&#125;</span><br><span class="line">	*a3 = v5;</span><br><span class="line">	a3[1] = v6;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/02/re/moectf/image-20240902213431593.png" alt="image-20240902213431593"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过判断语句,找到加密后的flag,注意是小端序存储,也就是0x269669a3 3d0b78bd 6228a59d</span><br><span class="line">小技巧:选中这里点击shift+e更快复制</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/02/re/moectf/image-20240902213509827.png" alt="image-20240902213509827"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">之后就是反过来解密,先是flag的后八位解密,然后flag更新,把更新后flag的前八位解密,最后十六进制转字符串</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/09/02/re/moectf/image-20240902213620411.png" alt="image-20240902213620411"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">解密代码如下:</span><br><span class="line">#include &lt;stdint.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int  flag[3];</span><br><span class="line">	unsigned int key[4] = &#123; 2,0,2,4 &#125;;</span><br><span class="line"></span><br><span class="line">	flag[0] = 0x269669a3;</span><br><span class="line">	flag[1] = 0x3D0b78bd;</span><br><span class="line">	flag[2] = 0x6228a59d;</span><br><span class="line"></span><br><span class="line">    int  a2[2];</span><br><span class="line">	a2[0] = 0x3d0b78bd;</span><br><span class="line">	a2[1] = 0x6228a59d;</span><br><span class="line"></span><br><span class="line">	//第二次逆向</span><br><span class="line">	unsigned int  v5 = *a2;</span><br><span class="line">	unsigned int v6 = a2[1];</span><br><span class="line">    unsigned int  delta =  - 855655493 * 32;</span><br><span class="line">	unsigned int round = 32;</span><br><span class="line">	for (unsigned int i = 0; i &lt; round; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		v6 -= ((key[(delta &gt;&gt; 11) &amp; 3]) + delta) ^ (v5 + ((v5 &gt;&gt; 5) ^ (16 * v5)));</span><br><span class="line">		delta += 855655493;</span><br><span class="line">		v5 -= ((key [(delta &amp; 3)]) + delta) ^ (v6 + ((v6 &gt;&gt; 5) ^ (16 * v6)));</span><br><span class="line">	&#125;</span><br><span class="line">	*a2 = v5;</span><br><span class="line">	a2[1] = v6;</span><br><span class="line">	flag[1] = a2[0];</span><br><span class="line">	flag[2] = a2[1];</span><br><span class="line">	for (int i = 0; i &lt;2; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%x&quot;, a2[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">	int  a3[2];</span><br><span class="line">	a3[0] = 0x269669a3;</span><br><span class="line">	a3[1] = 0x60c0d6e0;</span><br><span class="line">	//第一次逆向</span><br><span class="line">    v5 = *a3;</span><br><span class="line">	v6 = a3[1];</span><br><span class="line">	delta = (( - 855655493)) * 32;</span><br><span class="line">	for (unsigned int i = 0; i &lt; round; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		v6 -= ((key[(delta &gt;&gt; 11) &amp; 3]) + delta) ^ (v5 + ((v5 &gt;&gt; 5) ^ (16 * v5)));</span><br><span class="line">		delta += 855655493;</span><br><span class="line">		v5 -= (key[(delta &amp; 3)] + delta) ^ (v6 + ((v6 &gt;&gt; 5) ^ (16 * v6)));</span><br><span class="line">	&#125;</span><br><span class="line">	*a3 = v5;</span><br><span class="line">	a3[1] = v6;</span><br><span class="line">	flag[0] = a3[0];</span><br><span class="line">	flag[1] = a3[1];</span><br><span class="line">	for (int i = 0; i &lt; 3; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%x&quot;,flag[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/08/05/re/crackme160/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cotton-star">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/05/re/crackme160/" class="post-title-link" itemprop="url">crackme160</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-08-05 10:17:33 / Modified: 11:15:38" itemprop="dateCreated datePublished" datetime="2024-08-05T10:17:33+08:00">2024-08-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于有一些因为病毒打不开暂时跳过</span><br></pre></td></tr></table></figure>
-
-<h1 id="1-Daniel-rj"><a href="#1-Daniel-rj" class="headerlink" title="1.Daniel-rj"></a>1.Daniel-rj</h1><h2 id="1-1-爆破"><a href="#1-1-爆破" class="headerlink" title="1.1 爆破"></a>1.1 爆破</h2><p><img src="/2024/08/05/re/crackme160/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805102017191.png" alt="image-20240805102017191"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要爆破其实很简单,通过dbg找到这个提示字符串</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/08/05/re/crackme160/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805102047842.png" alt="image-20240805102047842"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们分析上下文,发现这个jne是判断失败的关键,直接把他nop即可</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/08/05/re/crackme160/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805102121750.png" alt="image-20240805102121750"></p>
-<h2 id="1-2-算法"><a href="#1-2-算法" class="headerlink" title="1.2 算法"></a>1.2 算法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般来说有循环的会存在算法</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/08/05/re/crackme160/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805102337621.png" alt="image-20240805102337621"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在附近找到这个,在一步步分析后,发现用户与密码的关系,就是+5</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2024/08/05/re/crackme160/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805110956500.png" alt="image-20240805110956500"></p>
-<h1 id="2-Bjanes"><a href="#2-Bjanes" class="headerlink" title="2.Bjanes"></a>2.Bjanes</h1><p><img src="/2024/08/05/re/crackme160/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240805111527293.png" alt="image-20240805111527293"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">依然是先找字符串</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">cotton-star</span>
-  </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-</body>
-</html>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/09/">
+          <span class="card-archive-list-date">九月 2024</span>
+          <span class="card-archive-list-count">4</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/08/">
+          <span class="card-archive-list-date">八月 2024</span>
+          <span class="card-archive-list-count">3</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/05/">
+          <span class="card-archive-list-date">五月 2024</span>
+          <span class="card-archive-list-count">2</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/04/">
+          <span class="card-archive-list-date">四月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/03/">
+          <span class="card-archive-list-date">三月 2024</span>
+          <span class="card-archive-list-count">4</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/02/">
+          <span class="card-archive-list-date">二月 2024</span>
+          <span class="card-archive-list-count">2</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/01/">
+          <span class="card-archive-list-date">一月 2024</span>
+          <span class="card-archive-list-count">3</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">35</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-10-11T12:29:49.985Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By cotton-star</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
