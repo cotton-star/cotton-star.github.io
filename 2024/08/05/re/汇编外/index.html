@@ -26,30 +26,30 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="寄存器 所有寄存器都是16位  首先介绍通用寄存器AX  它能够保留2^16-1的数据,用十六进制表示就是FFFFH  eg:  在AX中存储18D  —12H  —10010B  在低位10010高位全是0,就像这样   有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性  通用寄存器均可以分为两个独立的8位寄存器使用   例如:AX可以分为AH和AL,AX,BX CX,">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414165842227.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414170341478.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414192922466.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414193712000.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414195311928.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414200032907.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416215751009.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416223911145.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416225044670.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416225055159.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240416230132763.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240424203114589.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425142631260.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425142946054.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425144756599.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425150047438.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425150313841.png">
-<meta property="og:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240425151854218.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240414165241454.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240414165842227.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240414170341478.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240414192922466.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240414193712000.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240414195311928.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240414200032907.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240416215751009.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240416223911145.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240416225044670.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240416225055159.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240416230132763.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240424203114589.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240425142631260.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240425142946054.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240425144756599.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240425150047438.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240425150313841.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240425151854218.png">
 <meta property="article:published_time" content="2024-08-05T02:17:09.490Z">
 <meta property="article:modified_time" content="2024-04-25T07:55:54.525Z">
 <meta property="article:author" content="cotton-star">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:\Users\%E9%99%88%E4%BA%AE\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png">
+<meta name="twitter:image" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users/%E9%99%88%E4%BA%AE/AppData/Roaming/Typora/typora-user-images/image-20240414165241454.png">
 
 
 <link rel="canonical" href="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/">
@@ -220,7 +220,7 @@
 <p> 在AX中存储18D</p>
 <p> —12H</p>
 <p> —10010B  在低位10010高位全是0,就像这样</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png" alt="image-20240414165241454"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png" alt="image-20240414165241454"></p>
 <ul>
 <li>有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性</li>
 </ul>
@@ -230,37 +230,37 @@
 <p>就是说8086的字长是16位</p>
 </li>
 <li><p>一个字可以存在一个16位寄存器中</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165842227.png" alt="image-20240414165842227"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165842227.png" alt="image-20240414165842227"></p>
 </li>
 </ul>
-<h1 id="mov和add指令"><a href="#mov和add指令" class="headerlink" title="mov和add指令"></a>mov和add指令</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414170341478.png" alt="image-20240414170341478"></p>
+<h1 id="mov和add指令"><a href="#mov和add指令" class="headerlink" title="mov和add指令"></a>mov和add指令</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414170341478.png" alt="image-20240414170341478"></p>
 <p>add al,bl    意思是把bx的低八位和ax的低八位相加结果给al即ax的低八位</p>
 <p>同理ah为ax的高八位</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414192922466.png" alt="image-20240414192922466"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414192922466.png" alt="image-20240414192922466"></p>
 <p>最后一句需要注意</p>
 <p>al位置的值发生溢出是,不会向ax进位,直接丢弃</p>
-<h1 id="确定物理地址的方法"><a href="#确定物理地址的方法" class="headerlink" title="确定物理地址的方法"></a>确定物理地址的方法</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414193712000.png" alt="image-20240414193712000"></p>
+<h1 id="确定物理地址的方法"><a href="#确定物理地址的方法" class="headerlink" title="确定物理地址的方法"></a>确定物理地址的方法</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414193712000.png" alt="image-20240414193712000"></p>
 <h1 id="内存的分段表示法"><a href="#内存的分段表示法" class="headerlink" title="内存的分段表示法"></a>内存的分段表示法</h1><p>!!! 内存并没有分段,段的划分来自CPU</p>
 <p>偏移地址16位,所以只能寻址64k,范围为0~ffffH</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414195311928.png" alt="image-20240414195311928"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414195311928.png" alt="image-20240414195311928"></p>
 <p>段地址很重要,用专门的寄存器存放段地址</p>
 <p>有四个段寄存器</p>
 <p>CS–代码段  DS–数据段</p>
 <p>SS–堆栈段  ES–附加段寄存器</p>
 <h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><p>debug是一个调试程序</p>
 <p>能查看CPU中各种寄存器的内容内存的情况</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414200032907.png" alt="image-20240414200032907"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414200032907.png" alt="image-20240414200032907"></p>
 <p>jmp 1000:0 跳转到此位置</p>
 <p>jmp ax 把ip 跳到ax的位置</p>
-<h1 id="cpu从内存单元中要读取数据"><a href="#cpu从内存单元中要读取数据" class="headerlink" title="cpu从内存单元中要读取数据"></a>cpu从内存单元中要读取数据</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416215751009.png" alt="image-20240416215751009"></p>
-<h1 id="DS与数据段"><a href="#DS与数据段" class="headerlink" title="DS与数据段"></a>DS与数据段</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416223911145.png" alt="image-20240416223911145"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225044670.png" alt="image-20240416225044670"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225055159.png" alt="image-20240416225055159"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416230132763.png" alt="image-20240416230132763"></p>
-<h1 id="div"><a href="#div" class="headerlink" title="div"></a>div</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240424203114589.png" alt="image-20240424203114589"></p>
-<h1 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142631260.png" alt="image-20240425142631260"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142946054.png" alt="image-20240425142946054"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425144756599.png" alt="image-20240425144756599"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150047438.png" alt="image-20240425150047438"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150313841.png" alt="image-20240425150313841"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425151854218.png" alt="image-20240425151854218"></p>
+<h1 id="cpu从内存单元中要读取数据"><a href="#cpu从内存单元中要读取数据" class="headerlink" title="cpu从内存单元中要读取数据"></a>cpu从内存单元中要读取数据</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416215751009.png" alt="image-20240416215751009"></p>
+<h1 id="DS与数据段"><a href="#DS与数据段" class="headerlink" title="DS与数据段"></a>DS与数据段</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416223911145.png" alt="image-20240416223911145"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225044670.png" alt="image-20240416225044670"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225055159.png" alt="image-20240416225055159"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416230132763.png" alt="image-20240416230132763"></p>
+<h1 id="div"><a href="#div" class="headerlink" title="div"></a>div</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240424203114589.png" alt="image-20240424203114589"></p>
+<h1 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142631260.png" alt="image-20240425142631260"><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142946054.png" alt="image-20240425142946054"><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425144756599.png" alt="image-20240425144756599"><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150047438.png" alt="image-20240425150047438"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150313841.png" alt="image-20240425150313841"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425151854218.png" alt="image-20240425151854218"></p>
 
     </div>
 

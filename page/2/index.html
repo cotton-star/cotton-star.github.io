@@ -195,7 +195,7 @@
 <p> 在AX中存储18D</p>
 <p> —12H</p>
 <p> —10010B  在低位10010高位全是0,就像这样</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png" alt="image-20240414165241454"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png" alt="image-20240414165241454"></p>
 <ul>
 <li>有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性</li>
 </ul>
@@ -205,37 +205,37 @@
 <p>就是说8086的字长是16位</p>
 </li>
 <li><p>一个字可以存在一个16位寄存器中</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165842227.png" alt="image-20240414165842227"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165842227.png" alt="image-20240414165842227"></p>
 </li>
 </ul>
-<h1 id="mov和add指令"><a href="#mov和add指令" class="headerlink" title="mov和add指令"></a>mov和add指令</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414170341478.png" alt="image-20240414170341478"></p>
+<h1 id="mov和add指令"><a href="#mov和add指令" class="headerlink" title="mov和add指令"></a>mov和add指令</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414170341478.png" alt="image-20240414170341478"></p>
 <p>add al,bl    意思是把bx的低八位和ax的低八位相加结果给al即ax的低八位</p>
 <p>同理ah为ax的高八位</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414192922466.png" alt="image-20240414192922466"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414192922466.png" alt="image-20240414192922466"></p>
 <p>最后一句需要注意</p>
 <p>al位置的值发生溢出是,不会向ax进位,直接丢弃</p>
-<h1 id="确定物理地址的方法"><a href="#确定物理地址的方法" class="headerlink" title="确定物理地址的方法"></a>确定物理地址的方法</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414193712000.png" alt="image-20240414193712000"></p>
+<h1 id="确定物理地址的方法"><a href="#确定物理地址的方法" class="headerlink" title="确定物理地址的方法"></a>确定物理地址的方法</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414193712000.png" alt="image-20240414193712000"></p>
 <h1 id="内存的分段表示法"><a href="#内存的分段表示法" class="headerlink" title="内存的分段表示法"></a>内存的分段表示法</h1><p>!!! 内存并没有分段,段的划分来自CPU</p>
 <p>偏移地址16位,所以只能寻址64k,范围为0~ffffH</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414195311928.png" alt="image-20240414195311928"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414195311928.png" alt="image-20240414195311928"></p>
 <p>段地址很重要,用专门的寄存器存放段地址</p>
 <p>有四个段寄存器</p>
 <p>CS–代码段  DS–数据段</p>
 <p>SS–堆栈段  ES–附加段寄存器</p>
 <h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><p>debug是一个调试程序</p>
 <p>能查看CPU中各种寄存器的内容内存的情况</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414200032907.png" alt="image-20240414200032907"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414200032907.png" alt="image-20240414200032907"></p>
 <p>jmp 1000:0 跳转到此位置</p>
 <p>jmp ax 把ip 跳到ax的位置</p>
-<h1 id="cpu从内存单元中要读取数据"><a href="#cpu从内存单元中要读取数据" class="headerlink" title="cpu从内存单元中要读取数据"></a>cpu从内存单元中要读取数据</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416215751009.png" alt="image-20240416215751009"></p>
-<h1 id="DS与数据段"><a href="#DS与数据段" class="headerlink" title="DS与数据段"></a>DS与数据段</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416223911145.png" alt="image-20240416223911145"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225044670.png" alt="image-20240416225044670"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225055159.png" alt="image-20240416225055159"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416230132763.png" alt="image-20240416230132763"></p>
-<h1 id="div"><a href="#div" class="headerlink" title="div"></a>div</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240424203114589.png" alt="image-20240424203114589"></p>
-<h1 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h1><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142631260.png" alt="image-20240425142631260"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142946054.png" alt="image-20240425142946054"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425144756599.png" alt="image-20240425144756599"><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150047438.png" alt="image-20240425150047438"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150313841.png" alt="image-20240425150313841"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425151854218.png" alt="image-20240425151854218"></p>
+<h1 id="cpu从内存单元中要读取数据"><a href="#cpu从内存单元中要读取数据" class="headerlink" title="cpu从内存单元中要读取数据"></a>cpu从内存单元中要读取数据</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416215751009.png" alt="image-20240416215751009"></p>
+<h1 id="DS与数据段"><a href="#DS与数据段" class="headerlink" title="DS与数据段"></a>DS与数据段</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416223911145.png" alt="image-20240416223911145"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225044670.png" alt="image-20240416225044670"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225055159.png" alt="image-20240416225055159"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416230132763.png" alt="image-20240416230132763"></p>
+<h1 id="div"><a href="#div" class="headerlink" title="div"></a>div</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240424203114589.png" alt="image-20240424203114589"></p>
+<h1 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142631260.png" alt="image-20240425142631260"><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142946054.png" alt="image-20240425142946054"><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425144756599.png" alt="image-20240425144756599"><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150047438.png" alt="image-20240425150047438"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150313841.png" alt="image-20240425150313841"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425151854218.png" alt="image-20240425151854218"></p>
 
       
     </div>
@@ -298,7 +298,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-07-30 10:00:54" itemprop="dateModified" datetime="2024-07-30T10:00:54+08:00">2024-07-30</time>
+      <time title="Modified: 2024-08-09 21:35:58" itemprop="dateModified" datetime="2024-08-09T21:35:58+08:00">2024-08-09</time>
     </span>
 
   
@@ -311,18 +311,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="一-xdb基础篇"><a href="#一-xdb基础篇" class="headerlink" title="一.xdb基础篇"></a>一.xdb基础篇</h1><h2 id="1-逆向准备"><a href="#1-逆向准备" class="headerlink" title="1.逆向准备"></a>1.逆向准备</h2><h3 id="1-1-xdb简单使用"><a href="#1-1-xdb简单使用" class="headerlink" title="1.1 xdb简单使用"></a>1.1 xdb简单使用</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240630201904347.png" alt="image-20240630201904347"></p>
+          <h1 id="一-xdb基础篇"><a href="#一-xdb基础篇" class="headerlink" title="一.xdb基础篇"></a>一.xdb基础篇</h1><h2 id="1-逆向准备"><a href="#1-逆向准备" class="headerlink" title="1.逆向准备"></a>1.逆向准备</h2><h3 id="1-1-xdb简单使用"><a href="#1-1-xdb简单使用" class="headerlink" title="1.1 xdb简单使用"></a>1.1 xdb简单使用</h3><p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240630201904347.png" alt="image-20240630201904347"></p>
 <p>点击左上角</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240630202702886.png" alt="image-20240630202702886"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240630202702886.png" alt="image-20240630202702886"></p>
 <p>点击附加</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240630202831498.png" alt="image-20240630202831498"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240630202831498.png" alt="image-20240630202831498"></p>
 <p>将要的文件附加进去</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703151750213.png" alt="image-20240703151750213"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703151750213.png" alt="image-20240703151750213"></p>
 <h3 id="1-2-实现用x32dbg分析阳光"><a href="#1-2-实现用x32dbg分析阳光" class="headerlink" title="1.2.实现用x32dbg分析阳光"></a>1.2.实现用x32dbg分析阳光</h3><ul>
 <li><p>只是用(杂交版)学习动态调试</p>
 </li>
 <li><p>先用ce将阳光的基址找出</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703134446355.png" alt="image-20240703134446355"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703134446355.png" alt="image-20240703134446355"></p>
 </li>
 </ul>
 <p>即</p>
@@ -334,14 +334,14 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过分析,我们可以发现,mov dword ptr ds:[edi+5560],esi,要把esi给这个值,同时看见esi的值就是当前剩余阳光数值</span><br><span class="line">再看代码sub esi,ebx,发现esi在这里进行了改变,通关减去edx的值吧esi减少,ebx即卡片所需阳光</span><br><span class="line">因此,我们将sub改成add即可将阳光不减反增</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703142101374.png" alt="image-20240703142101374"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703142101374.png" alt="image-20240703142101374"></p>
 <p>通过在内存窗口中转到地址,我们能够更清晰的分析阳光的变化,要记得将内存中的值改为32位有符号位</p>
 <h3 id="1-3-实现永久自动增加阳光"><a href="#1-3-实现永久自动增加阳光" class="headerlink" title="1.3 实现永久自动增加阳光"></a>1.3 实现永久自动增加阳光</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于每次关闭都会重置,要想永久自动我们需要打补丁</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703142903032.png" alt="image-20240703142903032"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703142903032.png" alt="image-20240703142903032"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片最上方那个向创口贴一样的就是补丁</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703143210349.png" alt="image-20240703143210349"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703143210349.png" alt="image-20240703143210349"></p>
 <p>点击修补文件,保存下来即可</p>
 <h2 id="2-逆向基础知识"><a href="#2-逆向基础知识" class="headerlink" title="2.逆向基础知识"></a>2.逆向基础知识</h2><h3 id="2-1-访问目标地址常用方法"><a href="#2-1-访问目标地址常用方法" class="headerlink" title="2.1 访问目标地址常用方法"></a>2.1 访问目标地址常用方法</h3><ol>
 <li>使用ctrl+G</li>
@@ -352,22 +352,22 @@
 <h4 id="2-1-1-代码执行法"><a href="#2-1-1-代码执行法" class="headerlink" title="2.1.1 代码执行法"></a>2.1.1 代码执行法</h4><ul>
 <li>直接执行文件,一直按步过(F8)直到执行找到代码位置</li>
 </ul>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707184144474.png" alt="image-20240707184144474"></p>
-<h4 id="2-1-2-字符串检索法"><a href="#2-1-2-字符串检索法" class="headerlink" title="2.1.2 字符串检索法"></a>2.1.2 字符串检索法</h4><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707185127747.png" alt="image-20240707185127747"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707184144474.png" alt="image-20240707184144474"></p>
+<h4 id="2-1-2-字符串检索法"><a href="#2-1-2-字符串检索法" class="headerlink" title="2.1.2 字符串检索法"></a>2.1.2 字符串检索法</h4><p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707185127747.png" alt="image-20240707185127747"></p>
 <p>打开就能找到字符串,进行查找要的数据</p>
 <h4 id="2-1-3-API检索法"><a href="#2-1-3-API检索法" class="headerlink" title="2.1.3 API检索法"></a>2.1.3 API检索法</h4><p>程序放进去弹出的黑色框是messageboxw</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707185538137.png" alt="image-20240707185538137"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707185602972.png" alt="image-20240707185602972"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707185538137.png" alt="image-20240707185538137"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707185602972.png" alt="image-20240707185602972"></p>
 <p>找到这条,点击进去就能找到</p>
-<h4 id="2-1-4-API检索法2"><a href="#2-1-4-API检索法2" class="headerlink" title="2.1.4 API检索法2"></a>2.1.4 API检索法2</h4><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707190735562.png" alt="image-20240707190735562"></p>
+<h4 id="2-1-4-API检索法2"><a href="#2-1-4-API检索法2" class="headerlink" title="2.1.4 API检索法2"></a>2.1.4 API检索法2</h4><p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707190735562.png" alt="image-20240707190735562"></p>
 <p>ctrl+G直接搜索MessageBoxA,MessageBoxW</p>
 <p>设置断点,进入访问</p>
-<h3 id="2-2-使用打补丁方式修改helloworld"><a href="#2-2-使用打补丁方式修改helloworld" class="headerlink" title="2.2 使用打补丁方式修改helloworld"></a>2.2 使用打补丁方式修改helloworld</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707191334957.png" alt="image-20240707191334957"></p>
+<h3 id="2-2-使用打补丁方式修改helloworld"><a href="#2-2-使用打补丁方式修改helloworld" class="headerlink" title="2.2 使用打补丁方式修改helloworld"></a>2.2 使用打补丁方式修改helloworld</h3><p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707191334957.png" alt="image-20240707191334957"></p>
 <p>目标是把上下英文修改掉</p>
 <ol>
 <li>先找到具体的位置</li>
 </ol>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707191455618.png" alt="image-20240707191455618"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707191455618.png" alt="image-20240707191455618"></p>
 <ol start="2">
 <li><p>修改有两种方法:</p>
 <ul>
@@ -375,19 +375,19 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在内存中找到,全部选中,这里注意字符串末尾是以00结尾的,因此需要把00也包括进去,然后点击编辑,就可以直接修改了</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707191834378.png" alt="image-20240707191834378"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192044627.png" alt="image-20240707192044627"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192149942.png" alt="image-20240707192149942"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192217206.png" alt="image-20240707192217206"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707191834378.png" alt="image-20240707191834378"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192044627.png" alt="image-20240707192044627"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192149942.png" alt="image-20240707192149942"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192217206.png" alt="image-20240707192217206"></p>
 <ul>
 <li><p>二是在其他内存区域生成新字符串并传递给消息函数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">怕有其他数据占用了要修改的后面的位置,造成把后面的数据破坏掉,因此一般用这种方式</span><br></pre></td></tr></table></figure>
 
 <p>我们先找到内存,往下拉,找到空的位置</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192713552.png" alt="image-20240707192713552"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192713552.png" alt="image-20240707192713552"></p>
 <p>直接将想要的数据填入,复制该数据的地址</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192950925.png" alt="image-20240707192950925"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707193607032.png" alt="image-20240707193607032"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707192950925.png" alt="image-20240707192950925"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707193607032.png" alt="image-20240707193607032"></p>
 <p>最后点击补丁,修补保存就可以了</p>
 </li>
 </ul>
@@ -395,36 +395,36 @@
 </ol>
 <h3 id="2-3-小端序知识"><a href="#2-3-小端序知识" class="headerlink" title="2.3 小端序知识"></a>2.3 小端序知识</h3><p>大部分汇编已经介绍</p>
 <p>在x96dbg中注意这两个</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707195046107.png" alt="image-20240707195046107"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707195046107.png" alt="image-20240707195046107"></p>
 <h3 id="2-4-实现永久不减阳光"><a href="#2-4-实现永久不减阳光" class="headerlink" title="2.4 实现永久不减阳光"></a>2.4 实现永久不减阳光</h3><ul>
 <li><p>打开ce进行操作</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.增加阳光的地址</span><br><span class="line">00430A11 - 01 88 60550000  - add [eax+00005560],ecx</span><br><span class="line">2.减少阳光的地址</span><br><span class="line">008AF806 - 89 B7 60550000  - mov [edi+00005560],esi</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="2-4-1-第一种方法"><a href="#2-4-1-第一种方法" class="headerlink" title="2.4.1 第一种方法"></a>2.4.1 第一种方法</h4><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711214540981.png" alt="image-20240711214540981"></p>
+<h4 id="2-4-1-第一种方法"><a href="#2-4-1-第一种方法" class="headerlink" title="2.4.1 第一种方法"></a>2.4.1 第一种方法</h4><p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711214540981.png" alt="image-20240711214540981"></p>
 <p>查找地址</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711214832086.png" alt="image-20240711214832086"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711214832086.png" alt="image-20240711214832086"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发现这个给阳光赋值的地址,我们直接把他nop掉,那么种植时就不会减少阳光了</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-4-2-第二种方法"><a href="#2-4-2-第二种方法" class="headerlink" title="2.4.2 第二种方法"></a>2.4.2 第二种方法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分析代码</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711215934949.png" alt="image-20240711215934949"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711215934949.png" alt="image-20240711215934949"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们想着,能不能通过跳过这个函数来实现目的</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711220848195.png" alt="image-20240711220848195"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711220848195.png" alt="image-20240711220848195"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在函数开头设置断点</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711220924224.png" alt="image-20240711220924224"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711220924224.png" alt="image-20240711220924224"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">看到栈窗口的返回地址</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711221038398.png" alt="image-20240711221038398"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711221038398.png" alt="image-20240711221038398"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">双击进入找到阳光赋值口,我们往上看</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711221229903.png" alt="image-20240711221229903"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240711221229903.png" alt="image-20240711221229903"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">找到当al!=0是要跳过这个函数,我们直接把他改成无条件跳过,进入游戏发现阳光不减少</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-5-修改cd"><a href="#2-5-修改cd" class="headerlink" title="2.5 修改cd"></a>2.5 修改cd</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同理用ce 找到是什么改写了这个地址,00488E73放入x32dbg</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Tencent\TIM\Temp\2C0MS_GA5{P9QFL%~CSQ6{X.png" alt="2C0MS_GA5{P9QFL%~CSQ6{X"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Tencent\TIM\Temp\2C0MS_GA5{P9QFL%~CSQ6{X.png" alt="2C0MS_GA5{P9QFL%~CSQ6{X"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">意外之喜,全改了</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-6-修改攻速"><a href="#2-6-修改攻速" class="headerlink" title="2.6 修改攻速"></a>2.6 修改攻速</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用ce找到</span><br><span class="line">0045F8A9 - 83 46 58 FF - add dword ptr [esi+58],-01</span><br><span class="line"></span><br><span class="line">0045F8CA - 89 4E 58  - mov [esi+58],ecx</span><br><span class="line"></span><br><span class="line">然后再x32dbg中将-1进行更改即可,太快会只动嘴不射豆,改ecx也可以,但是改了会一直把下面的覆盖了,所以在下面一块空的区域写入想要的代码然后jmp过去,还不够的话再转一点代码过去就行了,似乎全植物同样攻速了,再快现在也不去深究了</span><br></pre></td></tr></table></figure>
@@ -433,14 +433,14 @@
 
 
 
-<h3 id="3-1-stdcall与cdecl"><a href="#3-1-stdcall与cdecl" class="headerlink" title="3.1 stdcall与cdecl"></a>3.1 stdcall与cdecl</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714221502270.png" alt="image-20240714221502270"></p>
+<h3 id="3-1-stdcall与cdecl"><a href="#3-1-stdcall与cdecl" class="headerlink" title="3.1 stdcall与cdecl"></a>3.1 stdcall与cdecl</h3><p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714221502270.png" alt="image-20240714221502270"></p>
 <p>eg(以下都在x32dbg进行)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">像这种一般都是stdcall</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714221829684.png" alt="image-20240714221829684"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714221829684.png" alt="image-20240714221829684"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">像这种底下跟着add esp,多少的一般都是cdecl</span><br><span class="line">平衡栈</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714222047142.png" alt="image-20240714222047142"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714222047142.png" alt="image-20240714222047142"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tip:汇编里学习的是8086系统,是16位的微处理器,因此在8086中压栈是esp-2</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -456,37 +456,37 @@
 <h3 id="3-2-fastcall"><a href="#3-2-fastcall" class="headerlink" title="3.2 fastcall"></a>3.2 fastcall</h3><p>多用寄存器进行传参</p>
 <h3 id="3-3-植物大战僵尸弹出检测框修改"><a href="#3-3-植物大战僵尸弹出检测框修改" class="headerlink" title="3.3 植物大战僵尸弹出检测框修改"></a>3.3 植物大战僵尸弹出检测框修改</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先通过字符串寻找:游戏暂停,然后在内存地址转到</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714233301776.png" alt="image-20240714233301776"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714233301776.png" alt="image-20240714233301776"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32是空格的ascii码,转为16进制也就是20</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714233549893.png" alt="image-20240714233549893"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714233549893.png" alt="image-20240714233549893"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串以00结尾,我们改掉这里的内容,就可以把游戏暂停这几个字改了,返现就是这里,然后我们需要判断弹出窗口是否就在这个函数,这里不能直接把开头改成ret,因为里面可能调用参数,我们要看他是怎么返回的,把他复制到开头</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714234208767.png" alt="image-20240714234208767"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240714234208767.png" alt="image-20240714234208767"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这样子改完,发现确实成功了,点旁边不会暂停,空格也不暂停了</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-4-逆向程序注册码"><a href="#3-4-逆向程序注册码" class="headerlink" title="3.4 逆向程序注册码"></a>3.4 逆向程序注册码</h3><h4 id="3-4-1-消灭弹窗"><a href="#3-4-1-消灭弹窗" class="headerlink" title="3.4.1 消灭弹窗"></a>3.4.1 消灭弹窗</h4><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726185913752.png" alt="image-20240726185913752"></p>
+<h3 id="3-4-逆向程序注册码"><a href="#3-4-逆向程序注册码" class="headerlink" title="3.4 逆向程序注册码"></a>3.4 逆向程序注册码</h3><h4 id="3-4-1-消灭弹窗"><a href="#3-4-1-消灭弹窗" class="headerlink" title="3.4.1 消灭弹窗"></a>3.4.1 消灭弹窗</h4><p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726185913752.png" alt="image-20240726185913752"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">现在有这么一个程序,我需要做到干掉弹窗和找到注册码</span><br><span class="line">首先,弹窗有很明显的字符串提示,直接进行搜索</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726190055041.png" alt="image-20240726190055041"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726190055041.png" alt="image-20240726190055041"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">通过一步步进行发现弹窗位如下</span><br><span class="line">00402CFE | E8 1DE4FFFF              | call &lt;JMP.&amp;rtcMsgBox&gt;    </span><br><span class="line">把此处nop了它直接崩溃了</span><br><span class="line">原因可能是我们把它平衡栈的地方也nop了,因此我们需要帮他平衡一下栈</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726190947317.png" alt="image-20240726190947317"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726190947317.png" alt="image-20240726190947317"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">再通过一系列寻找,找到ret 14,记住这个14是16进制的,也就是20,就是5个参数,所以最原始平栈要5个参数,然后在最开始补上add esp,0x14  欸发现还是崩溃</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726191911885.png" alt="image-20240726191911885"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726191911885.png" alt="image-20240726191911885"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">然后我们思考是不是返回值漏了导致程序崩溃,再次查看,下断点,运行,步过,查看寄存器变化</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726192508303.png" alt="image-20240726192508303"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726192606198.png" alt="image-20240726192606198"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726192508303.png" alt="image-20240726192508303"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726192606198.png" alt="image-20240726192606198"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发现eax变成1了,我们试试再把eax改了,发现字节长度不够,我们再去看包括这个弹窗的这整个函数,把这整个函数改成ret 多少了,就成功把弹窗干掉了</span><br></pre></td></tr></table></figure>
 
 <h4 id="3-4-2-注册码"><a href="#3-4-2-注册码" class="headerlink" title="3.4.2 注册码"></a>3.4.2 注册码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">还是一样通过字符串找到位置,发现了这个判断函数,两种方法,一种nop掉,一种改zf,可以直接跳过注册码,实现yep</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726195147699.png" alt="image-20240726195147699"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726195147699.png" alt="image-20240726195147699"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在附近也发现了注册码,就是I&#x27;mlena151,修改直接修改即可</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726195840219.png" alt="image-20240726195840219"></p>
+<p><img src="/2024/08/05/re/%E9%80%86%E5%90%91/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240726195840219.png" alt="image-20240726195840219"></p>
 <h2 id="4-各类语句-debug"><a href="#4-各类语句-debug" class="headerlink" title="4.各类语句(debug)"></a>4.各类语句(debug)</h2><h3 id="4-1-if"><a href="#4-1-if" class="headerlink" title="4.1 if"></a>4.1 if</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eg:if (a==0)</span><br><span class="line">cmp a,0</span><br><span class="line">jne 地址  ;不等于不执行</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eg:if(a&gt;0)</span><br><span class="line">cmp a,0</span><br><span class="line">jle 地址  ;小于等于不执行</span><br></pre></td></tr></table></figure>
@@ -565,30 +565,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="t06-图"><a href="#t06-图" class="headerlink" title="t06.图"></a>t06.图</h1><h2 id="1-强连通"><a href="#1-强连通" class="headerlink" title="1.强连通"></a>1.强连通</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191051179.png" alt="image-20240530191051179"></p>
+          <h1 id="t06-图"><a href="#t06-图" class="headerlink" title="t06.图"></a>t06.图</h1><h2 id="1-强连通"><a href="#1-强连通" class="headerlink" title="1.强连通"></a>1.强连通</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191051179.png" alt="image-20240530191051179"></p>
 <p>强连通指的是在有向图中每两个顶点之间都是可达的,当两个顶点时有两条边为最少</p>
-<h2 id="2-邻接表"><a href="#2-邻接表" class="headerlink" title="2. 邻接表"></a>2. 邻接表</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191217676.png" alt="image-20240530191217676"></p>
+<h2 id="2-邻接表"><a href="#2-邻接表" class="headerlink" title="2. 邻接表"></a>2. 邻接表</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191217676.png" alt="image-20240530191217676"></p>
 <p>图有多少个顶点,就有多少个表头结点.无向图的表结点个数为2e</p>
-<h2 id="3-无向图至少使得连通图"><a href="#3-无向图至少使得连通图" class="headerlink" title="3. 无向图至少使得连通图"></a>3. 无向图至少使得连通图</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191420897.png" alt="image-20240530191420897"></p>
+<h2 id="3-无向图至少使得连通图"><a href="#3-无向图至少使得连通图" class="headerlink" title="3. 无向图至少使得连通图"></a>3. 无向图至少使得连通图</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191420897.png" alt="image-20240530191420897"></p>
 <p>n个节点的无向图,要有n-1条使得图为一个连通图</p>
-<h2 id="4-无向图最小生成树"><a href="#4-无向图最小生成树" class="headerlink" title="4. 无向图最小生成树"></a>4. 无向图最小生成树</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191520523.png" alt="image-20240530191520523"></p>
+<h2 id="4-无向图最小生成树"><a href="#4-无向图最小生成树" class="headerlink" title="4. 无向图最小生成树"></a>4. 无向图最小生成树</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530191520523.png" alt="image-20240530191520523"></p>
 <p>一个无向图有n个顶点时，最小生成树上的边数为n-1条。这是因为最小生成树是一个包含所有顶点的树，而一棵树具有n个顶点时，它恰好包含n-1条边。</p>
-<h2 id="5-有向图表头结点"><a href="#5-有向图表头结点" class="headerlink" title="5.有向图表头结点"></a>5.有向图表头结点</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192047749.png" alt="image-20240530192047749"></p>
+<h2 id="5-有向图表头结点"><a href="#5-有向图表头结点" class="headerlink" title="5.有向图表头结点"></a>5.有向图表头结点</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192047749.png" alt="image-20240530192047749"></p>
 <p>有向图有n个顶点则有n个表头结点</p>
-<h2 id="6-无向图表头结点"><a href="#6-无向图表头结点" class="headerlink" title="6. 无向图表头结点"></a>6. 无向图表头结点</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192140240.png" alt="image-20240530192140240"></p>
+<h2 id="6-无向图表头结点"><a href="#6-无向图表头结点" class="headerlink" title="6. 无向图表头结点"></a>6. 无向图表头结点</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192140240.png" alt="image-20240530192140240"></p>
 <p>无向图同理</p>
-<h2 id="7-深度优先"><a href="#7-深度优先" class="headerlink" title="7.深度优先"></a>7.深度优先</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192211610.png" alt="image-20240530192211610"></p>
-<h2 id="8-无向图至少确保连通图"><a href="#8-无向图至少确保连通图" class="headerlink" title="8.无向图至少确保连通图"></a>8.无向图至少确保连通图</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192949418.png" alt="image-20240530192949418"></p>
+<h2 id="7-深度优先"><a href="#7-深度优先" class="headerlink" title="7.深度优先"></a>7.深度优先</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192211610.png" alt="image-20240530192211610"></p>
+<h2 id="8-无向图至少确保连通图"><a href="#8-无向图至少确保连通图" class="headerlink" title="8.无向图至少确保连通图"></a>8.无向图至少确保连通图</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530192949418.png" alt="image-20240530192949418"></p>
 <p>首先五个顶点的全连通图需要的边为n*(n-1)&#x2F;2&#x3D;10,再来一条边就可以确保六个顶点为连通图</p>
-<h2 id="9-无向图邻接矩阵0元素"><a href="#9-无向图邻接矩阵0元素" class="headerlink" title="9.无向图邻接矩阵0元素"></a>9.无向图邻接矩阵0元素</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530193456213.png" alt="image-20240530193456213"></p>
+<h2 id="9-无向图邻接矩阵0元素"><a href="#9-无向图邻接矩阵0元素" class="headerlink" title="9.无向图邻接矩阵0元素"></a>9.无向图邻接矩阵0元素</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530193456213.png" alt="image-20240530193456213"></p>
 <p>矩阵是两个顶点有边,就有两个1.固n^2-2e</p>
-<h2 id="10-n个顶点-e条弧删除弧时间复杂度"><a href="#10-n个顶点-e条弧删除弧时间复杂度" class="headerlink" title="10.n个顶点,e条弧删除弧时间复杂度"></a>10.n个顶点,e条弧删除弧时间复杂度</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530193818198.png" alt="image-20240530193818198"></p>
+<h2 id="10-n个顶点-e条弧删除弧时间复杂度"><a href="#10-n个顶点-e条弧删除弧时间复杂度" class="headerlink" title="10.n个顶点,e条弧删除弧时间复杂度"></a>10.n个顶点,e条弧删除弧时间复杂度</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530193818198.png" alt="image-20240530193818198"></p>
 <p>找结点+找边</p>
-<h2 id="11"><a href="#11" class="headerlink" title="11."></a>11.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194045999.png" alt="image-20240530194045999"></p>
-<h2 id="12"><a href="#12" class="headerlink" title="12."></a>12.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194057358.png" alt="image-20240530194057358"></p>
-<h2 id="13"><a href="#13" class="headerlink" title="13."></a>13.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194120362.png" alt="image-20240530194120362"></p>
-<h2 id="14"><a href="#14" class="headerlink" title="14."></a>14.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194201449.png" alt="image-20240530194201449"></p>
-<h2 id="15"><a href="#15" class="headerlink" title="15."></a>15.</h2><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194327276.png" alt="image-20240530194327276"></p>
+<h2 id="11"><a href="#11" class="headerlink" title="11."></a>11.</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194045999.png" alt="image-20240530194045999"></p>
+<h2 id="12"><a href="#12" class="headerlink" title="12."></a>12.</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194057358.png" alt="image-20240530194057358"></p>
+<h2 id="13"><a href="#13" class="headerlink" title="13."></a>13.</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194120362.png" alt="image-20240530194120362"></p>
+<h2 id="14"><a href="#14" class="headerlink" title="14."></a>14.</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194201449.png" alt="image-20240530194201449"></p>
+<h2 id="15"><a href="#15" class="headerlink" title="15."></a>15.</h2><p><img src="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240530194327276.png" alt="image-20240530194327276"></p>
 
       
     </div>
@@ -1084,9 +1084,9 @@
 <li>IF:中断允许控制位,cpu终止正在运行的程序转向其他请求再回来</li>
 <li>DF:方向控制位:0为递增,1为递减</li>
 </ol>
-<p><img src="E:\study\汇编\huiphoto\71749862752295884435ab738430578c.jpg" alt="71749862752295884435ab738430578c"></p>
-<p><img src="E:\study\汇编\huiphoto\86d63778c588ef98c500968738340040.jpg" alt="86d63778c588ef98c500968738340040"></p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240512193519190.png" alt="image-20240512193519190"></p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/study\汇编\huiphoto\71749862752295884435ab738430578c.jpg" alt="71749862752295884435ab738430578c"></p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/study\汇编\huiphoto\86d63778c588ef98c500968738340040.jpg" alt="86d63778c588ef98c500968738340040"></p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240512193519190.png" alt="image-20240512193519190"></p>
 <h3 id="80X86"><a href="#80X86" class="headerlink" title="80X86"></a>80X86</h3><p>一共二十位地址 1M&#x3D;2^20(0000H~FFFFFH)</p>
 <p>由于一次要读16字节(2B)，用相邻的高地址做高字节，自己做低字节</p>
 <h3 id="分段-读取"><a href="#分段-读取" class="headerlink" title="分段+读取"></a>分段+读取</h3><h1 id="第三章-80X86指令系统"><a href="#第三章-80X86指令系统" class="headerlink" title="第三章 80X86指令系统"></a>第三章 80X86指令系统</h1><h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>[标号:]指令助记符 目的操作数,源操作数[;注释]</p>
@@ -1169,7 +1169,7 @@
 <p>MOV BX,2000H    先要把首地址给BX</p>
 <p>MOV AL,06H        然后把偏移量给AL</p>
 <p>XLAT;                     AL&#x3D;24H&#x3D;36</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240408185848026.png" alt="image-20240408185848026"></p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240408185848026.png" alt="image-20240408185848026"></p>
 <h3 id="指令PUSH和POP"><a href="#指令PUSH和POP" class="headerlink" title="指令PUSH和POP"></a>指令PUSH和POP</h3><p>堆栈指令格式PUSH OPD   先让SP-2送完+2</p>
 <p>​                       POP   OPdata segment</p>
 <p>BUF db 2,4,1,0,6,9,4,0,3,0</p>
@@ -1198,7 +1198,7 @@
 <p>SS:堆栈段</p>
 <p>SP:堆栈指针</p>
 <p>堆栈是地址向下递减的空间</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Tencent\TIM\Temp\7b96a3bc013128a0f7f5853ce95741b8.jpg" alt="7b96a3bc013128a0f7f5853ce95741b8"></p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Tencent\TIM\Temp\7b96a3bc013128a0f7f5853ce95741b8.jpg" alt="7b96a3bc013128a0f7f5853ce95741b8"></p>
 <h3 id="标志传送指令"><a href="#标志传送指令" class="headerlink" title="标志传送指令"></a>标志传送指令</h3><p>LAHF</p>
 <p>取标志寄存器的低8位传送到AH</p>
 <p>SAHF</p>
@@ -1222,7 +1222,7 @@
 </li>
 <li><p>INC指令(对进位位不影响)</p>
 <p>格式:INC OPD                  OPD&#x3D;OPD+1</p>
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240408195457734.png" alt="image-20240408195457734"></p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240408195457734.png" alt="image-20240408195457734"></p>
 </li>
 </ol>
 <h3 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h3><ol>
@@ -1334,7 +1334,7 @@
 <h2 id="call-and-ret"><a href="#call-and-ret" class="headerlink" title="call and ret"></a>call and ret</h2><p>eg:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">        mov al,20h</span><br><span class="line">        call s</span><br><span class="line">        ......</span><br><span class="line">    s:  mov ah,0</span><br><span class="line">        mov cl,10</span><br><span class="line">        div cl</span><br><span class="line">        or al,30h</span><br><span class="line">        mov bh,al</span><br><span class="line">        or ah,30h</span><br><span class="line">        mov bl,ah</span><br><span class="line">        ret</span><br><span class="line">        mov ax,4c00h</span><br><span class="line">        int 21h</span><br><span class="line">code ends</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240422185445606.png" alt="image-20240422185445606"></p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240422185445606.png" alt="image-20240422185445606"></p>
 <h2 id="处理器控制指令"><a href="#处理器控制指令" class="headerlink" title="处理器控制指令"></a>处理器控制指令</h2><ol>
 <li>nop 没用</li>
 <li>lock 暂时封锁</li>
@@ -1910,7 +1910,7 @@
 
 
 <h1 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h1><p>原来数组相等的数在左边的排序后依然在左边则认为其有稳定性</p>
-<p>例如:归并排序,冒泡排序,桶排序<img src="C:\Users\陈亮\Desktop\QQ图片20240319172006.png" alt="QQ图片20240319172006"></p>
+<p>例如:归并排序,冒泡排序,桶排序<img src="/2024/03/11/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Users\陈亮\Desktop\QQ图片20240319172006.png" alt="QQ图片20240319172006"></p>
 <h1 id="反转链表"><a href="#反转链表" class="headerlink" title="反转链表"></a>反转链表</h1><p>反转主要步骤：</p>
 <ol>
 <li>首先需要三个元素，需要注意的是curr不能是头结点，头结点不需要参与反转</li>
@@ -2049,7 +2049,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int n;</span><br><span class="line">int f(int x)</span><br><span class="line">&#123;</span><br><span class="line">	if (x == 1)return 1;</span><br><span class="line">	if (x == 2)return 2;</span><br><span class="line">	return f(x - 1) + f(x - 2);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	int res = f(n);</span><br><span class="line">	printf(&quot;%d\n&quot;, res);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>主要是返回前一项和后一项的和</p>
-<h3 id="递归搜索树"><a href="#递归搜索树" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407174351074.png" alt="image-20240407174351074"></p>
+<h3 id="递归搜索树"><a href="#递归搜索树" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="/2024/03/11/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407174351074.png" alt="image-20240407174351074"></p>
 <p>可得f(6)&#x3D;13</p>
 <h2 id="递归实现指数问题"><a href="#递归实现指数问题" class="headerlink" title="递归实现指数问题"></a>递归实现指数问题</h2><p>从1-n这n个整数中随机选取任意多个，输出所有可能的选择方案</p>
 <p>1到n有两种选择，选或不选，也就是2^n个</p>
@@ -2057,7 +2057,7 @@
 <ol>
 <li>顺序:从1~n一次考虑每一个数选或不选</li>
 </ol>
-<h3 id="递归搜索树-1"><a href="#递归搜索树-1" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407181509670.png" alt="image-20240407181509670"></p>
+<h3 id="递归搜索树-1"><a href="#递归搜索树-1" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="/2024/03/11/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407181509670.png" alt="image-20240407181509670"></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">const int N = 20;</span><br><span class="line">int n;</span><br><span class="line">int st[N];//记录每个数的状态，0表示还没考虑,1表示选这个数,2表示不选这个数</span><br><span class="line">void dfs(int x)//x表示枚举到了哪个位置</span><br><span class="line">&#123;</span><br><span class="line">	if (x &gt; n)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int i = 1; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			if (st[i] == 1)</span><br><span class="line">			&#123;</span><br><span class="line">				printf(&quot;%d &quot;, i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//选</span><br><span class="line">	st[x] = 1;</span><br><span class="line">	dfs(x + 1);</span><br><span class="line">	st[x] = 0;//恢复现场</span><br><span class="line"></span><br><span class="line">	//不选</span><br><span class="line">	st[x] = 2;</span><br><span class="line">	dfs (x + 1);</span><br><span class="line">	st[x] = 0;//恢复现场</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	dfs(1);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="全排列问题"><a href="#全排列问题" class="headerlink" title="全排列问题"></a>全排列问题</h2><p><strong>顺序:</strong></p>
@@ -2071,7 +2071,7 @@
 </ol>
 <p>这里写第一种方法</p>
 <p>eg:当n&#x3D;3时,一共有三个位置</p>
-<h3 id="递归搜索树-2"><a href="#递归搜索树-2" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407190057917.png" alt="image-20240407190057917"></p>
+<h3 id="递归搜索树-2"><a href="#递归搜索树-2" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="/2024/03/11/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407190057917.png" alt="image-20240407190057917"></p>
 <h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">const int N = 10;</span><br><span class="line">bool st[N]; //true表示已经选过,false表示没有选过这个数</span><br><span class="line">int n;</span><br><span class="line">int arr[N];//存的是答案,也就是123或者312这样的</span><br><span class="line">void dfs(int x)</span><br><span class="line">&#123;</span><br><span class="line">	if (x &gt; n)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int i = 1; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;%d &quot;, arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = 1; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (!st[i])</span><br><span class="line">		&#123;</span><br><span class="line">			st[i] = true;</span><br><span class="line">			arr[x] = i;</span><br><span class="line">			dfs(x + 1);</span><br><span class="line">			st[i] = false;</span><br><span class="line">			arr[x] = 0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	dfs(1);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="组合数问题"><a href="#组合数问题" class="headerlink" title="组合数问题"></a>组合数问题</h2><p><strong>顺序:</strong></p>
@@ -2080,7 +2080,7 @@
 <li><strong>依次枚举每个位置放那个数</strong></li>
 </ol>
 <p>这里选第二种</p>
-<h3 id="递归搜索树-3"><a href="#递归搜索树-3" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="C:\Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407193712503.png" alt="image-20240407193712503"></p>
+<h3 id="递归搜索树-3"><a href="#递归搜索树-3" class="headerlink" title="递归搜索树"></a>递归搜索树</h3><p><img src="/2024/03/11/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240407193712503.png" alt="image-20240407193712503"></p>
 <h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">int arr[21];</span><br><span class="line">int n,r;</span><br><span class="line">void dfs(int x,int start)</span><br><span class="line">&#123;</span><br><span class="line">	if (x &gt; r)</span><br><span class="line">	&#123;</span><br><span class="line">		for (int i = 1; i &lt;= r; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;%3d&quot;, arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i=start;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		arr[x] = i;</span><br><span class="line">		dfs(x + 1,i+1);</span><br><span class="line">		arr[x] = 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	scanf(&quot;%d%d&quot;, &amp;n,&amp;r);</span><br><span class="line">	dfs(1,1);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="选数"><a href="#选数" class="headerlink" title="选数"></a>选数</h2><p>跟组合数问题一样的递归树</p>
