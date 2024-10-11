@@ -26,21 +26,21 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="RE_signin题目写opcode,在网上搜了下开始看  12写点关键的:这里意思是base&#x3D;i%4如果base&#x3D;&#x3D;0,跳转226,下面类似的就不写了   123下面的意思是 temp +&#x3D; ((ord(flag[i]) % ord(key[i % 14])) 同理下面还有*&#x2F;^操作   123456789101112131415161718最后分析完毕写出脚本key &#x3D; &amp;#x27;mrl64">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154555053.png">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154726477.png">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154910278.png">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155708234.png">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155950645.png">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920160608798.png">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161020452.png">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161145501.png">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161327741.png">
-<meta property="og:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161350754.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154555053.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154726477.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154910278.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155708234.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155950645.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920160608798.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161020452.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161145501.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161327741.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161350754.png">
 <meta property="article:published_time" content="2024-09-20T07:42:33.142Z">
 <meta property="article:modified_time" content="2024-09-22T04:04:08.812Z">
 <meta property="article:author" content="cotton-star">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cotton-star.github.io/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154555053.png">
+<meta name="twitter:image" content="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154555053.png">
 
 
 <link rel="canonical" href="https://cotton-star.github.io/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/">
@@ -205,32 +205,32 @@
     
     
     <div class="post-body" itemprop="articleBody"><h1 id="RE-signin"><a href="#RE-signin" class="headerlink" title="RE_signin"></a>RE_signin</h1><p>题目写opcode,在网上搜了下开始看</p>
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154555053.png" alt="image-20240920154555053"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154555053.png" alt="image-20240920154555053"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">写点关键的:这里意思是base=i%4</span><br><span class="line">如果base==0,跳转226,下面类似的就不写了</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154726477.png" alt="image-20240920154726477"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154726477.png" alt="image-20240920154726477"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">下面的意思是</span><br><span class="line"> temp += ((ord(flag[i]) % ord(key[i % 14]))</span><br><span class="line"> 同理下面还有*/^操作</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154910278.png" alt="image-20240920154910278"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920154910278.png" alt="image-20240920154910278"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">最后分析完毕写出脚本</span><br><span class="line">key = &#x27;mrl64_l0v3Miku&#x27;</span><br><span class="line">cipher = [221, -25, 9072, 94, 163, -17, 10260, 0, 198, 16, 8547, 13, 158, -22, 9701, 29, 193, 41, 5096, 13, 219, 27, 6018, 125, 172, 15, 5243, 45, 182, -19, 5292, 84, 149, -41, 10476, 4, 174, 51, 4235, 12]</span><br><span class="line">flag = &#x27;&#x27;</span><br><span class="line"></span><br><span class="line">for i in range(len(cipher)):</span><br><span class="line">    base = i % 4</span><br><span class="line">    key_char = ord(key[i % 14]) </span><br><span class="line">    if base == 0:</span><br><span class="line">        flag += chr((cipher[i] - key_char) % 256)</span><br><span class="line">    elif base == 1:</span><br><span class="line">        flag += chr((cipher[i] + key_char) % 256)</span><br><span class="line">    elif base == 2:</span><br><span class="line">        flag += chr((cipher[i] // key_char) % 256)</span><br><span class="line">    else:</span><br><span class="line">        flag += chr((cipher[i] ^ key_char) % 256)</span><br><span class="line">print(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h1 id="🎲"><a href="#🎲" class="headerlink" title="🎲"></a>🎲</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打开题目发现有dll和exe,用ilspy和ida分别试一试,ida里面没什么东西,ilspy在main函数里发现了加密函数</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155708234.png" alt="image-20240920155708234"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155708234.png" alt="image-20240920155708234"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这个解密函数大意就是把array里的内容先拿去加上它下标的十倍,内容随机存入output.txt</span><br><span class="line">我们要做的就是根据output.txt找出array的内容,本来想着跟c一样硬去逆算法,出题人说随机种子不是固定的,之后又把output.txt去重看了下</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155950645.png" alt="image-20240920155950645"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920155950645.png" alt="image-20240920155950645"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">78 93 97 103 120 124 145 152 168 183 189 193 197 198 200 225 245 255 287 294 299 322 345</span><br><span class="line">得到这样一些数字,可以发现78-0=&#x27;N&#x27;,93-10=&#x27;S&#x27;,这就是加密后的flag,随机到的顺序有区别，所以顺序是有规律的,在用py脚本把output.txt里每个出现次数求出来,从小到大就是正确的排序了最后得出答案</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920160608798.png" alt="image-20240920160608798"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920160608798.png" alt="image-20240920160608798"></p>
 <h1 id="calc"><a href="#calc" class="headerlink" title="calc"></a>calc</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上次校赛也有,沙箱题,随便网上搜一个沙箱问题合集,nc进去,输进去发现有长度限制,找到这类问题的模板,一条一条试,发现breakpoint()就解决了</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161020452.png" alt="image-20240920161020452"></p>
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161145501.png" alt="image-20240920161145501"></p>
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161327741.png" alt="image-20240920161327741"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161020452.png" alt="image-20240920161020452"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161145501.png" alt="image-20240920161145501"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161327741.png" alt="image-20240920161327741"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">模板来源:</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161350754.png" alt="image-20240920161350754"></p>
+<p><img src="/2024/09/20/re/%E9%B2%B2%E9%B9%8F%E6%9D%AF/image-20240920161350754.png" alt="image-20240920161350754"></p>
 
     </div>
 

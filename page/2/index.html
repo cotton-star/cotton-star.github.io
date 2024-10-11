@@ -865,7 +865,7 @@
 <li><p>这需要读懂ARM汇编</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. mov是一样的作用</span><br><span class="line">2. 主要是几个栈的动用</span><br><span class="line">  (1)STR X1, [SP,#0x130+var_8]</span><br><span class="line">	将 X1 的值存储到栈中偏移量为 0x130 + var_8 的位置。</span><br><span class="line">	</span><br><span class="line">  (2)LDR X1, [X0]</span><br><span class="line">	从 X0 指向的地址中读取数据到 X1</span><br><span class="line">	</span><br><span class="line">  (3)ADD X1, SP, #0x130+var_118</span><br><span class="line">	将栈中某个位置的地址赋给 X1，用于存储输入的第一个数字。</span><br></pre></td></tr></table></figure>
 
-<p><img src="/rectf/image-20241010211537092.png" alt="image-20241010211537092"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010211537092.png" alt="image-20241010211537092"></p>
 <p>这里我们输入两个数,第一个数是X0,第二个数是X1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">也就是x是在11C y在118</span><br></pre></td></tr></table></figure>
 </li>
@@ -875,21 +875,21 @@
 </ul>
 </li>
 </ol>
-<p><img src="/rectf/image-20241010212228817.png" alt="image-20241010212228817"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010212228817.png" alt="image-20241010212228817"></p>
 <ul>
 <li>y&#x3D;0,程序终止</li>
 </ul>
-<p><img src="/rectf/image-20241010212357932.png" alt="image-20241010212357932"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010212357932.png" alt="image-20241010212357932"></p>
 <ul>
 <li><p>y!&#x3D;1,程序继续执行</p>
-<p><img src="/rectf/image-20241010212456203.png" alt="image-20241010212456203"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010212456203.png" alt="image-20241010212456203"></p>
 </li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总的来说就是   (x != 0 &amp;&amp; y != 0 &amp;&amp; y != 1) </span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li><p>算法</p>
-<p><img src="/rectf/image-20241010212602965.png" alt="image-20241010212602965"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010212602965.png" alt="image-20241010212602965"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最核心的地方,W1(x)/W0(y)放到W0(118)里,W0(x/y)放到114,把11C(x)给W0,把114(x/y)给W1</span><br><span class="line">比较W1和W0,相等,得到flag</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但是y!=0和1  x/y==x想了半天也没有符合的,最后想到整数溢出</span><br></pre></td></tr></table></figure>
@@ -913,7 +913,7 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">最后答案:</span><br><span class="line">0x656330643373</span><br><span class="line">0x457a5f625937</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./rectf/image-20241011183944943.png" alt="image-20241011183944943"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241011183944943.png" alt="image-20241011183944943"></p>
 </li>
 </ul>
 
@@ -1986,7 +1986,7 @@
 <h2 id="6-层次遍历"><a href="#6-层次遍历" class="headerlink" title="6. 层次遍历"></a>6. 层次遍历</h2><p>需要运用队列,跟3.差不多,</p>
 <h2 id="7-二叉排序树"><a href="#7-二叉排序树" class="headerlink" title="7.二叉排序树"></a>7.二叉排序树</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">做到了一个问题关于二叉排序树的</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20240926164328649.png" alt="image-20240926164328649"></p>
+<p><img src="/2024/03/11/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20240926164328649.png" alt="image-20240926164328649"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里复习一下二叉排序树,左子树比头结点小,右子树比头结点大</span><br></pre></td></tr></table></figure>
 
 <ul>

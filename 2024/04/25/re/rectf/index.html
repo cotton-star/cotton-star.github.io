@@ -26,17 +26,17 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="入门先回顾下最近所学的  从最基本的普通逆向到异或操作,学好语言看感觉逆向  学会使用ida,现在知道的操作罗列一下 123451. f5 编译为c语言2. shift f12 找字符串3. alt f7 使用脚本4. 混淆字,当看到红字或者地址+1&#x2F;+2的时候可以按u 然后按c进行分析(code)5. 快捷键r可以直接分析为字符串  其余的不是那么重要  又刷了base64的题目,转到目录pyt">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cotton-star.github.io/rectf/image-20241010211537092.png">
-<meta property="og:image" content="https://cotton-star.github.io/rectf/image-20241010212228817.png">
-<meta property="og:image" content="https://cotton-star.github.io/rectf/image-20241010212357932.png">
-<meta property="og:image" content="https://cotton-star.github.io/rectf/image-20241010212456203.png">
-<meta property="og:image" content="https://cotton-star.github.io/rectf/image-20241010212602965.png">
-<meta property="og:image" content="https://cotton-star.github.io/rectf/image-20241011183944943.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/04/25/re/rectf/image-20241010211537092.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/04/25/re/rectf/image-20241010212228817.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/04/25/re/rectf/image-20241010212357932.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/04/25/re/rectf/image-20241010212456203.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/04/25/re/rectf/image-20241010212602965.png">
+<meta property="og:image" content="https://cotton-star.github.io/2024/04/25/re/rectf/image-20241011183944943.png">
 <meta property="article:published_time" content="2024-04-25T15:56:43.997Z">
 <meta property="article:modified_time" content="2024-10-11T11:38:38.555Z">
 <meta property="article:author" content="cotton-star">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cotton-star.github.io/rectf/image-20241010211537092.png">
+<meta name="twitter:image" content="https://cotton-star.github.io/2024/04/25/re/rectf/image-20241010211537092.png">
 
 
 <link rel="canonical" href="https://cotton-star.github.io/2024/04/25/re/rectf/">
@@ -230,7 +230,7 @@
 <li><p>这需要读懂ARM汇编</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. mov是一样的作用</span><br><span class="line">2. 主要是几个栈的动用</span><br><span class="line">  (1)STR X1, [SP,#0x130+var_8]</span><br><span class="line">	将 X1 的值存储到栈中偏移量为 0x130 + var_8 的位置。</span><br><span class="line">	</span><br><span class="line">  (2)LDR X1, [X0]</span><br><span class="line">	从 X0 指向的地址中读取数据到 X1</span><br><span class="line">	</span><br><span class="line">  (3)ADD X1, SP, #0x130+var_118</span><br><span class="line">	将栈中某个位置的地址赋给 X1，用于存储输入的第一个数字。</span><br></pre></td></tr></table></figure>
 
-<p><img src="/rectf/image-20241010211537092.png" alt="image-20241010211537092"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010211537092.png" alt="image-20241010211537092"></p>
 <p>这里我们输入两个数,第一个数是X0,第二个数是X1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">也就是x是在11C y在118</span><br></pre></td></tr></table></figure>
 </li>
@@ -240,21 +240,21 @@
 </ul>
 </li>
 </ol>
-<p><img src="/rectf/image-20241010212228817.png" alt="image-20241010212228817"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010212228817.png" alt="image-20241010212228817"></p>
 <ul>
 <li>y&#x3D;0,程序终止</li>
 </ul>
-<p><img src="/rectf/image-20241010212357932.png" alt="image-20241010212357932"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010212357932.png" alt="image-20241010212357932"></p>
 <ul>
 <li><p>y!&#x3D;1,程序继续执行</p>
-<p><img src="/rectf/image-20241010212456203.png" alt="image-20241010212456203"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010212456203.png" alt="image-20241010212456203"></p>
 </li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总的来说就是   (x != 0 &amp;&amp; y != 0 &amp;&amp; y != 1) </span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li><p>算法</p>
-<p><img src="/rectf/image-20241010212602965.png" alt="image-20241010212602965"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241010212602965.png" alt="image-20241010212602965"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最核心的地方,W1(x)/W0(y)放到W0(118)里,W0(x/y)放到114,把11C(x)给W0,把114(x/y)给W1</span><br><span class="line">比较W1和W0,相等,得到flag</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">但是y!=0和1  x/y==x想了半天也没有符合的,最后想到整数溢出</span><br></pre></td></tr></table></figure>
@@ -278,7 +278,7 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">最后答案:</span><br><span class="line">0x656330643373</span><br><span class="line">0x457a5f625937</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./rectf/image-20241011183944943.png" alt="image-20241011183944943"></p>
+<p><img src="/2024/04/25/re/rectf/image-20241011183944943.png" alt="image-20241011183944943"></p>
 </li>
 </ul>
 
