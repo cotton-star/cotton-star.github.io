@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cotton-star.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1. 网络,互联网和因特网12341. 网络由若干结点和连接这些结点的链路组成2. 多个网络可以通过路由器连接起来,形成互联网3. 因特网是世界上最大的互联网络+ ISP 互联网服务提供者  2. 三种交换方式 电路交换 1建立连接,通信时延小  报文交换 1先存储到结点交换机,不需要建立连接,需要较大存储缓存空间  分组交换 12将报文划分成若干个等长的数据段,然后给各数据段添加首部构成分组无需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="https://cotton-star.github.io/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 网络,互联网和因特网12341. 网络由若干结点和连接这些结点的链路组成2. 多个网络可以通过路由器连接起来,形成互联网3. 因特网是世界上最大的互联网络+ ISP 互联网服务提供者  2. 三种交换方式 电路交换 1建立连接,通信时延小  报文交换 1先存储到结点交换机,不需要建立连接,需要较大存储缓存空间  分组交换 12将报文划分成若干个等长的数据段,然后给各数据段添加首部构成分组无需">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004143914352.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004144050603.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004145206025.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005111305736.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005111815298.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005111937099.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005112102419.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241008213014456.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010161140007.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010162201455.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010164347204.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010164724160.png">
+<meta property="og:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010171649406.png">
+<meta property="article:published_time" content="2024-10-04T06:20:21.722Z">
+<meta property="article:modified_time" content="2024-10-11T09:09:06.593Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cotton-star.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004143914352.png">
+
+
+<link rel="canonical" href="https://cotton-star.github.io/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://cotton-star.github.io/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/","path":"2024/10/04/web/计算机网络/","title":"计算机网络"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>计算机网络 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BD%91%E7%BB%9C-%E4%BA%92%E8%81%94%E7%BD%91%E5%92%8C%E5%9B%A0%E7%89%B9%E7%BD%91"><span class="nav-number">1.</span> <span class="nav-text">1. 网络,互联网和因特网</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%B8%89%E7%A7%8D%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">2. 三种交换方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%88%86%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">3. 计算机网络的定义和分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">4.</span> <span class="nav-text">4. 计算机网络的性能指标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">5. 计算机网络体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">5.1.</span> <span class="nav-text">5.1.常见的的计算机体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%88%86%E5%B1%82%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="nav-number">5.2.</span> <span class="nav-text">5.2.计算机网络体系结构分层的必要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD"><span class="nav-number">5.3.</span> <span class="nav-text">5.3.计算机网络体系结构中的专业术语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%9E%E4%BD%93"><span class="nav-number">5.3.1.</span> <span class="nav-text">1.实体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8D%8F%E8%AE%AE"><span class="nav-number">5.3.2.</span> <span class="nav-text">2.协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.3.3.</span> <span class="nav-text">3.服务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-number">6.</span> <span class="nav-text">6.物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 传输方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 编码与调制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 信道的极限容量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">7.</span> <span class="nav-text">7.数据链路层</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">cotton-star</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计算机网络 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机网络
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-10-04 14:20:21" itemprop="dateCreated datePublished" datetime="2024-10-04T14:20:21+08:00">2024-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-10-11 17:09:06" itemprop="dateModified" datetime="2024-10-11T17:09:06+08:00">2024-10-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="1-网络-互联网和因特网"><a href="#1-网络-互联网和因特网" class="headerlink" title="1. 网络,互联网和因特网"></a>1. 网络,互联网和因特网</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 网络由若干结点和连接这些结点的链路组成</span><br><span class="line">2. 多个网络可以通过路由器连接起来,形成互联网</span><br><span class="line">3. 因特网是世界上最大的互联网络</span><br><span class="line">+ ISP 互联网服务提供者</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-三种交换方式"><a href="#2-三种交换方式" class="headerlink" title="2. 三种交换方式"></a>2. 三种交换方式</h1><ul>
+<li><p>电路交换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">建立连接,通信时延小</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>报文交换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先存储到结点交换机,不需要建立连接,需要较大存储缓存空间</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分组交换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将报文划分成若干个等长的数据段,然后给各数据段添加首部构成分组</span><br><span class="line">无需建立连接,减少出错概率,加速传输 </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="3-计算机网络的定义和分类"><a href="#3-计算机网络的定义和分类" class="headerlink" title="3. 计算机网络的定义和分类"></a>3. 计算机网络的定义和分类</h1><ul>
+<li><p>定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">互连,自治(独立计算机),集合(至少两台)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">按交换技术分类:</span><br><span class="line">1. 电路交换网络</span><br><span class="line">2. 报文交换网络</span><br><span class="line">3. 分组交换网络</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按使用者分类:</span><br><span class="line">1. 公用网</span><br><span class="line">2. 专用网</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">按传输介质分类:</span><br><span class="line">1. 有线网络</span><br><span class="line">2. 无线网络</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">按覆盖范围分类</span><br><span class="line">1. 广域网WAN</span><br><span class="line">2. 城域网MAN</span><br><span class="line">3. 局域网LAN</span><br><span class="line">4. 个域网PAN</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">按拓扑结构分类:</span><br><span class="line">1. 总线型网络</span><br><span class="line">2. 星型网络</span><br><span class="line">3. 环形网络</span><br><span class="line">4. 网状型网络</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="4-计算机网络的性能指标"><a href="#4-计算机网络的性能指标" class="headerlink" title="4. 计算机网络的性能指标"></a>4. 计算机网络的性能指标</h1><ul>
+<li><p>速率</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">比特:计算机中数据量的单位</span><br><span class="line">8bit=1Byte</span><br><span class="line">bit/s</span><br><span class="line">kb/s=10**3 b/s</span><br><span class="line">KB=2**10B</span><br></pre></td></tr></table></figure>
+
+<p>eg:<img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004143914352.png" alt="image-20241004143914352"></p>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004144050603.png" alt="image-20241004144050603"></p>
+</li>
+<li><p>带宽</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 在模拟信号系统中的意义</span><br><span class="line">	信号所包含的各种不同频率成分所占据的频率范围</span><br><span class="line">	单位: Hz</span><br><span class="line">2. 带宽在计算机网络中的意义</span><br><span class="line">	用来表示网络的通信线路所能传送数据的能力</span><br><span class="line">	网络带宽:表示单位时间内从网络的某一点到另一点所能通过的最高数据率</span><br><span class="line">	单位:b/s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>吞吐量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">表示在单位时间内通过某个网络的数据量</span><br><span class="line">吞吐量受网络的宽带或额定速率的限制</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>时延</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">网络时延:</span><br><span class="line">1. 发送时延: 分组长度(b)/发送速率(b/s)</span><br><span class="line">2. 传播时延: 信道长度(m)/电磁波传播速率(m/s)</span><br><span class="line">			电磁波传播速率:</span><br><span class="line">				自由空间: 3*10**8 m/s</span><br><span class="line">				铜线: 2.3*10**8 m/s</span><br><span class="line">				光纤: 2.0*10**8 m/s</span><br><span class="line">3. 处理时延</span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241004145206025.png" alt="image-20241004145206025"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发送时延=分组长度(b)/发送速率(b/s)=100*2**20*8/10**6=838.8608s</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">传播时延=信道长度/电磁波传播速率=1000*10**3/2*10**8=0.005</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>时延带宽积</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">传播时延*带宽</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>往返时间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RTT</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用率</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 信道利用率:某信道由百分之几时间是被利用的</span><br><span class="line">2. 网络利用率:全网络的信道利用率加权平均</span><br><span class="line">信道利用率并非越高越好</span><br><span class="line">控制信道利用率不超过50%</span><br><span class="line">也不能太低,会白白浪费</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>丢包率</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">分组丢失率,指在一定时间范围内,传输过程中丢失的分组数量与总分组数量的比率</span><br><span class="line">两种情况:</span><br><span class="line">1. 分组在传输过程中出现误码,被结点丢弃</span><br><span class="line">2. 分组到达队列已满的分组交换机被丢弃(网络拥塞)</span><br><span class="line">拥塞情况</span><br><span class="line">1. 无 : 0%</span><br><span class="line">2. 轻度: 1%-4%</span><br><span class="line">3. 严重: 5%-15%</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="5-计算机网络体系结构"><a href="#5-计算机网络体系结构" class="headerlink" title="5. 计算机网络体系结构"></a>5. 计算机网络体系结构</h1><h2 id="5-1-常见的的计算机体系结构"><a href="#5-1-常见的的计算机体系结构" class="headerlink" title="5.1.常见的的计算机体系结构"></a>5.1.常见的的计算机体系结构</h2><ul>
+<li><p>OSI体系结构—失败了(法律上的国际标准)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">7.应用层</span><br><span class="line">6.表示层</span><br><span class="line">5.会话层</span><br><span class="line">4.运输层</span><br><span class="line">3.网络层</span><br><span class="line">2.数据链路层</span><br><span class="line">1.物理层</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TCP&#x2F;IP体系结构(实际上的国际标准)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4.应用层    HTTP..SMTP DNS..RTP</span><br><span class="line">3.运输层	    TCP       UDP</span><br><span class="line">2.网际层             IP</span><br><span class="line">1.网络接口层        网络接口</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原理体系结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5.应用层   </span><br><span class="line">4.运输层	   </span><br><span class="line">3.网络层           </span><br><span class="line">2.数据链路层</span><br><span class="line">1.物理层</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="5-2-计算机网络体系结构分层的必要性"><a href="#5-2-计算机网络体系结构分层的必要性" class="headerlink" title="5.2.计算机网络体系结构分层的必要性"></a>5.2.计算机网络体系结构分层的必要性</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">应用层将http报文交付给----&gt;运输层</span><br><span class="line">运输层给http请求报文添加一个tcp首部,使之成为tcp报文段,交付给---&gt;网络层</span><br><span class="line">网络层给tcp报文段加一个IP首部,使之成为ip数据报,交付给----&gt;数据链路层</span><br><span class="line">数据链路层给ip数据报添加尾部和首部使之成为帧,交付给---&gt;物理层</span><br><span class="line">物理层将帧看做比特流并添加前导码</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-3-计算机网络体系结构中的专业术语"><a href="#5-3-计算机网络体系结构中的专业术语" class="headerlink" title="5.3.计算机网络体系结构中的专业术语"></a>5.3.计算机网络体系结构中的专业术语</h2><h3 id="1-实体"><a href="#1-实体" class="headerlink" title="1.实体"></a>1.实体</h3><ul>
+<li><p>指任何可发送或接收信息的硬件或软件进程</p>
+</li>
+<li><p>对等实体:收发双方相同层次中的实体</p>
+</li>
+</ul>
+<h3 id="2-协议"><a href="#2-协议" class="headerlink" title="2.协议"></a>2.协议</h3><ul>
+<li>指控制两个对等实体进行逻辑通信的规则的集合</li>
+</ul>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005111305736.png" alt="image-20241005111305736"></p>
+<ul>
+<li><p>三要素:  语法     语义    同步</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">语法:定义所交换信息的格式</span><br><span class="line">语义:定义收发双方所要完成的操作</span><br><span class="line">同步:定义收发双方的时序关系</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-服务"><a href="#3-服务" class="headerlink" title="3.服务"></a>3.服务</h3><ul>
+<li>在协议的控制下,两个对等实体的逻辑通信使得本层能够向上一层提供服务</li>
+<li>要实现本层协议,还需要使用下面一层所提供的服务</li>
+</ul>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005111815298.png" alt="image-20241005111815298"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">协议是&#x27;水平的&#x27;,服务是&#x27;垂直的&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005111937099.png" alt="image-20241005111937099"></p>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241005112102419.png" alt="image-20241005112102419"></p>
+<h1 id="6-物理层"><a href="#6-物理层" class="headerlink" title="6.物理层"></a>6.物理层</h1><p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241008213014456.png" alt="image-20241008213014456"></p>
+<h2 id="6-1-传输方式"><a href="#6-1-传输方式" class="headerlink" title="6.1 传输方式"></a>6.1 传输方式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 串行传输: 一次发送一个比特</span><br><span class="line">2. 并行传输: 一次发送n个比特,需要有n条传输线路,成本高速度快</span><br><span class="line">~ 计算机内部的传输常采用并行传输</span><br><span class="line">~ 远距离传输常采用串行传输</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 同步传输: </span><br><span class="line">(1)外同步:在收发双方之间添加一条单独时钟信号线</span><br><span class="line">(2)内同步:发送端将时钟同步信号编码到发送数据中一起传输</span><br><span class="line"></span><br><span class="line">2. 异步传输: </span><br><span class="line">以字节为独立的传输单位,在字节前后加上起始位和结束位</span><br><span class="line">(1)字节之间异步</span><br><span class="line">(2)字节中的每个比特依然要同步</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 单向通信(单工):无线电广播</span><br><span class="line">2. 双向交替通信(半双工):不能同时进行,对讲机</span><br><span class="line">3. 双向同时通信(全双工):可以同时进行,电话</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-2-编码与调制"><a href="#6-2-编码与调制" class="headerlink" title="6.2 编码与调制"></a>6.2 编码与调制</h2><p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010161140007.png" alt="image-20241010161140007"></p>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010162201455.png" alt="image-20241010162201455"></p>
+<h2 id="6-3-信道的极限容量"><a href="#6-3-信道的极限容量" class="headerlink" title="6.3 信道的极限容量"></a>6.3 信道的极限容量</h2><p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010164347204.png" alt="image-20241010164347204"></p>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010164724160.png" alt="image-20241010164724160"></p>
+<p><img src="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/image-20241010171649406.png" alt="image-20241010171649406"></p>
+<h1 id="7-数据链路层"><a href="#7-数据链路层" class="headerlink" title="7.数据链路层"></a>7.数据链路层</h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/02/%E5%8F%96%E8%AF%81/%E5%8F%96%E8%AF%81/" rel="prev" title="取证">
+                  <i class="fa fa-angle-left"></i> 取证
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/10/04/pwn/pwntools/" rel="next" title="pwntools">
+                  pwntools <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">cotton-star</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

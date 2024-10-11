@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cotton-star.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1. 常用交互操作 远程连接 remote(host,port)  send(string) 发送string  sendline(string) 发送string及换行符  sendafter(magic,string) 接收到magic后发送string  sendlineafter(magic,string) 接收到magic后发送string及换行符  recvn(N)接受N字节字符  r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pwntools">
+<meta property="og:url" content="https://cotton-star.github.io/2024/10/04/pwn/pwntools/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 常用交互操作 远程连接 remote(host,port)  send(string) 发送string  sendline(string) 发送string及换行符  sendafter(magic,string) 接收到magic后发送string  sendlineafter(magic,string) 接收到magic后发送string及换行符  recvn(N)接受N字节字符  r">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-04T09:10:21.223Z">
+<meta property="article:modified_time" content="2024-10-05T01:52:58.078Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://cotton-star.github.io/2024/10/04/pwn/pwntools/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://cotton-star.github.io/2024/10/04/pwn/pwntools/","path":"2024/10/04/pwn/pwntools/","title":"pwntools"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>pwntools | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E4%BA%A4%E4%BA%92%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">1. 常用交互操作</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">cotton-star</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://cotton-star.github.io/2024/10/04/pwn/pwntools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="cotton-star">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="pwntools | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          pwntools
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-10-04 17:10:21" itemprop="dateCreated datePublished" datetime="2024-10-04T17:10:21+08:00">2024-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-10-05 09:52:58" itemprop="dateModified" datetime="2024-10-05T09:52:58+08:00">2024-10-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="1-常用交互操作"><a href="#1-常用交互操作" class="headerlink" title="1. 常用交互操作"></a>1. 常用交互操作</h1><ul>
+<li><p>远程连接 remote(host,port)</p>
+</li>
+<li><p>send(string) 发送string</p>
+</li>
+<li><p>sendline(string) 发送string及换行符</p>
+</li>
+<li><p>sendafter(magic,string) 接收到magic后发送string</p>
+</li>
+<li><p>sendlineafter(magic,string) 接收到magic后发送string及换行符</p>
+</li>
+<li><p>recvn(N)接受N字节字符</p>
+</li>
+<li><p>recvline()接受一行输出</p>
+</li>
+<li><p>recvlines(N)接受N行输出</p>
+</li>
+<li><p>recvuntil(magic)一直接受直到出现magic</p>
+</li>
+<li><p>clean()丢掉所有缓冲</p>
+</li>
+</ul>
+<p>eg1: </p>
+<ul>
+<li><p>moectf <strong>NotEnoughTime</strong></p>
+<p>主要就是以字节传输转成字符串a.decode要注意,然后就是b’     ‘要注意</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context(log_level=&#x27;debug&#x27;)</span><br><span class="line">r=remote(&#x27;192.168.68.1&#x27;,54239)</span><br><span class="line">r.sendlineafter(b&#x27;1 + 1 =&#x27;,str(2))</span><br><span class="line">r.sendlineafter(b&#x27;4 / 3 - 1 =&#x27;,str(0))</span><br><span class="line">r.recvuntil(b&#x27;OK, then some tough ones. Be WELL PREPARED!&#x27;)</span><br><span class="line">while 1:</span><br><span class="line">	a=r.recvuntil(b&#x27;=&#x27;)</span><br><span class="line">	a=a.decode(&#x27;utf-8&#x27;)</span><br><span class="line">	b=&#x27;&#x27;</span><br><span class="line">	for i in a:</span><br><span class="line">		if i ==&#x27;\n&#x27;:</span><br><span class="line">			continue</span><br><span class="line">		if i ==&#x27;=&#x27;:</span><br><span class="line">			continue</span><br><span class="line">		if i == &#x27;/&#x27;:</span><br><span class="line">			b+=&#x27;//&#x27;</span><br><span class="line">			continue </span><br><span class="line">		b+=i</span><br><span class="line">	print(&#x27;b=&#x27;,b)</span><br><span class="line">	c=eval(b)</span><br><span class="line">	print(c)</span><br><span class="line">	r.send(str(int(c)).encode(&#x27;utf-8&#x27;))</span><br><span class="line">	r.sendline(b&#x27;\n&#x27;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/04/web/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="prev" title="计算机网络">
+                  <i class="fa fa-angle-left"></i> 计算机网络
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/10/05/re/ida%E5%9C%A8linux%E4%B8%8B%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95/" rel="next" title="ida在linux下动态调试">
+                  ida在linux下动态调试 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">cotton-star</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
