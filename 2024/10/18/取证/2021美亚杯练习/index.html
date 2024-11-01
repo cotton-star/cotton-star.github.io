@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2021美亚杯练习 | forward</title><meta name="author" content="cotton-star"><meta name="copyright" content="cotton-star"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="2021美亚杯练习参考博客: 2021第七届美亚杯中国电子数据取证大赛详解write up_美亚杯 奇安信杯-CSDN博客 2021美亚杯（个人赛）练习记录_2021年美亚杯个人赛-CSDN博客 1.     123456789101112[单选题] 工地主管电话的微信账号是什么? (1分) CA. Kasier751111B. Kasierlee751111C. KasierleeD. 以上皆非">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021美亚杯练习">
+<meta property="og:url" content="https://cotton-star.github.io/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/index.html">
+<meta property="og:site_name" content="forward">
+<meta property="og:description" content="2021美亚杯练习参考博客: 2021第七届美亚杯中国电子数据取证大赛详解write up_美亚杯 奇安信杯-CSDN博客 2021美亚杯（个人赛）练习记录_2021年美亚杯个人赛-CSDN博客 1.     123456789101112[单选题] 工地主管电话的微信账号是什么? (1分) CA. Kasier751111B. Kasierlee751111C. KasierleeD. 以上皆非">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cotton-star.github.io/image/s.gif">
+<meta property="article:published_time" content="2024-10-18T01:21:21.122Z">
+<meta property="article:modified_time" content="2024-10-18T06:13:38.544Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cotton-star.github.io/image/s.gif"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://cotton-star.github.io/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2021美亚杯练习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-18 14:13:38'
+}</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/s.gif);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/image/1.jpg" alt="Logo"><span class="site-name">forward</span></a><a class="nav-page-title" href="/"><span class="site-name">2021美亚杯练习</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">2021美亚杯练习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-18T01:21:21.122Z" title="发表于 2024-10-18 09:21:21">2024-10-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-18T06:13:38.544Z" title="更新于 2024-10-18 14:13:38">2024-10-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8F%96%E8%AF%81/">取证</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="2021美亚杯练习"><a href="#2021美亚杯练习" class="headerlink" title="2021美亚杯练习"></a>2021美亚杯练习</h1><p>参考博客:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42744595/article/details/122909208">2021第七届美亚杯中国电子数据取证大赛详解write up_美亚杯 奇安信杯-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43140411/article/details/127033824">2021美亚杯（个人赛）练习记录_2021年美亚杯个人赛-CSDN博客</a></p>
+<p>1. </p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 工地主管电话的微信账号是什么? (1分) C</span><br><span class="line"></span><br><span class="line">A. Kasier751111</span><br><span class="line"></span><br><span class="line">B. Kasierlee751111</span><br><span class="line"></span><br><span class="line">C. Kasierlee</span><br><span class="line"></span><br><span class="line">D. 以上皆非</span><br><span class="line"></span><br><span class="line">关键操作: 使用他给的软件寻找用户账户</span><br><span class="line">官方答案是:D没有找到</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016110100346.png" alt="image-20241016110100346"></p>
+<p>2. </p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 工地主管的隔空投送装置编号是什么? (请以英文全大写及阿拉伯数字回答) (1分)</span><br><span class="line">隔空投送装置编号: AirDrop ID</span><br><span class="line">780F624DF099</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016110417171.png" alt="image-20241016110417171"></p>
+<p>3. </p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 工地主管电话的哪一个应用程序有关于于经纬度24.490474, 118.110220的纪录? (2分)C</span><br><span class="line"></span><br><span class="line">A. 照片</span><br><span class="line"></span><br><span class="line">B. WhatsApp</span><br><span class="line"></span><br><span class="line">C. Apple Maps</span><br><span class="line"></span><br><span class="line">D. 以上皆非</span><br><span class="line"></span><br><span class="line">直接搜索找到答案Apple Maps</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016110518655.png" alt="image-20241016110518655"></p>
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016110546581.png" alt="image-20241016110546581"></p>
+<p>4. </p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 工地主管的手提电话中下列哪些数据正确? (1分)</span><br><span class="line"></span><br><span class="line">A. iOS 版本为 12.5.4</span><br><span class="line"></span><br><span class="line">B. IMEI 为 454120637213361</span><br><span class="line"></span><br><span class="line">C. Apple ID 为 kaiserlee3660@gmail.com</span><br><span class="line"></span><br><span class="line">D. 手机曾经安装dropbox 应用程序</span><br><span class="line"></span><br><span class="line">由图直接找,AC对,dropbox直接搜,没有故排除</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016110809674.png" alt="image-20241016110809674"></p>
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016110854800.png" alt="image-20241016110854800"></p>
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016110938836.png" alt="image-20241016110938836"></p>
+<p>5. </p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 工地主管的电话最常使用的浏览器是什么? (请以英文全大写回答) (1分)</span><br><span class="line">搜索与网络--&gt;web历史记录</span><br><span class="line"></span><br><span class="line">答案就是 SAFARI</span><br></pre></td></tr></table></figure>
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016111210262.png" alt="image-20241016111210262"></p>
+<p>6. </p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 工地主管的电话连接过哪一个WiFi? (1分)</span><br><span class="line"></span><br><span class="line">A. Kaiser Lee</span><br><span class="line"></span><br><span class="line">B. Kaiser</span><br><span class="line"></span><br><span class="line">C. Free Wifi</span><br><span class="line"></span><br><span class="line">D. Kaiser Home</span><br><span class="line"></span><br><span class="line">选择无线网络 发现只有这一个故选A</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016111439123.png" alt="image-20241016111439123"></p>
+<p>7. </p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 工地主管与Alex Chan的Whatsapp 对话中，曾提及以下哪个TeamViewer的用户号码? (3分)</span><br><span class="line"></span><br><span class="line">A. 435334881</span><br><span class="line"></span><br><span class="line">B. 453851521</span><br><span class="line"></span><br><span class="line">C. 435475200</span><br><span class="line"></span><br><span class="line">D. 456874155</span><br><span class="line"></span><br><span class="line">E. 435270306</span><br><span class="line"></span><br><span class="line">首先每个消息点过去,找到Alex,之后寻找TeamViewer</span><br><span class="line">总共三张图片,点击出来找到答案(就截图一个)</span><br><span class="line">选 ACE</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016111748881.png" alt="image-20241016111748881"></p>
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016111837081.png" alt="image-20241016111837081"></p>
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016111920158.png" alt="image-20241016111920158"></p>
+<p>8. </p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 工地主管的WhatsApp中有多少个黑名单的记录? (请以阿拉伯数字回答) (2分)</span><br><span class="line">随便打开一个聊天,找到数据库地址去文件系统里找</span><br><span class="line">找到ChatStorage.sqlite</span><br><span class="line">发现ZWBLACKLISTITEM为0</span><br><span class="line">因此答案为: 0</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016112216428.png" alt="image-20241016112216428"></p>
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241016112550719.png" alt="image-20241016112550719"></p>
+<p>9. </p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 以下哪个蓝牙装置的Uuid 曾连接过工地主管的手机? (2分)</span><br><span class="line"></span><br><span class="line">A. 7F1FE70D-2B15-C245-853D-4196F13CC446</span><br><span class="line"></span><br><span class="line">B. 1B057C1D-83D3-99A6-D2B1-EC54846C7CEE</span><br><span class="line"></span><br><span class="line">C. 134ACD1-83D3-99A6-D2B1-EC54846C7CEE</span><br><span class="line"></span><br><span class="line">D. 7D1BE70D-2C16-D246-851D-491613DD776</span><br><span class="line">打开设备连接,发现蓝牙,但没有发现具体消息,寻找具体路径</span><br><span class="line">发现答案 AB</span><br></pre></td></tr></table></figure>
+
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017160815897.png" alt="image-20241017160815897"></p>
+<p>   <img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017161104207.png" alt="image-20241017161104207"></p>
+<ol start="10">
+<li></li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 工地主管计算机內的FTP程序FileZilla的用户名称是甚么? (请以英文全大写及阿拉伯数字回答) (3分)</span><br><span class="line">在电脑内找到程序找到答案</span><br><span class="line">ALEX</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017161538495.png" alt="image-20241017161538495"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 工地主管的Team Viewer ID 是甚么? (请以英文全大写及阿拉伯数字回答) (2分)</span><br><span class="line">在第七题有发送一个图片里面有id</span><br><span class="line">435270306</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017161831165.png" alt="image-20241017161831165"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 工地主管的Team Viewer与哪一个ID连接? (请以英文全大写及阿拉伯数字回答) (3分)</span><br><span class="line">直接找</span><br><span class="line">420190768</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017161857066.png" alt="image-20241017161857066"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 工地主管曾用计算机浏览器作搜寻，以下哪一个关键词他曾经搜寻? (3分)</span><br><span class="line"></span><br><span class="line">A. tiktok</span><br><span class="line"></span><br><span class="line">B. web whatsapp</span><br><span class="line"></span><br><span class="line">C. facebook</span><br><span class="line"></span><br><span class="line">D. lihkg</span><br><span class="line"></span><br><span class="line">E. hkgolden</span><br><span class="line"></span><br><span class="line">F. web wechat</span><br><span class="line"></span><br><span class="line">直接搜 选 bc  </span><br><span class="line">d没有搜索记录</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017162240524.png" alt="image-20241017162240524"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017162319856.png" alt="image-20241017162319856"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 工地主管计算机的Windows系统的产品标识符是甚么? (请以英文全大写及阿拉伯数字回答，不用输入&quot;-&quot;) (1分)</span><br><span class="line">Windows系统的产品标识符:产品id</span><br><span class="line">一般在 系统痕迹---&gt;系统信息--&gt;系统信息里</span><br><span class="line">003311000000001AA962</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017163128930.png" alt="image-20241017163128930"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 工地主管曾用计算机使用WhatsApp，他曾和以下哪个电话号码沟通? (请以阿拉伯数字回答) (2分)</span><br><span class="line">没找到</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 工地主管计算机的用户名称是甚么? 其用户标识符是甚么? (2分)</span><br><span class="line"></span><br><span class="line">A. 用户名称: PC1</span><br><span class="line"></span><br><span class="line">B. 用户名称: PC2</span><br><span class="line"></span><br><span class="line">C. 用户名称: PC3</span><br><span class="line"></span><br><span class="line">D. 用户标识符: 0x000003E7</span><br><span class="line"></span><br><span class="line">E. 用户标识符: 0x000003E8</span><br><span class="line"></span><br><span class="line">F. 用户标识符: 0x000003E9</span><br><span class="line"></span><br><span class="line">计算机的用户名称一般在</span><br><span class="line">系统信息--&gt;用户信息中</span><br><span class="line">记得把1001转成16进制</span><br><span class="line">选AF</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017163543623.png" alt="image-20241017163543623"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017163630954.png" alt="image-20241017163630954"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 工地主管计算机的预设浏览器是甚么? (2分)</span><br><span class="line"></span><br><span class="line">A. Chrome</span><br><span class="line"></span><br><span class="line">B. Firefox</span><br><span class="line"></span><br><span class="line">C. Safari</span><br><span class="line"></span><br><span class="line">D. 以上皆否</span><br><span class="line"></span><br><span class="line">符合条件的只有A</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017163809506.png" alt="image-20241017163809506"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 工地主管计算机的其中一个分区被人加密，分区内的电子表格Material3.xlsx的哈希值(SHA1)是甚么? (请以英文全大写及阿拉伯数字回答) (1分)</span><br><span class="line">第十题说杯bitlocker加密了,搜索bitlocker,在FTP镜中找到</span><br><span class="line">把密钥和文件扔进去</span><br><span class="line">揭秘成功,在搜索Material3.xlsx</span><br><span class="line">之后右键--&gt;跳转到源文件---&gt;右键计算哈希---&gt;在下面摘要中找到</span><br><span class="line">40418B21F6C3E4AF306D5EF3B80A776DA72FC1D2</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017164034023.png" alt="image-20241017164034023"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017164354646.png" alt="image-20241017164354646"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017164542744.png" alt="image-20241017164542744"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017164615879.png" alt="image-20241017164615879"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017164702998.png" alt="image-20241017164702998"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017164747113.png" alt="image-20241017164747113"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 路由器的记录中显示以下有哪些IP是公司的电子器材? (3分)</span><br><span class="line"></span><br><span class="line">A. 192.168.40.128</span><br><span class="line"></span><br><span class="line">B. 192.168.40.129</span><br><span class="line"></span><br><span class="line">C. 192.168.40.130</span><br><span class="line"></span><br><span class="line">D. 192.168.40.131</span><br><span class="line"></span><br><span class="line">E. 192.168.40.132</span><br><span class="line"></span><br><span class="line">关键词:路由器 所以检材是20211018.log日志文件</span><br><span class="line">wp说.log建议用exel导入,记得改成所有文件,并且改成空格</span><br><span class="line">然后我们一个一个进去搜E搜不到</span><br><span class="line">选择ABCD</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017164918823.png" alt="image-20241017164918823"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017165045845.png" alt="image-20241017165045845"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017165143956.png" alt="image-20241017165143956"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017165217816.png" alt="image-20241017165217816"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017165354257.png" alt="image-20241017165354257"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 路由器的记录中显示公司的计算机下载了FTP软件，该下载网站的IP是什麼?(请以亚拉伯数字作答，省去&quot;.&quot;符号) (3分)</span><br><span class="line"></span><br><span class="line">下载了软件---&gt;访问网页下载---&gt;使用https服务---&gt;端口号：443----&gt;直接搜索“443&quot;</span><br><span class="line">或者直接换软件搜索filezilla</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017165802489.png" alt="image-20241017165802489"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017165947662.png" alt="image-20241017165947662"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 路由器的记录中显示公司计算机的资料用FTP软件传到了甚么IP地址及利用端口? (2分)</span><br><span class="line"></span><br><span class="line">A. IP地址: 2*.2*.2*.114</span><br><span class="line"></span><br><span class="line">B. IP地址: 8*.8*.1*.20</span><br><span class="line"></span><br><span class="line">C. IP地址: 1*.1*.0*.13</span><br><span class="line"></span><br><span class="line">D. 端口: 21</span><br><span class="line"></span><br><span class="line">E. 端口: 80</span><br><span class="line"></span><br><span class="line">ftp协议21端口,搜索/21</span><br><span class="line">故选AD</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017170202881.png" alt="image-20241017170202881"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 路由器的记录中显示以下哪些关键词是表示公司计算机与外界网络联机? (2分)</span><br><span class="line"></span><br><span class="line">A. destination</span><br><span class="line"></span><br><span class="line">B. ICMP echo request</span><br><span class="line"></span><br><span class="line">C. inside</span><br><span class="line"></span><br><span class="line">D. outside</span><br><span class="line"></span><br><span class="line">E. 以上皆是</span><br><span class="line"></span><br><span class="line">B是ping的操作C肯定不是,故AD</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 路由器的记录中显示哪一个IP曾以teamviewer 连接公司计算机? (1分)</span><br><span class="line"></span><br><span class="line">A. 110.152.0.14</span><br><span class="line"></span><br><span class="line">B. 52.152.117.114</span><br><span class="line"></span><br><span class="line">C. 180.152.0.13</span><br><span class="line"></span><br><span class="line">D. 83.26.80.131</span><br><span class="line"></span><br><span class="line">1. 一个一个搜,只有B出现了</span><br><span class="line">2. 搜索5938出现了</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017170458396.png" alt="image-20241017170458396"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 路由器的记录中显示以下哪一个有可能是以teamviewer 遥控公司计算机的时间? (3分)</span><br><span class="line"></span><br><span class="line">A. 09:31, 09:37</span><br><span class="line"></span><br><span class="line">B. 0933, 09:39</span><br><span class="line"></span><br><span class="line">C. 10:29, 10:36</span><br><span class="line"></span><br><span class="line">D. 10:40</span><br><span class="line"></span><br><span class="line">E. 10:42</span><br><span class="line"></span><br><span class="line">搜索上题的ip</span><br><span class="line">9:31    10:42    10:29</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017170626091.png" alt="image-20241017170626091"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017170705081.png" alt="image-20241017170705081"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 路由器的记录中显示有多少电子器材有可能曾被入侵? (请以阿拉伯数字作答) (2分)</span><br><span class="line"></span><br><span class="line">前面主管发了三个号,以此大概推断是3次</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 阿力士iPhone 12 pro电话 于2021年10月21日，以下哪一张相片可能曾被分享 (UTC+8)? (3分)</span><br><span class="line"></span><br><span class="line">A. IMG_0011.HEIC</span><br><span class="line"></span><br><span class="line">B. IMG_0010.HEIC</span><br><span class="line"></span><br><span class="line">C. IMG_0009.HEIC</span><br><span class="line"></span><br><span class="line">D. IMG_0008.HEIC</span><br><span class="line"></span><br><span class="line">E. IMG_0007.HEIC</span><br><span class="line"></span><br><span class="line">阿力士iPhone 12 pro,用cellebritereader</span><br><span class="line">解析说是是因为这张照片可能被分享，分享的时候未通过原图发送，所以没有了元数据，然后手机机主又重新保存了自己发出去的照片，时间这些就发生了变化。</span><br><span class="line">另一张图片是因为在OutgoingTemp下,故选AB</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017172254198.png" alt="image-20241017172254198"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 阿力士iPhone 12 pro电话中哪一张相片可能曾被修改拍摄时间? (2分)</span><br><span class="line"></span><br><span class="line">A. IMG_0011.HEIC</span><br><span class="line"></span><br><span class="line">B. IMG_0010.HEIC</span><br><span class="line"></span><br><span class="line">C. IMG_0009.HEIC</span><br><span class="line"></span><br><span class="line">D. IMG_0008.HEIC</span><br><span class="line"></span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士iPhone 12 pro 的GSM媒体访问控制地址是什么? (请以英文全大写及阿拉伯数字回答，不用输入&quot;😊 (2分)</span><br><span class="line">GSM---&gt;手机MAC地址</span><br><span class="line">手机为蓝牙媒体，所以选蓝牙设备的地址</span><br><span class="line">E06D17319206</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017195118149.png" alt="image-20241017195118149"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 阿力士的iphone 12 pro以什么屏幕密码保护? (1分)</span><br><span class="line"></span><br><span class="line">A. 6位阿拉伯数字密码</span><br><span class="line"></span><br><span class="line">B. 4位阿拉伯数字密码</span><br><span class="line"></span><br><span class="line">C. 图形密码</span><br><span class="line"></span><br><span class="line">D. 以上皆非</span><br><span class="line"></span><br><span class="line">答案是D,这题放着</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 阿力士iphone 12 pro内以下哪一张相片是实况相片(live Photos)? (2分)</span><br><span class="line"></span><br><span class="line">A. IMG_0011.HEIC</span><br><span class="line"></span><br><span class="line">B. IMG_0010.HEIC</span><br><span class="line"></span><br><span class="line">C. IMG_0012.HEIC</span><br><span class="line"></span><br><span class="line">D. IMG_0009.HEIC</span><br><span class="line">搜索live挨个找</span><br><span class="line">9 11 10</span><br><span class="line">ABD</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017195910783.png" alt="image-20241017195910783"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 以下哪一个是阿力士iphone 12 pro可能曾经连接的装置名称? (2分)</span><br><span class="line"></span><br><span class="line">A. Chris’s MacBook Pro</span><br><span class="line"></span><br><span class="line">B. Chirs’s iPhone</span><br><span class="line"></span><br><span class="line">C. Chirs’s Computer</span><br><span class="line"></span><br><span class="line">D. Chirs’s Linux</span><br><span class="line">直接搜,只有A能搜到故选</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017200115830.png" alt="image-20241017200115830"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 接上题，记录连接时间是什么时候(UTC+8)? (2分)</span><br><span class="line"></span><br><span class="line">A. 2021年10月21日 00:58:01</span><br><span class="line"></span><br><span class="line">B. 2021年10月21日 08:58:01</span><br><span class="line"></span><br><span class="line">C. 2021年10月21日 00:58:29</span><br><span class="line"></span><br><span class="line">D. 2021年10月21日 08:58:29</span><br><span class="line"></span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 阿力士iPhone XR中在软件WhatsApp中工地主管与阿力士的对话中曾提到：[佢叫我俾钱喎，BTC係唔係呢个啊？]。在进行电子数据取证分析后，以下哪一个是有可能关于此对话的正确描述？ (2分)</span><br><span class="line"></span><br><span class="line">A. 此对话被Kariser Lee删除</span><br><span class="line"></span><br><span class="line">B. 此对话的附件为一张图片文件</span><br><span class="line"></span><br><span class="line">C. 此对话被Alex Chan 删除</span><br><span class="line"></span><br><span class="line">D. 此对话是引用Alex Chan 回复</span><br><span class="line"></span><br><span class="line">需要打开iphone XR了</span><br><span class="line">A: 在前面主管的手机没看到这条</span><br><span class="line">B: 对的</span><br><span class="line">C: 删了我从哪看到的 错</span><br><span class="line">D: 引用的回答会挂引用的号,因此不是</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017202932478.png" alt="image-20241017202932478"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士iPhone XR的WhatsApp对话中，阿力士曾要求工地主管支付多少个BTC? (请以阿拉伯数字回答) (1分)</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017203510430.png" alt="image-20241017203510430"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 阿力士iPhone XR中 “IMG_0056.HEIC&quot;的图像与&quot;5005.JPG”(MD5: 96c48152249536d14eaa80086c92fcb9)&quot; 看似为同一张相片，在电子数据取证分析下，以下哪样描述是正确? (2分)</span><br><span class="line"></span><br><span class="line">A. 储存在不同的.db 里</span><br><span class="line"></span><br><span class="line">B. 有不同哈希值</span><br><span class="line"></span><br><span class="line">C. IMG_0056.HEIC 为原图, 5005.JPG(MD5: 96c48152249536d14eaa80086c92fcb9)为缩略图</span><br><span class="line"></span><br><span class="line">D. IMG_0056.HEIC 曾被开启过，所以在IOS系统中创建了缩略图5005.JPG(MD5: 96c48152249536d14eaa80086c92fcb9)</span><br><span class="line"></span><br><span class="line">A: db不清楚,先跳过</span><br><span class="line">B: 由MD5不一样暂时可以看出是对的,保险起见可以去取证大师工具箱里转换</span><br><span class="line">C: 长得一模一样,没缩略</span><br><span class="line">D: 别人说是无法判断</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 阿力士iPhone XR中相片檔IMG_0056.HEIC提供了什么电子数据取证的信息? (3分)</span><br><span class="line"></span><br><span class="line">A. 此相片是由隔空投送 (Airdrop)得来</span><br><span class="line"></span><br><span class="line">B. 此相片由iPhone XR拍摄</span><br><span class="line"></span><br><span class="line">C. 此相片的拍摄时间为2021-10-21 17:45:48(UTC+8)</span><br><span class="line"></span><br><span class="line">D. 此相片的拍摄时间为2021-09-08 17:35:00(UTC+8)</span><br><span class="line"></span><br><span class="line">由图:B错 C错  故选AD</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017204318819.png" alt="image-20241017204318819"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 阿力士iPhone XR中阿力士的电邮账户Alexc19851016@gmail.com的密码有可能是什么? (1分)</span><br><span class="line"></span><br><span class="line">A. Ac19851016</span><br><span class="line"></span><br><span class="line">B. Alex1985!</span><br><span class="line"></span><br><span class="line">C. Aa475869!</span><br><span class="line"></span><br><span class="line">D. 以上皆非</span><br><span class="line"></span><br><span class="line">选C</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017204724791.png" alt="image-20241017204724791"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士iPhone XR曾经连接Wifi &quot;Alex Home&quot;的密码是什么? (请以英文全大写及阿拉伯数字回答) (1分)</span><br><span class="line">12345678</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017205505722.png" alt="image-20241017205505722"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 阿力士iPhone XR经iCloud备份的最后时间是什么?(UTC+8)? (1分)</span><br><span class="line">A. 2021-10-21 17:51:38(UTC+8)</span><br><span class="line"></span><br><span class="line">B. 2021-10-21 18:02:13 + (UTC+8)</span><br><span class="line"></span><br><span class="line">C. 2021-10-21 09:51:38(UTC+8)</span><br><span class="line"></span><br><span class="line">D. 2021-10-21 10:02:13 + (UTC+8)</span><br><span class="line">故选C</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017205656946.png" alt="image-20241017205656946"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士iPhone XR中的iBoot版本是iBoot-[6723.120.36]&#123;.underline&#125; ? (请以阿拉伯数字回答，不用轮入&quot;.&quot;) (1分)</span><br><span class="line">iboot需要硬翻</span><br><span class="line">积累一下:iboot苹果路径：Lockdown srvice/phoneInfo.xml</span><br><span class="line">672312036</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241017205947014.png" alt="image-20241017205947014"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 阿力士iPhone XR中的WhatsApp群组『团购-新鲜猪肉牛肉-东涌群组-9/30』有以下哪一个成员? (2分)</span><br><span class="line"></span><br><span class="line">A. 85260617332@s.whatsapp.net</span><br><span class="line"></span><br><span class="line">B. 85260452579@s.whatsapp.net</span><br><span class="line"></span><br><span class="line">C. 85248791565@s.whatsapp.net</span><br><span class="line"></span><br><span class="line">D. 85264630956@s.whatsapp.net</span><br><span class="line"></span><br><span class="line">23搜不到 故选ad</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 阿力士的计算机显示曾于hongkongcard.com 的论坛登记成为会员，以下哪个是他的帐户密码? (3分)</span><br><span class="line"></span><br><span class="line">A. Aa475869!</span><br><span class="line"></span><br><span class="line">B. Bb475869!</span><br><span class="line"></span><br><span class="line">C. Cd475869!</span><br><span class="line"></span><br><span class="line">D. 以上皆非</span><br><span class="line"></span><br><span class="line">一个熟悉的账户: 密码看38题</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018081507196.png" alt="image-20241018081507196"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 阿力士的计算机显示阿力士曾用什么方法进入受害者(主管)的计算机? (1分)</span><br><span class="line"></span><br><span class="line">A. 远程操控</span><br><span class="line"></span><br><span class="line">B. 特洛伊木马程序</span><br><span class="line"></span><br><span class="line">C. 勒索软件</span><br><span class="line"></span><br><span class="line">D. 恶意软件</span><br><span class="line"></span><br><span class="line">上面的题都有提示在远程连接</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 续上题，阿力士最后一次进入受害者(主管)计算机的时间是什么? (2分)</span><br><span class="line"></span><br><span class="line">A. 于2021年10月18日 10时36分</span><br><span class="line"></span><br><span class="line">B. 于2021年10月18日18时36分</span><br><span class="line"></span><br><span class="line">C. 于2021年10月18日6时53分</span><br><span class="line"></span><br><span class="line">D. 于2021年10月18日18时42分</span><br><span class="line">看teamviewer 查找最后一个连接记录</span><br><span class="line">D</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018081756600.png" alt="image-20241018081756600"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士的计算机显示他曾经使用FTP程序，FTP的主机IP地址是什麼?(请以亚拉伯数字作答，省去&quot;.&quot;符号) (2分)</span><br><span class="line">前面提到的FTP是由filezilla下载的,在取证大师找到这个,查看主机ip</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018082132879.png" alt="image-20241018082132879"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士的计算机显示于2021年9月至2021年11月期间，计算机曾被登入过多少次? (请以阿拉伯数字回答) (1分)</span><br><span class="line">计算机曾被登入过多少次思路:</span><br><span class="line">系统痕迹---&gt;系统信息---&gt;用户信息</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018082220944.png" alt="image-20241018082220944"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士计算机所安装的Microsoft Office 2007 是以下哪一个版本? (请以亚拉伯数字作答，省去&quot;.&quot;符号) (2分)</span><br><span class="line">直接搜索:----&gt;安装软件---&gt;软件安装记录</span><br><span class="line">12045181014</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018082424278.png" alt="image-20241018082424278"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018082456955.png" alt="image-20241018082456955"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 以下是阿力士计算机中的Basic data partition (EFI 3) 的Volume ID? (请以英文全大写及阿拉伯数字回答) (2分)</span><br><span class="line">使用DiskGenius查看卷序列号</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018082646468.png" alt="image-20241018082646468"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士计算机的Window product ID是什么? (请以英文全大写及阿拉伯数字回答，不用输入&quot;-&quot;) (1分)</span><br><span class="line">计算机的Window product ID 系统痕迹--&gt;系统信息--&gt;系统信息</span><br><span class="line">003311000000001AA411</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018082751210.png" alt="image-20241018082751210"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 阿力士计算机曾经下载一张猴子的图片，以下哪一项描述正确? (1分)</span><br><span class="line"></span><br><span class="line">A. 该图片是由 &quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgn6ABvcqTfFPjcIbjc9hdx1H4PtQsAuVyTQ&amp;usqp=CAU&quot;下载的</span><br><span class="line"></span><br><span class="line">B. 该图片经过加密</span><br><span class="line"></span><br><span class="line">C. 该图片于2021-09-30 下载</span><br><span class="line"></span><br><span class="line">D. 该图片是由GIF档转换成PNG檔</span><br><span class="line"></span><br><span class="line">直接搜索发现A正确</span><br><span class="line">B: 直接打开了,没有加密</span><br><span class="line">C: 在9 29下载</span><br><span class="line">D: 没看到gif</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018082946616.png" alt="image-20241018082946616"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018083202628.png" alt="image-20241018083202628"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士计算机所安装的Microsoft Office 2007 的密钥是甚么? (请以英文全大写及阿拉伯数字回答，不用输入&quot;-&quot;) (1分)</span><br><span class="line">V77WQRPVP67MTPGWH3G9D44MJ</span><br><span class="line">C盘---&gt;users---&gt;alex---&gt;desktop---&gt;microsoft....找到文档</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018083609788.png" alt="image-20241018083609788"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 阿力士FTP 服务器用户使用命令行安装了甚么程序? (1分)</span><br><span class="line"></span><br><span class="line">A. Docker</span><br><span class="line"></span><br><span class="line">B. Chrome</span><br><span class="line"></span><br><span class="line">C. FileZilla</span><br><span class="line"></span><br><span class="line">D. TeamViewer</span><br><span class="line"></span><br><span class="line">使用命令行---&gt;用户痕迹---&gt;内置应用---&gt;终端记录</span><br><span class="line">一眼就看到 apt install docker.io</span><br><span class="line">A</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018083833740.png" alt="image-20241018083833740"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 以下哪些档案于阿力士FTP 服务器曾重复出现? (3分)</span><br><span class="line"></span><br><span class="line">A. Material1</span><br><span class="line"></span><br><span class="line">B. Material2</span><br><span class="line"></span><br><span class="line">C. Material3</span><br><span class="line"></span><br><span class="line">D. Staff1</span><br><span class="line"></span><br><span class="line">E. Staff2</span><br><span class="line"></span><br><span class="line">F. Staff3</span><br><span class="line"></span><br><span class="line">直接搜,出现两次或以上就选,最后只有DEF</span><br><span class="line">这里只截图一张</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018084123946.png" alt="image-20241018084123946"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 在阿力士FTP服务器中，文件夹Dangerous_Project曾被用户变更了访问权限(请以英文全大写及阿拉伯数字回答) (2分)</span><br><span class="line">访问权限----&gt;终端</span><br><span class="line">chmod777</span><br><span class="line">因此是Dangerous_Project</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018084312284.png" alt="image-20241018084312284"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 在阿力士FTP 服务器建设后，有 ( 1 )个额外用户被加入 (请以阿拉伯数字回答) (2分)</span><br><span class="line">pure命令，加入用户，用户名ftpd</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[单选题] 根据阿力士FTP服务器设定显示，此服务器是以_____方式连接网络，且是一个_______网络状态 (1分)</span><br><span class="line"></span><br><span class="line">A. 无线 , 公开</span><br><span class="line"></span><br><span class="line">B. 无线 , 私人</span><br><span class="line"></span><br><span class="line">C. 有线 , 公开</span><br><span class="line"></span><br><span class="line">D. 有线 , 私人</span><br><span class="line">系统痕迹----&gt;系统信息----&gt;系统信息----&gt;网络配置信息</span><br><span class="line">范围之外了公开网络</span><br><span class="line">并且名字wired connect 选择有线</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018084608253.png" alt="image-20241018084608253"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018084617129.png" alt="image-20241018084617129"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士FTP 服务器设定最多使用者数目是 50 (请以阿拉伯数字回答) (2分)</span><br><span class="line"></span><br><span class="line">需要看ftp的配置文件，所以找“.conf”文件，搜索“ftpd.conf”（ftpd是创建的用户，前面做到过）</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018085038498.png" alt="image-20241018085038498"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士FTP服务器使用Docker安装了一个FTP程序为stilliard/pure-ftpd。(例如 space docker /1.1，请输入 spacedocker/1.1，不要输入空格) (2分)</span><br><span class="line">查看docker命令</span><br><span class="line">docker pull后面跟的就是了</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018085151685.png" alt="image-20241018085151685"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 阿力士FTP 服务器曾使用过甚么版本的Linux内核? (2分)</span><br><span class="line"></span><br><span class="line">A. linux-headers-5.11.0-16</span><br><span class="line"></span><br><span class="line">B. linux-headers-5.11.0-17</span><br><span class="line"></span><br><span class="line">C. linux-headers-5.11.0-36</span><br><span class="line"></span><br><span class="line">D. inux-headers-5.11.0-37</span><br><span class="line"></span><br><span class="line">E. linux-headers-5.11.0-40</span><br><span class="line">直接搜</span><br><span class="line">AD</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018085314423.png" alt="image-20241018085314423"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[多选题] 阿力士FTP 服务器的磁盘分区，有以下哪一种文件系统? (2分)</span><br><span class="line"></span><br><span class="line">A. FAT16</span><br><span class="line"></span><br><span class="line">B. FAT32</span><br><span class="line"></span><br><span class="line">C. ExFAT</span><br><span class="line"></span><br><span class="line">D. HFS+</span><br><span class="line"></span><br><span class="line">E. Ext4</span><br><span class="line"></span><br><span class="line">点击磁盘看左下角</span><br><span class="line">BE</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018085431334.png" alt="image-20241018085431334"></p>
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018085458839.png" alt="image-20241018085458839"></p>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[填空题] 阿力士FTP服务器用户输入了指令 dockercontainerps-a 去检查现存的Docker容器 (例如 netstat lntp，请输入 netstatlntp，不要输入空格) (3分)</span><br><span class="line"></span><br><span class="line">dockercontainerps-a</span><br><span class="line"></span><br><span class="line">docker container ps -a是列举所有存在的docker容器命令（含不运行的）</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/image-20241018085556078.png" alt="image-20241018085556078"></p>
+</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">1.隔空投送装置编号: AirDrop ID</span><br><span class="line"></span><br><span class="line">2.最常使用的浏览器 搜索与网络--&gt;web历史记录</span><br><span class="line"></span><br><span class="line">3.黑名单找到ChatStorage.sqlite发现ZWBLACKLISTITEM为0</span><br><span class="line"></span><br><span class="line">4.Bitlocker用取证大师修复密钥标识符右键解密,找到恢复密钥标记</span><br><span class="line"></span><br><span class="line">5.Windows系统的产品标识符:  产品id 一般在 系统痕迹---&gt;系统信息--&gt;系统信息里</span><br><span class="line"></span><br><span class="line">6.计算机的用户名称一般在   系统信息--&gt;用户信息中</span><br><span class="line"></span><br><span class="line">7.路由器----&gt;.log</span><br><span class="line"></span><br><span class="line">8.下载了软件---&gt;访问网页下载---&gt;使用https服务---&gt;端口号：443----&gt;直接搜索“443&quot;</span><br><span class="line"></span><br><span class="line">9.ftp协议21端口</span><br><span class="line"></span><br><span class="line">10.GSM---&gt;手机MAC地址 手机为蓝牙媒体，所以选蓝牙设备的地址</span><br><span class="line"></span><br><span class="line">11.iboot苹果路径：Lockdown srvice/phoneInfo.xml</span><br><span class="line"></span><br><span class="line">12.计算机曾被登入过多少次思路: 系统痕迹---&gt;系统信息---&gt;用户信息</span><br><span class="line"></span><br><span class="line">13.软件----&gt;安装软件---&gt;软件安装记录</span><br><span class="line"></span><br><span class="line">14.计算机的Window product ID 系统痕迹--&gt;系统信息--&gt;系统信息</span><br><span class="line"></span><br><span class="line">15.文件密钥 C盘---&gt;users---&gt;alex---&gt;desktop---&gt;文件</span><br><span class="line"></span><br><span class="line">16.使用命令行---&gt;用户痕迹---&gt;内置应用---&gt;终端记录</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第十题有问题这里补充在此:</span><br><span class="line">10.工地主管计算机的E盘的Bitlocker修复密钥标识符是甚么?</span><br><span class="line">从这里开始转用取证大师,把FTP和和VTMcomputer扔进去,看到E盘上锁</span><br><span class="line">右键解密,找到恢复密钥标记</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io">cotton-star</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/">https://cotton-star.github.io/2024/10/18/%E5%8F%96%E8%AF%81/2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://cotton-star.github.io" target="_blank">forward</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/image/s.gif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="prev-post pull-left" href="/2024/10/21/%E5%8F%96%E8%AF%81/2024fic%E5%88%9D%E8%B5%9B/" title="2024fic初赛"><img class="cover" src="/image/82.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">2024fic初赛</div></div></a><a class="next-post pull-right" href="/2024/10/18/%E5%8F%96%E8%AF%81/otterctf-%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/" title="otterctf-内存取证"><img class="cover" src="/image/5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">otterctf-内存取证</div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="/image/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">cotton-star</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2021%E7%BE%8E%E4%BA%9A%E6%9D%AF%E7%BB%83%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">2021美亚杯练习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.</span> <span class="toc-text">总结:</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组"><img src="/image/p.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="209.长度最小的子数组"/></a><div class="content"><a class="title" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组">209.长度最小的子数组</a><time datetime="2024-11-01T00:45:28.128Z" title="发表于 2024-11-01 08:45:28">2024-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈希表用uthash实现"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现">哈希表用uthash实现</a><time datetime="2024-10-31T12:46:56.488Z" title="发表于 2024-10-31 20:46:56">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.两数之和"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和">1.两数之和</a><time datetime="2024-10-31T01:20:16.606Z" title="发表于 2024-10-31 09:20:16">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II"><img src="/image/82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="59.螺旋矩阵 II"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II">59.螺旋矩阵 II</a><time datetime="2024-10-30T11:10:20.542Z" title="发表于 2024-10-30 19:10:20">2024-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素"><img src="/image/64.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="27.移除元素"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素">27.移除元素</a><time datetime="2024-10-30T10:38:01.989Z" title="发表于 2024-10-30 18:38:01">2024-10-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By cotton-star</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>xdb学习 | forward</title><meta name="author" content="cotton-star"><meta name="copyright" content="cotton-star"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一.xdb基础篇1.逆向准备1.1 xdb简单使用 点击左上角  点击附加  将要的文件附加进去  1.2.实现用x32dbg分析阳光 只是用(杂交版)学习动态调试  先用ce将阳光的基址找出    即 1234567阳光基址:[PlantsVsZombies-nosig+vmem+vard.exe&quot;+2A9EC0]+768]+5560]种植卡片时访问的地址:008AF806 - 89">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xdb学习">
+<meta property="og:url" content="https://cotton-star.github.io/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="forward">
+<meta property="og:description" content="一.xdb基础篇1.逆向准备1.1 xdb简单使用 点击左上角  点击附加  将要的文件附加进去  1.2.实现用x32dbg分析阳光 只是用(杂交版)学习动态调试  先用ce将阳光的基址找出    即 1234567阳光基址:[PlantsVsZombies-nosig+vmem+vard.exe&quot;+2A9EC0]+768]+5560]种植卡片时访问的地址:008AF806 - 89">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cotton-star.github.io/image/3.jpg">
+<meta property="article:published_time" content="2024-08-05T02:16:07.368Z">
+<meta property="article:modified_time" content="2024-10-29T16:57:15.470Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cotton-star.github.io/image/3.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://cotton-star.github.io/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'xdb学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-30 00:57:15'
+}</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/3.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/image/1.jpg" alt="Logo"><span class="site-name">forward</span></a><a class="nav-page-title" href="/"><span class="site-name">xdb学习</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">xdb学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-05T02:16:07.368Z" title="发表于 2024-08-05 10:16:07">2024-08-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-29T16:57:15.470Z" title="更新于 2024-10-30 00:57:15">2024-10-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/re/">re</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一-xdb基础篇"><a href="#一-xdb基础篇" class="headerlink" title="一.xdb基础篇"></a>一.xdb基础篇</h1><h2 id="1-逆向准备"><a href="#1-逆向准备" class="headerlink" title="1.逆向准备"></a>1.逆向准备</h2><h3 id="1-1-xdb简单使用"><a href="#1-1-xdb简单使用" class="headerlink" title="1.1 xdb简单使用"></a>1.1 xdb简单使用</h3><p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240630201904347.png" alt="image-20240630201904347"></p>
+<p>点击左上角</p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240630202702886.png" alt="image-20240630202702886"></p>
+<p>点击附加</p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240630202831498.png" alt="image-20240630202831498"></p>
+<p>将要的文件附加进去</p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240703151750213.png" alt="image-20240703151750213"></p>
+<h3 id="1-2-实现用x32dbg分析阳光"><a href="#1-2-实现用x32dbg分析阳光" class="headerlink" title="1.2.实现用x32dbg分析阳光"></a>1.2.实现用x32dbg分析阳光</h3><ul>
+<li><p>只是用(杂交版)学习动态调试</p>
+</li>
+<li><p>先用ce将阳光的基址找出</p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240703134446355.png" alt="image-20240703134446355"></p>
+</li>
+</ul>
+<p>即</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">阳光基址:[PlantsVsZombies-nosig+vmem+vard.exe&quot;+2A9EC0]+768]+5560]</span><br><span class="line"></span><br><span class="line">种植卡片时访问的地址:008AF806 - 89 B7 60550000  - mov [edi+00005560],esi</span><br><span class="line">(在Xdbg有两种方式寻找地址</span><br><span class="line">1:用ctrl+G寻找008AF806</span><br><span class="line">2.直接寻找断点,上次作业保留的)</span><br><span class="line">减号可以返回上一页</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">0041BA60 | 56                       | push esi                                            |</span><br><span class="line">0041BA61 | 8BB7 60550000            | mov esi,dword ptr ds:[edi+5560]                     | esi=阳光值</span><br><span class="line">0041BA67 | 8BD7                     | mov edx,edi                                         | edx:&amp;&quot;p咢&quot;, edi:&amp;&quot;p咢&quot;</span><br><span class="line">0041BA69 | E8 12FFFFFF              | call plantsvszombies-nosig+vmem+vard.41B980         |</span><br><span class="line">0041BA6E | 03C6                     | add eax,esi                                         |</span><br><span class="line">0041BA70 | 3BD8                     | cmp ebx,eax                                         |</span><br><span class="line">0041BA72 | 7F 0C                    | jg plantsvszombies-nosig+vmem+vard.41BA80           |</span><br><span class="line">0041BA74 | 2BF3                     | sub esi,ebx                                         | ebx=种植卡片所需的阳光</span><br><span class="line">0041BA76 | E9 853D4900              | jmp &lt;plantsvszombies-nosig+vmem+vard.sub_8AF800&gt;    |</span><br><span class="line">0041BA7B | 90                       | nop                                                 |</span><br><span class="line">0041BA7C | B0 01                    | mov al,1                                            |</span><br><span class="line">0041BA7E | 5E                       | pop esi                                             |</span><br><span class="line">0041BA7F | C3                       | ret                                                 |</span><br><span class="line">0041BA80 | 8B8F 8C000000            | mov ecx,dword ptr ds:[edi+8C]                       | [edi+8C]:&quot;爗f&quot;</span><br><span class="line">0041BA86 | 8B01                     | mov eax,dword ptr ds:[ecx]                          |</span><br><span class="line">0041BA88 | 8B15 607B6A00            | mov edx,dword ptr ds:[6A7B60]                       | edx:&amp;&quot;p咢&quot;</span><br><span class="line">0041BA8E | 8B80 D8000000            | mov eax,dword ptr ds:[eax+D8]                       |</span><br><span class="line">0041BA94 | 52                       | push edx                                            | edx:&amp;&quot;p咢&quot;</span><br><span class="line">0041BA95 | FFD0                     | call eax                                            |</span><br><span class="line">0041BA97 | C787 78550000 46000000   | mov dword ptr ds:[edi+5578],46                      | 46:&#x27;F&#x27;</span><br><span class="line">0041BAA1 | 32C0                     | xor al,al                                           |</span><br><span class="line">0041BAA3 | 5E                       | pop esi                                             |</span><br><span class="line">0041BAA4 | C3                       | ret                                                 |</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">008AF800 | 019F CC570000            | add dword ptr ds:[edi+57CC],ebx                     |</span><br><span class="line">008AF806 | 89B7 60550000            | mov dword ptr ds:[edi+5560],esi                     | 种植阳光时访问的</span><br><span class="line">008AF80C | E9 6BC2B6FF              | jmp plantsvszombies-nosig+vmem+vard.41BA7C          |</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过分析,我们可以发现,mov dword ptr ds:[edi+5560],esi,要把esi给这个值,同时看见esi的值就是当前剩余阳光数值</span><br><span class="line">再看代码sub esi,ebx,发现esi在这里进行了改变,通关减去edx的值吧esi减少,ebx即卡片所需阳光</span><br><span class="line">因此,我们将sub改成add即可将阳光不减反增</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240703142101374.png" alt="image-20240703142101374"></p>
+<p>通过在内存窗口中转到地址,我们能够更清晰的分析阳光的变化,要记得将内存中的值改为32位有符号位</p>
+<h3 id="1-3-实现永久自动增加阳光"><a href="#1-3-实现永久自动增加阳光" class="headerlink" title="1.3 实现永久自动增加阳光"></a>1.3 实现永久自动增加阳光</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">由于每次关闭都会重置,要想永久自动我们需要打补丁</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240703142903032.png" alt="image-20240703142903032"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图片最上方那个向创口贴一样的就是补丁</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240703143210349.png" alt="image-20240703143210349"></p>
+<p>点击修补文件,保存下来即可</p>
+<h2 id="2-逆向基础知识"><a href="#2-逆向基础知识" class="headerlink" title="2.逆向基础知识"></a>2.逆向基础知识</h2><h3 id="2-1-访问目标地址常用方法"><a href="#2-1-访问目标地址常用方法" class="headerlink" title="2.1 访问目标地址常用方法"></a>2.1 访问目标地址常用方法</h3><ol>
+<li>使用ctrl+G</li>
+<li>设置断点</li>
+<li>注释(补丁右边一个)</li>
+<li>标签(按冒号能够添加标签)</li>
+</ol>
+<h4 id="2-1-1-代码执行法"><a href="#2-1-1-代码执行法" class="headerlink" title="2.1.1 代码执行法"></a>2.1.1 代码执行法</h4><ul>
+<li>直接执行文件,一直按步过(F8)直到执行找到代码位置</li>
+</ul>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707184144474.png" alt="image-20240707184144474"></p>
+<h4 id="2-1-2-字符串检索法"><a href="#2-1-2-字符串检索法" class="headerlink" title="2.1.2 字符串检索法"></a>2.1.2 字符串检索法</h4><p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707185127747.png" alt="image-20240707185127747"></p>
+<p>打开就能找到字符串,进行查找要的数据</p>
+<h4 id="2-1-3-API检索法"><a href="#2-1-3-API检索法" class="headerlink" title="2.1.3 API检索法"></a>2.1.3 API检索法</h4><p>程序放进去弹出的黑色框是messageboxw</p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707185538137.png" alt="image-20240707185538137"></p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707185602972.png" alt="image-20240707185602972"></p>
+<p>找到这条,点击进去就能找到</p>
+<h4 id="2-1-4-API检索法2"><a href="#2-1-4-API检索法2" class="headerlink" title="2.1.4 API检索法2"></a>2.1.4 API检索法2</h4><p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707190735562.png" alt="image-20240707190735562"></p>
+<p>ctrl+G直接搜索MessageBoxA,MessageBoxW</p>
+<p>设置断点,进入访问</p>
+<h3 id="2-2-使用打补丁方式修改helloworld"><a href="#2-2-使用打补丁方式修改helloworld" class="headerlink" title="2.2 使用打补丁方式修改helloworld"></a>2.2 使用打补丁方式修改helloworld</h3><p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707191334957.png" alt="image-20240707191334957"></p>
+<p>目标是把上下英文修改掉</p>
+<ol>
+<li>先找到具体的位置</li>
+</ol>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707191455618.png" alt="image-20240707191455618"></p>
+<ol start="2">
+<li><p>修改有两种方法:</p>
+<ul>
+<li>一是直接修改缓冲区,</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在内存中找到,全部选中,这里注意字符串末尾是以00结尾的,因此需要把00也包括进去,然后点击编辑,就可以直接修改了</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707191834378.png" alt="image-20240707191834378"></p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707192044627.png" alt="image-20240707192044627"></p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707192149942.png" alt="image-20240707192149942"></p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707192217206.png" alt="image-20240707192217206"></p>
+<ul>
+<li><p>二是在其他内存区域生成新字符串并传递给消息函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">怕有其他数据占用了要修改的后面的位置,造成把后面的数据破坏掉,因此一般用这种方式</span><br></pre></td></tr></table></figure>
+
+<p>我们先找到内存,往下拉,找到空的位置</p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707192713552.png" alt="image-20240707192713552"></p>
+<p>直接将想要的数据填入,复制该数据的地址</p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707192950925.png" alt="image-20240707192950925"></p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240707193607032.png" alt="image-20240707193607032"></p>
+<p>最后点击补丁,修补保存就可以了</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-3-小端序知识"><a href="#2-3-小端序知识" class="headerlink" title="2.3 小端序知识"></a>2.3 小端序知识</h3><p>大部分汇编已经介绍</p>
+<p>在x96dbg中注意这两个</p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240707195046107.png" alt="image-20240707195046107"></p>
+<h3 id="2-4-实现永久不减阳光"><a href="#2-4-实现永久不减阳光" class="headerlink" title="2.4 实现永久不减阳光"></a>2.4 实现永久不减阳光</h3><ul>
+<li><p>打开ce进行操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.增加阳光的地址</span><br><span class="line">00430A11 - 01 88 60550000  - add [eax+00005560],ecx</span><br><span class="line">2.减少阳光的地址</span><br><span class="line">008AF806 - 89 B7 60550000  - mov [edi+00005560],esi</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-4-1-第一种方法"><a href="#2-4-1-第一种方法" class="headerlink" title="2.4.1 第一种方法"></a>2.4.1 第一种方法</h4><p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240711214540981.png" alt="image-20240711214540981"></p>
+<p>查找地址</p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240711214832086.png" alt="image-20240711214832086"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发现这个给阳光赋值的地址,我们直接把他nop掉,那么种植时就不会减少阳光了</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-2-第二种方法"><a href="#2-4-2-第二种方法" class="headerlink" title="2.4.2 第二种方法"></a>2.4.2 第二种方法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分析代码</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240711215934949.png" alt="image-20240711215934949"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们想着,能不能通过跳过这个函数来实现目的</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240711220848195.png" alt="image-20240711220848195"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在函数开头设置断点</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240711220924224.png" alt="image-20240711220924224"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">看到栈窗口的返回地址</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240711221038398.png" alt="image-20240711221038398"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">双击进入找到阳光赋值口,我们往上看</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240711221229903.png" alt="image-20240711221229903"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">找到当al!=0是要跳过这个函数,我们直接把他改成无条件跳过,进入游戏发现阳光不减少</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-修改cd"><a href="#2-5-修改cd" class="headerlink" title="2.5 修改cd"></a>2.5 修改cd</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同理用ce 找到是什么改写了这个地址,00488E73放入x32dbg</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/2C0MS_GA5%7BP9QFL%25CSQ6%7BX.png" alt="2C0MS_GA5{P9QFL%~CSQ6{X"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">意外之喜,全改了</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-修改攻速"><a href="#2-6-修改攻速" class="headerlink" title="2.6 修改攻速"></a>2.6 修改攻速</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用ce找到</span><br><span class="line">0045F8A9 - 83 46 58 FF - add dword ptr [esi+58],-01</span><br><span class="line"></span><br><span class="line">0045F8CA - 89 4E 58  - mov [esi+58],ecx</span><br><span class="line"></span><br><span class="line">然后再x32dbg中将-1进行更改即可,太快会只动嘴不射豆,改ecx也可以,但是改了会一直把下面的覆盖了,所以在下面一块空的区域写入想要的代码然后jmp过去,还不够的话再转一点代码过去就行了,似乎全植物同样攻速了,再快现在也不去深究了</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-栈"><a href="#3-栈" class="headerlink" title="3.栈"></a>3.栈</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">首先简单来说三种方式有一个目的,就是清理栈,cdecl是在调用函数时解决(add esp,值),stdcall是在被调用函数中解决(ret 值),而fastcall是传递少量参数,并且多用寄存器</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-1-stdcall与cdecl"><a href="#3-1-stdcall与cdecl" class="headerlink" title="3.1 stdcall与cdecl"></a>3.1 stdcall与cdecl</h3><p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240714221502270.png" alt="image-20240714221502270"></p>
+<p>eg(以下都在x32dbg进行)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">像这种一般都是stdcall</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240714221829684.png" alt="image-20240714221829684"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">像这种底下跟着add esp,多少的一般都是cdecl</span><br><span class="line">平衡栈</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240714222047142.png" alt="image-20240714222047142"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tip:汇编里学习的是8086系统,是16位的微处理器,因此在8086中压栈是esp-2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>call:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">汇编里已经学习:</span><br><span class="line">1:esp-4</span><br><span class="line">2:把下一行的地址压栈</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ret</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">esp+4</span><br><span class="line">EIP 指向前面call时候压入的地址</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ret 4</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esp+8</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-2-fastcall"><a href="#3-2-fastcall" class="headerlink" title="3.2 fastcall"></a>3.2 fastcall</h3><p>多用寄存器进行传参</p>
+<h3 id="3-3-植物大战僵尸弹出检测框修改"><a href="#3-3-植物大战僵尸弹出检测框修改" class="headerlink" title="3.3 植物大战僵尸弹出检测框修改"></a>3.3 植物大战僵尸弹出检测框修改</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先通过字符串寻找:游戏暂停,然后在内存地址转到</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240714233301776.png" alt="image-20240714233301776"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32是空格的ascii码,转为16进制也就是20</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240714233549893.png" alt="image-20240714233549893"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串以00结尾,我们改掉这里的内容,就可以把游戏暂停这几个字改了,返现就是这里,然后我们需要判断弹出窗口是否就在这个函数,这里不能直接把开头改成ret,因为里面可能调用参数,我们要看他是怎么返回的,把他复制到开头</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240714234208767.png" alt="image-20240714234208767"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这样子改完,发现确实成功了,点旁边不会暂停,空格也不暂停了</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-逆向程序注册码"><a href="#3-4-逆向程序注册码" class="headerlink" title="3.4 逆向程序注册码"></a>3.4 逆向程序注册码</h3><h4 id="3-4-1-消灭弹窗"><a href="#3-4-1-消灭弹窗" class="headerlink" title="3.4.1 消灭弹窗"></a>3.4.1 消灭弹窗</h4><p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240726185913752.png" alt="image-20240726185913752"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">现在有这么一个程序,我需要做到干掉弹窗和找到注册码</span><br><span class="line">首先,弹窗有很明显的字符串提示,直接进行搜索</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240726190055041.png" alt="image-20240726190055041"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">通过一步步进行发现弹窗位如下</span><br><span class="line">00402CFE | E8 1DE4FFFF              | call &lt;JMP.&amp;rtcMsgBox&gt;    </span><br><span class="line">把此处nop了它直接崩溃了</span><br><span class="line">原因可能是我们把它平衡栈的地方也nop了,因此我们需要帮他平衡一下栈</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240726190947317.png" alt="image-20240726190947317"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">再通过一系列寻找,找到ret 14,记住这个14是16进制的,也就是20,就是5个参数,所以最原始平栈要5个参数,然后在最开始补上add esp,0x14  欸发现还是崩溃</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240726191911885.png" alt="image-20240726191911885"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">然后我们思考是不是返回值漏了导致程序崩溃,再次查看,下断点,运行,步过,查看寄存器变化</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240726192508303.png" alt="image-20240726192508303"></p>
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240726192606198.png" alt="image-20240726192606198"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发现eax变成1了,我们试试再把eax改了,发现字节长度不够,我们再去看包括这个弹窗的这整个函数,把这整个函数改成ret 多少了,就成功把弹窗干掉了</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-2-注册码"><a href="#3-4-2-注册码" class="headerlink" title="3.4.2 注册码"></a>3.4.2 注册码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">还是一样通过字符串找到位置,发现了这个判断函数,两种方法,一种nop掉,一种改zf,可以直接跳过注册码,实现yep</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240726195147699.png" alt="image-20240726195147699"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在附近也发现了注册码,就是I&#x27;mlena151,修改直接修改即可</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/image-20240726195840219.png" alt="image-20240726195840219"></p>
+<h2 id="4-各类语句-debug"><a href="#4-各类语句-debug" class="headerlink" title="4.各类语句(debug)"></a>4.各类语句(debug)</h2><h3 id="4-1-if"><a href="#4-1-if" class="headerlink" title="4.1 if"></a>4.1 if</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eg:if (a==0)</span><br><span class="line">cmp a,0</span><br><span class="line">jne 地址  ;不等于不执行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eg:if(a&gt;0)</span><br><span class="line">cmp a,0</span><br><span class="line">jle 地址  ;小于等于不执行</span><br></pre></td></tr></table></figure>
+
+<p>注:release版很多都没有push ebp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmp a,b</span><br><span class="line">setne al</span><br><span class="line">不相等 al=1, 相等 al=0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CMOVNE 是 x86 汇编语言中的一条指令，它表示 &quot;Conditional Move if Not Equal&quot;，即在不等条件下进行条件移动。这条指令的作用是根据先前的比较结果来选择是否将一个值移动到目标寄存器中，它是根据 ZF（零标志位）来决定的：</span><br><span class="line"></span><br><span class="line">如果 ZF 为 0（表示两个操作数不相等），则执行移动操作。</span><br><span class="line">如果 ZF 为 1（表示两个操作数相等），则不执行移动操作，目标寄存器保持不变。</span><br><span class="line">这种指令在处理条件逻辑时非常有用，可以根据前面的比较结果直接进行条件赋值操作，而不需要使用分支语句来实现。</span><br><span class="line"></span><br><span class="line">cmp a,b</span><br><span class="line">cmovne c,d</span><br><span class="line">ab不相等把d赋值给c</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io">cotton-star</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/">https://cotton-star.github.io/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://cotton-star.github.io" target="_blank">forward</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/image/3.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="prev-post pull-left" href="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/" title="记一记汇编小知识"><img class="cover" src="/image/6.gif" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">记一记汇编小知识</div></div></a><a class="next-post pull-right" href="/2024/05/30/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%9E%84%E4%BD%9C%E4%B8%9A%E8%A7%A3%E6%9E%90/" title="数构作业解析"><img class="cover" src="/image/3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数构作业解析</div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="/image/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">cotton-star</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-xdb%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="toc-number">1.</span> <span class="toc-text">一.xdb基础篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%80%86%E5%90%91%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text">1.逆向准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-xdb%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 xdb简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%AE%9E%E7%8E%B0%E7%94%A8x32dbg%E5%88%86%E6%9E%90%E9%98%B3%E5%85%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2.实现用x32dbg分析阳光</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%AE%9E%E7%8E%B0%E6%B0%B8%E4%B9%85%E8%87%AA%E5%8A%A8%E5%A2%9E%E5%8A%A0%E9%98%B3%E5%85%89"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3 实现永久自动增加阳光</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.2.</span> <span class="toc-text">2.逆向基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E8%AE%BF%E9%97%AE%E7%9B%AE%E6%A0%87%E5%9C%B0%E5%9D%80%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 访问目标地址常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%B3%95"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">2.1.1 代码执行法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A3%80%E7%B4%A2%E6%B3%95"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2.1.2 字符串检索法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-API%E6%A3%80%E7%B4%A2%E6%B3%95"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">2.1.3 API检索法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-API%E6%A3%80%E7%B4%A2%E6%B3%952"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">2.1.4 API检索法2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%BD%BF%E7%94%A8%E6%89%93%E8%A1%A5%E4%B8%81%E6%96%B9%E5%BC%8F%E4%BF%AE%E6%94%B9helloworld"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 使用打补丁方式修改helloworld</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%B0%8F%E7%AB%AF%E5%BA%8F%E7%9F%A5%E8%AF%86"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 小端序知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%AE%9E%E7%8E%B0%E6%B0%B8%E4%B9%85%E4%B8%8D%E5%87%8F%E9%98%B3%E5%85%89"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 实现永久不减阳光</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">2.4.1 第一种方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">2.4.2 第二种方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E4%BF%AE%E6%94%B9cd"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 修改cd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E4%BF%AE%E6%94%B9%E6%94%BB%E9%80%9F"><span class="toc-number">1.2.6.</span> <span class="toc-text">2.6 修改攻速</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A0%88"><span class="toc-number">1.3.</span> <span class="toc-text">3.栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-stdcall%E4%B8%8Ecdecl"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 stdcall与cdecl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-fastcall"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 fastcall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8%E5%BC%B9%E5%87%BA%E6%A3%80%E6%B5%8B%E6%A1%86%E4%BF%AE%E6%94%B9"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 植物大战僵尸弹出检测框修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E9%80%86%E5%90%91%E7%A8%8B%E5%BA%8F%E6%B3%A8%E5%86%8C%E7%A0%81"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4 逆向程序注册码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1-%E6%B6%88%E7%81%AD%E5%BC%B9%E7%AA%97"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">3.4.1 消灭弹窗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2-%E6%B3%A8%E5%86%8C%E7%A0%81"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">3.4.2 注册码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%84%E7%B1%BB%E8%AF%AD%E5%8F%A5-debug"><span class="toc-number">1.4.</span> <span class="toc-text">4.各类语句(debug)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-if"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 if</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组"><img src="/image/p.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="209.长度最小的子数组"/></a><div class="content"><a class="title" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组">209.长度最小的子数组</a><time datetime="2024-11-01T00:45:28.128Z" title="发表于 2024-11-01 08:45:28">2024-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈希表用uthash实现"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现">哈希表用uthash实现</a><time datetime="2024-10-31T12:46:56.488Z" title="发表于 2024-10-31 20:46:56">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.两数之和"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和">1.两数之和</a><time datetime="2024-10-31T01:20:16.606Z" title="发表于 2024-10-31 09:20:16">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II"><img src="/image/82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="59.螺旋矩阵 II"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II">59.螺旋矩阵 II</a><time datetime="2024-10-30T11:10:20.542Z" title="发表于 2024-10-30 19:10:20">2024-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素"><img src="/image/64.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="27.移除元素"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素">27.移除元素</a><time datetime="2024-10-30T10:38:01.989Z" title="发表于 2024-10-30 18:38:01">2024-10-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By cotton-star</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

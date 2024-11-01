@@ -1,0 +1,583 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>汇编 | forward</title><meta name="author" content="cotton-star"><meta name="copyright" content="cotton-star"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一章.计算机基础知识1.1硬件![屏幕截图 2024-03-25 222641](E:\study\汇编\huiphoto\屏幕截图 2024-03-25 222641.png) 主存储器(内存储器):  RAM:随机存储器: DRAM:电容储存:C+mos  慢 大 SRAM:触发器:光电管储存 快 小  ROM:只读存储器  高速缓冲存储器(Cache):由于DRAM很慢因此中间加一个SRA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编">
+<meta property="og:url" content="https://cotton-star.github.io/2024/03/25/re/%E6%B1%87%E7%BC%96/index.html">
+<meta property="og:site_name" content="forward">
+<meta property="og:description" content="第一章.计算机基础知识1.1硬件![屏幕截图 2024-03-25 222641](E:\study\汇编\huiphoto\屏幕截图 2024-03-25 222641.png) 主存储器(内存储器):  RAM:随机存储器: DRAM:电容储存:C+mos  慢 大 SRAM:触发器:光电管储存 快 小  ROM:只读存储器  高速缓冲存储器(Cache):由于DRAM很慢因此中间加一个SRA">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cotton-star.github.io/image/3.jpg">
+<meta property="article:published_time" content="2024-03-25T14:24:53.524Z">
+<meta property="article:modified_time" content="2024-11-01T04:58:03.184Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cotton-star.github.io/image/3.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://cotton-star.github.io/2024/03/25/re/%E6%B1%87%E7%BC%96/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '汇编',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-01 12:58:03'
+}</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/3.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/image/1.jpg" alt="Logo"><span class="site-name">forward</span></a><a class="nav-page-title" href="/"><span class="site-name">汇编</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">汇编</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-25T14:24:53.524Z" title="发表于 2024-03-25 22:24:53">2024-03-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-01T04:58:03.184Z" title="更新于 2024-11-01 12:58:03">2024-11-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/re/">re</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第一章-计算机基础知识"><a href="#第一章-计算机基础知识" class="headerlink" title="第一章.计算机基础知识"></a>第一章.计算机基础知识</h1><h2 id="1-1硬件"><a href="#1-1硬件" class="headerlink" title="1.1硬件"></a>1.1硬件</h2><p>![屏幕截图 2024-03-25 222641](E:\study\汇编\huiphoto\屏幕截图 2024-03-25 222641.png)</p>
+<p>主存储器(内存储器):</p>
+<ol>
+<li><p>RAM:随机存储器:</p>
+<p>DRAM:电容储存:C+mos  慢 大</p>
+<p>SRAM:触发器:光电管储存 快 小</p>
+</li>
+<li><p>ROM:只读存储器</p>
+</li>
+<li><p>高速缓冲存储器(Cache):由于DRAM很慢因此中间加一个SRAM加快传给CPU的速度</p>
+</li>
+<li><p>辅助存储器(外存储器):磁表面存储器、光存储器和半导体闪速存储器等三大类</p>
+</li>
+</ol>
+<h2 id="1-2计算机中的数制"><a href="#1-2计算机中的数制" class="headerlink" title="1.2计算机中的数制"></a>1.2计算机中的数制</h2><ol>
+<li>数的表示形式</li>
+</ol>
+<p>位:bit</p>
+<p>字节:byte:8bit</p>
+<p>字(word):假使是8086微机储存16位,则字长为2B</p>
+<p>双字(Dword):字的两倍字长</p>
+<ol start="2">
+<li>数制:</li>
+</ol>
+<p>​    十进制数（D） 、二进制数（B） 、八进制数（O或Q） 和十六进制数（H)</p>
+<ol start="3">
+<li><p>不同数制的相互转换</p>
+<p>(了解常识：十六进制等的加减乘除)</p>
+<p>学会与,或,非,异或</p>
+</li>
+</ol>
+<h2 id="1-3计算机中的数和字符的表示"><a href="#1-3计算机中的数和字符的表示" class="headerlink" title="1.3计算机中的数和字符的表示"></a>1.3计算机中的数和字符的表示</h2><ol>
+<li><p>字符表示:ASCII码</p>
+<p>重点记忆:</p>
+<p>0<del>9: 30H</del>39H</p>
+<p>A<del>F: 41H</del>46H</p>
+<p>a<del>f: 61H</del>66H</p>
+</li>
+</ol>
+<p>​      SP:20H(空格)</p>
+<p>​      LF:0A(换行)</p>
+<p>​      CR:0D(回车)</p>
+<ol start="2">
+<li><p>BCD码</p>
+<p>包括压缩BCD码和非压缩BCD码</p>
+<p>压缩BCD码例子: 0000 0010 0000 0001:表示21</p>
+<p>非压缩BCD码例子:0010 0001表示21</p>
+</li>
+</ol>
+<h1 id="第二章-80X86微处理器及系统结构"><a href="#第二章-80X86微处理器及系统结构" class="headerlink" title="第二章.80X86微处理器及系统结构"></a>第二章.80X86微处理器及系统结构</h1><h2 id="1-大致"><a href="#1-大致" class="headerlink" title="1.大致"></a>1.大致</h2><p>首先这张图要大致记住</p>
+<p>![屏幕截图 2024-03-27 205437](E:\study\汇编\huiphoto\屏幕截图 2024-03-27 205437.png)</p>
+<ol>
+<li><p>执行单元EU:执行指令</p>
+</li>
+<li><p>接口单元:BIU接总线</p>
+</li>
+<li><p>了解流水操作,在顺序执行时利用微机预接收指令以提高效率,同时要注意断流风险和瓶颈问题</p>
+</li>
+<li><p>数据总线为16位,一次处理2B数据</p>
+<p>地址总线为20位,所以经过一系列求和操作才能传</p>
+</li>
+<li><p>寄存器是由触发器组成的储存单位位于cpu中有14个寄存器,都为16位。</p>
+</li>
+<li><p>对于通用寄存器由上图可知一共八个,由于考虑兼容性把Ax分为AH和AL</p>
+</li>
+</ol>
+<h2 id="2-详细"><a href="#2-详细" class="headerlink" title="2.详细"></a>2.详细</h2><ol start="5">
+<li>![屏幕截图 2024-03-27 210434](E:\study\汇编\huiphoto\屏幕截图 2024-03-27 210434.png)</li>
+</ol>
+<h3 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h3><p>寄存器就是存储器，寄存器在cpu内部，存储器在cpu外部</p>
+<p>最底下的是标志寄存器，只用16位的9位,有六个标志位三个控制位</p>
+<p>详细介绍:</p>
+<p>标志位:</p>
+<ol>
+<li><p>C标志位:进位位(看有没有向符号位之前进位,有为1无为0)</p>
+</li>
+<li><p>P标志位:奇偶位(看加完后有偶数个1就为1)</p>
+</li>
+<li><p>A标志位:半进位位(从右向左第三位有无进位,有为1无为0.用来判断10进制是否要补偿6)</p>
+</li>
+<li><p>Z标志位:零标志位(结果为0为1,结果为1它为0)</p>
+</li>
+<li><p>S标志位:符号标志位(正数为0负数为1)</p>
+</li>
+<li><p>O标志位:溢出位(溢出为1)</p>
+</li>
+</ol>
+<p>控制位:</p>
+<ol>
+<li>TF:单步运行位</li>
+<li>IF:中断允许控制位,cpu终止正在运行的程序转向其他请求再回来</li>
+<li>DF:方向控制位:0为递增,1为递减</li>
+</ol>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/study\汇编\huiphoto\71749862752295884435ab738430578c.jpg" alt="71749862752295884435ab738430578c"></p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/study\汇编\huiphoto\86d63778c588ef98c500968738340040.jpg" alt="86d63778c588ef98c500968738340040"></p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240512193519190.png" alt="image-20240512193519190"></p>
+<h3 id="80X86"><a href="#80X86" class="headerlink" title="80X86"></a>80X86</h3><p>一共二十位地址 1M&#x3D;2^20(0000H~FFFFFH)</p>
+<p>由于一次要读16字节(2B)，用相邻的高地址做高字节，自己做低字节</p>
+<h3 id="分段-读取"><a href="#分段-读取" class="headerlink" title="分段+读取"></a>分段+读取</h3><h1 id="第三章-80X86指令系统"><a href="#第三章-80X86指令系统" class="headerlink" title="第三章 80X86指令系统"></a>第三章 80X86指令系统</h1><h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>[标号:]指令助记符 目的操作数,源操作数[;注释]</p>
+<p>eg:mov AL,BL[;把BL数据送给AL]</p>
+<h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><p>找源操作数</p>
+<h3 id="操作数类型"><a href="#操作数类型" class="headerlink" title="操作数类型"></a>操作数类型</h3><p>操作数依其所在的不同位置可分为三种类型:立即数(最快)，寄存器操作数，存储器操作数(最慢)</p>
+<ol>
+<li><p>立即寻址方式</p>
+<p>操作数类型为立即数，存放在指令中</p>
+<p>eg: mov AX ,2000H</p>
+</li>
+<li><p>寄存器寻址方式</p>
+<p>操作数在寄存器中，在指令中指明寄存器的名称，通常用于寄存器之间的传送数据</p>
+<p>eg: mov AX ,BX</p>
+</li>
+<li><p>直接寻址方式</p>
+<p>直接寻址方式中操作数地址是16位偏移量直接包含在指令中，而操作数则默认在数据段中</p>
+<p>eg mov AX,[2000H]                以2000H为地址的那个数是操作数，默认为数据段DS</p>
+<p>也就是通过2000H 和DS寻找物理地址</p>
+<p>假设DS是1000H</p>
+<p>  10000</p>
+<p>  +2000</p>
+<p>&#x3D;12000</p>
+<p>要读16位就是要读取12000H及12001H</p>
+</li>
+<li><p>寄存器间接寻址</p>
+<p>eg: mov AX,[BX]                       以寄存器内容为地址,地址内的内容为操作数，只能是BX BP SI DI</p>
+<p>假设BX为2000H 没有特别指明找DS(仅DI SI BX)，SS(BP)</p>
+<p>假设DS&#x3D;1000H</p>
+<p>AX跟上面3一样</p>
+</li>
+<li><p>寄存器相对寻址方式</p>
+<p>以指定的寄存器内容加上指令中给出的位移量D,并以一个段寄存器为基准给出操作数的地址</p>
+<p>eg: mov AX,[BX+100H]           以方括号内的结果为地址</p>
+<p>假设BX&#x3D;1F00H</p>
+<p>加起来就为2000H</p>
+<p>结果仍然跟上面一样</p>
+</li>
+<li><p>基址变址寻址方式</p>
+<p>用一个基址寄存器和变址寄存器的值相加为操作数的偏移地址</p>
+<p>eg: mov AX,[BX+DI]                 方括号内即为地址(BP BX为基址寄存器)(SI DI为变址寄存器)以机制为准，BX找DS BP找SS</p>
+</li>
+<li><p>相对基址变址寻址</p>
+<p>eg: mov AX,[BX+DI+100H]</p>
+</li>
+</ol>
+<h2 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h2><ol>
+<li>OPD:表示目的操作数</li>
+<li>OPS:表示源操作数</li>
+<li>mem:表示内存单元</li>
+<li>reg:表示通用寄存器</li>
+<li>seg:表示段寄存器</li>
+<li>imm:表示立即数</li>
+</ol>
+<h2 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h2><ul>
+<li><p>mov AX,BL 是错误的,AX是16位，BL是八位</p>
+</li>
+<li><p>mov AX,0是可以的</p>
+</li>
+<li><p>mov [2000H],0H 是错误的，0不知道是16位还是8位</p>
+<p>   可改为 mov BYTE PTR[2000H],0H 相当于00H送进来</p>
+<p>​    或       mov WORD PTR[2000H],0H</p>
+</li>
+<li><p>立即数不能给段赋值:mov DS,2000H 错误</p>
+</li>
+<li><p>两内存中不允许互相传数据:mov [Bx],[2000H] 错误</p>
+</li>
+<li><p>ip,cs不允许做目的操作数 mov Ip(cs),Ax错误</p>
+</li>
+</ul>
+<h3 id="XCHG指令"><a href="#XCHG指令" class="headerlink" title="XCHG指令"></a>XCHG指令</h3><p>交换指令,指令格式:XCHG OPD,OPS</p>
+<p>没有立即数,和段寄存器</p>
+<p>同时两内存也不能交换!!</p>
+<p>只能通过通用寄存器reg来交换</p>
+<p>eg:MOV AX,[3000H]</p>
+<p>​    XCHG [2000H],AX</p>
+<p>​    MOV [3000H],AX</p>
+<h3 id="XLAT指令"><a href="#XLAT指令" class="headerlink" title="XLAT指令"></a>XLAT指令</h3><p>查表指令,格式:XLAT TABLE或XLAT</p>
+<p>eg:</p>
+<p>MOV BX,2000H    先要把首地址给BX</p>
+<p>MOV AL,06H        然后把偏移量给AL</p>
+<p>XLAT;                     AL&#x3D;24H&#x3D;36</p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240408185848026.png" alt="image-20240408185848026"></p>
+<h3 id="指令PUSH和POP"><a href="#指令PUSH和POP" class="headerlink" title="指令PUSH和POP"></a>指令PUSH和POP</h3><p>堆栈指令格式PUSH OPD   先让SP-2送完+2</p>
+<p>​                       POP   OPdata segment</p>
+<p>BUF db 2,4,1,0,6,9,4,0,3,0</p>
+<p>RESULT db ?</p>
+<p>data ends</p>
+<p>code segment</p>
+<p>assume cs:code,ds:data</p>
+<p>start:mov ax,data</p>
+<p>   mov ds,ax</p>
+<p>   mov al,0</p>
+<p>   mov cx,10</p>
+<p>   lea si,BUF</p>
+<p>l1:  mov bl,[si]</p>
+<p>   cmp bl,0</p>
+<p>   JNE NEXT  </p>
+<p>   inc al</p>
+<p>NEXT: inc si</p>
+<p>   loop l1</p>
+<p>   mov RESULT,al</p>
+<p>   mov al,0</p>
+<p>mov ax,4c00h</p>
+<p>int 21h</p>
+<p>code ends</p>
+<p>end startD</p>
+<p>OPD必须是16位,不允许是立即数只能是通用寄存器段寄存器和内存单元</p>
+<p>SS:堆栈段</p>
+<p>SP:堆栈指针</p>
+<p>堆栈是地址向下递减的空间</p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Tencent\TIM\Temp\7b96a3bc013128a0f7f5853ce95741b8.jpg" alt="7b96a3bc013128a0f7f5853ce95741b8"></p>
+<h3 id="标志传送指令"><a href="#标志传送指令" class="headerlink" title="标志传送指令"></a>标志传送指令</h3><p>LAHF</p>
+<p>取标志寄存器的低8位传送到AH</p>
+<p>SAHF</p>
+<p>把AH送回去</p>
+<p>PUSHF	</p>
+<p>先将SP-2然后把标志寄存器入栈</p>
+<p>POPF</p>
+<p>取出标志寄存器,SP+2</p>
+<h3 id="地址传送指令"><a href="#地址传送指令" class="headerlink" title="地址传送指令"></a>地址传送指令</h3><p>有效地址指令LEA</p>
+<p>格式LEA OPD,OPS    把OPS 的地址送给OPD</p>
+<p>OPS只能为变量名,标号,地址表达式</p>
+<p>示例 ,指令的区别</p>
+<p>LEA BX,[2000H]               BX&#x3D;[2000H]</p>
+<p>MOV BX,[2000H]             BX&#x3D;地址2000H的值</p>
+<h2 id="算数运算指令"><a href="#算数运算指令" class="headerlink" title="算数运算指令"></a>算数运算指令</h2><h3 id="加法指令"><a href="#加法指令" class="headerlink" title="加法指令"></a>加法指令</h3><ol>
+<li><p>ADD加法指令(影响所有标志位)</p>
+<p>格式:ADD OPD,OPS         不允许是段   OPD&#x3D;(OPS+OPD)</p>
+</li>
+<li><p>ADC带进位加法指令(影响所有标志位)</p>
+<p>格式:ADC OPD,OPS          OPD&#x3D;(OPS+OPD+CF)</p>
+</li>
+<li><p>INC指令(对进位位不影响)</p>
+<p>格式:INC OPD                  OPD&#x3D;OPD+1</p>
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240408195457734.png" alt="image-20240408195457734"></p>
+</li>
+</ol>
+<h3 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h3><ol>
+<li>减法指令SUB</li>
+</ol>
+<p>   格式:SUB OPD,OPS    OPD&#x3D;OPD-OPS</p>
+<ol start="2">
+<li><p>带借位减法指令SBB</p>
+<p>格式:SBB OPD,OPS</p>
+</li>
+<li><p>减1指令DEC</p>
+<p>格式:DEC OPD</p>
+</li>
+<li><p>求补指令NEG</p>
+<p>指令:NEG OPD(只能是通用或内存)</p>
+<p>对0求补时,CF&#x3D;0,其他情况CF&#x3D;1</p>
+</li>
+<li><p>比较指令CMP</p>
+<p>格式:CMP OPD,OPS   OPD-OPS 结果不回送只影响标志位</p>
+</li>
+</ol>
+<h3 id="乘法指令"><a href="#乘法指令" class="headerlink" title="乘法指令"></a>乘法指令</h3><ol>
+<li><p>无符号数乘法指令MUL</p>
+<p>格式:MUL OPD </p>
+<p>(操作数可以是reg和mem不能是立即数)</p>
+<p>乘数默认,保存地址默认</p>
+<p>8位 * 8位&#x3D;16位:             (AL)*OPD&#x3D;(AX)</p>
+<p>16位 * 16位&#x3D;32位:        (AX)*OPD&#x3D;(DX)(AX)</p>
+</li>
+<li><p>有符号数乘法指令IMUL</p>
+<p>格式:IMUL OPD</p>
+</li>
+</ol>
+<h3 id="除法指令"><a href="#除法指令" class="headerlink" title="除法指令"></a>除法指令</h3><ol>
+<li><p>无符号数除法指令DIV</p>
+<p>格式:DIV OPD          </p>
+<p>16位&#x2F;8位        (AX)&#x2F;OPD&#x3D;(AL)……(AH)</p>
+<p>32位&#x2F;16位      (DX).(AX)&#x2F;OPD&#x3D;(AX)……(DX)</p>
+</li>
+<li><p>有符号数除法指令IDIV</p>
+<p>格式:DIV OPD</p>
+</li>
+<li><p>符号扩展指令</p>
+<ol>
+<li>字节扩展为字CBW                   被扩展的放在AL或</li>
+<li>字扩展为双字CWD                   Ax</li>
+</ol>
+</li>
+</ol>
+<h2 id="十进制数调整指令"><a href="#十进制数调整指令" class="headerlink" title="十进制数调整指令"></a>十进制数调整指令</h2><p>分为压缩BCD码和非压缩BCD码</p>
+<ol>
+<li><p>压缩BCD码加法调整指令</p>
+<p>DAA</p>
+</li>
+<li><p>压缩BCD码减法调整指令</p>
+<p>DAS</p>
+</li>
+<li><p>非压缩BCD码加法调整指令</p>
+<p>AAA</p>
+</li>
+<li><p>非压缩BCD码减法调整指令</p>
+<p>AAS</p>
+</li>
+<li><p>非压缩BCD码乘法调整指令</p>
+</li>
+</ol>
+<p>​      AAM</p>
+<ol start="6">
+<li>非压缩BCD码除法调整指令</li>
+</ol>
+<p>​      AAD</p>
+<h2 id="逻辑运算指令"><a href="#逻辑运算指令" class="headerlink" title="逻辑运算指令"></a>逻辑运算指令</h2><p>AND OR NOT XOR TEST       只影响SF ZF PF</p>
+<p>AND OPD,OPS     </p>
+<p>OR OPD,OPS</p>
+<p>NOT OPD</p>
+<p>XOR OPD,OPS</p>
+<p>TEST OPD,OPS     两个相与完结果不回送,只影响上面三个标志位</p>
+<h2 id="移位指令"><a href="#移位指令" class="headerlink" title="移位指令"></a>移位指令</h2><p>格式</p>
+<p>SAL(算数)&#x2F;SHL(逻辑) OPD(对象),OPS(次数)</p>
+<p>​            eg:算术左移两次</p>
+<p>​            MOV CL,02H</p>
+<p>​            SAL AL,CL</p>
+<p>右移:</p>
+<p>SAR OPD,OPS</p>
+<p>SHR OPD,OPS</p>
+<h3 id="循环移位指令"><a href="#循环移位指令" class="headerlink" title="循环移位指令"></a>循环移位指令</h3><p>ROL OPD,OPS:不带进位循环左移</p>
+<p>ROR OPD,OPS:不带进位循环右移</p>
+<p>RCL OPD,OPS:带进位循环左移</p>
+<p>RCR OPD,OPS:带进位循环右移</p>
+<h2 id="控制转移指令"><a href="#控制转移指令" class="headerlink" title="控制转移指令"></a>控制转移指令</h2><ol>
+<li><p>jmp 无条件转移指令</p>
+</li>
+<li><p>jcc 条件转移语句</p>
+</li>
+<li><p>无符号数比高低,有符号数比大小,</p>
+<p>A表示高,B表示低</p>
+<p>G表示大,L表示小 </p>
+<p>eg:JNL 不小于     JGE 大于等于</p>
+<p>​     JB低于 ,  JA大于</p>
+<p>​	JE相等 JZ为零</p>
+</li>
+<li><p>jcxz lable  判断cx的值是否为0</p>
+</li>
+</ol>
+<h2 id="循环控制指令"><a href="#循环控制指令" class="headerlink" title="循环控制指令"></a>循环控制指令</h2><p>循环指令默认利用cx计数器,循环次数先给cx,先做cx&#x3D;cx-1,判断cx是否等于0,等于零退出循环.</p>
+<p>loop cx&#x3D;0</p>
+<p>loopz cx&#x3D;0 or zf&#x3D;1</p>
+<p>loope </p>
+<h2 id="call-and-ret"><a href="#call-and-ret" class="headerlink" title="call and ret"></a>call and ret</h2><p>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">        mov al,20h</span><br><span class="line">        call s</span><br><span class="line">        ......</span><br><span class="line">    s:  mov ah,0</span><br><span class="line">        mov cl,10</span><br><span class="line">        div cl</span><br><span class="line">        or al,30h</span><br><span class="line">        mov bh,al</span><br><span class="line">        or ah,30h</span><br><span class="line">        mov bl,ah</span><br><span class="line">        ret</span><br><span class="line">        mov ax,4c00h</span><br><span class="line">        int 21h</span><br><span class="line">code ends</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/03/25/re/%E6%B1%87%E7%BC%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240422185445606.png" alt="image-20240422185445606"></p>
+<h2 id="处理器控制指令"><a href="#处理器控制指令" class="headerlink" title="处理器控制指令"></a>处理器控制指令</h2><ol>
+<li>nop 没用</li>
+<li>lock 暂时封锁</li>
+<li>hit 暂时停止</li>
+<li>esc 交权指令</li>
+<li>wait 等</li>
+</ol>
+<h2 id="标志操作指令"><a href="#标志操作指令" class="headerlink" title="标志操作指令"></a>标志操作指令</h2><ol>
+<li>clc 清零</li>
+<li>stc 置一</li>
+<li>cmc 进位位求反</li>
+</ol>
+<p>前三条操作进位位</p>
+<ol start="4">
+<li><p>cld DF位置零</p>
+</li>
+<li><p>std DF位置置一</p>
+</li>
+<li><p>cli 把中断标志位置零</p>
+</li>
+<li><p>sti 中断标志位置一</p>
+</li>
+</ol>
+<h1 id="汇编语言程序格式"><a href="#汇编语言程序格式" class="headerlink" title="汇编语言程序格式"></a>汇编语言程序格式</h1><ul>
+<li>$指的是当前地址(ip)</li>
+</ul>
+<h2 id="特殊运算符"><a href="#特殊运算符" class="headerlink" title="特殊运算符"></a>特殊运算符</h2><ol>
+<li>强制类型运算符 PTR</li>
+</ol>
+<p>eg:mov al,byte ptr var</p>
+<ol start="2">
+<li>lea,offset</li>
+</ol>
+<p>eg:lea bx,var</p>
+<p>&#x3D;   mov bx,offset var</p>
+<ol start="3">
+<li>type</li>
+</ol>
+<p>db&#x3D;1,dw&#x3D;2,dd&#x3D;4,near&#x3D;-1,far&#x3D;-2</p>
+<ol start="4">
+<li>length</li>
+</ol>
+<p>求dup重复的次数,不是dup为1</p>
+<ol start="5">
+<li>size</li>
+</ol>
+<p>&#x3D;length*type</p>
+<ol start="6">
+<li>seg</li>
+</ol>
+<p>求段地址</p>
+<h2 id="模块通信伪指令"><a href="#模块通信伪指令" class="headerlink" title="模块通信伪指令"></a>模块通信伪指令</h2><ol>
+<li>PUBLIC 符号  定义一个全局符号说明</li>
+<li>EXTRN 符号:类型          声明另一边的PUBLIC</li>
+</ol>
+<h1 id="系统功能调用"><a href="#系统功能调用" class="headerlink" title="系统功能调用"></a>系统功能调用</h1><ol>
+<li><p>MS-DOS 的调用过程</p>
+<p>将系统调用号送AH寄存器</p>
+<p>在指定的寄存器中设置有关入口参数</p>
+<p>INT 21H:DOS的中断处理程序</p>
+</li>
+<li><p>返回DOS的系统调用4CH</p>
+<p>MOV AH,4CH</p>
+<p>INT 21H</p>
+</li>
+<li><p>单个字符输出</p>
+<p>AH&#x3D;02,要显示的字符存于DL中,即DL&#x3D;字符的ASCII码</p>
+<p>MOV AH,2</p>
+<p>MOV DL,’A’</p>
+<p>INT 21H</p>
+</li>
+<li><p>字符串输出</p>
+<p>AH&#x3D;09,要输出的字符串的首地址存于DX寄存器中,即入口参数DS:DX&#x3D;字符串首地址,字符串必须以$为结尾</p>
+<p>MOV AH,09</p>
+<p>LEA DX,BUF</p>
+<p>INT 21H</p>
+</li>
+<li><p>字符输入</p>
+<p>AH&#x3D;01,从键盘输入一个字符</p>
+<p>MOV AH,01</p>
+<p>INT 21H</p>
+</li>
+<li><p>字符串输入</p>
+<p>AH&#x3D;0AH,从键盘输入一个字符串,入口参数DS:DX&#x3D;缓冲区首地址,用回车键表示输出结束</p>
+</li>
+</ol>
+<h2 id="分支程序"><a href="#分支程序" class="headerlink" title="分支程序"></a>分支程序</h2><p>输入一个字符,输出大写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">code segment</span><br><span class="line">    assume cs:code</span><br><span class="line">start:mov ah,01h</span><br><span class="line">       INT 21H</span><br><span class="line">       cmp al,&#x27;a&#x27;</span><br><span class="line">       jb exit</span><br><span class="line">       cmp al,&#x27;z&#x27;</span><br><span class="line">       ja exit</span><br><span class="line">       sub al,20h</span><br><span class="line">       mov al,dl</span><br><span class="line">       mov ah,02h</span><br><span class="line">       int 21h</span><br><span class="line">exit:  MOV AH, 4CH</span><br><span class="line">       int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io">cotton-star</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io/2024/03/25/re/%E6%B1%87%E7%BC%96/">https://cotton-star.github.io/2024/03/25/re/%E6%B1%87%E7%BC%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://cotton-star.github.io" target="_blank">forward</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/image/3.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="prev-post pull-left" href="/2024/04/25/re/rectf/" title="rectf"><img class="cover" src="/image/5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">rectf</div></div></a><a class="next-post pull-right" href="/2024/03/25/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构"><img class="cover" src="/image/5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据结构</div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="/image/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">cotton-star</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">第一章.计算机基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1%E7%A1%AC%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">1.1硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%95%B0%E5%88%B6"><span class="toc-number">1.2.</span> <span class="toc-text">1.2计算机中的数制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E6%95%B0%E5%92%8C%E5%AD%97%E7%AC%A6%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.3.</span> <span class="toc-text">1.3计算机中的数和字符的表示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-80X86%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E5%8F%8A%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">第二章.80X86微处理器及系统结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%A4%A7%E8%87%B4"><span class="toc-number">2.1.</span> <span class="toc-text">1.大致</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AF%A6%E7%BB%86"><span class="toc-number">2.2.</span> <span class="toc-text">2.详细</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%BF%97%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">标志寄存器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#80X86"><span class="toc-number">2.2.2.</span> <span class="toc-text">80X86</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%AE%B5-%E8%AF%BB%E5%8F%96"><span class="toc-number">2.2.3.</span> <span class="toc-text">分段+读取</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-80X86%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">第三章 80X86指令系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4"><span class="toc-number">3.1.</span> <span class="toc-text">指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">寻址方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.2.1.</span> <span class="toc-text">操作数类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.</span> <span class="toc-text">指令系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4"><span class="toc-number">3.4.</span> <span class="toc-text">数据传送指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XCHG%E6%8C%87%E4%BB%A4"><span class="toc-number">3.4.1.</span> <span class="toc-text">XCHG指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XLAT%E6%8C%87%E4%BB%A4"><span class="toc-number">3.4.2.</span> <span class="toc-text">XLAT指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4PUSH%E5%92%8CPOP"><span class="toc-number">3.4.3.</span> <span class="toc-text">指令PUSH和POP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%BF%97%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4"><span class="toc-number">3.4.4.</span> <span class="toc-text">标志传送指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4"><span class="toc-number">3.4.5.</span> <span class="toc-text">地址传送指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.</span> <span class="toc-text">算数运算指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.1.</span> <span class="toc-text">加法指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%8F%E6%B3%95%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.2.</span> <span class="toc-text">减法指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%98%E6%B3%95%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.3.</span> <span class="toc-text">乘法指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%A4%E6%B3%95%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.4.</span> <span class="toc-text">除法指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%B0%83%E6%95%B4%E6%8C%87%E4%BB%A4"><span class="toc-number">3.6.</span> <span class="toc-text">十进制数调整指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4"><span class="toc-number">3.7.</span> <span class="toc-text">逻辑运算指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4"><span class="toc-number">3.8.</span> <span class="toc-text">移位指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4"><span class="toc-number">3.8.1.</span> <span class="toc-text">循环移位指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4"><span class="toc-number">3.9.</span> <span class="toc-text">控制转移指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4"><span class="toc-number">3.10.</span> <span class="toc-text">循环控制指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-and-ret"><span class="toc-number">3.11.</span> <span class="toc-text">call and ret</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%99%A8%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4"><span class="toc-number">3.12.</span> <span class="toc-text">处理器控制指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%BF%97%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4"><span class="toc-number">3.13.</span> <span class="toc-text">标志操作指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E6%A0%BC%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">汇编语言程序格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">4.1.</span> <span class="toc-text">特殊运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E9%80%9A%E4%BF%A1%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text">模块通信伪指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E8%B0%83%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">系统功能调用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%A8%8B%E5%BA%8F"><span class="toc-number">5.1.</span> <span class="toc-text">分支程序</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组"><img src="/image/p.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="209.长度最小的子数组"/></a><div class="content"><a class="title" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组">209.长度最小的子数组</a><time datetime="2024-11-01T00:45:28.128Z" title="发表于 2024-11-01 08:45:28">2024-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈希表用uthash实现"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现">哈希表用uthash实现</a><time datetime="2024-10-31T12:46:56.488Z" title="发表于 2024-10-31 20:46:56">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.两数之和"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和">1.两数之和</a><time datetime="2024-10-31T01:20:16.606Z" title="发表于 2024-10-31 09:20:16">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II"><img src="/image/82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="59.螺旋矩阵 II"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II">59.螺旋矩阵 II</a><time datetime="2024-10-30T11:10:20.542Z" title="发表于 2024-10-30 19:10:20">2024-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素"><img src="/image/64.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="27.移除元素"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素">27.移除元素</a><time datetime="2024-10-30T10:38:01.989Z" title="发表于 2024-10-30 18:38:01">2024-10-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By cotton-star</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

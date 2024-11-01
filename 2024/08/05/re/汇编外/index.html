@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>记一记汇编小知识 | forward</title><meta name="author" content="cotton-star"><meta name="copyright" content="cotton-star"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="寄存器 所有寄存器都是16位  首先介绍通用寄存器AX  它能够保留2^16-1的数据,用十六进制表示就是FFFFH  eg:  在AX中存储18D  —12H  —10010B  在低位10010高位全是0,就像这样   有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性  通用寄存器均可以分为两个独立的8位寄存器使用   例如:AX可以分为AH和AL,AX,BX CX,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一记汇编小知识">
+<meta property="og:url" content="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/index.html">
+<meta property="og:site_name" content="forward">
+<meta property="og:description" content="寄存器 所有寄存器都是16位  首先介绍通用寄存器AX  它能够保留2^16-1的数据,用十六进制表示就是FFFFH  eg:  在AX中存储18D  —12H  —10010B  在低位10010高位全是0,就像这样   有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性  通用寄存器均可以分为两个独立的8位寄存器使用   例如:AX可以分为AH和AL,AX,BX CX,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cotton-star.github.io/image/6.gif">
+<meta property="article:published_time" content="2024-08-05T02:17:09.490Z">
+<meta property="article:modified_time" content="2024-11-01T04:58:03.957Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cotton-star.github.io/image/6.gif"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '记一记汇编小知识',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-01 12:58:03'
+}</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/6.gif);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/image/1.jpg" alt="Logo"><span class="site-name">forward</span></a><a class="nav-page-title" href="/"><span class="site-name">记一记汇编小知识</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">记一记汇编小知识</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-05T02:17:09.490Z" title="发表于 2024-08-05 10:17:09">2024-08-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-01T04:58:03.957Z" title="更新于 2024-11-01 12:58:03">2024-11-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/re/">re</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p> 所有寄存器都是16位</p>
+<p> 首先介绍通用寄存器AX</p>
+<p> 它能够保留2^16-1的数据,用十六进制表示就是FFFFH</p>
+<p> eg:</p>
+<p> 在AX中存储18D</p>
+<p> —12H</p>
+<p> —10010B  在低位10010高位全是0,就像这样</p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165241454.png" alt="image-20240414165241454"></p>
+<ul>
+<li>有一个问题: 8086上一代CPU的寄存器都是八位的,怎么保证程序的兼容性</li>
+</ul>
+<p>通用寄存器均可以分为两个独立的8位寄存器使用   例如:AX可以分为AH和AL,AX,BX CX,DX都是如此</p>
+<h2 id="字"><a href="#字" class="headerlink" title="字"></a>字</h2><ul>
+<li><p>8086是16位CPU</p>
+<p>就是说8086的字长是16位</p>
+</li>
+<li><p>一个字可以存在一个16位寄存器中</p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414165842227.png" alt="image-20240414165842227"></p>
+</li>
+</ul>
+<h1 id="mov和add指令"><a href="#mov和add指令" class="headerlink" title="mov和add指令"></a>mov和add指令</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414170341478.png" alt="image-20240414170341478"></p>
+<p>add al,bl    意思是把bx的低八位和ax的低八位相加结果给al即ax的低八位</p>
+<p>同理ah为ax的高八位</p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414192922466.png" alt="image-20240414192922466"></p>
+<p>最后一句需要注意</p>
+<p>al位置的值发生溢出是,不会向ax进位,直接丢弃</p>
+<h1 id="确定物理地址的方法"><a href="#确定物理地址的方法" class="headerlink" title="确定物理地址的方法"></a>确定物理地址的方法</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414193712000.png" alt="image-20240414193712000"></p>
+<h1 id="内存的分段表示法"><a href="#内存的分段表示法" class="headerlink" title="内存的分段表示法"></a>内存的分段表示法</h1><p>!!! 内存并没有分段,段的划分来自CPU</p>
+<p>偏移地址16位,所以只能寻址64k,范围为0~ffffH</p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414195311928.png" alt="image-20240414195311928"></p>
+<p>段地址很重要,用专门的寄存器存放段地址</p>
+<p>有四个段寄存器</p>
+<p>CS–代码段  DS–数据段</p>
+<p>SS–堆栈段  ES–附加段寄存器</p>
+<h1 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h1><p>debug是一个调试程序</p>
+<p>能查看CPU中各种寄存器的内容内存的情况</p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240414200032907.png" alt="image-20240414200032907"></p>
+<p>jmp 1000:0 跳转到此位置</p>
+<p>jmp ax 把ip 跳到ax的位置</p>
+<h1 id="cpu从内存单元中要读取数据"><a href="#cpu从内存单元中要读取数据" class="headerlink" title="cpu从内存单元中要读取数据"></a>cpu从内存单元中要读取数据</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416215751009.png" alt="image-20240416215751009"></p>
+<h1 id="DS与数据段"><a href="#DS与数据段" class="headerlink" title="DS与数据段"></a>DS与数据段</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416223911145.png" alt="image-20240416223911145"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225044670.png" alt="image-20240416225044670"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416225055159.png" alt="image-20240416225055159"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240416230132763.png" alt="image-20240416230132763"></p>
+<h1 id="div"><a href="#div" class="headerlink" title="div"></a>div</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240424203114589.png" alt="image-20240424203114589"></p>
+<h1 id="jmp"><a href="#jmp" class="headerlink" title="jmp"></a>jmp</h1><p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142631260.png" alt="image-20240425142631260"><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425142946054.png" alt="image-20240425142946054"><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425144756599.png" alt="image-20240425144756599"><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150047438.png" alt="image-20240425150047438"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425150313841.png" alt="image-20240425150313841"></p>
+<p><img src="/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/Users\陈亮\AppData\Roaming\Typora\typora-user-images\image-20240425151854218.png" alt="image-20240425151854218"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io">cotton-star</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/">https://cotton-star.github.io/2024/08/05/re/%E6%B1%87%E7%BC%96%E5%A4%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://cotton-star.github.io" target="_blank">forward</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/image/6.gif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="prev-post pull-left" href="/2024/08/05/re/crackme160/" title="crackme160"><img class="cover" src="/image/82.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">crackme160</div></div></a><a class="next-post pull-right" href="/2024/08/05/re/xdb%E5%AD%A6%E4%B9%A0/" title="xdb学习"><img class="cover" src="/image/3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">xdb学习</div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="/image/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">cotton-star</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97"><span class="toc-number">1.1.</span> <span class="toc-text">字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mov%E5%92%8Cadd%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">mov和add指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">确定物理地址的方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%9A%84%E5%88%86%E6%AE%B5%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">内存的分段表示法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DEBUG"><span class="toc-number">5.</span> <span class="toc-text">DEBUG</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cpu%E4%BB%8E%E5%86%85%E5%AD%98%E5%8D%95%E5%85%83%E4%B8%AD%E8%A6%81%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">6.</span> <span class="toc-text">cpu从内存单元中要读取数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DS%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%AE%B5"><span class="toc-number">7.</span> <span class="toc-text">DS与数据段</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#div"><span class="toc-number">8.</span> <span class="toc-text">div</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jmp"><span class="toc-number">9.</span> <span class="toc-text">jmp</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组"><img src="/image/p.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="209.长度最小的子数组"/></a><div class="content"><a class="title" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组">209.长度最小的子数组</a><time datetime="2024-11-01T00:45:28.128Z" title="发表于 2024-11-01 08:45:28">2024-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈希表用uthash实现"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现">哈希表用uthash实现</a><time datetime="2024-10-31T12:46:56.488Z" title="发表于 2024-10-31 20:46:56">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.两数之和"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和">1.两数之和</a><time datetime="2024-10-31T01:20:16.606Z" title="发表于 2024-10-31 09:20:16">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II"><img src="/image/82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="59.螺旋矩阵 II"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II">59.螺旋矩阵 II</a><time datetime="2024-10-30T11:10:20.542Z" title="发表于 2024-10-30 19:10:20">2024-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素"><img src="/image/64.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="27.移除元素"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素">27.移除元素</a><time datetime="2024-10-30T10:38:01.989Z" title="发表于 2024-10-30 18:38:01">2024-10-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By cotton-star</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

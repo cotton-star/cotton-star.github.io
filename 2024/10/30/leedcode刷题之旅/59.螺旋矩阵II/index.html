@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>59.螺旋矩阵 II | forward</title><meta name="author" content="cotton-star"><meta name="copyright" content="cotton-star"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="真的是一点思路都没有啊,他开头 1int** generateMatrix(int n, int* returnSize, int** returnColumnSizes)  就给我看蒙蔽了 1234567int* returnSize 和 int** returnColumnSizes 这两个参数通常用于返回函数的输出信息，尤其是在 C 语言中，函数可以返回多个值时需要用到它们。具体来说：in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="59.螺旋矩阵 II">
+<meta property="og:url" content="https://cotton-star.github.io/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/index.html">
+<meta property="og:site_name" content="forward">
+<meta property="og:description" content="真的是一点思路都没有啊,他开头 1int** generateMatrix(int n, int* returnSize, int** returnColumnSizes)  就给我看蒙蔽了 1234567int* returnSize 和 int** returnColumnSizes 这两个参数通常用于返回函数的输出信息，尤其是在 C 语言中，函数可以返回多个值时需要用到它们。具体来说：in">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cotton-star.github.io/image/82.jpg">
+<meta property="article:published_time" content="2024-10-30T11:10:20.542Z">
+<meta property="article:modified_time" content="2024-11-01T04:57:14.613Z">
+<meta property="article:author" content="cotton-star">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cotton-star.github.io/image/82.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://cotton-star.github.io/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '59.螺旋矩阵 II',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-01 12:57:14'
+}</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/82.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/image/1.jpg" alt="Logo"><span class="site-name">forward</span></a><a class="nav-page-title" href="/"><span class="site-name">59.螺旋矩阵 II</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">59.螺旋矩阵 II</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-30T11:10:20.542Z" title="发表于 2024-10-30 19:10:20">2024-10-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-01T04:57:14.613Z" title="更新于 2024-11-01 12:57:14">2024-11-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/">leedcode刷题之旅</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/image-20241030200826592.png" alt="image-20241030200826592"></p>
+<p>真的是一点思路都没有啊,他开头</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int** generateMatrix(int n, int* returnSize, int** returnColumnSizes)</span><br></pre></td></tr></table></figure>
+
+<p>就给我看蒙蔽了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int* returnSize 和 int** returnColumnSizes 这两个参数通常用于返回函数的输出信息，尤其是在 C 语言中，函数可以返回多个值时需要用到它们。具体来说：</span><br><span class="line"></span><br><span class="line">int* returnSize：</span><br><span class="line">这个指针用于返回生成的矩阵的行数。在你的函数中，矩阵是 n x n 的，所以在计算完毕后，将 *returnSize 设置为 n。调用者可以通过这个指针获取矩阵的行数。</span><br><span class="line"></span><br><span class="line">int** returnColumnSizes：</span><br><span class="line">这个指针用于返回一个数组，数组的每个元素表示对应行的列数。对于一个 n x n 的矩阵，每一行的列数都是 n，所以你会为这个指针分配大小为 n 的数组，并将每个元素都设置为 n。调用者可以通过这个指针知道矩阵的每一行有多少列。</span><br></pre></td></tr></table></figure>
+
+<p>不直接用int这俩玩意是为了在函数内部能够修改他们,对于下面用**是因为他要表示每一行的列数,其实并没有什么用</p>
+<h1 id="C语言小知识"><a href="#C语言小知识" class="headerlink" title="C语言小知识:"></a>C语言小知识:</h1><ul>
+<li><p>接下来这里是<strong>重点</strong>:</p>
+</li>
+<li><p><strong>在 C 语言中，动态分配的二维数组需要为每一行单独分配内存</strong>。</p>
+<p>也就是说,我们不但需要</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int ** matrix=(int **)malloc(n*sizeof(int *));</span><br></pre></td></tr></table></figure>
+
+<p>还需要在底下补上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        matrix[i]=(int*)malloc(n*sizeof(int));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>才能使C语言中二维数组正常运行</p>
+</li>
+<li><p>当我们在函数外部定义一个二维数组时是不需要再单独分配空间的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int a[3][3] = &#123;</span><br><span class="line">    &#123;1, 2, 3&#125;,</span><br><span class="line">    &#123;4, 5, 6&#125;,</span><br><span class="line">    &#123;7, 8, 9&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这样子是因为编译器在编译时已经为整个数组分配了足够的内存。</p>
+</li>
+</ul>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h1><p>就是把1~n*n存到二维数组里,我们只要考虑怎样螺旋问题就能迎刃而解</p>
+<p>先来一个简单的3*3</p>
+<img src="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/image-20241030201819460.png" alt="image-20241030201819460" style="zoom:50%;">
+
+<p>接着是一个4*4</p>
+<img src="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/image-20241030202050924.png" alt="image-20241030202050924" style="zoom:50%;">
+
+<p>我们来寻找规律,假设坐标为(x,y)</p>
+<ol>
+<li>左上往右上: x不变 y++</li>
+<li>右上到右下: y不变 x++</li>
+<li>右下到左下: x不变 y–</li>
+<li>左下到左二: y不变 x–</li>
+</ol>
+<p>之后就开始循环,走过的不再走</p>
+<p>因此我们就要想怎么建立这一次循环</p>
+<ol>
+<li><p>先给矩阵定上下左右界以便后面操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int left=0,right=n-1,up=0,down=n-1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>循环停止时,其实就是数值走到n*n了,我们设个计数器cnt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int cnt=1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>思考一次循环的细节</p>
+<img src="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/image-20241030202735258.png" alt="image-20241030202735258" style="zoom:25%;">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">从(0,0)---&gt;(0,3),左边界到右边界,行数==up</span><br><span class="line">for(int i=left;i&lt;=right;i++)</span><br><span class="line">&#123;</span><br><span class="line">	matrix[up][i]=cnt;</span><br><span class="line">	cnt++;//让每个位置匹配它所对应的值</span><br><span class="line">&#125;</span><br><span class="line">//这里最顶上已经走完了,因此我们让up++,以便下一次循环</span><br><span class="line">up++;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">从(0,3)---&gt;(3,3),右上到右下,因为(0,3)走过了,因此其实是</span><br><span class="line">从(1,3)---&gt;(3,3),也就是列数==right</span><br><span class="line">for(int i=up,i&lt;=down;i++)</span><br><span class="line">&#123;</span><br><span class="line">	matrix[i][right]=cnt;</span><br><span class="line">	cnt++</span><br><span class="line">&#125;</span><br><span class="line">right--;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">之后就是以此类推</span><br><span class="line">右下到左下:</span><br><span class="line"> for(int i=right;i&gt;=left;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix[down][i]=cnt;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        down-=1;</span><br><span class="line">        </span><br><span class="line"> 左下到左二</span><br><span class="line">  for(int i=down;i&gt;=up;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix[i][left]=cnt;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        left+=1;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这样一次循环就结束了,还是用4*4的来看,下一次循环由于我们把边界也变化了,因此它能够顺利地进行完全,直到cnt==n*n</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最终代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">int** generateMatrix(int n, int* returnSize, int** returnColumnSizes) &#123;</span><br><span class="line">    int ** matrix=(int **)malloc(n*sizeof(int *));</span><br><span class="line">    *returnColumnSizes=(int *)malloc(n*sizeof(int));</span><br><span class="line">    *returnSize=n;</span><br><span class="line"></span><br><span class="line">    for(int i=0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        matrix[i]=(int*)malloc(n*sizeof(int));</span><br><span class="line">        (*returnColumnSizes)[i]=n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int cnt=1;</span><br><span class="line">    int left=0,right=n-1,up=0,down=n-1;</span><br><span class="line">    while(cnt&lt;=n*n)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int i=left;i&lt;=right;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix[up][i]=cnt;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        up+=1;</span><br><span class="line"></span><br><span class="line">        for(int i=up;i&lt;=down;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix[i][right]=cnt;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        right-=1;</span><br><span class="line"></span><br><span class="line">        for(int i=right;i&gt;=left;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix[down][i]=cnt;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        down-=1;</span><br><span class="line">        </span><br><span class="line">        for(int i=down;i&gt;=up;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix[i][left]=cnt;</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        left+=1;</span><br><span class="line">    &#125;</span><br><span class="line">    return matrix;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io">cotton-star</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://cotton-star.github.io/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/">https://cotton-star.github.io/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://cotton-star.github.io" target="_blank">forward</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/image/82.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="prev-post pull-left" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和"><img class="cover" src="/image/5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">1.两数之和</div></div></a><a class="next-post pull-right" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素"><img class="cover" src="/image/64.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">27.移除元素</div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="/image/1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">cotton-star</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E5%B0%8F%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">C语言小知识:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text">思路:</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组"><img src="/image/p.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="209.长度最小的子数组"/></a><div class="content"><a class="title" href="/2024/11/01/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/209.%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="209.长度最小的子数组">209.长度最小的子数组</a><time datetime="2024-11-01T00:45:28.128Z" title="发表于 2024-11-01 08:45:28">2024-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈希表用uthash实现"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/UT_hash_handle/" title="哈希表用uthash实现">哈希表用uthash实现</a><time datetime="2024-10-31T12:46:56.488Z" title="发表于 2024-10-31 20:46:56">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和"><img src="/image/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1.两数之和"/></a><div class="content"><a class="title" href="/2024/10/31/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1.两数之和">1.两数之和</a><time datetime="2024-10-31T01:20:16.606Z" title="发表于 2024-10-31 09:20:16">2024-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II"><img src="/image/82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="59.螺旋矩阵 II"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/59.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="59.螺旋矩阵 II">59.螺旋矩阵 II</a><time datetime="2024-10-30T11:10:20.542Z" title="发表于 2024-10-30 19:10:20">2024-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素"><img src="/image/64.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="27.移除元素"/></a><div class="content"><a class="title" href="/2024/10/30/leedcode%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%85/27.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="27.移除元素">27.移除元素</a><time datetime="2024-10-30T10:38:01.989Z" title="发表于 2024-10-30 18:38:01">2024-10-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By cotton-star</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
